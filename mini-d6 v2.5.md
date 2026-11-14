@@ -1334,16 +1334,16 @@ Nota: Armaduras são vestidas, não ocupam mãos.
 
 ## **Escudos** {#escudos}
 
-Nota: Escudos ocupam 1 mão.
+Nota: Escudos ocupam 1 mão. Fornecem bônus de Defesa Física direta e proteção tática contra magias em área e danos elementais.
 
-| Tipo | Nome | Atributo | Mágico? | Efeito (Defesa) | Preço (PO) |
+| Tipo | Nome | Atributo | Mágico? | Efeito (Defesa e Proteção) | Preço (PO) |
 | :---- | :---- | :---- | :---- | :---- | :---- |
-| Escudo | Escudo Madeira | Corpo | Não | \+1 Defesa | 15 |
-| Escudo | Escudo Torre | Corpo | Não | \+3 Defesa | 60 |
-| Escudo | Escudo Espelhado | Corpo Espírito | Sim | \+2 Def física \+2 Def mágica | 300 |
-| Escudo | Escudo De Vidro | Corpo | Sim | \+4 Def Física \+3 Def Mágica | 350 |
-| Escudo | Escudo De Mithril | Corpo | Sim | \+6 Def física\+4 Def mágica | 450 |
-| Escudo | Proteção de Dysenai | Corpo | Sim | \+7 Def física \+7  Def mágica Não ocupa mão | 1500 |
+| Escudo | Escudo Madeira | Corpo | Não | \+1 Defesa Física | 15 |
+| Escudo | Escudo Torre | Corpo | Não | \+3 Defesa Física, \+1 em testes contra ataques e magias em área | 60 |
+| Escudo | Escudo Espelhado | Corpo | Sim | \+2 Defesa Física; Vantagem em testes de resistência contra magias em linha/cone | 300 |
+| Escudo | Escudo De Vidro | Corpo | Sim | \+4 Defesa Física; Reduz em \-2 todo dano elemental sofrido (Fogo, Gelo, Raio ou Ácido) | 350 |
+| Escudo | Escudo De Mithril | Corpo | Sim | \+5 Defesa Física; Reduz pela metade o dano sofrido de magias em área | 450 |
+| Escudo | Proteção de Dysenai | Corpo | Sim | \+7 Defesa Física; Não ocupa mão; Ignora o primeiro dano mágico ou elemental sofrido no combate | 1500 |
 
 ## **Itens de Foco Mágico (Espírito)** {#itens-de-foco-mágico-(espírito)}
 
@@ -1381,40 +1381,61 @@ Nota: Itens agrupáveis geralmente podem ser carregados em pilhas de até 5 ou 1
 
 # **Ficha de Personagem** {#ficha-de-personagem}
 
-| FICHA DE PERSONAGEM \- SISTEMA MINI-D6 |  |  |  |
-| ----- | :---- | :---- | :---- |
+| FICHA DE PERSONAGEM \- SISTEMA MINI-D6 v2.5 |  |  |  |
+| :--- | :--- | :--- | :--- |
 | **Nome:** | **Nível:** | **1** |  |
-| **Raça:** | **Exp:** |  |  |
+| **Raça:** | **Exp:** | **0 / 10** |  |
 | **Classe:** | **Dinheiro (PO):** | **50** |  |
 
-| ♥️ PV |  |  |
-| :---: | :---: | :---: |
-| **⚡ PP** |  |  |
+### **Status de Combate**
 
-**Atributos**
+| ♥️ PV (Atual / Máx) | ⚡ PP (Atual / Máx) | 🛡️ Defesa Física (10 + Corpo + Escudo) | 🔮 Defesa Mágica (10 + Espírito) |
+| :---: | :---: | :---: | :---: |
+| / | / | | |
 
-| Atributo | Base | Bônus | Total |
-| ----- | ----- | ----- | ----- |
-| **💪 Corpo** |  |  |  |
-| **🧠 Mente** |  |  |  |
-| **💠 Espírito** |  |  |  |
+| 🥋 Resistência Armadura | 🏃 Movimento | ⚡ Iniciativa (3d6 + Mente) | ⚠️ Condições / Status Atuais |
+| :---: | :---: | :---: | :---: |
+| | **5m** | | Normal |
 
-**Poderes**
+### **Atributos**
 
-| Nome | Ativa Passiva | Custo PP | Nível | Efeito / Descrição |
-| ----- | ----- | ----- | ----- | ----- |
-| 1\. |  |  |  |  |
-| 2\. |  |  |  |  |
-| 3\. |  |  |  |  |
-| 4\. |  |  |  |  |
+| Atributo | Base | Dado (Mm) | Raça | Classe | Total |
+| :--- | :---: | :---: | :---: | :---: | :---: |
+| **💪 Corpo** | 5 | | | | |
+| **🧠 Mente** | 5 | | | | |
+| **💠 Espírito** | 5 | | | | |
 
-**Equipamentos**
+### **Poderes e Habilidades**
 
-|  |
-| :---- |
+| # | Nome do Poder | Tipo (Ativa / Passiva) | Custo PP | Nível | Efeito / Descrição Resumida |
+| :-: | :--- | :---: | :---: | :---: | :--- |
+| 1 | | | | | |
+| 2 | | | | | |
+| 3 | | | | | |
+| 4 | | | | | |
+| 5 | | | | | |
+| 6 | | | | | |
+| 7 | | | | | |
+| 8 | | | | | |
 
-**Mochila**
+### **Equipamentos Preparados (Em Uso)**
 
-|  |
-| :---- |
+| Tipo | Nome do Item | Mãos / Slot | Efeito (Dano / Defesa / Resistência) |
+| :--- | :--- | :---: | :--- |
+| **Arma Principal** | | | |
+| **Arma Secundária** | | | |
+| **Armadura** | | Vestida | |
+| **Escudo / Foco** | | | |
+| **Acessório 1** | | N/A | |
+| **Acessório 2** | | N/A | |
+
+### **Mochila e Inventário**
+
+| Item | Qtd | Notas / Efeitos |
+| :--- | :---: | :--- |
+| Ração de Viagem | 5 dias | Necessária para Descanso Longo |
+| Tochas | 3 un | Iluminação |
+| | | |
+| | | |
+| | | |
 
