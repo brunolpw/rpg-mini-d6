@@ -197,9 +197,15 @@ A rolagem por d3, também chamado de d-curto (dado curto) divide o d6 em três p
 
 Ou seja, ao rolar 1d6 o valor dele vai ser ajustado dentro da regra dos terços do dado.
 
-### **Triplos**
+### **Críticos e Triplos**
 
-Um triplo acontece quando os 3 dados caem com a mesma face **\[1, 1, 1\]**, **\[2, 2, 2\]**, **\[3, 3, 3\]**, **\[4, 4, 4\]**, **\[5, 5, 5\]** e **\[6, 6, 6\]**, sendo um deles falha crítica e outro um sucesso crítico.
+No **mini-d6**, as rolagens de 3d6 possuem uma mecânica visual ágil para identificar momentos críticos e proezas:
+
+* **Sucesso Crítico (dois dados 6):** Ocorre sempre que a rolagem contiver **ao menos dois dados com face 6** (ex: [6, 6, 2], [6, 6, 5]). É um acerto automático que ignora a Defesa do alvo, garantindo dano máximo em um dos dados ou uma vantagem tática na cena.
+* **Crítico Caótico (Triplo 6 [6, 6, 6]):** O ápice heroico. Ignora armaduras e resistências, causa **dano máximo dobrado** e gera um impacto monumental na cena (empurra inimigos próximos, destrói coberturas ou quebra o escudo/arma do alvo).
+* **Falha Crítica (dois dados 1):** Ocorre sempre que a rolagem contiver **ao menos dois dados com face 1** (ex: [1, 1, 3]). A ação falha automaticamente e gera uma complicação imediata (tropeçar, expor-se a Golpe de Oportunidade ou prender a arma).
+* **Desastre Caótico (Triplo 1 [1, 1, 1]):** O revés catastrófico. A arma quebra ou voa longe, a corda do arco arrebenta, ou uma magia sofre refluxo causando 1d6 de dano no próprio conjurador.
+* **Proezas Menores (Triplos Intermediários):** Rolagens com **[2, 2, 2]**, **[3, 3, 3]**, **[4, 4, 4]** ou **[5, 5, 5]** são sucessos especiais por sincronia: além do resultado normal, concedem um momento épico menor à escolha do jogador (recupera 1 PP, move-se 2m de graça sem provocar reações, ou ganha +1 de Defesa até o próximo turno).
 
 # **Criação de personagem** {#criação-de-personagem}
 
@@ -396,20 +402,20 @@ O bárbaro começa com 1 ação passiva de nível 1 a sua escolha.
 
 | Poder | Tipo | PP | Efeito | Nível 1 | Nível 2 | Nível 3 |
 | :---- | :---- | :---- | :---- | :---- | :---- | :---- |
-| Pele Grossa | Passiva | 0 | Sua armadura natural dá bônus de Defesa. | \+1 | \+2 | \+3 |
+| Pele Grossa | Passiva | 0 | Sua armadura natural dá bônus de Defesa Física. | \+1 | \+2 | \+3 |
 | Inabalável | Passiva | 0 | Reduz todo dano físico sofrido em X. | \-1 | \-2 | \-3 |
-| Sangue Fervente | Passiva | 0 | Ganha bônus de Ataque se estiver com metade da Vida. | \+2 | \+3 |  |
-| Sentido Selvagem | Passiva | 0 | Nunca sofre desvantagem por emboscadas. |  |  |  |
-| Força Bruta | Passiva | 0 | Pode usar armas de duas mãos com apenas uma mão, mas sofre penalidade no ataque por desequilíbrio. | \-2 | \-1 | 0 |
-| Ataque Imprudente | Passiva | 0 | Você pode rolar ataques com Vantagem (4d6), mas inimigos têm Vantagem para te atacar até seu próximo turno. |  |  |  |
-| Crítico Brutal | Passiva | 0 | Seus críticos causam \+1 dado de dano. |  |  |  |
-| Fúria | Ativa | 2 | Ganha \+2 Dano e \+1 Resistência Física. | \+2 turnos | \+3 turnos | O combate todo |
-| Ataque Circular | Ativa | 4 | Ataca todos os inimigos adjacentes. |  |  |  |
-| Rugido Assustador | Ativa | 3 | Inimigos rolam 4d6 (desvantagem) no próximo ataque. |  |  |  |
-| Salto Heroico | Ativa | 2 | Move-se para longe e ataca no mesmo turno. |  |  |  |
-| Golpe Esmagador | Ativa | 3 | Se o ataque acertar, destrói o escudo ou reduz a defesa permanentemente na luta. | 2 | 3 | 4 |
-| Cabeçada | Ativa | 3 | Atordoa o alvo. O alvo deve fazer teste de Corpo para resistir, senão perde o turno. |  |  |  |
-| Pisotear | Ativa | 2 | Move-se através de um inimigo causando dano. | 2 | 3 | 4 |
+| Sangue Fervente | Passiva | 0 | Bônus de Ataque se estiver com metade dos PVs ou menos. | \+2 no Ataque | \+3 no Ataque | \+4 no Ataque |
+| Sentido Selvagem | Passiva | 0 | Sentidos aguçados contra perigos e emboscadas. | Nunca sofre desvantagem por emboscada | \+1 na Iniciativa | \+2 na Iniciativa e nunca é surpreendido |
+| Força Bruta | Passiva | 0 | Pode usar armas de duas mãos com apenas uma mão, com penalidade reduzida no ataque por desequilíbrio. | \-2 no Ataque | \-1 no Ataque | 0 (sem penalidade) |
+| Ataque Imprudente | Passiva | 0 | Pode atacar com Vantagem (4d6), sofrendo penalidade na Defesa até o próximo turno por abrir a guarda. | \-2 na Defesa | \-1 na Defesa | 0 (sem penalidade na Defesa) |
+| Crítico Brutal | Passiva | 0 | Potencializa os acertos críticos (dois 6 ou Triplo 6). | Causa \+1d6 de dano e ignora 2 de armadura | Causa \+2d6 de dano extra; Triplo 6 transborda dano a adjacente | Causa \+3d6 de dano extra e derruba o alvo (Caído) |
+| Fúria | Ativa | 2 | Ganha \+2 no Dano e \+1 de Resistência Física. | 2 turnos | 3 turnos | O combate todo |
+| Ataque Circular | Ativa | 4 | Desfere um golpe giratório que atinge todos os inimigos adjacentes a até 1,5m. | Dano normal da arma | Causa \+1 de dano a cada alvo atingido | Causa \+2 de dano e empurra alvos 2m |
+| Rugido Assustador | Ativa | 3 | Inimigos na área sofrem desvantagem no próximo ataque por intimidação. | Área pequena (2m) | Área média (4m) | Área média e reduz 2m de movimento |
+| Salto Heroico | Ativa | 2 | Salta por cima de obstáculos/inimigos e ataca no mesmo turno. | Salta até 4m | Salta até 6m (\+1 dano) | Salta até 8m (\+2 dano e derruba se acertar) |
+| Golpe Esmagador | Ativa | 3 | Se acertar, reduz a Defesa Física do alvo permanentemente no combate pelo impacto. | Reduz 2 de Defesa | Reduz 3 de Defesa | Reduz 4 de Defesa |
+| Cabeçada | Ativa | 3 | Atordoa o alvo. O alvo deve testar Corpo ou fica Atordoado por 1 turno. | Teste comum de Corpo | Alvo sofre desvantagem no teste | Alvo sofre desvantagem e recebe 1d3 de dano |
+| Pisotear | Ativa | 2 | Move-se através do espaço de um inimigo causando dano de impacto. | 2 de dano fixo | 3 de dano fixo | 4 de dano fixo |
 
 ## **Guerreiro** {#guerreiro}
 
@@ -427,22 +433,22 @@ O guerreiro começa com 1 ação passiva de nível 1 a sua escolha.
 
 | Poder | Tipo | PP | Efeito | Nível 1 | Nível 2 | Nível 3 |
 | :---- | :---- | :---- | :---- | :---- | :---- | :---- |
-| Mestre de Armas | Passiva | 0 | Bônus de dano com sua arma favorita. | \+1 | \+2 |  |
-| Escudeiro | Passiva | 0 | O escudo concede \+X de Defesa Física passiva extra (além do item) | X \= 1 | X \= 2 |  |
-| Crítico Aprimorado | Passiva | 0 | Seus ataques com arma conseguem um Sucesso Crítico no dado com 5 ou 6 (apenas em um dos dados, não precisa ser triplo). |  |  |  |
-| Veterano | Passiva | 0 | Conhece o ponto fraco de armaduras (ignora X de Defesa). | X \= 1 | X \= 2 |  |
-| Sentinela | Passiva | 0 | Inimigos não podem passar por você sem lutar. |  |  |  |
-| Duro de Matar | Passiva | 0 | Quando cai a 0 PV, rola um dado. Se cair 5 ou 6, volta com 1 PV imediatamente (1 vez por combate). |  |  |  |
-| Ambidestro | Passiva | 0 | Permite atacar com arma secundária como Ação Menor (sem somar atributo no dano da segunda). |  |  |  |
-| Tático | Passiva | 0 | Pode trocar de arma no meio do combate sem gastar turno. |  |  |  |
-| Retomar o Fôlego | Ativa | 2 | Recupera 1d6 \+ Nível de PV. |  |  |  |
-| Postura Defensiva | Ativa | 2 | Ganha \+X de Defesa até seu próximo turno. | X \=2 | X \=3 |  |
-| Ataque Preciso | Ativa | 2 | Adiciona bônus no teste de Ataque. | \+1 | \+2 | \+3 |
-| Provocar | Ativa | 2 | O alvo sofre desvantagem se atacar qualquer pessoa que não seja você. |  |  |  |
-| Derrubar | Ativa | 2 | Causa dano da arma e o alvo deve testar Corpo ou cair (ataques contra caídos têm vantagem). |  |  |  |
-| Surto de Ação | Ativa | 5 | Você ganha uma Ação Principal extra neste turno. |  |  |  |
-| Indomável | Ativa | 3 | Permite rolar novamente um teste de Resistência (Físico ou Mágico) que falhou. |  |  |  |
-| Golpe do Comandante | Ativa | 3 | Abre mão do seu ataque para deixar um aliado (como o Ladino ou Bárbaro) atacar imediatamente com a reação dele, somando \+1d6 ao dano. |  |  |  |
+| Mestre de Armas | Passiva | 0 | Bônus de dano com seu tipo de arma favorita. | \+1 no Dano | \+2 no Dano | \+3 no Dano |
+| Escudeiro | Passiva | 0 | O escudo concede Defesa Física passiva extra (além do bônus do item). | \+1 na Defesa | \+2 na Defesa | \+3 na Defesa |
+| Crítico Aprimorado | Passiva | 0 | Expande a margem visual para obter Sucesso Crítico nos dados. | Crítico com dois 6 OU dois 5 | Crítico com dois 6, dois 5 OU dois 4 | Crítico com dois 6, 5 ou 4; Triplos menores viram Crítico Caótico |
+| Veterano | Passiva | 0 | Conhece brechas em armaduras e escudos (ignora Resistência do alvo). | Ignora 1 de Resistência | Ignora 2 de Resistência | Ignora 3 de Resistência |
+| Sentinela | Passiva | 0 | Inimigos não passam por você sem lutar; golpeia quem tentar passar. | Golpe de Oportunidade comum | Golpe de Oportunidade tem Vantagem | Se acertar o Golpe de Oportunidade, o alvo para (movimento vira 0) |
+| Duro de Matar | Passiva | 0 | Ao cair a 0 PV, rola 1d6: se o resultado for favorável, volta consciente (1x por combate). | d6 \= 5 ou 6: volta com 1 PV | d6 \= 4, 5 ou 6: volta com 1 PV | d6 \= 4, 5 ou 6: volta com 3 PV imediatamente |
+| Ambidestro | Passiva | 0 | Elimina a penalidade ao lutar com duas armas e aprimora a mão secundária. | Sem desvantagem no 2º ataque | \+1 Defesa Física ao empunhar 2 armas | Se acertar ambos os golpes, causa \+1d6 de dano extra |
+| Tático | Passiva | 0 | Maestria rápida com armas e armamentos. | Troca armas sem gastar ação; \+1 na Iniciativa | Ataque imediato com arma secundária após disparo | \+1 no teste de Ataque no 1º golpe após trocar de arma |
+| Retomar o Fôlego | Ativa | 2 | Recupera o fôlego em combate restaurando pontos de vida. | 1d6 \+ Nível de PV | 2d6 \+ Nível de PV | 3d6 \+ Nível de PV |
+| Postura Defensiva | Ativa | 2 | Assume postura de guarda ganhando bônus de Defesa Física até o próximo turno. | \+2 na Defesa | \+3 na Defesa | \+4 na Defesa |
+| Ataque Preciso | Ativa | 2 | Concentração para mirar com perfeição em um ponto vital. | \+1 no Ataque | \+2 no Ataque | \+3 no Ataque |
+| Provocar | Ativa | 2 | Provoca o adversário; o alvo sofre desvantagem se atacar aliados. | 1 alvo | Até 2 alvos | Alvo é obrigado a se mover em sua direção |
+| Derrubar | Ativa | 2 | Causa dano da arma e o alvo deve testar Corpo ou é derrubado (Caído). | Teste comum de Corpo | Alvo sofre desvantagem no teste | Causa \+1d3 de dano adicional se o alvo cair |
+| Surto de Ação | Ativa | 5 | Esforço extremo para realizar ações extras no mesmo turno. | Ganha 1 Ação Principal extra | Custo reduz para 4 PP | Custo reduz para 4 PP e ganha \+2m de movimento |
+| Indomável | Ativa | 3 | Permite rolar novamente um teste de Resistência que falhou. | Rola novamente o teste | Rola novamente com Vantagem | Rola com Vantagem e reduz custo para 2 PP |
+| Golpe do Comandante | Ativa | 3 | Abre mão do seu ataque para liderar e conceder +1 Ação Principal imediata a um aliado visível (a 6m). | Concede 1 Ação Principal ao aliado | Ação concedida tem Vantagem (se for ataque, \+1d6 dano) | Ação concedida tem Vantagem (\+2d6 dano) e Guerreiro pode fazer Ação Menor |
 
 ## **Paladino** {#paladino}
 
@@ -460,24 +466,24 @@ O paladino começa com 2 ação passiva ou ativa de nível 1 a sua escolha.
 
 | Poder | Tipo | PP | Efeito | Nível 1 | Nível 2 | Nível 3 |
 | :---- | :---- | :---- | :---- | :---- | :---- | :---- |
-| Aura de Fé | Passiva | 0 | Você e aliados próximos em uma área média ganham resistência contra magia. | \+1 | \+2 | \+3 |
-| Voto de Justiça | Passiva | 0 | Bônus de Ataque contra mortos-vivos, demônios e dragões. | \+1 | \+2 | \+3 |
-| Iluminado | Passiva | 0 | Sua arma brilha, iluminando o ambiente. | área pequena | área média |  |
-| Purificado | Passiva | 0 | Imunidade a doenças comuns e vantagens contra venenos. |  |  |  |
-| Sacrifício | Passiva | 0 | Pode sofrer o dano no lugar de um aliado em uma área média |  |  |  |
-| Destruição Aprimorada | Passiva | 0 | Seus ataques contra Mortos-vivos e Corruptores causam \+1 de dano fixo. |  |  |  |
-| Zelo | Passiva | 0 | Se você reduzir um inimigo a 0 PV, pode fazer um ataque extra imediato (sem gastar ação, apenas 1 vez por combate). |  |  |  |
-| Determinação | Passiva | 0 | Imunidade a Medo para você e aliados em uma área média. |  |  |  |
-| Comunhão | Passiva | 0 | Detecta a presença de mal/bem na área próxima. |  |  |  |
-| Impor Mãos | Ativa | 2 | Cura Espírito \+ 1d3 PV de um alvo tocado. |  |  |  |
-| Destruição Divina | Ativa | 2 | Ao acertar um ataque físico, gaste 2 PP para adicionar \+1d6 de dano radiante. | \+1 PP para \+1d6 | \+2 PP para \+2d6 |  |
-| Desafiar | Ativa | 2 | **Ação Menor.** O inimigo deve testar o Espírito. Se falhar, tem desvantagem para atacar qualquer um que não seja você. |  |  |  |
-| Escudo da Fé | Ativa | 3 | **Ação Menor.** Concede \+2 de Defesa a você ou um aliado por 3 turnos (Requer Concentração/Não tomar dano). |  |  |  |
-| Expulsar o Profano | Ativa | 4 | Mortos-vivos/Demônios próximos devem testar o Espírito ou fogem aterrorizados por 1 rodada. |  |  |  |
-| Reviver | Ativa | 5 | Traz de volta um aliado que morreu neste turno com 1 PV. |  |  |  |
-| Arma Sagrada | Ativa | 3 | **Ação Menor.** Sua arma se torna mágica, emite luz e ganha \+1 no Ataque e Dano por 3 turnos. |  |  |  |
-| Lança de Luz | Ativa | 3 | Ataque à distância usando o atributo Espírito. |  |  |  |
-| Círculo de Poder | Ativa | 6 | Você e aliados em uma área média têm vantagem em todos os testes de resistência e defesa mágica por 2 turnos. |  |  |  |
+| Aura de Fé | Passiva | 0 | Você e aliados em área média (4m) recebem bônus de Defesa Mágica e resistência a feitiços. | \+1 na Defesa Mágica | \+2 na Defesa Mágica | \+3 na Defesa Mágica |
+| Voto de Justiça | Passiva | 0 | Juramento sagrado concedendo bônus de Ataque contra mortos-vivos, demônios e dragões. | \+1 no Ataque | \+2 no Ataque | \+3 no Ataque |
+| Iluminado | Passiva | 0 | Sua arma resplandece com luz divina sagrada constante. | Área pequena (2m) | Área média (4m) | Área grande (6m); revela invisíveis a até 2m |
+| Purificado | Passiva | 0 | O sangue e o espírito do paladino repelem impurezas e toxinas. | Imune a doenças; Vantagem contra veneno | Imune a venenos comuns | Imune a venenos mágicos e paralisia |
+| Sacrifício | Passiva | 0 | Pode interceptar e assumir o golpe no lugar de um aliado a até 4 metros (área média). | Assume o dano integral no PV | Reduz em \-2 o dano sofrido no golpe | Reduz em \-3 o dano sofrido; atacante sofre Espírito de dano radiante |
+| Destruição Aprimorada | Passiva | 0 | Seus ataques físicos contra Mortos-vivos e Corruptores canalizam chamas radiantes extras. | \+1 de dano fixo | \+2 de dano fixo | \+3 de dano fixo |
+| Zelo | Passiva | 0 | Fúria santa: ao reduzir um inimigo a 0 PV, ganha ímpeto imediato (sem gastar ação). | 1 ataque extra (1x por combate) | Pode usar 2x por combate | Ao acertar o ataque extra, recupera 1 PP |
+| Determinação | Passiva | 0 | Presença inabalável que inspira coragem e firmeza moral a aliados em área média (4m). | Imunidade a Medo | \+1 em testes de resistência mental | \+2 em testes de resistência mental |
+| Comunhão | Passiva | 0 | Percepção espiritual para farejar corrupção, mortos-vivos ou santidade a até 6m. | Sente presença geral | Identifica direção e tipo de criatura | Alcance expande para 15m |
+| Impor Mãos | Ativa | 2 | Canaliza graça sagrada tocando um aliado para estancar ferimentos. | Cura Espírito \+ 1d3 PV | Cura Espírito \+ 2d3 PV | Cura Espírito \+ 3d3 PV |
+| Destruição Divina | Ativa | 2 | Ao acertar um ataque físico, consome PP para liberar uma explosão radiante imediata no golpe. | Custa 2 PP: \+1d6 radiante | Custa 3 PP: \+2d6 radiante | Custa 4 PP: \+3d6 radiante |
+| Desafiar | Ativa | 2 | Ação Menor. Desafia um inimigo; o alvo deve testar Espírito ou sofre desvantagem ao atacar aliados. | Duração de 1 turno | Duração de 2 turnos | Duração de 2 turnos; alvo sofre \-1 no dano se atacar aliados |
+| Escudo da Fé | Ativa | 3 | Ação Menor. Envolve a si ou aliado adjacente em um halo de proteção por 3 turnos (Concentração). | \+2 Defesa Física e Mágica | \+3 Defesa Física e Mágica | \+4 Defesa Física e Mágica |
+| Expulsar o Profano | Ativa | 4 | Mostra o símbolo sagrado: mortos-vivos e demônios próximos testam Espírito ou fogem aterrorizados. | Fogem por 1 rodada | Fogem por 2 rodadas | Fogem por 2 rodadas; se falharem feio, sofrem 2d3 radiante |
+| Reviver | Ativa | 5 | Milagre de campo: toca um aliado morto no mesmo turno para reatar o fio de sua vida. | Aliado volta com 1 PV | Aliado volta com 1d6 PV e \+2 Defesa por 2 turnos | Aliado volta com Espírito \+ 1d6 PV e ambos ganham Vantagem no próx. ataque |
+| Arma Sagrada | Ativa | 3 | Ação Menor. A arma torna-se mágica, emite luz e golpeia com retidão divina por 3 turnos. | \+1 Ataque e Dano | \+2 Ataque e Dano | \+3 Ataque e Dano (dano conta como Radiante) |
+| Lança de Luz | Ativa | 3 | Dispara uma lança perfurante de energia radiante à distância utilizando o atributo Espírito. | Causa Espírito \+ 1d3 dano | Causa Espírito \+ 2d3 dano | Causa Espírito \+ 3d3 dano e cega o alvo por 1 turno |
+| Círculo de Poder | Ativa | 6 | Traça uma barreira mágica em área média (4m) protegendo todos os aliados em seu interior por 2 turnos. | Vantagem em resistência e Defesa Mágica | Duração expande para 3 turnos | Duração de 3 turnos e reduz todo dano mágico recebido em \-2 |
 
 ## **Mago** {#mago}
 
@@ -537,22 +543,22 @@ O druida começa com 2 ação passiva ou ativa de nível 1 a sua escolha.
 
 | Poder | Tipo | PP | Efeito | Nível 1 | Nível 2 | Nível 3 |
 | :---- | :---- | :---- | :---- | :---- | :---- | :---- |
-| Língua das Bestas | Passiva | 0 | Fala com animais e plantas. Adicionar vantagem em testes sociais com bestas. |  |  |  |
-| Bordão Místico | Passiva | 0 | Enquanto empunhar um cajado ou clava de madeira, você usa Espírito em vez de Corpo para testes de Ataque e Dano. O dano da arma torna-se mágico. |  |  |  |
-| Pele de Árvore | Passiva | 0 | Sua pele endurece. Sua Defesa Física mínima torna-se 12 \+ nível (ou Espírito \+ 8), independentemente da armadura. |  |  |  |
-| Caminho da Floresta | Passiva | 0 | Não sofre penalidade de movimento em terreno difícil natural e é imune a plantas mágicas de contenção. |  |  |  |
-| Sentido da Terra | Passiva | 0 | Você detecta criaturas em contato com o solo em uma área X, mesmo que invisíveis. Impede emboscadas terrestres. | X \= pequeno | X \= médio | X \= grande |
-| Sobrevivente | Passiva | 0 | Nunca se perde em florestas ou cavernas. |  |  |  |
-| Sangue Frio | Passiva | 0 | Resistência a venenos e paralisia. |  |  |  |
-| Passo Sem Pegadas | Passiva | 0 | Não pode ser rastreado. |  |  |  |
-| Líder da matilha | Ativa | 2 | Um lobo luta ao seu lado (Ataque 1d3). Requer concentração. Se o Druida tomar dano, os animais podem sumir. | 1 lobo | 2 lobos | 3 lobos |
-| Chicote de Espinhos | Ativa | 1 | Alcance médio. Causa Espírito \+ 1d3 de dano e puxa o alvo em sua direção. |  |  |  |
-| Bagas de Vida | Ativa | 2 | Cria 3 frutos. Comer um é uma **Ação Menor** e recupera 1 PV. Cura pouco, mas pode ser distribuído entre o grupo e levanta aliados caídos (1 PV). |  |  |  |
-| Enredar | Ativa | 3 | Vinhas brotam do chão. Inimigos na área devem testar o Corpo ou ficam Impedidos (não movem, desvantagem no ataque). A área vira terreno difícil. |  |  |  |
-| Forma Selvagem | Ativa | 3 | Transforma-se em uma besta (Ágil, Predador ou Robusta, conforme tabela de Formas Animais). Efeito: Substitui seus atributos físicos pelos da besta. Ganha PV Temporários da besta. Dura até os PV da besta acabarem ou você cancelar. Se os PV acabarem, você volta à forma normal com o dano excedente. |  |  |  |
-| Esquentar Metal | Ativa | 2 | Escolha um inimigo de armadura metálica ou segurando arma de metal. Ele sofre 1d6 de dano de fogo automático por turno e tem desvantagem nos ataques enquanto segurar o objeto. |  |  |  |
-| Convocar Relâmpagos | Ativa | 4 | Cria uma nuvem de tempestade. Ao conjurar, e como ação nos turnos seguintes (por 1 PP extra/turno), cai um raio (3d6 dano em área pequena). |  |  |  |
-| Muralha de Vento | Ativa | 3 | Cria uma barreira de ar. Ataques à distância (flechas/virotes) não conseguem atravessar a barreira. | 1d3 turnos | 1d6 turnos |  |
+| Língua das Bestas | Passiva | 0 | Comunica-se com feras e plantas da floresta; Vantagem em testes sociais com animais. | Vantagem com bestas | Pode pedir favores e informações | Animais neutros ajudam ativamente |
+| Bordão Místico | Passiva | 0 | Canaliza essência natural em cajados de madeira, usando Espírito no Ataque e Dano (dano mágico). | Espírito no Ataque e Dano | \+1 no dano mágico da arma | \+2 no dano mágico e alcance de 2m |
+| Pele de Árvore | Passiva | 0 | Sua pele adquire casca lenhosa natural resiliente (não acumula com armadura pesada). | Defesa mínima \= 10 \+ Espírito | \+1 de Resistência natural a dano | \+2 de Resistência natural a dano |
+| Caminho da Floresta | Passiva | 0 | Passagem desimpedida pela vegetação densa e terrenos hostis da natureza. | Ignora terreno difícil natural | Aliados adjacentes ignoram | \+2m de deslocamento em florestas e selvas |
+| Sentido da Terra | Passiva | 0 | Sente vibrações no solo identificando criaturas em contato com a terra, mesmo invisíveis. | Área pequena (2m) | Área média (4m) | Área grande (6m) |
+| Sobrevivente | Passiva | 0 | Conhecimento profundo da selva e cavernas para subsistência da comitiva. | Nunca se perde na natureza | Encontra água e comida farta ao grupo | Vantagem em testes de intempéries e clima |
+| Sangue Frio | Passiva | 0 | Adaptação fisiológica aos perigos e peçonhas dos ermos. | Vantagem contra veneno e paralisia | Imunidade a venenos naturais | Imunidade a paralisia |
+| Passo Sem Pegadas | Passiva | 0 | Desloca-se sem dobrar folhas nem deixar rastros pelo caminho. | Não pode ser rastreado | Rastreamento impossível até por faro | Estende a proteção a até 3 aliados juntos |
+| Líder da matilha | Ativa | 2 | Invoca espíritos de lobos que lutam ao seu lado (Ataque 1d3, Defesa 12, 6 PV cada; Concentração). | 1 lobo | 2 lobos | 3 lobos |
+| Chicote de Espinhos | Ativa | 1 | Dispara uma vinha com espinhos (alcance médio 4m) causando dano e puxando o alvo em sua direção. | Espírito \+ 1d3 dano (puxa 2m) | Espírito \+ 2d3 dano (puxa 3m) | Espírito \+ 3d3 dano (puxa 4m) |
+| Bagas de Vida | Ativa | 2 | Produz frutos mágicos revigorantes; consumir 1 fruto consome Ação Menor. | 3 frutos (cura 1 PV cada) | 4 frutos (cura 2 PV cada) | 5 frutos (cura 3 PV cada) |
+| Enredar | Ativa | 3 | Raízes brotam do solo: inimigos na área testam Corpo ou ficam Impedidos; o chão vira terreno difícil. | Área pequena (2m) | Área média (4m) | Área média e causa 1d3 de dano/turno |
+| Forma Selvagem | Ativa | 3 | Transforma-se em uma besta (Ágil, Predador ou Robusta, conforme tabela de Formas Animais). | Formas Ágil e Predador | \+4 PV Temporários na besta | Desbloqueia a Forma Robusta (Grande) |
+| Esquentar Metal | Ativa | 2 | Causa 1d6 de fogo/turno em item metálico (3 turnos). Largar arma/escudo consome Ação Menor (1 turno de dano); retirar armadura consome 2 Ações Principais (2 turnos de dano). | 1d6 de fogo por turno | 1d6 \+ 2 fogo/turno e reduz 2 da Resistência | 2d6 fogo/turno e 1d3 em área pequena (2m) |
+| Convocar Relâmpagos | Ativa | 4 | Invoca tempestade: ao lançar e como Ação nos turnos seguintes (1 PP), faz cair um raio na área. | 3d6 de dano elétrico (área 2m) | 3d6 \+ 2 de dano elétrico | 4d6 de dano elétrico |
+| Muralha de Vento | Ativa | 3 | Barreira de ar comprimido que desvia projéteis (flechas/virotes) e névoas gasosas. | Dura 1d3 turnos | Dura 1d6 turnos | Dura 1d6 turnos e empurra alvos leves 2m |
 
 ### **Formas Animais do Druida (Forma Selvagem)**
 
@@ -580,27 +586,27 @@ O clérigo começa com 2 ação passiva ou ativa de nível 1 a sua escolha.
 
 | Poder | Tipo | PP | Efeito | Nível 1 | Nível 2 | Nível 3 |
 | :---- | :---- | :---- | :---- | :---- | :---- | :---- |
-| Fé Inabalável | Passiva | 0 | Imunidade a Medo e vantagem em testes para resistir a loucura ou possessão. |  |  |  |
-| Destruidor de Mortos-Vivos | Passiva | 0 | Seus ataques e magias causam \+1d3 de dano extra contra Mortos-Vivos e Demônios. |  |  |  |
-| Portador da Luz | Passiva | 0 | Gera luz constante ao redor de si. | pequena | média |  |
-| Intercessão | Passiva | 0 | Uma vez por combate, você pode conceder \+2 em um teste de atributo de um aliado (antes da rolagem). |  |  |  |
-| Voz Divina | Passiva | 0 | Sua voz ecoa com poder sobrenatural (intimidação/comando). |  |  |  |
-| Discípulo da Vida | Passiva | 0 | Toda vez que você lançar uma magia de cura em um aliado, você cura \+X PV adicionais no alvo. | X \= 2 | X \= 3 | X \= 4 |
-| Intervenção Divina | Passiva | 0 | Uma vez por aventura, você pode pedir ajuda direta à sua divindade. O Mestre decide a natureza da ajuda (geralmente replica uma magia poderosa sem custo). |  |  |  |
-| Paz | Passiva | 0 | Inimigos não te atacam se você não atacar primeiro. |  |  |  |
-| Anjo da Guarda | Passiva | 0 | Se um aliado cair a 0 PV, você assume o dano. |  |  |  |
-| Curar Ferimentos | Ativa | 2 | Cura Espírito \+ 1d6 PV de um aliado tocado. |  |  |  |
-| Palavra Curativa | Ativa | 2 | Ação Menor (Rápida). Alcance: Visão. Cura 1d3 PV. Cura pouco, mas levanta um aliado caído (0 PV) à distância sem gastar a ação de ataque/magia principal. |  |  |  |
-| Luz Sagrada | Ativa | 3 | Cega os inimigos ao redor por 1 turno (Desvantagem) em uma área. | pequena | média | grande |
-| Reviver | Ativa | 5 | Traz de volta um aliado que morreu no último minuto (neste combate) com 1 PV. |  |  |  |
-| Raio Guiador | Ativa | 2 | Causa Espírito \+ 1d3 de dano radiante. O próximo ataque feito contra esse alvo por um aliado tem Vantagem (+1d6). |  |  |  |
-| Arma Espiritual | Ativa | 3 | Ação Menor. Invoca uma arma fantasma que ataca sozinha. Causa X de dano de força/mágico por turno (Duração: 3 turnos). | X \= 1d3 | X \= 2d3 | X \= 3d3 |
-| Escudo da Fé | Ativa | 3 | \+X de Defesa para um aliado por 3 turnos. | X \= 1 | X \= 2 |  |
-| Espíritos Guardiões | Ativa | 4 | Uma aura ao seu redor de área X. Inimigos que entrarem ou começarem o turno nela sofrem Espírito de dano radiante e têm movimento reduzido. | pequena | média | grande |
-| Purificar | Ativa | 3 | Remove venenos e maldições. |  |  |  |
-| Coluna de Chamas | Ativa | 5 | Uma coluna de fogo divino cai do céu. Causa Espírito \+ 3d6 de dano (metade fogo, metade radiante) em área. | pequena | média |  |
-| Ira Divina | Ativa | 3 | Seu próximo ataque físico causa o dobro de dano. |  |  |  |
-| Onda de trovão | Ativa | 4 | Gera uma onda em forma de cone causando dano aos inimigos | 1d3 | 2d3 | 3d3 |
+| Fé Inabalável | Passiva | 0 | Firmeza espiritual contra efeitos mentais profanos. | Imunidade a Medo e Vantagem contra possessão | Vantagem em testes contra ilusões e controle | Imune a possessão, controle mental e insanidade |
+| Destruidor de Mortos-Vivos | Passiva | 0 | Ataques e magias causam dano extra contra Mortos-Vivos e Demônios. | \+1d3 de dano extra | \+2d3 de dano extra | \+3d3 de dano extra |
+| Portador da Luz | Passiva | 0 | Irradia luz sagrada constante ao redor de si. | Área pequena (2m) | Área média (4m) | Área grande (6m); dissipa trevas mágicas |
+| Intercessão | Passiva | 0 | Concede bônus em um teste de atributo de aliado antes da rolagem. | \+2 no teste (1x por combate) | \+3 no teste (1x por combate) | \+3 no teste (2x por combate) |
+| Voz Divina | Passiva | 0 | Voz ecoa autoridade sagrada sobre fiéis e criaturas. | Vantagem em Persuasão e Intimidação | Vantagem com devotos; comando afeta 2 alvos | Inimigos menores testam Espírito ou recuam 1 turno |
+| Discípulo da Vida | Passiva | 0 | Potencializa magias de cura conjuradas em aliados. | Cura \+2 PV adicionais | Cura \+3 PV adicionais | Cura \+4 PV adicionais |
+| Intervenção Divina | Ativa | 0 | 1x por aventura: roga auxílio direto à divindade (milagre narrativo/mágico). | Fora de combate (1 min de oração formal) | Em combate (requer 1 Ação Principal) | Em combate (requer apenas 1 Ação Menor) |
+| Paz | Passiva | 0 | Santuário da não-violência enquanto não atacar primeiro. | Inimigos não te atacam | Inimigo testa Espírito (Dif 12) para atacar | Teste Dif 15; se falhar não pode atacar por 2 turnos |
+| Anjo da Guarda | Passiva | 0 | Proteção sacrificial: intervém quando aliado adjacente cairia a 0 PV. | Absorve até Espírito \+ 1d6 de dano do golpe | Absorve até Espírito \+ 2d6 de dano do golpe | Absorve o golpe e cura o aliado em 1d6 PV |
+| Curar Ferimentos | Ativa | 2 | Magia de toque restauradora de tecidos e vigor. | Cura Espírito \+ 1d6 PV | Cura Espírito \+ 2d6 PV | Cura Espírito \+ 3d6 PV |
+| Palavra Curativa | Ativa | 2 | Ação Menor. Cura à distância (linha de visão); ergue caídos. | Cura 1d3 PV | Cura 2d3 PV | Cura 3d3 PV |
+| Luz Sagrada | Ativa | 3 | Clarão divino cegante em área; causa Desvantagem por 1 turno. | Área pequena (2m) | Área média (4m) | Área grande (6m) |
+| Reviver | Ativa | 5 | Traz de volta à vida aliado morto neste combate (até 1 min). | Revive com 1 PV | Revive com Espírito \+ 1d3 PV | Revive com metade dos PVs máximos |
+| Raio Guiador | Ativa | 2 | Raio radiante que marca o alvo concedendo Vantagem no próx. ataque aliado. | Causa Espírito \+ 1d3 radiante | Causa Espírito \+ 2d3 radiante | Causa Espírito \+ 3d6 radiante |
+| Arma Espiritual | Ativa | 3 | Ação Menor. Invoca arma etérea flutuante que ataca por 3 turnos. | Dano 1d3 por turno | Dano 2d3 por turno | Dano 3d3 por turno |
+| Escudo da Fé | Ativa | 3 | Campo de força místico sobre aliado à distância por 3 turnos. | \+1 Defesa | \+2 Defesa | \+3 Defesa |
+| Espíritos Guardiões | Ativa | 4 | Aura de espíritos protetores em área: dano e metade do deslocamento. | Área pequena (Espírito dano) | Área média (Espírito \+ 1d3 dano) | Área grande (Espírito \+ 2d3 dano) |
+| Purificar | Ativa | 3 | Canalização para purgar impurezas biológicas e mágicas. | Remove venenos e toxinas naturais | Remove venenos e maldições mágicas | Remove maldições ancestrais e petrificação |
+| Coluna de Chamas | Ativa | 5 | Pilar radiante/flamejante atinge inimigos do topo. | Espírito \+ 2d6 em área pequena (2m) | Espírito \+ 3d6 em área média (4m) | Espírito \+ 4d6 em área média; incendeia alvos |
+| Ira Divina | Ativa | 3 | Potencializa o próximo golpe físico com a cólera sagrada. | Próximo ataque causa o dobro do dano | Dobro de dano e \+2 no acerto | Dobro de dano, \+2 acerto e \+1d6 radiante extra |
+| Onda de Trovão | Ativa | 4 | Rajada mística em cone frontal empurrando inimigos. | Causa 1d3 de dano sônico | Causa 2d3 de dano sônico | Causa 3d3 de dano sônico |
 
 ## **Ladino** {#ladino}
 
@@ -618,23 +624,23 @@ O ladino começa com 1 ação passiva ou ativa de nível 1 a sua escolha.
 
 | Poder | Tipo | PP | Efeito | Nível 1 | Nível 2 | Nível 3 |
 | :---- | :---- | :---- | :---- | :---- | :---- | :---- |
-| Ataque Furtivo | Passiva | 0 | Uma vez por turno, se você tiver Vantagem no ataque ou um aliado estiver a 1,5m do alvo, você causa \+X de dano extra. | X \= 1d3 | X \= 2d3 | X \= 3d3 |
-| Dedos Leves | Passiva | 0 | Vantagem (4d6) para abrir fechaduras/armadilhas. |  |  |  |
-| Sentido de Perigo | Passiva | 0 | Você não pode ser surpreendido e ganha \+2 na Iniciativa. |  |  |  |
-| Língua de Prata | Passiva | 0 | \+X em testes de enganação ou comércio. | X \= 1 | X \= 2 |  |
-| Equilibrista | Passiva | 0 | Pode andar em cordas ou superfícies finas. |  |  |  |
-| Assassino | Passiva | 0 | Você tem Vantagem contra qualquer criatura que ainda não tenha agido no combate. Se acertar um inimigo surpreso, é um Crítico automático. |  |  |  |
-| Evasão | Passiva | 0 | Quando sujeito a um efeito que permite um teste de Mente (Reflexos) para reduzir o dano à metade (ex: Sopro de Dragão), você não sofre nenhum dano se passar, e apenas metade se falhar. |  |  |  |
-| Gíria de Ladrão | Passiva | 0 | Você identifica sinais secretos de criminosos, esconderijos e mercadores do mercado negro. |  |  |  |
-| Ação Ardilosa | Ativa | 1 | Ação Livre. Você pode realizar a ação de Correr (Disparada), Desengajar (sair sem levar ataque) ou Esconder-se como uma ação extra/menor. |  |  |  |
-| Esquiva Sobrenatural | Ativa | 2 | Reação. Quando for acertado por um ataque que você possa ver, gaste 2 PP para reduzir o dano sofrido pela metade. |  |  |  |
-| Golpe Sujo | Ativa | 2 | Ação Menor. Joga areia nos olhos, chuta a canela, etc. O alvo deve testar o Corpo ou fica Cego/Atordoado até o próximo turno dele. Tático: Gera vantagem para o Ataque Furtivo no mesmo turno. |  |  |  |
-| Lâmina Venenosa | Ativa | 2 | Ação Menor. Aplica veneno na arma. O próximo ataque que acertar causa \+1d6 de dano de veneno e o alvo deve testar Corpo ou fica Envenenado (Desvantagem nos ataques) por 1d6 turnos. | \+1 | \+2 |  |
-| Bomba de Fumaça | Ativa | 2 | Ação Menor. Cria uma nuvem em área de escuridão densa. Ótimo para fugir ou se esconder no meio do combate. | pequena | média | grande |
-| Mãos Rápidas | Ativa | 1 | Ação Menor. Pode tentar abrir uma fechadura, desarmar uma armadilha ou bater uma carteira no meio do combate com uma ação menor. |  |  |  |
-| Cofre Aberto | Ativa | 2 | Abre qualquer porta trancada instantaneamente. |  |  |  |
-| Agilidade | Ativa | 4 | Realiza duas ações principais no turno. |  |  |  |
-| Golpe de Sorte | Ativa | 3 | Reação. Se você falhar em um ataque ou teste de habilidade, pode transformar a falha em um sucesso automático. |  |  |  |
+| Ataque Furtivo | Passiva | 0 | Uma vez por turno, com Vantagem ou aliado a 1,5m do alvo, causa dano extra. | Dano extra: \+1d3 | Dano extra: \+2d3 | Dano extra: \+3d3 |
+| Dedos Leves | Passiva | 0 | Especialista em abrir fechaduras e desarmar armadilhas com precisão cirúrgica. | Vantagem (4d6) nos testes | Pode realizar teste como Ação Menor | Se falhar no teste, não aciona o mecanismo |
+| Sentido de Perigo | Passiva | 0 | Instintos aguçados contra emboscadas e perigos repentinos. | Não pode ser surpreendido; \+2 na Iniciativa | \+3 na Iniciativa | \+4 na Iniciativa e não sofre dano em armadilhas |
+| Língua de Prata | Passiva | 0 | Trapaça, lábia e negociação com mercadores e NPCs. | \+1 em testes de persuasão e comércio | \+2 em testes de persuasão e comércio | \+3 em testes de persuasão e comércio |
+| Equilibrista | Passiva | 0 | Equilíbrio supremo em fios, bordas e telhados. | Anda em cordas/superfícies estreitas | Ignora terreno difícil natural/urbano | Imune a dano de quedas de até 6 metros |
+| Assassino | Passiva | 0 | Letalidade súbita em alvos desatentos no início do combate. | Vantagem vs quem não agiu; Crítico se surpreso | \+2 no acerto contra inimigos surpresos | Causa dano máximo nos dados no 1º turno |
+| Evasão | Passiva | 0 | Reflexos milagrosos contra efeitos em área com teste de Mente. | Vantagem em testes de Mente contra áreas | Se passar não sofre dano, se falhar metade | Se passar sofre dano zero; se falhar 1/4 do dano |
+| Gíria de Ladrão | Passiva | 0 | Conhecimento dos códigos do submundo e rede de contatos ilegais. | Identifica sinais e esconderijos secretos | Contatos ativos em qualquer vila/cidade | Encontra esconderijo seguro garantido |
+| Ação Ardilosa | Ativa | 1 | Ação Menor. Agilidade tática de movimentação no combate. | Disparada, Desengajar ou Esconder-se | Custo reduzido para 0 PP (Ação Menor livre) | Pode realizar duas manobras no mesmo turno |
+| Esquiva Sobrenatural | Ativa | 2 | Reação. Flexiona o corpo para amortecer um golpe físico visível. | Reduz dano recebido pela metade | Reduz metade e move 2m sem GdO | Reduz o dano do ataque a 0 (1x por combate) |
+| Golpe Sujo | Ativa | 2 | Ação Menor. Golpe desleal (areia, rasteira); alvo testa Corpo. | Alvo falha: Cego/Atordoado por 1 turno | Alvo tem Desvantagem no teste | Causa 1d3 de dano adicional na manobra |
+| Lâmina Venenosa | Ativa | 2 | Ação Menor. Cobre arma com toxina paralisante/debilitante. | \+1d6 veneno; alvo testa Corpo ou Envenenado | \+1 no acerto; envenenamento dura \+1 turno | O veneno causa 1d3 contínuo por turno |
+| Bomba de Fumaça | Ativa | 2 | Ação Menor. Detona cortina opaca impedindo linha de visão e facilitando fuga. | Área pequena (2m) | Área média (4m) | Área grande (6m) |
+| Mãos Rápidas | Ativa | 1 | Ação Menor. Bater carteira, abrir trancas ou desarmar sob pressão. | Tenta teste como Ação Menor | Se tiver sucesso, não gasta o 1 PP | Pode desarmar a arma da mão do inimigo |
+| Cofre Aberto | Ativa | 2 | Domínio de gazuas e mecanismos arcanos/físicos. | Abre trancas comuns instantaneamente | Abre trancas complexas ou mágicas leves | Abre trancas mundanas sem barulho e sem teste |
+| Agilidade | Ativa | 4 | Explosão de adrenalina e coordenação corporal extrema. | Realiza 2 Ações Principais no mesmo turno | Custo reduzido para 3 PP | Custo 3 PP e ganha \+3m de deslocamento |
+| Golpe de Sorte | Ativa | 3 | Reação (1x por combate). Reverte o destino a seu favor em uma rolagem. | Converte uma falha em sucesso automático | Custo reduzido para 2 PP | Custo 2 PP e converte falha em Sucesso Crítico |
 
 ## **Ranger** {#ranger}
 
@@ -652,23 +658,23 @@ O ranger começa com 1 ação passiva ou ativa de nível 1 a sua escolha.
 
 | Poder | Tipo | PP | Efeito | Nível 1 | Nível 2 | Nível 3 |
 | :---- | :---- | :---- | :---- | :---- | :---- | :---- |
-| Conhecimento de Ervas | Passiva | 0 | Pode criar antídotos na natureza. Cura venenos e efeitos negativos. |  |  |  |
-| Mimetismo | Passiva | 0 | Você pode tentar se esconder mesmo com pouca cobertura se ficar imóvel. Role com vantagem (4d6). |  |  |  |
-| Arquearia | Passiva | 0 | Você ganha \+2 nas jogadas de ataque com armas à distância. |  |  |  |
-| Inimigo Favorito | Passiva | 0 | Escolha um tipo (Feras, Mortos-vivos, Humanos, etc.). Você tem vantagem (4d6) em testes para rastreá-los e causar \+2 de dano contra eles. |  |  |  |
-| Resistência Ambiental | Passiva | 0 | Imune a frio ou calor extremo. |  |  |  |
-| Explorador Natural | Passiva | 0 | Você não se perde, ignora terreno difícil natural e encontra o dobro de comida ao forragear. |  |  |  |
-| Caçador de Colossos | Passiva | 0 | Uma vez por combate, se você acertar uma criatura que já esteja ferida (não está com PV cheio), causa \+1d6 de dano extra. |  |  |  |
-| Mestre das Feras  | Passiva | 0 | Você tem um animal leal (Lobo/Falcão). Uma vez por rodada, ele pode atacar junto com você (Dano 1d3) ou conceder \+1 na sua Defesa (interferindo no inimigo). |  |  |  |
-| Curar Ferimentos | Ativa | 2 | Cura Espírito \+ X PV de um alvo tocado. | X \= 1d3 | X \= 2d3 |  |
-| Disparo Relâmpago | Ativa | 4 | O disparo se transforma em um raio. Causa 2d3 de dano elétrico no alvo e metade em quem estiver na área. | pequena | média | grande |
-| Tiro imobilizante | Ativa | 3 | **Ao disparar.** Se acertar, o alvo sofre dano e fica Impedido (não move, desvantagem no ataque) por vinhas. |  |  |  |
-| Passos sem Pegadas | Ativa | 3 | Você e aliados em uma área X ganham \+5 em testes de Furtividade e não deixam rastros por 1 hora. | pequena | média | grande |
-| Passo do Zéfiro | Ativa | 2 | **Ação Menor.** Por 1 turno, seu movimento não gera ataques de oportunidade e você ganha o dobro de deslocamento. |  |  |  |
-| Marca do Caçador | Ativa | 2 | **Ação Menor.** Escolha um inimigo visível. Você causa \+1d6 de dano extra sempre que acertá-lo com arma até o inimigo morrer ou você perder a concentração (sofrer dano). |  |  |  |
-| Sentido Primitivo | Ativa | 1 | **Ação.** Você sabe se há mortos-vivos, demônios, fadas ou aberrações num raio de 1km, mas não a localização exata. |  |  |  |
-| Flecha de Fogo | Ativa | 2 | O ataque causa dano de queimadura por X turnos. | 1d3 | 2d3 | 3d3 |
-| Tiro Perfurante | Ativa | 3 | Atravessa a armadura (ignora a Defesa). |  |  |  |
+| Conhecimento de Ervas | Passiva | 0 | Manipula botânica curativa e extração de essências naturais. | Fabrica antídotos naturais em descansos | Produz poção de cura fraca (1d3 PV) em descanso | Purifica venenos potentes e doenças naturais |
+| Mimetismo | Passiva | 0 | Camuflagem adaptativa usando folhagens, sombras e relevo. | Vantagem (4d6) ao se esconder imóvel | Pode se esconder mesmo com cobertura leve | Inimigos a mais de 10m não conseguem te detectar |
+| Arquearia | Passiva | 0 | Treinamento rigoroso com arcos longos, curtos e bestas. | \+1 no ataque e \+1 no dano à distância | \+2 no ataque e \+2 no dano à distância | \+3 ataque, \+3 dano e anula penalidade de alcance longo |
+| Inimigo Favorito | Passiva | 0 | Especialização mortal contra categorias específicas de presas. | Vantagem no rastreio e \+2 dano vs 1 tipo | Escolhe um 2º tipo de criatura | Bônus sobe para \+3 de dano contra ambos os tipos |
+| Resistência Ambiental | Passiva | 0 | Corpo aclimatado a tempestades, geleiras e desertos. | Imune a frio e calor extremos | Imune a intempéries naturais e ventanias | Reduz qualquer dano de frio ou fogo em \-2 |
+| Explorador Natural | Passiva | 0 | Conexão profunda com trilhas, fauna e cartografia selvagem. | Não se perde; dobro de comida coletada | Todo o grupo ignora terreno difícil natural | Grupo viaja 20% mais rápido em marcha |
+| Caçador de Colossos | Passiva | 0 | Fere monstros e alvos que já estejam enfraquecidos. | \+1d6 de dano contra alvos feridos (1x por combate) | Pode ser utilizado até 2x por combate | Causa \+2d6 de dano contra criaturas grandes/chefes |
+| Mestre das Feras | Passiva | 0 | Companheiro animal fiel (Lobo, Falcão, etc.) que luta em uníssono. | Animal ataca (1d3) ou concede \+1 na Defesa | Animal causa 1d3\+1 dano ou concede \+2 Defesa | Animal causa 2d3 dano e protege aliado adjacente |
+| Curar Ferimentos | Ativa | 2 | Aplica bálsamo vegetal e prece druídica em aliado tocado. | Cura Espírito \+ 1d3 PV | Cura Espírito \+ 2d3 PV | Cura Espírito \+ 3d3 PV |
+| Disparo Relâmpago | Ativa | 4 | Flecha energizada eletricamente que irrompe em trovão. | Causa 2d3 elétrico em área pequena (2m) | Dano 2d3 elétrico em área média (4m) | Dano 3d3 elétrico em área grande (6m) |
+| Tiro Imobilizante | Ativa | 3 | Disparo com sementes que brotam raízes restritivas. | Alvo acertado fica Impedido por raízes | Alvo tem Desvantagem no teste para se libertar | Raízes espinhosas causam 1d3 de dano por turno |
+| Passos sem Pegadas | Ativa | 3 | Oculta a presença e vestígios de passagem por 1 hora. | \+5 Furtividade para o grupo em área pequena | Grupo em área média ganha \+5 Furtividade | Área grande; torna o rastro impossível de rastrear |
+| Passo do Vento | Ativa | 2 | Ação Menor. Movimentação acrobática veloz sem provocar retaliação. | Dobro de deslocamento e não provoca GdO | Dobro de deslocamento e \+2 Defesa contra projéteis | Deslocamento de 15m, ignora terreno e permite 1 tiro |
+| Marca do Caçador | Ativa | 2 | Ação Menor. Foca a visão predatória em um alvo específico. | \+1d6 de dano na arma até o alvo morrer | Alvo não consegue se esconder ou camuflar | Dano da marca sobe para \+1d6\+2 por acerto |
+| Sentido Primitivo | Ativa | 1 | Canalização sensorial para detectar presenças anômalas num raio de 1km. | Sabe se há aberrações/mortos-vivos na região | Revela a direção e distância aproximada | Revela quantidade exata e se estão hostis |
+| Flecha de Fogo | Ativa | 2 | Ponta inflamada que incendeia o alvo atingido. | Causa queimadura contínua de 1d3 por 1 turno | Queimadura de 1d3 por 2 turnos | Queimadura de 2d3 por 2 turnos |
+| Tiro Perfurante | Ativa | 3 | Flecha pesada disparada para varar blindagens espessas. | Ignora a armadura/resistência física do alvo | Causa \+1d3 de dano adicional na perfuração | Atravessa o alvo e atinge criatura atrás em linha |
 
 ## **Bardo** {#bardo}
 
@@ -686,22 +692,22 @@ O bardo começa com 2 ações passivas ou ativas de nível 1 a sua escolha.
 
 | Poder | Tipo | PP | Efeito | Nível 1 | Nível 2 | Nível 3 |
 | :---- | :---- | :---- | :---- | :---- | :---- | :---- |
-| Inspiração Bárdica | Passiva | 0 | Ação Menor. Uma vez por dia você pode conceder um dado de inspiração (1d6 extra) a um aliado. Ele pode adicionar esse dado a qualquer teste de Ataque, Defesa ou Habilidade nos próximos 10 minutos. | \+1 | \+2 |  |
-| Faz-Tudo | Passiva | 0 | Você pode adicionar \+1 em qualquer teste de perícia (não combate) em que não tenha um bônus específico. |  |  |  |
-| Canção de Descanso | Passiva | 0 | Se você tocar música durante um Descanso Curto, todos os aliados recuperam \+X de PV extra. | 1d3 | 1d6 |  |
-| Palavras Cortantes | Passiva | 0 | Ação Menor (Reativa). Quando um inimigo acerta um ataque em um aliado próximo fora do seu turno, reduz o dano causado em 1d3. |  |  |  |
-| Lâmina Dançante | Passiva | 0 | Você pode usar seu atributo Mente (em vez de Corpo) para atacar com espadas leves ou rapieiras. |  |  |  |
-| Fama | Passiva | 0 | É reconhecido em tavernas (comida e sono de graça). |  |  |  |
-| Encantador | Passiva | 0 | Inimigos devem passar em um teste de Mente para te atacar no primeiro turno. Além disso, você tem vantagem em negociações. |  |  |  |
-| Padrão Hipnótico | Ativa | 3 | Cria luzes em uma área. Criaturas devem testar Mente ou ficam paralisadas/incapacitadas olhando para as luzes até sofrerem dano. |  |  |  |
-| Zombaria Viciosa | Ativa | 1 | Insulta o inimigo. Causa X de dano psíquico e o alvo tem desvantagem no próximo ataque. | 1d3 | 2d3 | 3d3 |
-| Palavra Curativa | Ativa | 2 | Ação Menor. Cura 1d3 PV de um aliado que você possa ver (alcance, não toque). |  |  |  |
-| Onda Trovejante | Ativa | 2 | Empurra todos os inimigos adjacentes a uma distância para longe e causa 1d6 de dano sônico. | pequena | média | grande |
-| Invisibilidade | Ativa | 3 | Você ou um aliado tocado fica invisível até atacar ou conjurar. Essencial para o estilo "furtivo/suporte". |  |  |  |
-| Sugestão | Ativa | 3 | O alvo deve testar Mente. Se falhar, segue uma ordem que não seja auto-destrutiva (ex: "Jogue sua arma longe", "Fuja"). |  |  |  |
-| Ressurreição Menor | Ativa | 5 | Traz um aliado morto recentemente com 1 PV. |  |  |  |
-| Distorção Sonora | Ativa | 2 | Cria um barulho que atordoa o alvo. | 1 turno | 2 turnos |  |
-| Sono | Ativa | 2 | Alvo dorme se falhar no teste de Espírito por X turnos. | X \= 1d3 | X \= 2d3 | X \= 3d3 |
+| Inspiração Bárdica | Passiva | 0 | Ação Menor. Concede dado extra (1d6) para teste de aliado nos próx. 10 minutos. | Pode conceder 1 dado de inspiração por dia | Pode conceder 2 dados de inspiração por dia | Pode conceder 3 dados de inspiração por dia |
+| Faz-Tudo | Passiva | 0 | Erudição eclética aplicada em qualquer teste de perícia sem bônus próprio. | \+1 em testes de perícia gerais | \+2 em testes de perícia gerais | \+3 em testes de perícia gerais |
+| Canção de Descanso | Passiva | 0 | Balada suave tocada durante descanso curto para recuperar o ânimo. | Aliados recuperam \+1d3 PV adicionais | Aliados recuperam \+1d6 PV adicionais | Aliados recuperam \+1d6\+2 PV adicionais |
+| Palavras Cortantes | Passiva | 0 | Reação. Insulto mordaz fora do turno que desestabiliza o ataque inimigo. | Reduz o dano sofrido pelo aliado em 1d3 | Reduz o dano sofrido pelo aliado em 1d6 | Reduz em 1d6\+2 e empurra inimigo 2m |
+| Lâmina Dançante | Passiva | 0 | Esgrima acrobática baseada em elegância, ritmo e intelecto. | Usa Mente (ao invés de Corpo) no ataque com armas ágeis | Ganha \+1 no dano com armas leves/rapieiras | Ganha \+1 na Defesa ao empunhar rapieira |
+| Fama | Passiva | 0 | Renome em cortes e tavernas; carisma reconhecido mundialmente. | Comida e sono gratuitos em tavernas | Acesso a nobres, castelos e audiências da corte | NPCs não-hostis começam com atitude Amigável |
+| Encantador | Passiva | 0 | Fascínio diplomático hipnotizante antes do conflito estourar. | Inimigo testa Mente para te atacar no 1º turno; Vantagem negociação | Inimigos têm Desvantagem no teste para te atacar | Vantagem permanente em todos os testes sociais |
+| Padrão Hipnótico | Ativa | 3 | Luzes prismáticas hipnotizantes em área paralisando criaturas. | Área pequena (2m); teste de Mente ou imóvel | Área média (4m); teste de Mente | Área média; alvos sofrem Desvantagem no teste |
+| Zombaria Viciosa | Ativa | 1 | Insulto mágico que fere o ego e desconcentra a criatura. | Dano 1d3 psíquico e Desvantagem no próx. ataque | Dano 2d3 psíquico e Desvantagem | Dano 3d3 psíquico e Desvantagem |
+| Palavra Curativa | Ativa | 2 | Ação Menor. Nota musical ressonante que ergue feridos à distância. | Cura 1d3 PV | Cura 2d3 PV | Cura 3d3 PV |
+| Onda Trovejante | Ativa | 2 | Acorde sônico devastador que empurra inimigos adjacentes e causa dano. | Empurra 2m em área pequena (1d6 sônico) | Empurra 4m em área média (1d6\+1 sônico) | Empurra 6m em área grande (2d6 sônico) |
+| Invisibilidade | Ativa | 3 | Dobra a luz com notas ilusórias; dura até desferir ataque ou magia. | Dura 1d6 turnos em si mesmo | Pode aplicar em si mesmo ou aliado tocado | Dura 2d6 turnos |
+| Sugestão | Ativa | 3 | Entonação hipnótica convincente; alvo testa Mente ou obedece comando simples. | Dura 1d3 turnos (comandos seguros) | Dura 1d6 turnos (comandos arriscados) | Duração de até 1 hora (ordens complexas) |
+| Melodia Revigorante | Ativa | 5 | Reação / Ação Menor. Acorde místico emergencial que impede morte do aliado. | Se aliado for a 0 PV, impede a queda e deixa com 1 PV | Restaura 1d6 \+ Mente PV e permite mover 3m sem GdO | Restaura 2d6 \+ Mente PV e concede \+1 testes do grupo |
+| Distorção Sonora | Ativa | 2 | Frequência aguda ensurdecedora focada em perturbar os sentidos do alvo. | Atordoa o alvo por 1 turno | Atordoa o alvo por 2 turnos | Atordoa por 2 turnos e causa 1d3 sônico |
+| Sono | Ativa | 2 | Balada sonífera que embala mentes em repouso forçado (teste de Espírito). | Alvo dorme por 1d3 turnos | Alvos em área pequena dormem por 1d3 turnos | Alvos em área média dormem por 2d3 turnos |
 
 # **Poderes** {#poderes}
 
@@ -821,15 +827,17 @@ Valores finais (**3d6 \+ Atributo**) abaixo da meta contam como falhas; valores 
 
 Os testes do jogo são realizados seguindo as regras definidas na tabela de dificuldade e seus atributos. Todos os testes de combates e perícias são feitos rolando 3d6 somado ao atributo da ficha de personagem que seja pertinente ao teste realizado, o resultado é confrontado com o nível de dificuldade do teste feito.
 
-Para os testes de rolagem existem 2 cenários extremos, que são a falha crítica e o sucesso crítico, estes cenários não são alterados pelos atributos do personagem, apenas pela rolagem bruta dos dados.
+Para os testes de rolagem existem resultados especiais determinados pela combinação das faces dos dados brutos, independentemente dos atributos:
 
-**Falha crítica:** Quando os 3 dados saem com valor 1 isso caracteriza uma falha crítica com consequências graves e narrativas severas podendo causar alguma penalidade ao personagem.
+**Sucesso Crítico:** Obtido ao rolar **ao menos dois dados com face 6**. É um acerto automático que ignora a Defesa do alvo. Se obtiver um **Triplo 6 [6, 6, 6]**, ocorre um **Crítico Caótico**: o dano é máximo e dobrado, ignorando resistências e gerando efeitos de impacto destrutivos narrados pelo mestre.
 
-Em rolagens com vantagem prevalecem os maiores valores dos 4 dados, caracterizando uma falha comum.
+Em rolagens com desvantagem (4d6 menores), um sucesso crítico só se confirma se os dados finais mantiverem ao menos dois 6.
 
-**Sucesso crítico:** Quando os 3 dados saem com valor 6 isso caracteriza um sucesso crítico com efeitos excepcionais como o dobro do dano, custo reduzido ou efeitos extras com narrativas épicas trazendo glória a ação do personagem.
+**Falha Crítica:** Obtida ao rolar **ao menos dois dados com face 1**. A ação falha automaticamente com complicação tática. Se obtiver um **Triplo 1 [1, 1, 1]**, ocorre um **Desastre Caótico**: quebra de equipamento, refluxo de energia ou perda de turno.
 
-Em rolagens com desvantagem prevalecem os menores valores dos 4 dados, caracterizando um sucesso comum.
+Em rolagens com vantagem (4d6 maiores), uma falha crítica só ocorre se os dados finais selecionados mantiverem ao menos dois 1.
+
+**Proeza Menor (Triplos Intermediários):** Tirar [2, 2, 2], [3, 3, 3], [4, 4, 4] ou [5, 5, 5] concede sucesso no teste e uma pequena proeza tática instantânea (como recuperar 1 PP ou reposicionar-se 2m).
 
 Além destes cenários existem os cenários padrões de falha e sucesso. Um teste falha quando o resultado da soma dos dados 3d6 somado ao atributo são inferiores à meta de dificuldade do teste realizado, por exemplo um teste fácil onde a soma chegue a 8 pontos, visto que a meta é 9. Em caso de fracasso a ação não é realizada, em caso de sucesso sim, ficando a cargo do mestre decidir o nível de sucesso e seu resultado narrativo.
 
@@ -1046,7 +1054,7 @@ O **Golpe de Oportunidade (Reação)** ocorre fora do turno do personagem: acont
 
 Também contam como Ação Principal os movimentos de saltar, se esconder (teste de furtividade \- mente), correr, entre outros.
 
-Saltar permite que o personagem salte o equivalente a  2 metros de distância.
+Saltar consome uma Ação Menor (ou parte do movimento) e permite saltar uma distância de até metade do atributo Corpo em metros (mínimo de 2 metros). Se saltar como Ação Principal com corrida prévia, salta até o valor total do atributo Corpo em metros.
 
 Correr dobra a distância de deslocamento, ou seja, se é 5 metros, passa a ser 10 metros.
 
