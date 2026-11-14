@@ -1,10 +1,6 @@
-**Mini-d6 RPG**
+**Mini-d6 RPG v2.5**
 
 por Bruno La Porta Welausen
-
-# 
-
-# 
 
 [Sistema	3](#sistema)
 
@@ -134,7 +130,7 @@ O sistema atende a três perfis principais de jogadores:
 
 1. **Iniciantes e Grupos Casuais:** Pela sua simplicidade de regras e rapidez na criação de fichas, é ideal para quem nunca jogou RPG ou para grupos que têm pouco tempo e querem focar na diversão imediata.  
 2. **Jogadores de "One-Shot" e Campanhas Curtas:** O sistema é otimizado para aventuras que começam e terminam em poucas sessões, embora suporte progressão até o nível 15\.  
-3. **Jogadores Solo:** O documento v1.10 inclui regras específicas para descanso e eventos aleatórios pensadas para o "Modo Solo", permitindo jogar sem mestre.
+3. **Jogadores Solo:** O documento v2.5 inclui regras específicas para descanso e eventos aleatórios pensadas para o "Modo Solo", permitindo jogar sem mestre.
 
 ## **Capacidades e Mecânicas Principais** {#capacidades-e-mecânicas-principais}
 
@@ -151,14 +147,14 @@ O sistema opera sobre um motor robusto de **3d6 \+ Atributo**, que gera uma curv
 
 O **mini-d6** oferece um pacote completo para aventuras de fantasia medieval clássica:
 
-* **Diversidade de Personagens:** Conta com 7 Raças (Humano, Anão, Elfo, Orc, Pequenino, Gnomo, Draconato) e 10 Classes (como Bárbaro, Paladino, Mago, Ladino, Bardo, etc.), cada uma com árvores de poderes passivos e ativos.  
+* **Diversidade de Personagens:** Conta com 7 Raças (Humano, Anão, Elfo, Orc, Pequenino, Gnomo, Draconato) e 9 Classes (como Bárbaro, Paladino, Mago, Ladino, Bardo, etc.), cada uma com árvores de poderes passivos e ativos.  
 * **Progressão:** O sistema cobre do Nível 1 ao 15, oferecendo aumentos de atributos, novos poderes e talentos (Níveis de Poder).  
 * **Bestiário e Itens:** Inclui monstros desde Ratos Gigantes (Nível 1\) até ameaças lendárias como Lichs e Dragões (Nível 10+), além de itens lendários ("Dysenai") calibrados para o final do jogo.
 
 ## **Cenários de Uso Possíveis** {#cenários-de-uso-possíveis}
 
 1. **Aventuras Heroicas Clássicas:** O sistema brilha em cenários de fantasia tradicional, exploração de masmorras e luta contra o mal, suportado pelas classes arquetípicas.  
-2. **Campanhas de Alta Letalidade:** Como o **PV** (Pontos de Vida) é relativamente baixo e atrelado ao atributo Corpo \+ 1d6, o combate é perigoso, incentivando tática e cautela.  
+2. **Campanhas de Alta Letalidade:** Como o **PV** (Pontos de Vida) é relativamente baixo e atrelado ao atributo Corpo \+ dados de classe, o combate é perigoso, incentivando tática e cautela.  
 3. **Batalhas contra Chefes "Dark Souls":** Com o balanceamento matemático, é possível criar encontros contra chefes onde o acerto é difícil e a sobrevivência depende de equipamentos e buffs, sem que o jogo trave matematicamente.
 
 Em resumo, o **mini-d6** é um sistema "plug-and-play" que oferece a profundidade tática de jogos maiores (como D\&D), mas com uma fração da complexidade matemática e tempo de preparação.
@@ -175,7 +171,7 @@ No **mini-d6** as principais rolagens são baseadas em 3 dados d6, pela document
 
 ### **3d6**
 
-Esta é a rolagem padrão utilizada na maioria das situações, como em combates, por exemplo, eventualmente pode acontecer de ser necessário rolar mas 1d6, geralmente em casos de validação por vantagens ou desvantagens.
+Esta é a rolagem padrão utilizada na maioria das situações, como em combates, por exemplo, eventualmente pode acontecer de ser necessário rolar mais 1d6, geralmente em casos de validação por vantagens ou desvantagens.
 
 * **Rolagens com vantagens:** nelas serão rolados 4 d6 e serão usados os 3 dados de **maior** valor.  
 * **Rolagens com desvantagens:** nelas serão rolados 4 d6 e serão usados os 3 dados de **menor** valor.
@@ -238,23 +234,31 @@ Um conjunto de classes pré definidas ou criadas pela mesa, a classe define o qu
 
 ### **PV**
 
-**Pontos de Vida**, o **PV** do personagem é calculado com base no atributo **corpo** e a sua classe. Personagens que possuem classe cujo atributo **corpo** seja o principal (bárbaro, guerreiro e paladino) rolam **2d3 \+1** somados ao atributo corpo. Personagens que possuem classe cujo atributo **espírito** seja o principal (mago, druid e clérigo) rolam **1d3 \+1** somados ao atributo corpo. E personagens que possuem classe cujo atributo **mente** seja o principal (ladino, ranger e bardo) rolam **3d3 \+2**, o resultado é dividido entre **PV** e **PP**.
+**Pontos de Vida**, o **PV** do personagem é calculado com base no atributo **corpo** e a sua classe:
+* Personagens que possuem classe cujo atributo **corpo** seja o principal (bárbaro, guerreiro e paladino) rolam **2d3 \+1** somados ao atributo Corpo.
+* Personagens que possuem classe cujo atributo **espírito** seja o principal (mago, druida e clérigo) rolam **1d3 \+1** somados ao atributo Corpo.
+* Personagens que possuem classe cujo atributo **mente** seja o principal (ladino, ranger e bardo) rolam **2d3** somados ao atributo Corpo.
 
-O personagem perde **PV** ao sofrer algum tipo de dano. Quando o personagem tem seu **PV** igual a **0** ele desmaia e fica inconsciente. A cada turno o jogador pode rolar um teste de constituição com dificuldade comum com desvantagem para tentar voltar a consciência, caso ele passe no teste, volta com **1 PV**, em caso de sucesso crítico volta com **3** **PV**, o teste é uma melhor de 5, ou seja, o jogador tem os próximos 5 turnos para fazer o teste, caso ele tenha 3 sucessos o personagem volta à consciência com **1 PV** ou **3 PV** conforme descrito anteriormente. Caso o jogador falhe na maioria dos testes, 3 de 5, o personagem morre.
-
-Caso o personagem desmaiado, ou seja, com **0 PV**, sofra algum dano por meio de magia, efeito ou golpe o personagem morre. Caso o personagem tenha realizado o teste de sobrevivência e passado, voltando a vida com valor positivo e venha a tomar um golpe maior ou igual ao **PV** ele volta ao estado de desmaio precisando de novos testes.
+O personagem perde **PV** ao sofrer algum tipo de dano. Quando o personagem tem seu **PV** igual a **0** ele desmaia e fica inconsciente. A cada turno o jogador pode rolar um **teste de constituição** (baseado em Corpo) com dificuldade Comum (12) com desvantagem para tentar estabilizar. O teste é uma melhor de 5 turnos:
+* O personagem precisa obter **3 sucessos** para voltar à consciência com **1 PV** (ou **3 PV** em caso de sucesso crítico).
+* Caso o personagem acumule **3 falhas**, ele morre.
+* **Cura por Aliado:** Se um aliado curar o personagem caído com uma magia, poção ou item médico, ele estabiliza imediatamente, cancela os testes restantes e volta à consciência no início do seu próximo turno pronto para agir com os PVs concedidos pela cura.
+* **Dano em Inconsciente:** Caso o personagem desmaiado (com **0 PV**) sofra qualquer dano adicional por meio de magia, efeito ou golpe, ele morre imediatamente. Caso o personagem tenha estabilizado e venha a tomar um golpe que zere seu PV novamente, ele volta ao estado de desmaio precisando de novos testes.
 
 É possível recuperar o **PV** com um descanso curto ou longo, além de poções, comidas ou artefatos.
 
 Resumo da distribuição de **PVs** iniciais:
 
-* Atributo **corpo**: 2d3 \+1  
-* Atributo **mente**: (3d3 \+2)/2 (entre PV e PP)  
-* Atributo **espírito**: 1d3 \+1
+* Atributo **corpo**: Corpo \+ 2d3 \+1  
+* Atributo **mente**: Corpo \+ 2d3  
+* Atributo **espírito**: Corpo \+ 1d3 \+1
 
 ### **PP**
 
-**Pontos de Poder**, o **PP** do personagem é calculado com base no atributo **espírito** e a sua classe. Personagens que possuem classe cujo atributo **espírito** seja o principal (mago, druid e clérigo) rolam **2d3 \+1** somados ao atributo espírito. Personagens que possuem classe cujo atributo **corpo** seja o principal (bárbaro, guerreiro e paladino) rolam **1d3 \+1** somados ao atributo espírito. E personagens que possuem classe cujo atributo **mente** seja o principal (ladino, ranger e bardo) rolam **3d3 \+2**, o resultado é dividido entre **PV** e **PP**.
+**Pontos de Poder**, o **PP** do personagem é calculado com base no atributo **espírito** e a sua classe:
+* Personagens que possuem classe cujo atributo **espírito** seja o principal (mago, druida e clérigo) rolam **2d3 \+1** somados ao atributo Espírito.
+* Personagens que possuem classe cujo atributo **corpo** seja o principal (bárbaro, guerreiro e paladino) rolam **1d3 \+1** somados ao atributo Espírito.
+* Personagens que possuem classe cujo atributo **mente** seja o principal (ladino, ranger e bardo) rolam **2d3** somados ao atributo Espírito.
 
 O **PP** é usado para evocar poderes sendo consumidos a cada uso. O personagem não pode usar um poder que tenha um custo maior do que o seu limite atual de **PP**. Quando o **PP** chega a **0**, o personagem fica impossibilitado de usar poderes.
 
@@ -262,9 +266,9 @@ O **PP** é usado para evocar poderes sendo consumidos a cada uso. O personagem 
 
 Resumo da distribuição de **PPs** iniciais:
 
-* Atributo **corpo**: 1d3 \+1  
-* Atributo **mente**: (3d3 \+2)/2 (entre PV e PP)  
-* Atributo **espírito**: 2d3 \+1
+* Atributo **corpo**: Espírito \+ 1d3 \+1  
+* Atributo **mente**: Espírito \+ 2d3  
+* Atributo **espírito**: Espírito \+ 2d3 \+1
 
 ### **Exp**
 
@@ -282,7 +286,7 @@ O personagem possuí apenas 3 atributos, são eles:
 * **mente** \[agilidade, destreza, carisma\]:  
 * **espírito** \[inteligência, sabedoria, percepção\]:
 
-Todos os atributos começam com 5 pontos, o jogador faz uma rolagem Mm para cada atributo e adiciona \+1 se cair menor e \+2 se cair maior. O atributo principal da classe ganha \+1 ponto enquanto sacrifica \-1 de outro.
+Todos os atributos começam com 5 pontos, o jogador faz uma rolagem Mm para cada atributo e adiciona \+1 se cair menor e \+2 se cair maior. Cada classe possui 2 pontos de bônus e 2 pontos de penalidades distribuídos entre os atributos.
 
 | Atributo | Base | Dado | Raça | Classe |
 | :---: | :---: | :---: | :---: | :---: |
@@ -290,7 +294,7 @@ Todos os atributos começam com 5 pontos, o jogador faz uma rolagem Mm para cada
 | Mente | 5 | \+1 ou \+2 | 0 ou \+1 | entre \+2 e \-2 |
 | Espírito | 5 | \+1 ou \+2 | 0 ou \+1 | entre \+2 e \-2 |
 
-Nenhum atributo inicial pode ultrapassar 9 ou ser menor que 4\.
+Nenhum atributo inicial pode ultrapassar 10 ou ser menor que 4 (considerando dados, bônus racial e modificador de classe).
 
 ### **Dinheiro (PO)**
 
@@ -342,7 +346,7 @@ Torna o personagem o mais difícil de derrubar a longo prazo.
 
 Traço racial: Resiliência
 
-Impacto Mecânico: **\+1 PV por Nível Par** (adicionado após o cálculo de Corpo \+ 1d6).
+Impacto Mecânico: **\+1 PV por Nível Par** (adicionado após a rolagem do dado Mm).
 
 Resiliência: Sempre que o personagem subir para um nível par e rolar para ganhar PV, ele adiciona **\+1 fixo** ao resultado final do dado Mm.
 
@@ -369,8 +373,6 @@ Poder ancestral e orgulho.
 Traço racial: Herança Elemental
 
 Impacto Mecânico: Escolha um tipo (Fogo, Gelo, Raio, Veneno). Você ignora o primeiro dano desse tipo recebido.
-
-# 
 
 # **Classes** {#classes}
 
@@ -489,7 +491,7 @@ Estilo: mágico
 | Negativo | \-2 | 0 | 0 |
 | **Total** | **\-2** | **0** | **\+2** |
 
-O mago começa com 3 ação passiva ou ativa de nível 1 a sua escolha. 
+O mago começa com 3 ações passivas ou ativas de nível 1 a sua escolha. 
 
 | Poder | Tipo | PP | Efeito | Nível 1 | Nível 2 | Nível 3 |
 | :---- | :---- | :---- | :---- | :---- | :---- | :---- |
@@ -499,21 +501,21 @@ O mago começa com 3 ação passiva ou ativa de nível 1 a sua escolha.
 | Sábio | Passiva | 0 | Você sabe identificar se alguém está mentindo e tem vantagem em testes de conhecimento (História/Arcanismo). |  |  |  |
 | Grimório Vivo | Passiva | 0 | Você pode aprender 1 magia de outra classe (como Clérigo ou Druida), mas ela custa \+1 PP extra para ser conjurada (dificuldade de adaptar a magia). |  |  |  |
 | Rajada Mística | Ativa | 1 | Causa dano mágico. | 1d3 | 2d3 | 3d3 |
-| Mísseis Mágicos | Ativa | 2 | Lança X mísseis causando dano automático de **1Mm** por míssil sem rolar dados (não soma com atributo Espírito) direto ao PV. | x \= 3 | X \= 4 | X \= 5 |
+| Mísseis Mágicos | Ativa | 2 | Lança X mísseis com acerto automático (sem rolagem de ataque). Cada míssil causa dano de 1Mm direto ao PV (não soma atributo). | X \= 3 | X \= 4 | X \= 5 |
 | Passo Nebuloso | Ativa | 2 | Ação Menor (Defesa). Teletransporta-se para um local visível em uma área grande. Não gera ataque de oportunidade. |  |  |  |
 | Onda de Choque | Ativa | 2 | Todos em uma área X devem testar o Corpo. Se falharem, sofrem dano (2d3) e são empurrados 3m para trás. | X \= pequena | X \= média | X \= grande |
 | Bola de Fogo | Ativa | 4 | Explosão em área média. Causa dano a todos na área | 1d3 \+ 1 | 2d3 \+ 1 | 3d3 \+ 1 |
 | Invisibilidade | Ativa | 2 | Fica indetectável. 1d6 turnos. |  |  |  |
-| Contramágica | Ativa | 3 | Reação. Tenta anular uma magia conjurada por um inimigo. Teste de Espírito vs Espírito do rival. |  |  |  |
+| Contramágica | Ativa | 3 | Ação Menor (Reativa). Tenta anular uma magia conjurada por um inimigo fora do seu turno. Teste de Espírito vs Espírito do rival. |  |  |  |
 | Sugestão | Ativa | 3 | Controle. O alvo deve testar Mente. Se falhar, obedece a uma ordem simples que não seja suicida e nem atacar aliado (ex: "Jogue a arma no chão", "Fuja"). |  |  |  |
 | Metamorfose | Ativa | 5 | Transforma a si mesmo ou um inimigo em um animal pequeno (sapo/ovelha) por 3 turnos. Se o animal sofrer dano, a forma reverte. |  |  |  |
 | Sono | Ativa | 2 | Alvo dorme se falhando no Espírito por X turnos. | X \= 1d3 | X \= 2d3 | X \= 3d3 |
-| Cone de Gelo | Ativa | 3 | Causa dano e os inimigos perdem o movimento. | pequeno | médio | grande |
+| Cone de Gelo | Ativa | 3 | Causa dano e reduz movimentação dos inimigos em cone. | pequeno (1d3, \-2m mov) | médio (2d3, metade mov) | grande (3d3, teste Corpo ou imobilizado) |
 | Mão Maga | Ativa | 1 | Move objetos pesados à distância. | pequeno | médio | grande |
-| Relâmpago | Ativa | 3 | Ataca em linha reta. | pequeno | médio | grande |
+| Relâmpago | Ativa | 3 | Ataca em linha reta causando dano elétrico. | pequeno (2d3) | médio (3d3) | grande (4d3) |
 | Paralisia | Ativa | 2 | Congela o inimigo no lugar por X turnos.  | X \= 1d3 | X \= 2d3 | X \= 3d3 |
 | Sopro de Geada | Ativa | 3 | Rajada de gelo em linha que imobiliza e fragiliza. | pequeno, 1d3 | médio, 2d3 | grande, 3d3 |
-| Orbe Relâmpago | Ativa | 3 | Raio que salta entre oponentes (foco metal). | pequeno | médio | grande |
+| Orbe Relâmpago | Ativa | 3 | Raio que salta entre oponentes (foco metal). | pequeno (1d3\+1 até 2 alvos) | médio (2d3\+1 até 3 alvos) | grande (3d3\+1 até 4 alvos) |
 | Explosão Solar | Ativa | 4 | Clarão destrutivo que queima e cega. | pequeno, 1d3 | médio, 2d3 | grande, 3d3 |
 | Mão necrótica | Ativa | 2 | Cria uma mão esquelética fantasma que causa dano \+ medo. | 1d3 \+ 1 | 2d3 \+ 1 | 3d3 \+ 1 |
 
@@ -547,10 +549,18 @@ O druida começa com 2 ação passiva ou ativa de nível 1 a sua escolha.
 | Chicote de Espinhos | Ativa | 1 | Alcance médio. Causa Espírito \+ 1d3 de dano e puxa o alvo em sua direção. |  |  |  |
 | Bagas de Vida | Ativa | 2 | Cria 3 frutos. Comer um é uma **Ação Menor** e recupera 1 PV. Cura pouco, mas pode ser distribuído entre o grupo e levanta aliados caídos (1 PV). |  |  |  |
 | Enredar | Ativa | 3 | Vinhas brotam do chão. Inimigos na área devem testar o Corpo ou ficam Impedidos (não movem, desvantagem no ataque). A área vira terreno difícil. |  |  |  |
-| Forma Selvagem | Ativa | 3 | Transforma-se em uma besta. Efeito: Substitui seus atributos físicos pelos da besta (Ex: Corpo 12, Defesa 14). Ganha PV Temporários da besta. Dura até os PV da besta acabarem ou você cancelar. Se os PV acabarem, você volta à forma normal com o dano excedente. |  |  |  |
+| Forma Selvagem | Ativa | 3 | Transforma-se em uma besta (Ágil, Predador ou Robusta, conforme tabela de Formas Animais). Efeito: Substitui seus atributos físicos pelos da besta. Ganha PV Temporários da besta. Dura até os PV da besta acabarem ou você cancelar. Se os PV acabarem, você volta à forma normal com o dano excedente. |  |  |  |
 | Esquentar Metal | Ativa | 2 | Escolha um inimigo de armadura metálica ou segurando arma de metal. Ele sofre 1d6 de dano de fogo automático por turno e tem desvantagem nos ataques enquanto segurar o objeto. |  |  |  |
 | Convocar Relâmpagos | Ativa | 4 | Cria uma nuvem de tempestade. Ao conjurar, e como ação nos turnos seguintes (por 1 PP extra/turno), cai um raio (3d6 dano em área pequena). |  |  |  |
 | Muralha de Vento | Ativa | 3 | Cria uma barreira de ar. Ataques à distância (flechas/virotes) não conseguem atravessar a barreira. | 1d3 turnos | 1d6 turnos |  |
+
+### **Formas Animais do Druida (Forma Selvagem)**
+
+| Forma | Exemplos | Atributos e Defesa | PV Temporários | Dano do Ataque | Características Especiais |
+| :---- | :---- | :---- | :----: | :----: | :---- |
+| **Ágil / Pequena** | Falcão, Gato, Serpente | Corpo: 6, Mente: 12, Defesa: 16 | 8 PV | 1d3 | Deslocamento 8m; Voo, Furtividade ou Escalada (Vantagem em testes de Mente). |
+| **Predador / Média** | Lobo, Pantera, Javali | Corpo: 11, Mente: 10, Defesa: 15 | 14 PV | 1d3 \+ 2 | Deslocamento 7m; Se tirar 18 no teste de ataque, derruba o alvo (Caído). |
+| **Robusta / Grande** | Urso, Crocodilo, Alce | Corpo: 15, Mente: 7, Defesa: 16 | 22 PV | 2d3 \+ 2 | Deslocamento 5m; Resistência Física 2 (Armadura natural). *(Requer Nível 3 do poder)* |
 
 ## **Clérigo** {#clérigo}
 
@@ -670,16 +680,16 @@ Estilo: distância/físico (ou Suporte)
 | :---: | :---: | :---: | :---: |
 | Positivo | 0 | \+1 | \+1 |
 | Negativo | \-2 | 0 | 0 |
-| **Total** | **\-2** | **\-1** | **\+1** |
+| **Total** | **\-2** | **\+1** | **\+1** |
 
-O bardo começa com 2 ação passiva ou ativa de nível 1 a sua escolha. 
+O bardo começa com 2 ações passivas ou ativas de nível 1 a sua escolha. 
 
 | Poder | Tipo | PP | Efeito | Nível 1 | Nível 2 | Nível 3 |
 | :---- | :---- | :---- | :---- | :---- | :---- | :---- |
 | Inspiração Bárdica | Passiva | 0 | Ação Menor. Uma vez por dia você pode conceder um dado de inspiração (1d6 extra) a um aliado. Ele pode adicionar esse dado a qualquer teste de Ataque, Defesa ou Habilidade nos próximos 10 minutos. | \+1 | \+2 |  |
 | Faz-Tudo | Passiva | 0 | Você pode adicionar \+1 em qualquer teste de perícia (não combate) em que não tenha um bônus específico. |  |  |  |
 | Canção de Descanso | Passiva | 0 | Se você tocar música durante um Descanso Curto, todos os aliados recuperam \+X de PV extra. | 1d3 | 1d6 |  |
-| Palavras Cortantes | Passiva | 0 | Quando um inimigo acerta um ataque em um aliado próximo, você pode usar sua reação para insultá-lo, reduzindo o dano causado em 1d3. |  |  |  |
+| Palavras Cortantes | Passiva | 0 | Ação Menor (Reativa). Quando um inimigo acerta um ataque em um aliado próximo fora do seu turno, reduz o dano causado em 1d3. |  |  |  |
 | Lâmina Dançante | Passiva | 0 | Você pode usar seu atributo Mente (em vez de Corpo) para atacar com espadas leves ou rapieiras. |  |  |  |
 | Fama | Passiva | 0 | É reconhecido em tavernas (comida e sono de graça). |  |  |  |
 | Encantador | Passiva | 0 | Inimigos devem passar em um teste de Mente para te atacar no primeiro turno. Além disso, você tem vantagem em negociações. |  |  |  |
@@ -691,7 +701,7 @@ O bardo começa com 2 ação passiva ou ativa de nível 1 a sua escolha.
 | Sugestão | Ativa | 3 | O alvo deve testar Mente. Se falhar, segue uma ordem que não seja auto-destrutiva (ex: "Jogue sua arma longe", "Fuja"). |  |  |  |
 | Ressurreição Menor | Ativa | 5 | Traz um aliado morto recentemente com 1 PV. |  |  |  |
 | Distorção Sonora | Ativa | 2 | Cria um barulho que atordoa o alvo. | 1 turno | 2 turnos |  |
-| Sono | Ativa | 3 | Role 4d6. Esse é o total de PV de criaturas que você pode colocar para dormir (sem teste de resistência). Começa pelas criaturas com menos PV atual. |  |  |  |
+| Sono | Ativa | 2 | Alvo dorme se falhar no teste de Espírito por X turnos. | X \= 1d3 | X \= 2d3 | X \= 3d3 |
 
 # **Poderes** {#poderes}
 
@@ -732,8 +742,6 @@ Ao efetuar uma falha crítica o custo é debitado e algo saí errado.
 
 O mestre tem a palavra final para ajustar efeitos que extrapolam o impacto esperado para o custo do poder.
 
-# 
-
 # **Danos e condições** {#danos-e-condições}
 
 No mini-d6, o tipo de dano define qual atributo é usado para resistir ou se a armadura é efetiva.
@@ -773,7 +781,7 @@ Tabela de Condições e Status
 | Envenenado | Sofre Desvantagem em Jogadas de Ataque e Testes de Habilidade. | Opcional: 1d3 de dano por turno (Veneno). | Teste de Corpo a cada turno para resistir ou uso de Antídoto/Cura. |
 | Impedido | Deslocamento 0\. Ataques contra o alvo têm vantagem. Ataques do alvo têm desvantagem. Desvantagem em testes de Mente (Agilidade). | Nenhum. | Até se libertar (Teste de Corpo/Mente) ou a magia acabar. |
 | Incapacitado | Não pode realizar Ações ou Reações. | Nenhum. | Até a condição que causou isso acabar. |
-| Inconsciente | Incapacitado. Larga o que segura. Falha automática em testes de defesa. Ataques a 1,5m são críticos automáticos. | Nenhum. | Até receber cura, sofrer dano (acorda se for sono) ou passar tempo. |
+| Inconsciente | Incapacitado. Larga o que segura. Falha automática em testes de defesa. Ataques a 1,5m são críticos automáticos. | Nenhum. | Até receber cura ou passar tempo (acorda se for sono; se for desmaio a 0 PV, segue a regra de Teste de Constituição/morte). |
 | Invisível | Impossível de ser visto (mas pode ser ouvido). Ataques do alvo têm vantagem. Ataques contra o alvo têm desvantagem. | Nenhum. | Até atacar ou conjurar magia (padrão) ou duração da magia. |
 | Paralisado | Incapacitado e não pode mover ou falar. Falha automática em testes de Corpo/Mente. Ataques a 1,5m são críticos automáticos. | Nenhum. | Teste de Espírito/Corpo no final de cada turno para encerrar. |
 | Petrificado | Transformado em pedra. Peso x10. Incapacitado. Resistência a todo dano. Imune a veneno/doença. | Nenhum. | Apenas com magias de Restauração Maior ou nível alto. |
@@ -796,20 +804,18 @@ Tabela de Danos Contínuos (Status de Dano)
 
 # **Dificuldade** {#dificuldade}
 
-Define a tabela de dificuldade da rolagem dos dados, ela é usada em alguns cenários como definição de dificuldade e inimigos, ou testes. A dificuldade é calculada somando os valores de rolagem de 3d6 (4d6 se tiver vantagem ou desvantagem conforme a regra de rolagem de dados).
+Define a tabela de dificuldade da rolagem dos dados, utilizada em testes de perícias, resistências e situações dentro e fora de combate. A mecânica padrão consiste em rolar **3d6 \+ Atributo** pertinente e comparar o resultado final com a Dificuldade da tarefa (rolando 4d6 em situações de vantagem ou desvantagem).
 
-| Dificuldade | Limitador | Limitador com atributos |
-| :---- | :---- | :---- |
-| Fácil | 9 | limitador \+ atributo |
-| Comum | 12 | limitador \+ atributo |
-| Difícil | 15 | limitador \+ atributo |
-| Heroico | 18 | limitador \+ atributo |
+| Dificuldade | Meta (3d6 \+ Atributo) | Exemplos de Tarefas |
+| :---- | :----: | :---- |
+| Fácil | 9 | Tarefas simples sob pressão, arrombar fechadura comum |
+| Comum | 12 | Desafio padrão de aventuras, saltar fosso médio |
+| Difícil | 15 | Tarefas complexas para especialistas, decifrar enigma antigo |
+| Heroico | 18 | Feitos lendários, resistir a magia de um arquimago |
 
-Valores abaixo do limitador contam como falhas, valores iguais ou maiores que o limitador contam como sucesso no teste de dificuldade.
+Valores finais (**3d6 \+ Atributo**) abaixo da meta contam como falhas; valores iguais ou superiores à meta contam como sucesso no teste.
 
-O limitador com atributos é utilizado para confrontar nos testes que envolvem os atributos, por exemplo um jogador com com mente 5 em um teste de persuasão de nível comum irá rolar os 3d6 da dificuldade e o resultado dos 3d6 \+ os 5 pontos de mente do personagem devem ser iguais ou superiores a 17 (limitador 12 \+ atributo 5 \= 17\) para passar no teste.
-
-# 
+**Exemplo:** Um jogador com Mente 5 realizando um teste de persuasão de dificuldade Comum (12) rola 3d6 e soma seus 5 pontos de Mente. Se o resultado da soma for 12 ou mais (ou seja, se a rolagem dos dados for 7 ou superior em 3d6), o personagem passa no teste com sucesso.
 
 # **Testes e Resoluções** {#testes-e-resoluções}
 
@@ -825,7 +831,7 @@ Em rolagens com vantagem prevalecem os maiores valores dos 4 dados, caracterizan
 
 Em rolagens com desvantagem prevalecem os menores valores dos 4 dados, caracterizando um sucesso comum.
 
-Além destes cenários existem os cenários padrões de falha e sucesso. Um teste falha quando o resultado da soma dos dados 3d6 somado ao atributo são inferiores ao limitador do teste realizado, por exemplo um teste fácil onde a soma chegue ao total de até 12 pontos, visto que o limitador é 13, ou seja, deste valor para cima é sucesso. Em caso de fracasso a ação não é realizada, em caso de sucesso sim, ficando a cargo do mestre em decidir o nível de sucesso e seu resultado narrativo, visto que 14 pode ser interpretado como um sucesso fraco enquanto 20 um sucesso com mais habilidades dentro do exemplo que seguimos.
+Além destes cenários existem os cenários padrões de falha e sucesso. Um teste falha quando o resultado da soma dos dados 3d6 somado ao atributo são inferiores à meta de dificuldade do teste realizado, por exemplo um teste fácil onde a soma chegue a 8 pontos, visto que a meta é 9. Em caso de fracasso a ação não é realizada, em caso de sucesso sim, ficando a cargo do mestre decidir o nível de sucesso e seu resultado narrativo.
 
 Exemplos de testes:
 
@@ -835,8 +841,6 @@ Exemplos de testes:
 * **Resistência física:** 3d6 \+ corpo  
 * **Resistência mágica:** 3d6 \+ espírito  
 * **Percepção:** 3d6 \+ espírito
-
-# 
 
 # **Combate** {#combate}
 
@@ -868,15 +872,15 @@ Uma falha crítica ocorre quando o jogador obtém um triplo 1 no teste, o mestre
 
 ### **Defesa**
 
-Toda defesa representa a capacidade do personagem de absorver, resistir ou mitigar dano. A defesa utilizada depende exclusivamente do tipo de dano causado e não do atributo usado pelo atacante.
+Toda defesa representa a capacidade do personagem de evitar ser acertado por um golpe. A defesa utilizada depende exclusivamente do tipo de ataque e dano recebido:
 
 Contra ataques físicos (corpo-a-corpo), a distância com armas ou projéteis a defesa consiste em:
 
-***defesa física** \= corpo \+ escudo*
+***defesa física** \= 10 \+ corpo \+ escudo*
 
 Contra ataques de poder como mágicas, poderes espirituais, sobrenaturais ou mentais a defesa consiste em:
 
-***defesa mágica** \= espírito*
+***defesa mágica** \= 10 \+ espírito*
 
 Se um ataque causar dano físico, utiliza defesa física. Se causar dano mágico, utiliza defesa mágica. Se um poder causar ambos, o mestre define qual defesa se aplica, ou divide o dano entre os dois tipos de defesa.
 
@@ -1038,7 +1042,7 @@ A ação principal geralmente é algo decisivo enquanto a ação menor tende a s
 
 De modo geral, toda ação que é feita intuitivamente conta como uma ação menor, toda ação planejada ou intencional conta como uma ação principal.
 
-O **Golpe de Oportunidade** ocorre fora do turno do personagem, ele acontece sempre que um personagem  faz um movimento de fuga ou se distancia do seu adversário, seja para fugir ou passando ao lado para mudar de posição no combate, gerando um golpe físico seguindo as regras de combate corpo a corpo. Este ataque não conta como ação principal nem como ação bônus para o atacante.
+O **Golpe de Oportunidade (Reação)** ocorre fora do turno do personagem: acontece sempre que um adversário faz um movimento de fuga ou se distancia, seja para fugir ou passando adjacente para mudar de posição no combate, gerando um golpe físico seguindo as regras de combate corpo a corpo. Este ataque não consome sua Ação Principal do próximo turno.
 
 Também contam como Ação Principal os movimentos de saltar, se esconder (teste de furtividade \- mente), correr, entre outros.
 
@@ -1047,8 +1051,6 @@ Saltar permite que o personagem salte o equivalente a  2 metros de distância.
 Correr dobra a distância de deslocamento, ou seja, se é 5 metros, passa a ser 10 metros.
 
 Toda movimentação leva em consideração o tipo de terreno, caso seja um terreno difícil a movimentação cai pela metade. Terrenos difíceis são terrenos com neve, com água, com gelo, lama, obstáculos ou quaisquer coisa que seja justificada dentro da narrativa do mestre. Alguns terrenos difíceis podem exigir teste para deslocamento (corpo ou mente) caso a dificuldade seja maior, como gelo ou terrenos que prendem como areia movediça e afins.
-
-# 
 
 # **Descansos** {#descansos}
 
@@ -1087,8 +1089,6 @@ Em jogos solo, o descanso longo pode ser um momento narrativo. Você pode criar 
 4. Barulhos na Noite: O próximo teste de Mente tem vantagem.  
 5. Visitante: Um mercador ou NPC neutro aparece.  
 6. Inspeção de Equipamento: Você gastou o tempo polindo suas armas. Seu próximo ataque bem-sucedido causa \+1 de dano extra.
-
-# 
 
 # **Experiência e Nível** {#experiência-e-nível}
 
@@ -1131,8 +1131,6 @@ Ou seja, o personagem passa do nível 1 para o nível 2, ele ganha PV e PP, mas 
 | 14 | 255 | \+35 | PV/PP |
 | 15 | 290 | \+35 | NP \+ atributo |
 
-# 
-
 # **Inimigos** {#inimigos}
 
 Neste capítulo vamos abordar a criação do bestiário de criaturas, é importante destacar que este bestiário é um molde e você está livre para usar, modificar ou adaptar conforme a necessidade da sua aventura, também deixo logo no início a tabela com as fórmulas usadas para a criação deste bestiário.
@@ -1141,7 +1139,7 @@ O bestiário está dividido em grupos de 6 criaturas por níveis do nível 1 ao 
 
 Atributos dos inimigos
 
-Todo inimigo possui uma tabela com os 3 atributos, é importante lembrar que, na coluna “defesa” considera o atributo corpo, assim como é feito para os personagens, porém ataques de poder são defendidos pelo espírito, da mesma forma como é descrito no capítulo sobre combate.
+Todo inimigo possui uma tabela com os 3 atributos. A defesa física de uma criatura segue a armadura natural/agilidade indicada na coluna Def, enquanto ataques de poder contra ela são defendidos pelo atributo Espírito (10 \+ Espírito), conforme descrito no capítulo sobre combate.
 
 ### **Tipos de criaturas**
 
@@ -1177,11 +1175,12 @@ As criaturas são classificadas em algum tipo, isso é usado para identificar, a
 
 ### **Loot**
 
-O loot (itens que os monstros deixam quando morrem) pode ser calculado da seguinte forma:
+O loot (itens e moedas que os monstros deixam quando derrotados) pode ser calculado da seguinte forma:
 
-*(nível de dificuldade \* números de jogadores no time \* 1d6) PO*
+* **Inimigos Comuns:** *(nível de desafio \* 1d6) PO* no total para o grupo dividir.  
+* **Chefes ou Grandes Tesouros:** *(nível de desafio \* número de jogadores no time \* 1d6) PO*.
 
-Dessa forma há a chance de que cada membro do time ganhe 1d6 para cada nível de dificuldade do inimigo enfrentado, além de que é possível fazer uma rolagem Mm para verificar a chance de cair um item ou equipamento, em caso de sucesso (M) pode rolar 1d6 para identificar a categoria do item como na seguinte tabela.
+Além do ouro, é possível fazer uma rolagem Mm para verificar a chance de cair um item ou equipamento: em caso de sucesso maior (**M**), rola-se 1d6 para identificar a categoria do item conforme a tabela:
 
 1. Arma corpo-a-corpo  
 2. Arma de distância  
@@ -1192,31 +1191,31 @@ Dessa forma há a chance de que cada membro do time ganhe 1d6 para cada nível d
 
 ### **Gerador de Monstros Express (Fórmula)**
 
-Esta tabela serve como base para você criar qualquer criatura nova.
+Esta tabela serve como base para você criar qualquer criatura nova. O valor de XP indicado é concedido integralmente a cada jogador presente no combate.
 
-| Nível (Desafio) | Atrib. | PV | Defesa | Res | Ataque (Dano Sugerido) | XP |
+| Nível (Desafio) | Atrib. | PV | Defesa | Res | Ataque (Dano Sugerido) | XP (por jogador) |
 | ----- | ----- | ----- | ----- | ----- | ----- | ----- |
-| 1 | 7 a 8 | 9 a 15 | Atrib. \+ 1 a 3 | 1 a 3 | Atributo \+ 1d3 (+1 ou \+2) | 2 XP |
-| 2 | 9 a 10 | 12 a 16 | Atrib. \+ 4 a 6 | 4 a 6 | Atributo \+ 1d3 (+2 ou \+3) | 3 XP |
-| 3 | 11 a 12 | 13 a 18 | Atrib. \+ 7 a 9 | 7 a 9 | Atributo \+ 1d3 (+3 ou \+4) | 5 XP |
-| 4 | 13 a 14 | 20 a 25 | Atrib. \+ 10 a 12 | 10 a 12 | Atributo \+ 1d6 | 7 XP |
-| 5 | 15 a 16 | 30 a 35 | Atrib. \+ 13 a 15 | 13 a 15 | Atributo \+ 1d6 (até \+3) | 10 XP |
+| 1 | 7 a 8 | 9 a 15 | Atrib. \+ 1 a 3 | 1 a 3 | 1d6 (ou 1d3 \+ 2) | 2 XP |
+| 2 | 9 a 10 | 12 a 16 | Atrib. \+ 4 a 6 | 4 a 6 | 1d6 \+ 2 (ou 2d3 \+ 1) | 3 XP |
+| 3 | 11 a 12 | 13 a 18 | Atrib. \+ 7 a 9 | 7 a 9 | 2d6 | 5 XP |
+| 4 | 13 a 14 | 20 a 25 | Atrib. \+ 10 a 12 | 10 a 12 | 2d6 \+ 2 | 7 XP |
+| 5 | 15 a 16 | 30 a 35 | Atrib. \+ 13 a 15 | 13 a 15 | 2d6 \+ 4 (ou especial) | 10 XP |
 | Elite (6-8) | 17 a 19 | 45 a 60 | Atrib. \+ 16 a 18 | 16 a 18 | Atributo \+ 2d6 | 15 a 20 XP |
 | Supremos (9-10) | 20+ | 70 a 100 | Atrib. \+ 19 a 21 | 19 a 21 | Atributo \+ 2d6 (até \+3) ou especial | 30 a 40 XP |
 | Lendários (11-15) | 25+ | 100+ | Atrib. \+ 22+ | 22+ | Atributo \+ 3d6 ou especial | 50+ XP |
 
 Role **1d6** para definir qual criatura o jogador encontra em cada nível.
 
-## **Nível 1 (XP: 2 cada)** {#nível-1-(xp:-2-cada)}
+## **Nível 1 (XP: 2 para cada jogador)** {#nível-1-(xp:-2-cada)}
 
 | 1d6 | Criatura | Tipo | Atrib. | PV | Def | Res | Atk | Especial |
 | :---- | :---- | :---- | :---- | :---- | :---- | :---- | :---- | :---- |
-| 1 | Rato Gigante | Besta | C: 7 M:8 E: 7 | 12 | C \+ 1 (8) | 2 | C \+ 1d3 | Tenta fugir se perder 5 PV. |
-| 2 | Goblin | Humanoide | C: 8 M: 7E: 7 | 15 | C \+ 2 (10) | 3 | C \+ 1d3 | \+1 ataque se agir primeiro. |
-| 3 | Esqueleto | Morto-vivo | C: 8 M: 7 E: 7 | 13 | C \+ 3 (11) | 3 | C \+ 1d3 \+ 1 | Imune a dano de Espírito. |
-| 4 | Aranha | Besta | C: 7 M: 8 E: 7 | 12 | C \+ 1 (8) | 2 | M \+ 1d3 | Ataca  a distância média.Se atingir, alvo perde 2m mov. |
-| 5 | Kobold | Humanoide | C: 7 M: 8 E: 7 | 12 | C \+ 1 (8) | 1 | M \+ 1d3 | Ataca a distância curta.\+1 ataque se houver outro Kobold. |
-| 6 | Cultista | Humano | C: 7M: 7E: 8 | 15 | C \+ 2 (9) E \+ 3 (11) | 3 | E \+ 1d3 \+ 2 | Ataca a distância média.Uma vez, recupera 7 PV. |
+| 1 | Rato Gigante | Besta | C: 7 M:8 E: 7 | 12 | C \+ 1 (8) | 2 | 1d3 \+ 1 | Tenta fugir se perder 5 PV. |
+| 2 | Goblin | Humanoide | C: 8 M: 7 E: 7 | 15 | C \+ 2 (10) | 3 | 1d6 | \+1 ataque se agir primeiro. |
+| 3 | Esqueleto | Morto-vivo | C: 8 M: 7 E: 7 | 13 | C \+ 3 (11) | 3 | 1d6 | Imune a dano Necrótico. |
+| 4 | Aranha | Besta | C: 7 M: 8 E: 7 | 12 | C \+ 1 (8) | 2 | 1d3 \+ 1 | Ataca a distância média. Se atingir, alvo perde 2m mov. |
+| 5 | Kobold | Humanoide | C: 7 M: 8 E: 7 | 12 | C \+ 1 (8) | 1 | 1d3 \+ 1 | Ataca a distância curta. \+1 ataque se houver outro Kobold. |
+| 6 | Cultista | Humano | C: 7 M: 7 E: 8 | 15 | C \+ 2 (9) E \+ 3 (11) | 3 | 1d6 | Ataca a distância média. Uma vez, recupera 7 PV. |
 
 ## **Nível 2 (XP: 3 cada)** {#nível-2-(xp:-3-cada)}
 
@@ -1257,7 +1256,7 @@ Role **1d6** para definir qual criatura o jogador encontra em cada nível.
 | :---- | :---- | :---- | :---- | :---- | :---- | :---- | :---- | :---- |
 | 1 | Gigante da Colina | Gigante | C: 16 M: 15 E: 15 | 35 | C \+ 5 (21) | 13 | C \+ 1d6 \+ 2 M \+ 1d6 | Arremessa pedras a curta distância. |
 | 2 | Wyvern | Dragão | C: 16 M: 15 E: 15 | 35 | C \+ 4 (20) E \+ 2 (17) | 13 | C \+ 1d6 \+ 1 E \+ 1d3 \+ 3 | Ataca a distância média. Veneno: 2 dano/turno (3t). |
-| 3 | Beholder Menor | Aberração | C: 15 M: 16 E 16 | 30 | C \+ 5 (20) E \+ 4 (20) | 13 | E \+ 1d6 \+ 1 | Ataca a distância curta. Ataca 2 alvos por turno. |
+| 3 | Beholder Menor | Aberração | C: 15 M: 16 E: 16 | 30 | C \+ 5 (20) E \+ 4 (20) | 13 | E \+ 1d6 \+ 1 | Ataca a distância curta. Ataca 2 alvos por turno. |
 | 4 | Cavaleiro Negro | Humano | C: 16 M: 15 E: 15 | 35 | C \+ 7 (23) | 15 | C \+ 1d6 \+ 2 | Aura: \-1 ataque para próximos. |
 | 5 | Quimera | Monstruosidade | C: 16 M: 15 E: 15 | 35 | C \+ 6 (22) | 14 | C \+ 1d6 | Ataca 3x. |
 | 6 | Golem Ferro | Construto | C: 16 M: 15 E: 15 | 35 | C \+ 5 (21) | 15 | C \+ 1d6 | Ignora o primeiro ataque. |
@@ -1272,9 +1271,7 @@ Estas criaturas são pensadas para encontros climáticos ou chefes de campanha.
 | 7 | Observador (beholder) | Aberração | C: 19 M: 19 E: 20 | 70 | C \+ 6 (25) E \+ 5 (25) | 18 | E \+ 2d6 | 18 | Desativa poderes de Espírito. |
 | 8 | Vampiro Ancião | Morto-vivo | C: 20  M: 21 E: 20 | 90 | C \+ 7 (27) E \+ 5 (25) | 16 | M \+ 2d6 | 22 | Escapa de dano fatal 1x. |
 | 9 | Lich | Morto-vivo | C: 21  M: 21 E: 22 | 80 | C \+ 9 (30) E \+ 10 (32) | 15 | E \+ 2d6 \+2 | 28 | Se o acerto do ataque \= 18, o alvo vai a 1 PV. |
-| 10 | Dragão | Dragão | C: 23 M: 21 E: 23 | 150 | C \+ 7 (30)E \+ 7 (30) | 18 | C \+ 2d6 \+ 3 | 50 | Sopro: Área Grande (6m). |
-
-# 
+| 10 | Dragão | Dragão | C: 23 M: 21 E: 23 | 150 | C \+ 7 (30) E \+ 7 (30) | 18 | C \+ 2d6 \+ 3 | 50 | Sopro: Área Grande (6m). |
 
 # **Itens e Equipamentos** {#itens-e-equipamentos}
 
@@ -1297,27 +1294,27 @@ Nota: Armas de duas mãos geralmente impedem o uso de escudos.
 | Arma | Bordão de Mogno | Corpo Espírito | 2 Mãos | Não | 3d3 \+ 1 | 80 |
 | Arma | Cimitarra Mágica | Corpo | 1 Mão | Sim | 1d3 \+ 2 Luz pequena | 150 |
 | Arma | Maça divina | Corpo | 1 Mão | Sim | 2d3 \+1d3 Radiante | 550 |
-| Arma | Espada Justiceira | Corpo | 1 Mão | Sim | 1d3 2d3 Radiante | 550 |
-| Arma | Lâmina do dragão | Corpo | 1 Mão | Sim | 2d6 físico \+ 3 1d6 fogo | 1000 |
-| Arma |  Martelo do trovão | Corpo | 1 Mão | Sim | 2d6 físico \+ 3 1d6 elétrico | 1300 |
+| Arma | Espada Justiceira | Corpo | 1 Mão | Sim | 1d3 \+ 2d3 Radiante | 550 |
+| Arma | Lâmina do dragão | Corpo | 1 Mão | Sim | 2d6 físico \+ 3 \+ 1d6 fogo | 1000 |
+| Arma | Martelo do trovão | Corpo | 1 Mão | Sim | 2d6 físico \+ 3 \+ 1d6 elétrico | 1300 |
 | Arma | Bordão de Dysenai | Corpo Espírito  | 2 Mãos | Sim | 3d6 \+3 Espírito | 1500 |
 | Arma | Machado de Dysenai | Corpo | 2 Mãos | Sim | 3d6 \+3 Corpo | 1500 |
 
 ## **Armas (Distância)** {#armas-(distância)}
 
-Nota: Armas de distância respeitam uma regra de alcance ideal, caso seja utilizada em uma distância superior a da arma, o teste de acerto sobe a dificuldade em 1 ponto, ou seja, o cálculo de para acerto será: **ataque \- (defesa \+ 1\)**.
+Nota: Armas de distância possuem alcances definidos em metros: **Curto (até 6 metros)**, **Médio (até 15 metros)** e **Longo (até 30 metros)**. Caso seja utilizada além da distância ideal, o teste de acerto sofre penalidade de -2 no resultado do ataque: **ataque \- (defesa \+ 2\)**.
 
 | Tipo | Nome | Atributo | Alcance | Mãos | Mágico? | Efeito (Dano) | Preço (PO) |
 | :---- | :---- | :---- | :---- | :---- | :---- | :---- | :---- |
-| Arma | Funda | Mente | Médio | 2 Mãos | Não | 1Mm | 15 |
-| Arma | Bumerangue | Mente | Médio | 1 Mão | Não | 1d3 | 20 |
-| Arma | Arco Curto | Mente | Médio | 2 Mãos | Não | 1d3 \+ 1 | 30 |
-| Arma | Lança de arremesso | Mente | Curta | 1 Mão | Não | 1d3 \+ 1 | 35 |
-| Arma | Arco Longo | Mente | Longo | 2 Mãos | Não | 1d3 \+ 2 | 55 |
-| Arma | Besta Pesada | Mente | Longo | 2 Mãos | Não | 2d3 \+ 1 | 80 |
-| Arma | Arco de Éter | Mente | Longo | 2 Mãos | Sim | 2d3 \+ 3 \+1 Mente Ignora 3 de armadura | 200 |
-| Arma | Lança de Dysenai | Mente | Curta | 1 Mãos | Sim | 2d6 \+ 3 \+3 Mente | 1500 |
-| Arma | Arco de Dysenai | Mente | Longo | 2 Mãos | Sim | 3d6 \+ 2 Ignora 3 de armadura | 1500 |
+| Arma | Funda | Mente | Médio (15m) | 2 Mãos | Não | 1Mm | 15 |
+| Arma | Bumerangue | Mente | Médio (15m) | 1 Mão | Não | 1d3 | 20 |
+| Arma | Arco Curto | Mente | Médio (15m) | 2 Mãos | Não | 1d3 \+ 1 | 30 |
+| Arma | Lança de arremesso | Mente | Curto (6m) | 1 Mão | Não | 1d3 \+ 1 | 35 |
+| Arma | Arco Longo | Mente | Longo (30m) | 2 Mãos | Não | 1d3 \+ 2 | 55 |
+| Arma | Besta Pesada | Mente | Longo (30m) | 2 Mãos | Não | 2d3 \+ 1 | 80 |
+| Arma | Arco de Éter | Mente | Longo (30m) | 2 Mãos | Sim | 2d3 \+ 3 \+1 Mente Ignora 3 de armadura | 200 |
+| Arma | Lança de Dysenai | Mente | Curto (6m) | 1 Mão | Sim | 2d6 \+ 3 \+3 Mente | 1500 |
+| Arma | Arco de Dysenai | Mente | Longo (30m) | 2 Mãos | Sim | 3d6 \+ 2 Ignora 3 de armadura | 1500 |
 
 ## **Armaduras** {#armaduras}
 
@@ -1381,8 +1378,6 @@ Nota: Itens agrupáveis geralmente podem ser carregados em pilhas de até 5 ou 1
 | Poção | Poção de Cura | 1 Mão | Sim (5) | Sim | Recupera 1d6 de PV | 30 |
 | Poção | Poção de Poder | 1 Mão | Sim (5) | Sim | Recupera 1d6 de PP | 30 |
 | Poção | Elixir Mente | 1 Mão | Sim (5) | Sim | Vantagem no próx. teste | 50 |
-
-# 
 
 # **Ficha de Personagem** {#ficha-de-personagem}
 
