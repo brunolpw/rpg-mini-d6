@@ -9,8 +9,11 @@ import {
   Heart,
   Sparkles,
   Copy,
+  Info,
+  X,
 } from 'lucide-react';
 import { CLASSES, RACES } from '../data/gameData';
+import type { ClassPowerInfo } from '../utils/markdownParser';
 
 export interface PowerSlot {
   name: string;
@@ -84,7 +87,15 @@ function createEmptyCharacter(): Character {
   };
 }
 
-export function CharacterSheet() {
+interface CharacterSheetProps {
+  classPowers: Record<string, ClassPowerInfo[]>;
+}
+
+export function CharacterSheet({ classPowers }: CharacterSheetProps) {
+  const [inspectingPower, setInspectingPower] = useState<{
+    info: ClassPowerInfo;
+    currentLevel: 1 | 2 | 3;
+  } | null>(null);
   const [sheets, setSheets] = useState<Character[]>(() => {
     try {
       const saved = localStorage.getItem(STORAGE_KEY);
@@ -565,49 +576,162 @@ export function CharacterSheet() {
 
         {/* Poderes e Habilidades */}
         <div className="print-card rounded-lg border border-slate-800 bg-slate-950/60 p-4">
-          <h3 className="mb-3 text-xs font-bold uppercase tracking-wider text-slate-400">
-            Poderes e Habilidades (8 Slots)
-          </h3>
-          <div className="grid gap-2 sm:grid-cols-2">
-            {active.powers.map((power, idx) => (
-              <div
-                key={idx}
-                className="flex items-center gap-2 rounded-md border border-slate-800 bg-slate-900/40 p-2"
-              >
-                <span className="w-4 text-xs font-bold text-slate-500">
-                  {idx + 1}.
-                </span>
-                <input
-                  type="text"
-                  placeholder="Nome do Poder"
-                  value={power.name}
-                  onChange={(e) => updatePower(idx, { name: e.target.value })}
-                  className="print-input min-w-0 flex-1 rounded border border-slate-700 bg-slate-950 px-2 py-1 text-xs text-slate-100"
-                />
-                <select
-                  value={power.level}
-                  onChange={(e) =>
-                    updatePower(idx, {
-                      level: Number(e.target.value) as 1 | 2 | 3,
-                    })
-                  }
-                  className="print-input rounded border border-slate-700 bg-slate-950 px-1.5 py-1 text-xs text-slate-200"
-                >
-                  <option value={1}>Nv 1</option>
-                  <option value={2}>Nv 2</option>
-                  <option value={3}>Nv 3</option>
-                </select>
-                <input
-                  type="text"
-                  placeholder="PP"
-                  value={power.pp}
-                  onChange={(e) => updatePower(idx, { pp: e.target.value })}
-                  className="print-input w-10 rounded border border-slate-700 bg-slate-950 px-1.5 py-1 text-center text-xs text-sky-300"
-                />
-              </div>
+          <div className="mb-3 flex items-center justify-between">
+            <h3 className="text-xs font-bold uppercase tracking-wider text-slate-400">
+              Poderes e Habilidades (8 Slots)
+            </h3>
+            <span className="no-print text-xs text-slate-500">
+              Selecione da classe ({selectedClass.name}) ou digite livremente
+            </span>
+          </div>
+
+          <datalist id={`powers-${active.classId}`}>
+            {(classPowers[active.classId] ?? []).map((p) => (
+              <option key={p.name} value={p.name}>
+                {p.type} • {p.pp} PP
+              </option>
             ))}
+          </datalist>
+
+          <div className="grid gap-2 sm:grid-cols-2">
+            {active.powers.map((power, idx) => {
+              const allPowers = Object.values(classPowers).flat();
+              const matchedPower =
+                (classPowers[active.classId] ?? []).find(
+                  (p) => p.name.toLowerCase() === power.name.trim().toLowerCase()
+                ) ??
+                allPowers.find(
+                  (p) => p.name.toLowerCase() === power.name.trim().toLowerCase()
+                );
+
+              return (
+                <div
+                  key={idx}
+                  className="flex items-center gap-1.5 rounded-md border border-slate-800 bg-slate-900/40 p-2"
+                >
+                  <span className="w-4 text-xs font-bold text-slate-500">
+                    {idx + 1}.
+                  </span>
+                  <input
+                    type="text"
+                    list={`powers-${active.classId}`}
+                    placeholder="Nome do Poder"
+                    value={power.name}
+                    onChange={(e) => {
+                      const val = e.target.value;
+                      const match = (classPowers[active.classId] ?? []).find(
+                        (p) => p.name.toLowerCase() === val.trim().toLowerCase()
+                      );
+                      updatePower(
+                        idx,
+                        match ? { name: match.name, pp: match.pp } : { name: val }
+                      );
+                    }}
+                    className="print-input min-w-0 flex-1 rounded border border-slate-700 bg-slate-950 px-2 py-1 text-xs text-slate-100"
+                  />
+                  <select
+                    value={power.level}
+                    onChange={(e) =>
+                      updatePower(idx, {
+                        level: Number(e.target.value) as 1 | 2 | 3,
+                      })
+                    }
+                    className="print-input rounded border border-slate-700 bg-slate-950 px-1.5 py-1 text-xs text-slate-200"
+                  >
+                    <option value={1}>Nv 1</option>
+                    <option value={2}>Nv 2</option>
+                    <option value={3}>Nv 3</option>
+                  </select>
+                  <div className="flex items-center gap-1" title="Custo em Pontos de Poder (PP)">
+                    <span className="text-[10px] font-semibold uppercase text-sky-400">
+                      PP
+                    </span>
+                    <input
+                      type="text"
+                      value={power.pp}
+                      onChange={(e) => updatePower(idx, { pp: e.target.value })}
+                      className="print-input w-9 rounded border border-slate-700 bg-slate-950 px-1 py-1 text-center text-xs text-sky-300"
+                    />
+                  </div>
+                  {matchedPower && (
+                    <button
+                      type="button"
+                      onClick={() =>
+                        setInspectingPower({
+                          info: matchedPower,
+                          currentLevel: power.level,
+                        })
+                      }
+                      className="no-print rounded p-1 text-indigo-400 hover:bg-indigo-950/60 hover:text-indigo-300"
+                      title="Ver descrição do poder"
+                    >
+                      <Info className="h-4 w-4" />
+                    </button>
+                  )}
+                </div>
+              );
+            })}
           </div>
         </div>
+
+        {/* Modal de Consulta Rápida de Poder */}
+        {inspectingPower && (
+          <div
+            className="no-print fixed inset-0 z-50 flex items-center justify-center bg-black/70 p-4 backdrop-blur-sm"
+            onClick={() => setInspectingPower(null)}
+          >
+            <div
+              className="w-full max-w-lg rounded-xl border border-slate-700 bg-slate-900 p-5 shadow-2xl"
+              onClick={(e) => e.stopPropagation()}
+            >
+              <div className="flex items-start justify-between gap-3 border-b border-slate-800 pb-3">
+                <div>
+                  <h4 className="text-lg font-bold text-slate-100">
+                    {inspectingPower.info.name}
+                  </h4>
+                  <p className="text-xs text-slate-400">
+                    {inspectingPower.info.type} • Custo:{' '}
+                    <span className="font-semibold text-sky-400">
+                      {inspectingPower.info.pp} PP
+                    </span>
+                  </p>
+                </div>
+                <button
+                  onClick={() => setInspectingPower(null)}
+                  className="rounded-lg p-1 text-slate-400 hover:bg-slate-800 hover:text-slate-200"
+                >
+                  <X className="h-5 w-5" />
+                </button>
+              </div>
+
+              <div className="mt-4 space-y-3 text-sm">
+                <p className="text-slate-200">{inspectingPower.info.effect}</p>
+
+                <div className="space-y-2">
+                  {[
+                    { lv: 1, text: inspectingPower.info.level1 },
+                    { lv: 2, text: inspectingPower.info.level2 },
+                    { lv: 3, text: inspectingPower.info.level3 },
+                  ].map((item) => (
+                    <div
+                      key={item.lv}
+                      className={`rounded-lg border p-2.5 text-xs ${
+                        inspectingPower.currentLevel === item.lv
+                          ? 'border-indigo-500 bg-indigo-950/40 text-indigo-100'
+                          : 'border-slate-800 bg-slate-950/60 text-slate-300'
+                      }`}
+                    >
+                      <span className="font-bold uppercase text-indigo-400">
+                        Nível {item.lv}:{' '}
+                      </span>
+                      {item.text || '—'}
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </div>
+          </div>
+        )}
 
         {/* Equipamentos e Mochila */}
         <div className="grid gap-4 md:grid-cols-2">

@@ -1,12 +1,34 @@
-import { useState } from 'react';
+import { useEffect, useMemo, useState } from 'react';
 import { BookOpen, FileText, Dices } from 'lucide-react';
 import { DocsViewer } from './components/DocsViewer';
 import { CharacterSheet } from './components/CharacterSheet';
+import { parseClassPowers } from './utils/markdownParser';
 
 type Tab = 'docs' | 'sheet';
 
 export function App() {
   const [tab, setTab] = useState<Tab>('docs');
+  const [markdown, setMarkdown] = useState<string>('');
+  const [loading, setLoading] = useState<boolean>(true);
+  const [error, setError] = useState<string | null>(null);
+
+  useEffect(() => {
+    fetch('./mini-d6 v2.5.md')
+      .then((res) => {
+        if (!res.ok) throw new Error('Não foi possível carregar o manual.');
+        return res.text();
+      })
+      .then((text) => {
+        setMarkdown(text);
+        setLoading(false);
+      })
+      .catch((err) => {
+        setError(err.message);
+        setLoading(false);
+      });
+  }, []);
+
+  const classPowers = useMemo(() => parseClassPowers(markdown), [markdown]);
 
   return (
     <div className="min-h-screen bg-slate-950 text-slate-100">
@@ -55,7 +77,11 @@ export function App() {
       </header>
 
       <main>
-        {tab === 'docs' ? <DocsViewer /> : <CharacterSheet />}
+        {tab === 'docs' ? (
+          <DocsViewer markdown={markdown} loading={loading} error={error} />
+        ) : (
+          <CharacterSheet classPowers={classPowers} />
+        )}
       </main>
     </div>
   );
