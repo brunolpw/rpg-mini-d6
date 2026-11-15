@@ -55,6 +55,8 @@ export interface Character {
   movement: number;
   initiativeBonus: number;
   condition: string;
+  deathSuccesses: number;
+  deathFailures: number;
   weaponMain: string;
   weaponSec: string;
   armorDesc: string;
@@ -87,6 +89,8 @@ function createEmptyCharacter(): Character {
     movement: 6,
     initiativeBonus: 0,
     condition: 'Normal / Acordado',
+    deathSuccesses: 0,
+    deathFailures: 0,
     weaponMain: '',
     weaponSec: '',
     armorDesc: '',
@@ -138,7 +142,21 @@ export function CharacterSheet({ classPowers }: CharacterSheetProps) {
 
   const updateActive = (patch: Partial<Character>) => {
     setSheets((prev) =>
-      prev.map((s) => (s.id === active.id ? { ...s, ...patch } : s))
+      prev.map((s) => {
+        if (s.id !== active.id) return s;
+        const next = { ...s, ...patch };
+        if (patch.pvCurrent !== undefined) {
+          if (patch.pvCurrent <= 0) {
+            next.pvCurrent = 0;
+            next.condition = 'Caído (0 PV)';
+          } else if (s.pvCurrent === 0 && s.condition === 'Caído (0 PV)') {
+            next.condition = 'Normal / Acordado';
+            next.deathSuccesses = 0;
+            next.deathFailures = 0;
+          }
+        }
+        return next;
+      })
     );
   };
 
@@ -302,6 +320,93 @@ export function CharacterSheet({ classPowers }: CharacterSheetProps) {
     }, 60);
   };
 
+  const handleRollBaseAttributes = () => {
+    const d3 = () => Math.floor(Math.random() * 3) + 1;
+    let ticks = 0;
+    const interval = setInterval(() => {
+      ticks += 1;
+      const preview = [d3() + 3, d3() + 3, d3() + 3];
+      setRollModal({
+        title: 'Rolando Atributos Base',
+        subtitle: '1d3 + 3 para Corpo, Mente e Espírito',
+        isRolling: true,
+        dice: preview,
+        summary: 'Rolando atributos...',
+      });
+      if (ticks >= 6) {
+        clearInterval(interval);
+        const c = Math.max(1, d3() + 3 + selectedClass.baseMod.corpo);
+        const m = Math.max(1, d3() + 3 + selectedClass.baseMod.mente);
+        const e = Math.max(1, d3() + 3 + selectedClass.baseMod.espirito);
+        updateActive({ corpo: c, mente: m, espirito: e });
+        setRollModal({
+          title: 'Atributos Base Aplicados!',
+          subtitle: `Com modificadores de ${selectedClass.name}`,
+          isRolling: false,
+          dice: [c, m, e],
+          summary: `Corpo: ${c}  |  Mente: ${m}  |  Espírito: ${e}`,
+        });
+      }
+    }, 60);
+  };
+
+  const handleDeathSave = () => {
+    const d6 = () => Math.floor(Math.random() * 6) + 1;
+    let ticks = 0;
+    const interval = setInterval(() => {
+      ticks += 1;
+      const preview = [d6(), d6(), d6()];
+      setRollModal({
+        title: 'Teste de Morte (Melhor de 5)',
+        subtitle: `3d6 + Corpo (${totalCorpo}) ≥ 12`,
+        isRolling: true,
+        dice: preview,
+        summary: 'Testando resistência...',
+      });
+      if (ticks >= 6) {
+        clearInterval(interval);
+        const finalDice = [d6(), d6(), d6()];
+        const total = finalDice.reduce((a, b) => a + b, 0) + totalCorpo;
+        const success = total >= 12;
+        const nextSucc = (active.deathSuccesses ?? 0) + (success ? 1 : 0);
+        const nextFail = (active.deathFailures ?? 0) + (success ? 0 : 1);
+
+        if (nextSucc >= 3) {
+          updateActive({
+            pvCurrent: 1,
+            condition: 'Estabilizado (1 PV)',
+            deathSuccesses: 0,
+            deathFailures: 0,
+          });
+        } else {
+          updateActive({
+            deathSuccesses: nextSucc,
+            deathFailures: nextFail,
+          });
+        }
+
+        setRollModal({
+          title: success ? 'Sucesso no Teste de Morte!' : 'Falha no Teste de Morte',
+          subtitle: `3d6 + Corpo (${totalCorpo}) ≥ 12`,
+          isRolling: false,
+          dice: finalDice,
+          summary: `[${finalDice.join(' + ')}] + ${totalCorpo} = ${total} • ${
+            nextSucc >= 3
+              ? '3 Sucessos! Personagem retornou com 1 PV!'
+              : success
+              ? `Sucessos: ${nextSucc}/3 | Falhas: ${nextFail}/3`
+              : `Sucessos: ${nextSucc}/3 | Falhas: ${nextFail}/3`
+          }`,
+        });
+      }
+    }, 60);
+  };
+
+  const [incomingDamage, setIncomingDamage] = useState<number>(0);
+  const [damageType, setDamageType] = useState<'fisico' | 'elemental' | 'mistico'>('fisico');
+  const [selectedPowerIdx, setSelectedPowerIdx] = useState<number>(0);
+  const [combatLog, setCombatLog] = useState<string>('');
+
   const isTwoHandedMain =
     WEAPONS.some(
       (w) =>
@@ -311,7 +416,9 @@ export function CharacterSheet({ classPowers }: CharacterSheetProps) {
 
   const hasOffHandConflict =
     isTwoHandedMain &&
-    (active.weaponSec.trim() !== '' || active.shieldDesc.trim() !== '');
+    ((active.weaponSec.trim() !== '' &&
+      active.weaponSec.trim() !== 'Ocupada (Arma de 2 Mãos)') ||
+      active.shieldDesc.trim() !== '');
 
   return (
     <div className="mx-auto max-w-5xl px-4 py-6">
@@ -389,6 +496,95 @@ export function CharacterSheet({ classPowers }: CharacterSheetProps) {
         mente={totalMente}
         espirito={totalEspirito}
       />
+
+      {/* Resolução Rápida de Combate (Magia/PP & Dano Recebido) */}
+      <div className="no-print mb-6 grid gap-3 rounded-xl border border-slate-800 bg-slate-900/70 p-4 md:grid-cols-2">
+        <div className="flex flex-col gap-2">
+          <span className="text-xs font-bold uppercase tracking-wider text-sky-400">
+            Usar Poder / Magia (Consome PP)
+          </span>
+          <div className="flex items-center gap-2">
+            <select
+              value={selectedPowerIdx}
+              onChange={(e) => setSelectedPowerIdx(Number(e.target.value))}
+              className="min-w-0 flex-1 rounded-lg border border-slate-700 bg-slate-950 px-2.5 py-1.5 text-xs text-slate-100"
+            >
+              {active.powers.map((p, idx) => (
+                <option key={idx} value={idx}>
+                  {p.name ? `${p.name} (${p.pp || 0} PP)` : `Slot ${idx + 1} (vazio)`}
+                </option>
+              ))}
+            </select>
+            <button
+              type="button"
+              onClick={() => {
+                const p = active.powers[selectedPowerIdx];
+                if (!p || !p.name) return;
+                const cost = Math.max(0, Number(p.pp) || 0);
+                if (active.ppCurrent < cost) {
+                  setCombatLog(`PP insuficiente para ${p.name} (custa ${cost} PP).`);
+                  return;
+                }
+                updateActive({ ppCurrent: active.ppCurrent - cost });
+                setCombatLog(`Usou ${p.name} (-${cost} PP).`);
+              }}
+              className="rounded-lg bg-sky-600 px-3 py-1.5 text-xs font-semibold text-white hover:bg-sky-500"
+            >
+              Conjurar
+            </button>
+          </div>
+        </div>
+
+        <div className="flex flex-col gap-2">
+          <span className="text-xs font-bold uppercase tracking-wider text-rose-400">
+            Dano Recebido (Calcula Res. Física / Elementos)
+          </span>
+          <div className="flex flex-wrap items-center gap-2">
+            <input
+              type="number"
+              min={0}
+              value={incomingDamage}
+              onChange={(e) => setIncomingDamage(Math.max(0, Number(e.target.value)))}
+              placeholder="Dano"
+              className="w-20 rounded-lg border border-slate-700 bg-slate-950 px-2.5 py-1.5 text-center text-xs font-bold text-slate-100"
+            />
+            <select
+              value={damageType}
+              onChange={(e) =>
+                setDamageType(e.target.value as 'fisico' | 'elemental' | 'mistico')
+              }
+              className="rounded-lg border border-slate-700 bg-slate-950 px-2.5 py-1.5 text-xs text-slate-100"
+            >
+              <option value="fisico">Físico (Armadura -{active.armorRes})</option>
+              <option value="elemental">Elemental (Fogo/Gelo/Raio)</option>
+              <option value="mistico">Místico / Psíquico</option>
+            </select>
+            <button
+              type="button"
+              onClick={() => {
+                const reduced =
+                  damageType === 'fisico'
+                    ? Math.max(0, incomingDamage - active.armorRes)
+                    : incomingDamage;
+                const nextPv = Math.max(0, active.pvCurrent - reduced);
+                updateActive({ pvCurrent: nextPv });
+                setCombatLog(
+                  `Recebeu ${reduced} de dano ${damageType} (${incomingDamage} bruto). PV: ${nextPv}/${active.pvMax}.`
+                );
+              }}
+              className="rounded-lg bg-rose-600 px-3 py-1.5 text-xs font-semibold text-white hover:bg-rose-500"
+            >
+              Aplicar Dano
+            </button>
+          </div>
+        </div>
+
+        {combatLog && (
+          <div className="md:col-span-2 rounded-md border border-slate-800 bg-slate-950/70 px-3 py-1.5 text-xs text-slate-300">
+            {combatLog}
+          </div>
+        )}
+      </div>
 
       {/* Área da Ficha (Imprimível em A4) */}
       <div className="print-sheet space-y-4 rounded-xl border border-slate-800 bg-slate-900/60 p-6">
@@ -510,20 +706,30 @@ export function CharacterSheet({ classPowers }: CharacterSheetProps) {
               <h3 className="text-xs font-bold uppercase tracking-wider text-slate-400">
                 Atributos (Base + Racial = Total)
               </h3>
-              <button
-                type="button"
-                onClick={() =>
-                  updateActive({
-                    corpo: Math.max(1, 4 + selectedClass.baseMod.corpo),
-                    mente: Math.max(1, 4 + selectedClass.baseMod.mente),
-                    espirito: Math.max(1, 4 + selectedClass.baseMod.espirito),
-                  })
-                }
-                className="no-print flex items-center gap-1 rounded-md border border-indigo-700/60 bg-indigo-950/60 px-2 py-1 text-[11px] font-semibold text-indigo-300 hover:bg-indigo-900/60"
-                title="Define os atributos base como 4 + modificadores da classe selecionada"
-              >
-                Aplicar Base ({selectedClass.name})
-              </button>
+              <div className="no-print flex items-center gap-1.5">
+                <button
+                  type="button"
+                  onClick={handleRollBaseAttributes}
+                  className="flex items-center gap-1 rounded-md border border-emerald-700/60 bg-emerald-950/60 px-2 py-1 text-[11px] font-semibold text-emerald-300 hover:bg-emerald-900/60"
+                  title="Rola 1d3 + 3 + modificador de classe e aplica nos atributos"
+                >
+                  <Dices className="h-3.5 w-3.5" /> Rolar Base
+                </button>
+                <button
+                  type="button"
+                  onClick={() =>
+                    updateActive({
+                      corpo: Math.max(1, 4 + selectedClass.baseMod.corpo),
+                      mente: Math.max(1, 4 + selectedClass.baseMod.mente),
+                      espirito: Math.max(1, 4 + selectedClass.baseMod.espirito),
+                    })
+                  }
+                  className="flex items-center gap-1 rounded-md border border-indigo-700/60 bg-indigo-950/60 px-2 py-1 text-[11px] font-semibold text-indigo-300 hover:bg-indigo-900/60"
+                  title="Define os atributos base como 4 + modificadores da classe selecionada"
+                >
+                  Base 4 ({selectedClass.name})
+                </button>
+              </div>
             </div>
             <div className="grid grid-cols-3 gap-3 text-center">
               <div className="rounded-lg border border-slate-800 bg-slate-900/60 p-2.5">
@@ -762,6 +968,31 @@ export function CharacterSheet({ classPowers }: CharacterSheetProps) {
                 <option value="Caído (0 PV)" />
               </datalist>
             </div>
+
+            {active.pvCurrent <= 0 && (
+              <div className="no-print mt-3 rounded-lg border border-rose-700/60 bg-rose-950/40 p-2.5 text-xs">
+                <div className="flex flex-wrap items-center justify-between gap-2">
+                  <span className="font-bold text-rose-300">
+                    Teste de Morte (Melhor de 5):
+                  </span>
+                  <div className="flex items-center gap-3">
+                    <span className="text-emerald-400">
+                      Sucessos: <strong>{active.deathSuccesses ?? 0}/3</strong>
+                    </span>
+                    <span className="text-rose-400">
+                      Falhas: <strong>{active.deathFailures ?? 0}/3</strong>
+                    </span>
+                    <button
+                      type="button"
+                      onClick={handleDeathSave}
+                      className="flex items-center gap-1 rounded bg-rose-600 px-2 py-1 font-semibold text-white hover:bg-rose-500"
+                    >
+                      <Dices className="h-3.5 w-3.5" /> Rolar (3d6+Corpo)
+                    </button>
+                  </div>
+                </div>
+              </div>
+            )}
           </div>
         </div>
 
@@ -975,7 +1206,23 @@ export function CharacterSheet({ classPowers }: CharacterSheetProps) {
                   type="text"
                   list="weapons-list"
                   value={active.weaponMain}
-                  onChange={(e) => updateActive({ weaponMain: e.target.value })}
+                  onChange={(e) => {
+                    const val = e.target.value;
+                    const is2H =
+                      WEAPONS.some(
+                        (w) =>
+                          w.twoHanded &&
+                          w.label.toLowerCase() === val.trim().toLowerCase()
+                      ) || val.includes('[2 Mãos]');
+                    updateActive(
+                      is2H && active.weaponSec.trim() === ''
+                        ? {
+                            weaponMain: val,
+                            weaponSec: 'Ocupada (Arma de 2 Mãos)',
+                          }
+                        : { weaponMain: val }
+                    );
+                  }}
                   placeholder="Ex: Espada Longa (1d6)"
                   className="print-input mt-1 w-full rounded border border-slate-700 bg-slate-950 px-2.5 py-1.5 text-slate-100"
                 />
