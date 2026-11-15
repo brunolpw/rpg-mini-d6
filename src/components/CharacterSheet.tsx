@@ -39,6 +39,7 @@ export interface Character {
   id: string;
   name: string;
   raceId: string;
+  humanBonusAttr?: 'corpo' | 'mente' | 'espirito';
   classId: string;
   level: number;
   xp: number;
@@ -74,6 +75,7 @@ function createEmptyCharacter(): Character {
     id: crypto.randomUUID(),
     name: 'Novo Aventureiro',
     raceId: 'humano',
+    humanBonusAttr: 'corpo',
     classId: 'guerreiro',
     level: 1,
     xp: 0,
@@ -253,9 +255,31 @@ export function CharacterSheet({ classPowers }: CharacterSheetProps) {
   const selectedClass =
     CLASSES.find((c) => c.id === active.classId) ?? CLASSES[0];
 
-  const totalCorpo = active.corpo + selectedRace.bonus.corpo;
-  const totalMente = active.mente + selectedRace.bonus.mente;
-  const totalEspirito = active.espirito + selectedRace.bonus.espirito;
+  const humanAttr = active.humanBonusAttr ?? 'corpo';
+  const raceBonus = {
+    corpo:
+      active.raceId === 'humano'
+        ? humanAttr === 'corpo'
+          ? 1
+          : 0
+        : selectedRace.bonus.corpo,
+    mente:
+      active.raceId === 'humano'
+        ? humanAttr === 'mente'
+          ? 1
+          : 0
+        : selectedRace.bonus.mente,
+    espirito:
+      active.raceId === 'humano'
+        ? humanAttr === 'espirito'
+          ? 1
+          : 0
+        : selectedRace.bonus.espirito,
+  };
+
+  const totalCorpo = active.corpo + raceBonus.corpo;
+  const totalMente = active.mente + raceBonus.mente;
+  const totalEspirito = active.espirito + raceBonus.espirito;
 
   const defFisica = 10 + totalCorpo + active.shieldBonus;
   const defMagica = 10 + totalEspirito;
@@ -747,6 +771,23 @@ export function CharacterSheet({ classPowers }: CharacterSheetProps) {
                   }
                   className="print-input mt-1 w-full rounded border border-slate-700 bg-slate-950 py-1 text-center text-lg font-bold text-slate-100"
                 />
+                <div className="mt-1 text-[10px] text-slate-400">
+                  Classe: {selectedClass.baseMod.corpo >= 0 ? '+' : ''}
+                  {selectedClass.baseMod.corpo} | Raça: +{raceBonus.corpo}
+                </div>
+                {active.raceId === 'humano' && (
+                  <button
+                    type="button"
+                    onClick={() => updateActive({ humanBonusAttr: 'corpo' })}
+                    className={`no-print mt-1 rounded px-1.5 py-0.5 text-[10px] font-semibold ${
+                      humanAttr === 'corpo'
+                        ? 'bg-amber-600 text-white'
+                        : 'bg-slate-800 text-slate-400 hover:bg-slate-700'
+                    }`}
+                  >
+                    +1 Humano
+                  </button>
+                )}
                 <div className="mt-1 text-xs text-indigo-400">
                   Total: <strong>{totalCorpo}</strong>
                 </div>
@@ -771,6 +812,23 @@ export function CharacterSheet({ classPowers }: CharacterSheetProps) {
                   }
                   className="print-input mt-1 w-full rounded border border-slate-700 bg-slate-950 py-1 text-center text-lg font-bold text-slate-100"
                 />
+                <div className="mt-1 text-[10px] text-slate-400">
+                  Classe: {selectedClass.baseMod.mente >= 0 ? '+' : ''}
+                  {selectedClass.baseMod.mente} | Raça: +{raceBonus.mente}
+                </div>
+                {active.raceId === 'humano' && (
+                  <button
+                    type="button"
+                    onClick={() => updateActive({ humanBonusAttr: 'mente' })}
+                    className={`no-print mt-1 rounded px-1.5 py-0.5 text-[10px] font-semibold ${
+                      humanAttr === 'mente'
+                        ? 'bg-amber-600 text-white'
+                        : 'bg-slate-800 text-slate-400 hover:bg-slate-700'
+                    }`}
+                  >
+                    +1 Humano
+                  </button>
+                )}
                 <div className="mt-1 text-xs text-indigo-400">
                   Total: <strong>{totalMente}</strong>
                 </div>
@@ -797,6 +855,23 @@ export function CharacterSheet({ classPowers }: CharacterSheetProps) {
                   }
                   className="print-input mt-1 w-full rounded border border-slate-700 bg-slate-950 py-1 text-center text-lg font-bold text-slate-100"
                 />
+                <div className="mt-1 text-[10px] text-slate-400">
+                  Classe: {selectedClass.baseMod.espirito >= 0 ? '+' : ''}
+                  {selectedClass.baseMod.espirito} | Raça: +{raceBonus.espirito}
+                </div>
+                {active.raceId === 'humano' && (
+                  <button
+                    type="button"
+                    onClick={() => updateActive({ humanBonusAttr: 'espirito' })}
+                    className={`no-print mt-1 rounded px-1.5 py-0.5 text-[10px] font-semibold ${
+                      humanAttr === 'espirito'
+                        ? 'bg-amber-600 text-white'
+                        : 'bg-slate-800 text-slate-400 hover:bg-slate-700'
+                    }`}
+                  >
+                    +1 Humano
+                  </button>
+                )}
                 <div className="mt-1 text-xs text-indigo-400">
                   Total: <strong>{totalEspirito}</strong>
                 </div>
