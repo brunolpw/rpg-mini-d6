@@ -2,6 +2,8 @@
 
 por Bruno La Porta Welausen
 
+![Capa Mini-d6 RPG](Gemini_Generated_Image_1wgrzo1wgrzo1wgr.png)
+
 [Sistema	3](#sistema)
 
 [O que é o Sistema mini-d6?	4](#o-que-é-o-sistema-mini-d6?)
