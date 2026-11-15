@@ -145,26 +145,56 @@ export function DocsViewer({ markdown, loading, error }: DocsViewerProps) {
             {filteredSections.map((sec) => {
               const isActive = !bookMode && sec.id === currentSection?.id;
               return (
-                <button
-                  key={sec.id}
-                  onClick={() => {
-                    if (bookMode) {
-                      const el = document.getElementById(sec.id);
-                      el?.scrollIntoView({ behavior: 'smooth' });
-                    } else {
-                      setActiveSectionId(sec.id);
-                      window.scrollTo({ top: 0, behavior: 'smooth' });
-                    }
-                    setTocOpen(false);
-                  }}
-                  className={`block w-full rounded-md px-3 py-2 text-left transition-colors ${
-                    isActive
-                      ? 'bg-indigo-600 font-semibold text-white'
-                      : 'text-slate-300 hover:bg-slate-800 hover:text-indigo-300'
-                  }`}
-                >
-                  {sec.title}
-                </button>
+                <div key={sec.id} className="space-y-0.5">
+                  <button
+                    onClick={() => {
+                      if (bookMode) {
+                        document
+                          .getElementById(sec.id)
+                          ?.scrollIntoView({ behavior: 'smooth' });
+                      } else {
+                        setActiveSectionId(sec.id);
+                        window.scrollTo({ top: 0, behavior: 'smooth' });
+                      }
+                      setTocOpen(false);
+                    }}
+                    className={`block w-full rounded-md px-3 py-2 text-left font-medium transition-colors ${
+                      isActive
+                        ? 'bg-indigo-600 text-white'
+                        : 'text-slate-200 hover:bg-slate-800 hover:text-indigo-300'
+                    }`}
+                  >
+                    {sec.title}
+                  </button>
+
+                  {sec.subsections.length > 0 && (
+                    <div className="ml-3 space-y-0.5 border-l border-slate-800 pl-2">
+                      {sec.subsections.map((sub) => (
+                        <button
+                          key={sub.id}
+                          onClick={() => {
+                            if (!bookMode && sec.id !== currentSection?.id) {
+                              setActiveSectionId(sec.id);
+                              setTimeout(() => {
+                                document
+                                  .getElementById(sub.id)
+                                  ?.scrollIntoView({ behavior: 'smooth' });
+                              }, 60);
+                            } else {
+                              document
+                                .getElementById(sub.id)
+                                ?.scrollIntoView({ behavior: 'smooth' });
+                            }
+                            setTocOpen(false);
+                          }}
+                          className="block w-full rounded px-2 py-1 text-left text-xs text-slate-400 transition-colors hover:bg-slate-800/70 hover:text-indigo-300"
+                        >
+                          {sub.title}
+                        </button>
+                      ))}
+                    </div>
+                  )}
+                </div>
               );
             })}
           </nav>

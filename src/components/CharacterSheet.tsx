@@ -13,7 +13,11 @@ import {
   X,
 } from 'lucide-react';
 import { CLASSES, RACES } from '../data/gameData';
-import type { ClassPowerInfo } from '../utils/markdownParser';
+import {
+  getEffectivePowerPP,
+  type ClassPowerInfo,
+} from '../utils/markdownParser';
+import { DiceRoller } from './DiceRoller';
 
 export interface PowerSlot {
   name: string;
@@ -271,6 +275,12 @@ export function CharacterSheet({ classPowers }: CharacterSheetProps) {
           </button>
         </div>
       </div>
+
+      <DiceRoller
+        corpo={totalCorpo}
+        mente={totalMente}
+        espirito={totalEspirito}
+      />
 
       {/* Área da Ficha (Imprimível em A4) */}
       <div className="print-sheet space-y-4 rounded-xl border border-slate-800 bg-slate-900/60 p-6">
@@ -587,9 +597,7 @@ export function CharacterSheet({ classPowers }: CharacterSheetProps) {
 
           <datalist id={`powers-${active.classId}`}>
             {(classPowers[active.classId] ?? []).map((p) => (
-              <option key={p.name} value={p.name}>
-                {p.type} • {p.pp} PP
-              </option>
+              <option key={p.name} value={p.name} />
             ))}
           </datalist>
 
@@ -624,18 +632,30 @@ export function CharacterSheet({ classPowers }: CharacterSheetProps) {
                       );
                       updatePower(
                         idx,
-                        match ? { name: match.name, pp: match.pp } : { name: val }
+                        match
+                          ? {
+                              name: match.name,
+                              pp: getEffectivePowerPP(match, power.level),
+                            }
+                          : { name: val }
                       );
                     }}
                     className="print-input min-w-0 flex-1 rounded border border-slate-700 bg-slate-950 px-2 py-1 text-xs text-slate-100"
                   />
                   <select
                     value={power.level}
-                    onChange={(e) =>
-                      updatePower(idx, {
-                        level: Number(e.target.value) as 1 | 2 | 3,
-                      })
-                    }
+                    onChange={(e) => {
+                      const nextLevel = Number(e.target.value) as 1 | 2 | 3;
+                      updatePower(
+                        idx,
+                        matchedPower
+                          ? {
+                              level: nextLevel,
+                              pp: getEffectivePowerPP(matchedPower, nextLevel),
+                            }
+                          : { level: nextLevel }
+                      );
+                    }}
                     className="print-input rounded border border-slate-700 bg-slate-950 px-1.5 py-1 text-xs text-slate-200"
                   >
                     <option value={1}>Nv 1</option>

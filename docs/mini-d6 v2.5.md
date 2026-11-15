@@ -4,119 +4,119 @@ por Bruno La Porta Welausen
 
 ![Capa Mini-d6 RPG](capa.png)
 
-[Sistema	3](#sistema)
+[Sistema](#sistema)
 
-[O que é o Sistema mini-d6?	4](#o-que-é-o-sistema-mini-d6?)
+[O que é o Sistema mini-d6?](#o-que-é-o-sistema-mini-d6?)
 
-[Para quem é o Sistema?	4](#para-quem-é-o-sistema?)
+[Para quem é o Sistema?](#para-quem-é-o-sistema?)
 
-[Capacidades e Mecânicas Principais	4](#capacidades-e-mecânicas-principais)
+[Capacidades e Mecânicas Principais](#capacidades-e-mecânicas-principais)
 
-[Conteúdo e Escalabilidade	4](#conteúdo-e-escalabilidade)
+[Conteúdo e Escalabilidade](#conteúdo-e-escalabilidade)
 
-[Cenários de Uso Possíveis	5](#cenários-de-uso-possíveis)
+[Cenários de Uso Possíveis](#cenários-de-uso-possíveis)
 
-[Rolagem de dados	6](#rolagem-de-dados)
+[Rolagem de dados](#rolagem-de-dados)
 
-[Criação de personagem	7](#criação-de-personagem)
+[Criação de personagem](#criação-de-personagem)
 
-[Raças	10](#raças)
+[Raças](#raças)
 
-[Humano	10](#humano)
+[Humano](#humano)
 
-[Anão	10](#anão)
+[Anão](#anão)
 
-[Elfo	10](#elfo)
+[Elfo](#elfo)
 
-[Orc	10](#orc)
+[Orc](#orc)
 
-[Pequenino	10](#pequenino)
+[Pequenino](#pequenino)
 
-[Gnomo	10](#gnomo)
+[Gnomo](#gnomo)
 
-[Draconato	10](#draconato)
+[Draconato](#draconato)
 
-[Classes	12](#classes)
+[Classes](#classes)
 
-[Bárbaro	12](#bárbaro)
+[Bárbaro](#bárbaro)
 
-[Guerreiro	12](#guerreiro)
+[Guerreiro](#guerreiro)
 
-[Paladino	13](#paladino)
+[Paladino](#paladino)
 
-[Mago	15](#mago)
+[Mago](#mago)
 
-[Druida	16](#druida)
+[Druida](#druida)
 
-[Clérigo	17](#clérigo)
+[Clérigo](#clérigo)
 
-[Ladino	18](#ladino)
+[Ladino](#ladino)
 
-[Ranger	19](#ranger)
+[Ranger](#ranger)
 
-[Bardo	21](#bardo)
+[Bardo](#bardo)
 
-[Poderes	22](#poderes)
+[Poderes](#poderes)
 
-[Danos e condições	23](#danos-e-condições)
+[Danos e condições](#danos-e-condições)
 
-[Dificuldade	25](#dificuldade)
+[Dificuldade](#dificuldade)
 
-[Testes e Resoluções	26](#testes-e-resoluções)
+[Testes e Resoluções](#testes-e-resoluções)
 
-[Combate	27](#combate)
+[Combate](#combate)
 
-[Confronto	28](#confronto)
+[Confronto](#confronto)
 
-[Esquiva	28](#esquiva)
+[Esquiva](#esquiva)
 
-[Físico x Físico:	28](#físico-x-físico:)
+[Físico x Físico:](#físico-x-físico:)
 
-[Físico x Distância:	28](#físico-x-distância:)
+[Físico x Distância:](#físico-x-distância:)
 
-[Físico x Mágico:	29](#físico-x-mágico:)
+[Físico x Mágico:](#físico-x-mágico:)
 
-[Distância x Distância:	29](#distância-x-distância:)
+[Distância x Distância:](#distância-x-distância:)
 
-[Distância x Mágico:	29](#distância-x-mágico:)
+[Distância x Mágico:](#distância-x-mágico:)
 
-[Mágico x Mágico:	30](#mágico-x-mágico:)
+[Mágico x Mágico:](#mágico-x-mágico:)
 
-[Movimentação e Ação	31](#movimentação-e-ação)
+[Movimentação e Ação](#movimentação-e-ação)
 
-[Descansos	32](#descansos)
+[Descansos](#descansos)
 
-[Experiência e Nível	33](#experiência-e-nível)
+[Experiência e Nível](#experiência-e-nível)
 
-[Inimigos	35](#inimigos)
+[Inimigos](#inimigos)
 
-[Nível 1 (XP: 2 cada)	36](#nível-1-\(xp:-2-cada\))
+[Nível 1 (XP: 2 cada)](#nível-1-\(xp:-2-cada\))
 
-[Nível 2 (XP: 3 cada)	37](#nível-2-\(xp:-3-cada\))
+[Nível 2 (XP: 3 cada)](#nível-2-\(xp:-3-cada\))
 
-[Nível 3 (XP: 5 cada)	37](#nível-3-\(xp:-5-cada\))
+[Nível 3 (XP: 5 cada)](#nível-3-\(xp:-5-cada\))
 
-[Nível 4 (XP: 7 cada)	38](#nível-4-\(xp:-7-cada\))
+[Nível 4 (XP: 7 cada)](#nível-4-\(xp:-7-cada\))
 
-[Nível 5 (XP: 10 cada)	38](#nível-5-\(xp:-10-cada\))
+[Nível 5 (XP: 10 cada)](#nível-5-\(xp:-10-cada\))
 
-[Ameaças de Alto Nível (6 a 10\)	39](#ameaças-de-alto-nível-\(6-a-10\))
+[Ameaças de Alto Nível (6 a 10\)](#ameaças-de-alto-nível-\(6-a-10\))
 
-[Itens e Equipamentos	40](#itens-e-equipamentos)
+[Itens e Equipamentos](#itens-e-equipamentos)
 
-[Armas (Físicas)	40](#armas-\(físicas\))
+[Armas (Físicas)](#armas-\(físicas\))
 
-[Armas (Distância)	40](#armas-\(distância\))
+[Armas (Distância)](#armas-\(distância\))
 
-[Armaduras	41](#armaduras)
+[Armaduras](#armaduras)
 
-[Escudos	41](#escudos)
+[Escudos](#escudos)
 
-[Itens de Foco Mágico (Espírito)	42](#itens-de-foco-mágico-\(espírito\))
+[Itens de Foco Mágico (Espírito)](#itens-de-foco-mágico-\(espírito\))
 
-[Consumíveis e Utilitários	43](#consumíveis-e-utilitários)
+[Consumíveis e Utilitários](#consumíveis-e-utilitários)
 
-[Ficha de Personagem	44](#ficha-de-personagem)
+[Ficha de Personagem](#ficha-de-personagem)
 
 # **Sistema** {#sistema}
 

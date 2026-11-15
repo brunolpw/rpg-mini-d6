@@ -1,7 +1,13 @@
+export interface DocSubsection {
+  id: string;
+  title: string;
+}
+
 export interface DocSection {
   id: string;
   title: string;
   content: string;
+  subsections: DocSubsection[];
 }
 
 export interface ClassPowerInfo {
@@ -24,6 +30,20 @@ export function slugify(text: string): string {
     .replace(/\s+/g, '-');
 }
 
+function extractSubsections(lines: string[]): DocSubsection[] {
+  const subs: DocSubsection[] = [];
+  for (const line of lines) {
+    const h2Match = /^##\s+(.+)$/.exec(line);
+    if (h2Match) {
+      const title = h2Match[1].replace(/\*\*/g, '').trim();
+      if (title) {
+        subs.push({ id: slugify(title), title });
+      }
+    }
+  }
+  return subs;
+}
+
 export function parseDocSections(rawMarkdown: string): DocSection[] {
   const cleaned = rawMarkdown.replace(/\s*\{#[^}]+\}/g, '');
   const lines = cleaned.split('\n');
@@ -41,6 +61,7 @@ export function parseDocSections(rawMarkdown: string): DocSection[] {
           id: slugify(currentTitle),
           title: currentTitle,
           content: prevContent,
+          subsections: extractSubsections(currentLines),
         });
       }
       currentTitle = h1Match[1].replace(/\*\*/g, '').trim();
@@ -56,10 +77,30 @@ export function parseDocSections(rawMarkdown: string): DocSection[] {
       id: slugify(currentTitle),
       title: currentTitle,
       content: lastContent,
+      subsections: extractSubsections(currentLines),
     });
   }
 
   return sections;
+}
+
+export function getEffectivePowerPP(
+  power: ClassPowerInfo,
+  level: 1 | 2 | 3
+): string {
+  const levelText =
+    level === 1 ? power.level1 : level === 2 ? power.level2 : power.level3;
+  if (!levelText) return power.pp;
+
+  // Detecta padrões como "Custo reduzido para 2 PP", "Custo 3 PP", "Custo: 1 PP", "para 0 PP"
+  const match =
+    /(?:custo(?:\s+reduzido)?(?:\s+para)?\s*:?\s*)(\d+)\s*pp/i.exec(
+      levelText
+    );
+  if (match) {
+    return match[1];
+  }
+  return power.pp;
 }
 
 const CLASS_HEADINGS: Record<string, string> = {
