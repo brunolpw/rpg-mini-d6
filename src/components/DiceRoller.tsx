@@ -167,13 +167,15 @@ export function DiceRoller({
           >
             Espírito ({espirito >= 0 ? `+${espirito}` : espirito})
           </button>
-          <input
-            type="number"
-            value={modifier}
-            onChange={(e) => setModifier(Number(e.target.value))}
-            className="w-14 rounded border border-slate-700 bg-slate-950 px-1.5 py-1 text-center text-slate-100"
-            title="Modificador manual"
-          />
+          <div className="flex items-center gap-1" title="Modificador manual (ex: +2 de bônus ou -1 de penalidade)">
+            <span className="text-slate-400">Mod:</span>
+            <input
+              type="number"
+              value={modifier}
+              onChange={(e) => setModifier(Number(e.target.value))}
+              className="w-14 rounded border border-slate-700 bg-slate-950 px-1.5 py-1 text-center text-slate-100"
+            />
+          </div>
         </div>
       </div>
 

@@ -12,6 +12,7 @@ export interface ClassInfo {
   baseMod: { corpo: number; mente: number; espirito: number };
   pvFormula: string;
   ppFormula: string;
+  ppDice: 1 | 2;
 }
 
 export const RACES: RaceInfo[] = [
@@ -67,6 +68,7 @@ export const CLASSES: ClassInfo[] = [
     baseMod: { corpo: 2, mente: 0, espirito: -2 },
     pvFormula: 'Corpo + 2d3',
     ppFormula: 'Espírito + 1d3',
+    ppDice: 1,
   },
   {
     id: 'guerreiro',
@@ -75,6 +77,7 @@ export const CLASSES: ClassInfo[] = [
     baseMod: { corpo: 1, mente: 1, espirito: -2 },
     pvFormula: 'Corpo + 2d3',
     ppFormula: 'Espírito + 1d3',
+    ppDice: 1,
   },
   {
     id: 'paladino',
@@ -83,6 +86,7 @@ export const CLASSES: ClassInfo[] = [
     baseMod: { corpo: 1, mente: -2, espirito: 1 },
     pvFormula: 'Corpo + 2d3',
     ppFormula: 'Espírito + 1d3',
+    ppDice: 1,
   },
   {
     id: 'mago',
@@ -91,6 +95,7 @@ export const CLASSES: ClassInfo[] = [
     baseMod: { corpo: -2, mente: 0, espirito: 2 },
     pvFormula: 'Corpo + 2d3',
     ppFormula: 'Espírito + 2d3',
+    ppDice: 2,
   },
   {
     id: 'druida',
@@ -99,6 +104,7 @@ export const CLASSES: ClassInfo[] = [
     baseMod: { corpo: -1, mente: -1, espirito: 2 },
     pvFormula: 'Corpo + 2d3',
     ppFormula: 'Espírito + 2d3',
+    ppDice: 2,
   },
   {
     id: 'clerigo',
@@ -107,6 +113,7 @@ export const CLASSES: ClassInfo[] = [
     baseMod: { corpo: 0, mente: -1, espirito: 1 },
     pvFormula: 'Corpo + 2d3',
     ppFormula: 'Espírito + 2d3',
+    ppDice: 2,
   },
   {
     id: 'ladino',
@@ -115,6 +122,7 @@ export const CLASSES: ClassInfo[] = [
     baseMod: { corpo: -1, mente: 2, espirito: -1 },
     pvFormula: 'Corpo + 2d3',
     ppFormula: 'Espírito + 1d3',
+    ppDice: 1,
   },
   {
     id: 'ranger',
@@ -123,6 +131,7 @@ export const CLASSES: ClassInfo[] = [
     baseMod: { corpo: 1, mente: 1, espirito: -2 },
     pvFormula: 'Corpo + 2d3',
     ppFormula: 'Espírito + 1d3',
+    ppDice: 1,
   },
   {
     id: 'bardo',
@@ -131,5 +140,70 @@ export const CLASSES: ClassInfo[] = [
     baseMod: { corpo: -2, mente: 1, espirito: 1 },
     pvFormula: 'Corpo + 2d3',
     ppFormula: 'Espírito + 2d3',
+    ppDice: 2,
   },
+];
+
+export interface WeaponPreset {
+  label: string;
+  twoHanded: boolean;
+}
+
+export const WEAPONS: WeaponPreset[] = [
+  { label: 'Adaga (1d3)', twoHanded: false },
+  { label: 'Espada Curta (1d3+1)', twoHanded: false },
+  { label: 'Espada Longa (1d6)', twoHanded: false },
+  { label: 'Rapieira (1d6)', twoHanded: false },
+  { label: 'Machado de Batalha (1d6)', twoHanded: false },
+  { label: 'Maça (1d6)', twoHanded: false },
+  { label: 'Martelo de Guerra (1d6)', twoHanded: false },
+  { label: 'Lança (1d6)', twoHanded: false },
+  { label: 'Espadão / Montante (1d6+2) [2 Mãos]', twoHanded: true },
+  { label: 'Machado de Duas Mãos (1d6+2) [2 Mãos]', twoHanded: true },
+  { label: 'Martelo Pesado (1d6+2) [2 Mãos]', twoHanded: true },
+  { label: 'Alabarda (1d6+2) [2 Mãos]', twoHanded: true },
+  { label: 'Cajado (1d3+1) [2 Mãos]', twoHanded: true },
+  { label: 'Arco Curto (1d3+1) [2 Mãos]', twoHanded: true },
+  { label: 'Arco Longo (1d6+1) [2 Mãos]', twoHanded: true },
+  { label: 'Besta Leve (1d6) [2 Mãos]', twoHanded: true },
+  { label: 'Besta Pesada (1d6+2) [2 Mãos]', twoHanded: true },
+];
+
+export interface ArmorPreset {
+  label: string;
+  res: number;
+}
+
+export const ARMORS: ArmorPreset[] = [
+  { label: 'Sem Armadura (Res 0)', res: 0 },
+  { label: 'Armadura de Couro (Res 1)', res: 1 },
+  { label: 'Couro Batido (Res 2)', res: 2 },
+  { label: 'Cota de Malha (Res 3)', res: 3 },
+  { label: 'Armadura de Placas (Res 4)', res: 4 },
+];
+
+export interface ShieldPreset {
+  label: string;
+  defBonus: number;
+}
+
+export const SHIELDS_AND_FOCI: ShieldPreset[] = [
+  { label: 'Escudo Leve (+1 Def)', defBonus: 1 },
+  { label: 'Escudo Pesado (+2 Def)', defBonus: 2 },
+  { label: 'Broquel (+1 Def)', defBonus: 1 },
+  { label: 'Cajado Arcano (Foco)', defBonus: 0 },
+  { label: 'Orbe Elemental (Foco)', defBonus: 0 },
+  { label: 'Símbolo Sagrado (Foco)', defBonus: 0 },
+];
+
+export const CONSUMABLES: string[] = [
+  'Poção de Cura Menor (1d6 PV)',
+  'Poção de Cura Maior (2d6 PV)',
+  'Poção de Mana / PP (1d6 PP)',
+  'Antídoto',
+  'Ração de Viagem (1 dia)',
+  'Tocha',
+  'Corda (15m)',
+  'Kit de Ladrão / Gazuas',
+  'Kit de Primeiros Socorros',
 ];

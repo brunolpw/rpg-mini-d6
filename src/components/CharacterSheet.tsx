@@ -11,8 +11,17 @@ import {
   Copy,
   Info,
   X,
+  AlertTriangle,
+  Dices,
 } from 'lucide-react';
-import { CLASSES, RACES } from '../data/gameData';
+import {
+  ARMORS,
+  CLASSES,
+  CONSUMABLES,
+  RACES,
+  SHIELDS_AND_FOCI,
+  WEAPONS,
+} from '../data/gameData';
 import {
   getEffectivePowerPP,
   type ClassPowerInfo,
@@ -204,6 +213,34 @@ export function CharacterSheet({ classPowers }: CharacterSheetProps) {
 
   const defFisica = 10 + totalCorpo + active.shieldBonus;
   const defMagica = 10 + totalEspirito;
+
+  const [itemToAdd, setItemToAdd] = useState<string>(CONSUMABLES[0]);
+
+  const handleRollPvPp = () => {
+    const d3 = () => Math.floor(Math.random() * 3) + 1;
+    const pvRoll = d3() + d3();
+    const ppRoll =
+      selectedClass.ppDice === 2 ? d3() + d3() : d3();
+    const nextPv = Math.max(1, totalCorpo + pvRoll);
+    const nextPp = Math.max(1, totalEspirito + ppRoll);
+    updateActive({
+      pvMax: nextPv,
+      pvCurrent: nextPv,
+      ppMax: nextPp,
+      ppCurrent: nextPp,
+    });
+  };
+
+  const isTwoHandedMain =
+    WEAPONS.some(
+      (w) =>
+        w.twoHanded &&
+        w.label.toLowerCase() === active.weaponMain.trim().toLowerCase()
+    ) || active.weaponMain.includes('[2 Mãos]');
+
+  const hasOffHandConflict =
+    isTwoHandedMain &&
+    (active.weaponSec.trim() !== '' || active.shieldDesc.trim() !== '');
 
   return (
     <div className="mx-auto max-w-5xl px-4 py-6">
@@ -459,9 +496,19 @@ export function CharacterSheet({ classPowers }: CharacterSheetProps) {
 
           {/* Combate, PV e PP */}
           <div className="print-card rounded-lg border border-slate-800 bg-slate-950/60 p-4">
-            <h3 className="mb-3 text-xs font-bold uppercase tracking-wider text-slate-400">
-              Status de Combate
-            </h3>
+            <div className="mb-3 flex items-center justify-between gap-2">
+              <h3 className="text-xs font-bold uppercase tracking-wider text-slate-400">
+                Status de Combate
+              </h3>
+              <button
+                type="button"
+                onClick={handleRollPvPp}
+                className="no-print flex items-center gap-1 rounded-md border border-indigo-700/60 bg-indigo-950/60 px-2 py-1 text-[11px] font-semibold text-indigo-300 hover:bg-indigo-900/60"
+                title={`Calcula PV (${selectedClass.pvFormula}) e PP (${selectedClass.ppFormula}) considerando Raça e Classe`}
+              >
+                <Dices className="h-3.5 w-3.5" /> Rolar PV/PP
+              </button>
+            </div>
             <div className="grid grid-cols-2 gap-3 sm:grid-cols-4">
               <div className="rounded-lg border border-slate-800 bg-slate-900/60 p-2 text-center">
                 <div className="flex items-center justify-center gap-1 text-xs text-rose-400">
@@ -754,16 +801,45 @@ export function CharacterSheet({ classPowers }: CharacterSheetProps) {
         )}
 
         {/* Equipamentos e Mochila */}
+        <datalist id="weapons-list">
+          {WEAPONS.map((w) => (
+            <option key={w.label} value={w.label} />
+          ))}
+        </datalist>
+        <datalist id="armors-list">
+          {ARMORS.map((a) => (
+            <option key={a.label} value={a.label} />
+          ))}
+        </datalist>
+        <datalist id="shields-list">
+          {SHIELDS_AND_FOCI.map((s) => (
+            <option key={s.label} value={s.label} />
+          ))}
+        </datalist>
+
         <div className="grid gap-4 md:grid-cols-2">
           <div className="print-card rounded-lg border border-slate-800 bg-slate-950/60 p-4">
             <h3 className="mb-3 text-xs font-bold uppercase tracking-wider text-slate-400">
               Equipamentos Preparados (Em Uso)
             </h3>
+
+            {hasOffHandConflict && (
+              <div className="no-print mb-3 flex items-start gap-2 rounded-lg border border-amber-600/50 bg-amber-950/40 p-2.5 text-xs text-amber-200">
+                <AlertTriangle className="mt-0.5 h-4 w-4 shrink-0 text-amber-400" />
+                <span>
+                  <strong>Arma de duas mãos equipada:</strong> normalmente ocupa
+                  os dois espaços de mão (a menos que possua <em>Força Bruta</em>{' '}
+                  ou regra especial).
+                </span>
+              </div>
+            )}
+
             <div className="space-y-2 text-xs">
               <div>
                 <span className="text-slate-400">Arma Principal</span>
                 <input
                   type="text"
+                  list="weapons-list"
                   value={active.weaponMain}
                   onChange={(e) => updateActive({ weaponMain: e.target.value })}
                   placeholder="Ex: Espada Longa (1d6)"
@@ -774,6 +850,7 @@ export function CharacterSheet({ classPowers }: CharacterSheetProps) {
                 <span className="text-slate-400">Arma Secundária / Arco</span>
                 <input
                   type="text"
+                  list="weapons-list"
                   value={active.weaponSec}
                   onChange={(e) => updateActive({ weaponSec: e.target.value })}
                   placeholder="Ex: Adaga (1d3)"
@@ -785,10 +862,19 @@ export function CharacterSheet({ classPowers }: CharacterSheetProps) {
                   <span className="text-slate-400">Armadura</span>
                   <input
                     type="text"
+                    list="armors-list"
                     value={active.armorDesc}
-                    onChange={(e) =>
-                      updateActive({ armorDesc: e.target.value })
-                    }
+                    onChange={(e) => {
+                      const val = e.target.value;
+                      const match = ARMORS.find(
+                        (a) => a.label.toLowerCase() === val.trim().toLowerCase()
+                      );
+                      updateActive(
+                        match
+                          ? { armorDesc: match.label, armorRes: match.res }
+                          : { armorDesc: val }
+                      );
+                    }}
                     placeholder="Ex: Couro (Res 1)"
                     className="print-input mt-1 w-full rounded border border-slate-700 bg-slate-950 px-2.5 py-1.5 text-slate-100"
                   />
@@ -797,10 +883,22 @@ export function CharacterSheet({ classPowers }: CharacterSheetProps) {
                   <span className="text-slate-400">Escudo / Foco</span>
                   <input
                     type="text"
+                    list="shields-list"
                     value={active.shieldDesc}
-                    onChange={(e) =>
-                      updateActive({ shieldDesc: e.target.value })
-                    }
+                    onChange={(e) => {
+                      const val = e.target.value;
+                      const match = SHIELDS_AND_FOCI.find(
+                        (s) => s.label.toLowerCase() === val.trim().toLowerCase()
+                      );
+                      updateActive(
+                        match
+                          ? {
+                              shieldDesc: match.label,
+                              shieldBonus: match.defBonus,
+                            }
+                          : { shieldDesc: val }
+                      );
+                    }}
                     placeholder="Ex: Escudo (+1 Def)"
                     className="print-input mt-1 w-full rounded border border-slate-700 bg-slate-950 px-2.5 py-1.5 text-slate-100"
                   />
@@ -813,6 +911,33 @@ export function CharacterSheet({ classPowers }: CharacterSheetProps) {
             <h3 className="mb-2 text-xs font-bold uppercase tracking-wider text-slate-400">
               Mochila, Inventário e Anotações
             </h3>
+
+            <div className="no-print mb-2 flex gap-1.5">
+              <select
+                value={itemToAdd}
+                onChange={(e) => setItemToAdd(e.target.value)}
+                className="min-w-0 flex-1 rounded border border-slate-700 bg-slate-900 px-2 py-1 text-xs text-slate-200"
+              >
+                {CONSUMABLES.map((item) => (
+                  <option key={item} value={item}>
+                    {item}
+                  </option>
+                ))}
+              </select>
+              <button
+                type="button"
+                onClick={() => {
+                  const next = active.backpack.trim()
+                    ? `${active.backpack.trim()}\n• ${itemToAdd}`
+                    : `• ${itemToAdd}`;
+                  updateActive({ backpack: next });
+                }}
+                className="flex items-center gap-1 rounded bg-slate-800 px-2.5 py-1 text-xs font-medium text-slate-200 hover:bg-slate-700"
+              >
+                <Plus className="h-3.5 w-3.5" /> Add
+              </button>
+            </div>
+
             <textarea
               value={active.backpack}
               onChange={(e) => updateActive({ backpack: e.target.value })}
