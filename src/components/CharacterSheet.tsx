@@ -62,6 +62,7 @@ export interface Character {
   armorDesc: string;
   shieldDesc: string;
   backpack: string;
+  backpackItems?: { name: string; qty: number }[];
   notes: string;
   powers: PowerSlot[];
 }
@@ -96,6 +97,7 @@ function createEmptyCharacter(): Character {
     armorDesc: '',
     shieldDesc: '',
     backpack: '',
+    backpackItems: [],
     notes: '',
     powers: Array.from({ length: 8 }, () => ({
       name: '',
@@ -145,6 +147,30 @@ export function CharacterSheet({ classPowers }: CharacterSheetProps) {
       prev.map((s) => {
         if (s.id !== active.id) return s;
         const next = { ...s, ...patch };
+
+        const prevRace = RACES.find((r) => r.id === s.raceId) ?? RACES[0];
+        const nextRace = RACES.find((r) => r.id === next.raceId) ?? RACES[0];
+        const prevTotalCorpo = s.corpo + prevRace.bonus.corpo;
+        const nextTotalCorpo = next.corpo + nextRace.bonus.corpo;
+        const deltaCorpo = nextTotalCorpo - prevTotalCorpo;
+
+        const prevTotalEsp = s.espirito + prevRace.bonus.espirito;
+        const nextTotalEsp = next.espirito + nextRace.bonus.espirito;
+        const deltaEsp = nextTotalEsp - prevTotalEsp;
+
+        if (deltaCorpo !== 0 && patch.pvMax === undefined) {
+          next.pvMax = Math.max(1, s.pvMax + deltaCorpo);
+          if (patch.pvCurrent === undefined) {
+            next.pvCurrent = Math.max(0, s.pvCurrent + deltaCorpo);
+          }
+        }
+        if (deltaEsp !== 0 && patch.ppMax === undefined) {
+          next.ppMax = Math.max(1, s.ppMax + deltaEsp);
+          if (patch.ppCurrent === undefined) {
+            next.ppCurrent = Math.max(0, s.ppCurrent + deltaEsp);
+          }
+        }
+
         if (patch.pvCurrent !== undefined) {
           if (patch.pvCurrent <= 0) {
             next.pvCurrent = 0;
@@ -501,7 +527,7 @@ export function CharacterSheet({ classPowers }: CharacterSheetProps) {
       <div className="no-print mb-6 grid gap-3 rounded-xl border border-slate-800 bg-slate-900/70 p-4 md:grid-cols-2">
         <div className="flex flex-col gap-2">
           <span className="text-xs font-bold uppercase tracking-wider text-sky-400">
-            Usar Poder / Magia (Consome PP)
+            Usar Poder / Magia / Ataque (Consome PP & Rola)
           </span>
           <div className="flex items-center gap-2">
             <select
@@ -509,6 +535,15 @@ export function CharacterSheet({ classPowers }: CharacterSheetProps) {
               onChange={(e) => setSelectedPowerIdx(Number(e.target.value))}
               className="min-w-0 flex-1 rounded-lg border border-slate-700 bg-slate-950 px-2.5 py-1.5 text-xs text-slate-100"
             >
+              <option value={-1}>
+                Arma Principal: {active.weaponMain || 'Desarmado (Corpo)'}
+              </option>
+              {active.weaponSec &&
+                active.weaponSec !== 'Ocupada (Arma de 2 Mãos)' && (
+                  <option value={-2}>
+                    Arma Secundária: {active.weaponSec}
+                  </option>
+                )}
               {active.powers.map((p, idx) => (
                 <option key={idx} value={idx}>
                   {p.name ? `${p.name} (${p.pp || 0} PP)` : `Slot ${idx + 1} (vazio)`}
@@ -518,6 +553,17 @@ export function CharacterSheet({ classPowers }: CharacterSheetProps) {
             <button
               type="button"
               onClick={() => {
+                if (selectedPowerIdx === -1) {
+                  const weaponLabel = active.weaponMain || 'Ataque Desarmado';
+                  handleRollAttribute(`Ataque (${weaponLabel})`, totalCorpo);
+                  setCombatLog(`Atacou com ${weaponLabel} (3d6 + Corpo ${totalCorpo}).`);
+                  return;
+                }
+                if (selectedPowerIdx === -2) {
+                  handleRollAttribute(`Ataque (${active.weaponSec})`, totalCorpo);
+                  setCombatLog(`Atacou com ${active.weaponSec} (3d6 + Corpo ${totalCorpo}).`);
+                  return;
+                }
                 const p = active.powers[selectedPowerIdx];
                 if (!p || !p.name) return;
                 const cost = Math.max(0, Number(p.pp) || 0);
@@ -526,11 +572,12 @@ export function CharacterSheet({ classPowers }: CharacterSheetProps) {
                   return;
                 }
                 updateActive({ ppCurrent: active.ppCurrent - cost });
-                setCombatLog(`Usou ${p.name} (-${cost} PP).`);
+                handleRollAttribute(p.name, totalEspirito);
+                setCombatLog(`Usou ${p.name} (-${cost} PP) • Rolagem 3d6 + Espírito.`);
               }}
               className="rounded-lg bg-sky-600 px-3 py-1.5 text-xs font-semibold text-white hover:bg-sky-500"
             >
-              Conjurar
+              Atacar / Conjurar
             </button>
           </div>
         </div>
@@ -1308,10 +1355,14 @@ export function CharacterSheet({ classPowers }: CharacterSheetProps) {
               <button
                 type="button"
                 onClick={() => {
-                  const next = active.backpack.trim()
-                    ? `${active.backpack.trim()}\n• ${itemToAdd}`
-                    : `• ${itemToAdd}`;
-                  updateActive({ backpack: next });
+                  const items = active.backpackItems ?? [];
+                  const existing = items.find((i) => i.name === itemToAdd);
+                  const nextItems = existing
+                    ? items.map((i) =>
+                        i.name === itemToAdd ? { ...i, qty: i.qty + 1 } : i
+                      )
+                    : [...items, { name: itemToAdd, qty: 1 }];
+                  updateActive({ backpackItems: nextItems });
                 }}
                 className="flex items-center gap-1 rounded bg-slate-800 px-2.5 py-1 text-xs font-medium text-slate-200 hover:bg-slate-700"
               >
@@ -1319,11 +1370,61 @@ export function CharacterSheet({ classPowers }: CharacterSheetProps) {
               </button>
             </div>
 
+            {(active.backpackItems ?? []).length > 0 && (
+              <div className="mb-2 space-y-1">
+                {(active.backpackItems ?? []).map((item, idx) => (
+                  <div
+                    key={idx}
+                    className="flex items-center justify-between gap-2 rounded border border-slate-800 bg-slate-900/50 px-2 py-1 text-xs"
+                  >
+                    <span className="min-w-0 flex-1 truncate text-slate-200">
+                      {item.name}
+                    </span>
+                    <div className="no-print flex items-center gap-1">
+                      <button
+                        type="button"
+                        onClick={() => {
+                          const items = active.backpackItems ?? [];
+                          const nextItems = items
+                            .map((it, i) =>
+                              i === idx ? { ...it, qty: it.qty - 1 } : it
+                            )
+                            .filter((it) => it.qty > 0);
+                          updateActive({ backpackItems: nextItems });
+                        }}
+                        className="rounded bg-slate-800 px-1.5 py-0.5 text-rose-300 hover:bg-rose-900/60"
+                        title="Usar / Decrementar"
+                      >
+                        -
+                      </button>
+                      <span className="w-6 text-center font-bold text-slate-100">
+                        {item.qty}
+                      </span>
+                      <button
+                        type="button"
+                        onClick={() => {
+                          const items = active.backpackItems ?? [];
+                          const nextItems = items.map((it, i) =>
+                            i === idx ? { ...it, qty: it.qty + 1 } : it
+                          );
+                          updateActive({ backpackItems: nextItems });
+                        }}
+                        className="rounded bg-slate-800 px-1.5 py-0.5 text-emerald-300 hover:bg-emerald-900/60"
+                        title="Adicionar +1"
+                      >
+                        +
+                      </button>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            )}
+
             <textarea
               value={active.backpack}
               onChange={(e) => updateActive({ backpack: e.target.value })}
-              placeholder="Poções, corda, tochas, rações, itens mágicos..."
-              rows={5}
+              placeholder="Anotações extras da mochila..."
+              rows={3}
               className="print-input w-full flex-1 rounded border border-slate-700 bg-slate-950 p-2.5 text-xs text-slate-100"
             />
           </div>
