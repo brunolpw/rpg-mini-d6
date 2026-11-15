@@ -271,51 +271,6 @@ export function CharacterSheet({ classPowers }: CharacterSheetProps) {
     summary: string;
   } | null>(null);
 
-  const handleRollPvPp = () => {
-    const d3 = () => Math.floor(Math.random() * 3) + 1;
-    let ticks = 0;
-    const interval = setInterval(() => {
-      ticks += 1;
-      const pvPreview = [d3(), d3()];
-      const ppPreview =
-        selectedClass.ppDice === 2 ? [d3(), d3()] : [d3()];
-      setRollModal({
-        title: 'Rolando PV e PP',
-        subtitle: `${selectedRace.name} • ${selectedClass.name}`,
-        isRolling: true,
-        dice: pvPreview,
-        extraDice: ppPreview,
-        summary: 'Rolando dados de vida e poder...',
-      });
-
-      if (ticks >= 6) {
-        clearInterval(interval);
-        const pvFinal = [d3(), d3()];
-        const ppFinal =
-          selectedClass.ppDice === 2 ? [d3(), d3()] : [d3()];
-        const nextPv = Math.max(1, totalCorpo + pvFinal[0] + pvFinal[1]);
-        const nextPp = Math.max(
-          1,
-          totalEspirito + ppFinal.reduce((a, b) => a + b, 0)
-        );
-        updateActive({
-          pvMax: nextPv,
-          pvCurrent: nextPv,
-          ppMax: nextPp,
-          ppCurrent: nextPp,
-        });
-        setRollModal({
-          title: 'PV e PP Calculados!',
-          subtitle: `${selectedRace.name} • ${selectedClass.name}`,
-          isRolling: false,
-          dice: pvFinal,
-          extraDice: ppFinal,
-          summary: `PV: ${totalCorpo} (Corpo) + [${pvFinal.join(', ')}] = ${nextPv}  |  PP: ${totalEspirito} (Espírito) + [${ppFinal.join(', ')}] = ${nextPp}`,
-        });
-      }
-    }, 60);
-  };
-
   const handleRollAttribute = (label: string, attrTotal: number) => {
     const d6 = () => Math.floor(Math.random() * 6) + 1;
     let ticks = 0;
@@ -353,24 +308,41 @@ export function CharacterSheet({ classPowers }: CharacterSheetProps) {
       ticks += 1;
       const preview = [d3() + 3, d3() + 3, d3() + 3];
       setRollModal({
-        title: 'Rolando Atributos Base',
-        subtitle: '1d3 + 3 para Corpo, Mente e Espírito',
+        title: 'Gerando Ficha Inicial',
+        subtitle: `${selectedRace.name} • ${selectedClass.name}`,
         isRolling: true,
         dice: preview,
-        summary: 'Rolando atributos...',
+        summary: 'Rolando atributos, PV e PP...',
       });
       if (ticks >= 6) {
         clearInterval(interval);
         const c = Math.max(1, d3() + 3 + selectedClass.baseMod.corpo);
         const m = Math.max(1, d3() + 3 + selectedClass.baseMod.mente);
         const e = Math.max(1, d3() + 3 + selectedClass.baseMod.espirito);
-        updateActive({ corpo: c, mente: m, espirito: e });
+
+        const nextTotalCorpo = c + selectedRace.bonus.corpo;
+        const nextTotalEspirito = e + selectedRace.bonus.espirito;
+        const pvRoll = d3() + d3();
+        const ppRoll = selectedClass.ppDice === 2 ? d3() + d3() : d3();
+        const nextPv = Math.max(1, nextTotalCorpo + pvRoll);
+        const nextPp = Math.max(1, nextTotalEspirito + ppRoll);
+
+        updateActive({
+          corpo: c,
+          mente: m,
+          espirito: e,
+          pvMax: nextPv,
+          pvCurrent: nextPv,
+          ppMax: nextPp,
+          ppCurrent: nextPp,
+        });
         setRollModal({
-          title: 'Atributos Base Aplicados!',
-          subtitle: `Com modificadores de ${selectedClass.name}`,
+          title: 'Ficha Inicial Gerada!',
+          subtitle: `${selectedRace.name} • ${selectedClass.name}`,
           isRolling: false,
           dice: [c, m, e],
-          summary: `Corpo: ${c}  |  Mente: ${m}  |  Espírito: ${e}`,
+          extraDice: [nextPv, nextPp],
+          summary: `Corpo: ${c} | Mente: ${m} | Espírito: ${e}  •  PV: ${nextPv} | PP: ${nextPp}`,
         });
       }
     }, 60);
@@ -753,30 +725,14 @@ export function CharacterSheet({ classPowers }: CharacterSheetProps) {
               <h3 className="text-xs font-bold uppercase tracking-wider text-slate-400">
                 Atributos (Base + Racial = Total)
               </h3>
-              <div className="no-print flex items-center gap-1.5">
-                <button
-                  type="button"
-                  onClick={handleRollBaseAttributes}
-                  className="flex items-center gap-1 rounded-md border border-emerald-700/60 bg-emerald-950/60 px-2 py-1 text-[11px] font-semibold text-emerald-300 hover:bg-emerald-900/60"
-                  title="Rola 1d3 + 3 + modificador de classe e aplica nos atributos"
-                >
-                  <Dices className="h-3.5 w-3.5" /> Rolar Base
-                </button>
-                <button
-                  type="button"
-                  onClick={() =>
-                    updateActive({
-                      corpo: Math.max(1, 4 + selectedClass.baseMod.corpo),
-                      mente: Math.max(1, 4 + selectedClass.baseMod.mente),
-                      espirito: Math.max(1, 4 + selectedClass.baseMod.espirito),
-                    })
-                  }
-                  className="flex items-center gap-1 rounded-md border border-indigo-700/60 bg-indigo-950/60 px-2 py-1 text-[11px] font-semibold text-indigo-300 hover:bg-indigo-900/60"
-                  title="Define os atributos base como 4 + modificadores da classe selecionada"
-                >
-                  Base 4 ({selectedClass.name})
-                </button>
-              </div>
+              <button
+                type="button"
+                onClick={handleRollBaseAttributes}
+                className="no-print flex items-center gap-1 rounded-md border border-emerald-700/60 bg-emerald-950/60 px-2.5 py-1 text-[11px] font-semibold text-emerald-300 hover:bg-emerald-900/60"
+                title="Rola atributos (1d3+3+Classe), PV e PP iniciais automaticamente"
+              >
+                <Dices className="h-3.5 w-3.5" /> Rolar Ficha Inicial
+              </button>
             </div>
             <div className="grid grid-cols-3 gap-3 text-center">
               <div className="rounded-lg border border-slate-800 bg-slate-900/60 p-2.5">
@@ -857,19 +813,9 @@ export function CharacterSheet({ classPowers }: CharacterSheetProps) {
 
           {/* Combate, PV e PP */}
           <div className="print-card rounded-lg border border-slate-800 bg-slate-950/60 p-4">
-            <div className="mb-3 flex items-center justify-between gap-2">
-              <h3 className="text-xs font-bold uppercase tracking-wider text-slate-400">
-                Status de Combate
-              </h3>
-              <button
-                type="button"
-                onClick={handleRollPvPp}
-                className="no-print flex items-center gap-1 rounded-md border border-indigo-700/60 bg-indigo-950/60 px-2 py-1 text-[11px] font-semibold text-indigo-300 hover:bg-indigo-900/60"
-                title={`Calcula PV (${selectedClass.pvFormula}) e PP (${selectedClass.ppFormula}) considerando Raça e Classe`}
-              >
-                <Dices className="h-3.5 w-3.5" /> Rolar PV/PP
-              </button>
-            </div>
+            <h3 className="mb-3 text-xs font-bold uppercase tracking-wider text-slate-400">
+              Status de Combate
+            </h3>
             <div className="grid grid-cols-2 gap-3 sm:grid-cols-4">
               <div className="rounded-lg border border-slate-800 bg-slate-900/60 p-2 text-center">
                 <div className="flex items-center justify-center gap-1 text-xs text-rose-400">
