@@ -167,7 +167,7 @@ export function DocsViewer({ markdown, loading, error }: DocsViewerProps) {
                     {sec.title}
                   </button>
 
-                  {sec.subsections.length > 0 && (
+                  {sec.subsections.length > 0 && (isActive || search.trim() !== '') && (
                     <div className="ml-3 space-y-0.5 border-l border-slate-800 pl-2">
                       {sec.subsections.map((sub) => (
                         <button
