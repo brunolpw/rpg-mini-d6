@@ -11,7 +11,7 @@ export default defineConfig({
     tailwindcss(),
     VitePWA({
       registerType: 'autoUpdate',
-      includeAssets: ['capa.png'],
+      includeAssets: ['capa.png', 'favicon.svg'],
       manifest: {
         name: 'Mini-d6 RPG v2.5',
         short_name: 'Mini-d6',

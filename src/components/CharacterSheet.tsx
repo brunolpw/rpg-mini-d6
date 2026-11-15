@@ -101,7 +101,7 @@ function createEmptyCharacter(): Character {
     backpack: '',
     backpackItems: [],
     notes: '',
-    powers: Array.from({ length: 8 }, () => ({
+    powers: Array.from({ length: 2 }, () => ({
       name: '',
       level: 1,
       pp: '0',
@@ -1066,13 +1066,30 @@ export function CharacterSheet({ classPowers }: CharacterSheetProps) {
 
         {/* Poderes e Habilidades */}
         <div className="print-card rounded-lg border border-slate-800 bg-slate-950/60 p-4">
-          <div className="mb-3 flex items-center justify-between">
-            <h3 className="text-xs font-bold uppercase tracking-wider text-slate-400">
-              Poderes e Habilidades (8 Slots)
-            </h3>
-            <span className="no-print text-xs text-slate-500">
-              Selecione da classe ({selectedClass.name}) ou digite livremente
-            </span>
+          <div className="mb-3 flex flex-wrap items-center justify-between gap-2">
+            <div>
+              <h3 className="text-xs font-bold uppercase tracking-wider text-slate-400">
+                Poderes e Habilidades ({active.powers.length})
+              </h3>
+              <span className="no-print text-xs text-slate-500">
+                Selecione da classe ({selectedClass.name}) ou digite livremente
+              </span>
+            </div>
+            <button
+              type="button"
+              onClick={() =>
+                updateActive({
+                  powers: [
+                    ...active.powers,
+                    { name: '', level: 1, pp: '0', notes: '' },
+                  ],
+                })
+              }
+              className="no-print flex items-center gap-1 rounded-md bg-indigo-600/80 px-2.5 py-1 text-xs font-medium text-white transition-colors hover:bg-indigo-500"
+            >
+              <Plus className="h-3.5 w-3.5" />
+              Adicionar Poder
+            </button>
           </div>
 
           <datalist id={`powers-${active.classId}`}>
@@ -1166,6 +1183,20 @@ export function CharacterSheet({ classPowers }: CharacterSheetProps) {
                       title="Ver descrição do poder"
                     >
                       <Info className="h-4 w-4" />
+                    </button>
+                  )}
+                  {active.powers.length > 1 && (
+                    <button
+                      type="button"
+                      onClick={() =>
+                        updateActive({
+                          powers: active.powers.filter((_, i) => i !== idx),
+                        })
+                      }
+                      className="no-print rounded p-1 text-slate-500 hover:bg-rose-950/60 hover:text-rose-400"
+                      title="Remover poder"
+                    >
+                      <X className="h-3.5 w-3.5" />
                     </button>
                   )}
                 </div>
