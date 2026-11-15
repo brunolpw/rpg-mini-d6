@@ -68,9 +68,6 @@ Cada classe conta com estilo definido, regras de PV/PP e árvores de poderes nos
 ## 📂 Estrutura do Repositório
 
 * **[`mini-d6 v2.5.md`](./mini-d6%20v2.5.md):** Manual completo de regras, criação de personagem, bestiário (níveis 1 a 10+), itens mundanos e lendários (*Dysenai*) e ficha oficial editável.
-* **[`proposta_progressao_poderes.md`](./proposta_progressao_poderes.md):** Documento detalhado de design e balanceamento com a justificativa de impacto de todos os poderes de nível 2 e 3.
-* **[`tabela_atributos_classes.csv`](./tabela_atributos_classes.csv):** Planilha com dados comparativos de atributos base, mínimos, máximos, PV e PP de todas as classes para modelagem em Excel/Calc.
-* **[`tabela_atributos_classes.md`](./tabela_atributos_classes.md):** Versão formatada em markdown com considerações e impacto dos bônus raciais.
 
 ---
 
