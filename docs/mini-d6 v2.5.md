@@ -2,7 +2,7 @@
 
 por Bruno La Porta Welausen
 
-![Capa Mini-d6 RPG](Gemini_Generated_Image_1wgrzo1wgrzo1wgr.png)
+![Capa Mini-d6 RPG](capa.png)
 
 [Sistema	3](#sistema)
 

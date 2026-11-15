@@ -67,13 +67,13 @@ Cada classe conta com estilo definido, regras de PV/PP e árvores de poderes nos
 
 ## 📂 Estrutura do Repositório
 
-* **[`mini-d6 v2.5.md`](./mini-d6%20v2.5.md):** Manual completo de regras, criação de personagem, bestiário (níveis 1 a 10+), itens mundanos e lendários (*Dysenai*) e ficha oficial editável.
+* **[`mini-d6 v2.5.md`](./docs/mini-d6%20v2.5.md):** Manual completo de regras, criação de personagem, bestiário (níveis 1 a 10+), itens mundanos e lendários (*Dysenai*) e ficha oficial editável.
 
 ---
 
 ## 🚀 Como Começar a Jogar
 
-1. Baixe ou leia o arquivo [`mini-d6 v2.5.md`](./mini-d6%20v2.5.md).
+1. Baixe ou leia o arquivo [`mini-d6 v2.5.md`](./docs/mini-d6%20v2.5.md).
 2. Separe de 3 a 4 dados de seis faces convencionais ($d6$).
 3. Distribua os atributos do seu personagem seguindo a tabela da sua classe (+2 pontos em vantagens e -2 pontos em desvantagens).
 4. Copie o modelo da ficha no final do livro e comece sua jornada!

@@ -1,0 +1,7 @@
+node_modules
+dist
+dist-ssr
+*.local
+.~lock.*
+.DS_Store
+*.tsbuildinfo
