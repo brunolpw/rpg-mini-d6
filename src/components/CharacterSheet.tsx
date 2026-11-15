@@ -435,9 +435,25 @@ export function CharacterSheet({ classPowers }: CharacterSheetProps) {
         <div className="grid gap-4 md:grid-cols-2">
           {/* Atributos */}
           <div className="print-card rounded-lg border border-slate-800 bg-slate-950/60 p-4">
-            <h3 className="mb-3 text-xs font-bold uppercase tracking-wider text-slate-400">
-              Atributos (Base + Bônus Racial = Total)
-            </h3>
+            <div className="mb-3 flex items-center justify-between gap-2">
+              <h3 className="text-xs font-bold uppercase tracking-wider text-slate-400">
+                Atributos (Base + Racial = Total)
+              </h3>
+              <button
+                type="button"
+                onClick={() =>
+                  updateActive({
+                    corpo: Math.max(1, 4 + selectedClass.baseMod.corpo),
+                    mente: Math.max(1, 4 + selectedClass.baseMod.mente),
+                    espirito: Math.max(1, 4 + selectedClass.baseMod.espirito),
+                  })
+                }
+                className="no-print flex items-center gap-1 rounded-md border border-indigo-700/60 bg-indigo-950/60 px-2 py-1 text-[11px] font-semibold text-indigo-300 hover:bg-indigo-900/60"
+                title="Define os atributos base como 4 + modificadores da classe selecionada"
+              >
+                Aplicar Base ({selectedClass.name})
+              </button>
+            </div>
             <div className="grid grid-cols-3 gap-3 text-center">
               <div className="rounded-lg border border-slate-800 bg-slate-900/60 p-2.5">
                 <div className="text-xs font-semibold text-slate-400">Corpo</div>

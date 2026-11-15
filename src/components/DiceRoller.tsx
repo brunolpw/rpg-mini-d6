@@ -69,46 +69,74 @@ export function DiceRoller({
 }: DiceRollerProps) {
   const [modifier, setModifier] = useState<number>(0);
   const [result, setResult] = useState<RollResult | null>(null);
+  const [isRolling, setIsRolling] = useState<boolean>(false);
 
   const handleRoll = (mode: RollMode) => {
-    let dice: number[] = [];
-    let kept: number[] = [];
-    let dropped: number | undefined;
+    if (isRolling) return;
+    setIsRolling(true);
 
-    if (mode === '3d6') {
-      dice = [rollDie(), rollDie(), rollDie()];
-      kept = [...dice];
-    } else if (mode === 'adv') {
-      dice = [rollDie(), rollDie(), rollDie(), rollDie()];
-      const sorted = [...dice].sort((a, b) => a - b);
-      dropped = sorted[0];
-      kept = sorted.slice(1);
-    } else if (mode === 'dis') {
-      dice = [rollDie(), rollDie(), rollDie(), rollDie()];
-      const sorted = [...dice].sort((a, b) => a - b);
-      dropped = sorted[3];
-      kept = sorted.slice(0, 3);
-    } else if (mode === '1d6') {
-      dice = [rollDie(6)];
-      kept = [...dice];
-    } else {
-      dice = [rollDie(3)];
-      kept = [...dice];
-    }
+    const computeFinal = (): RollResult => {
+      let dice: number[] = [];
+      let kept: number[] = [];
+      let dropped: number | undefined;
 
-    const sum = kept.reduce((acc, v) => acc + v, 0);
-    const { tag, tagColor } = analyze3d6(kept);
+      if (mode === '3d6') {
+        dice = [rollDie(), rollDie(), rollDie()];
+        kept = [...dice];
+      } else if (mode === 'adv') {
+        dice = [rollDie(), rollDie(), rollDie(), rollDie()];
+        const sorted = [...dice].sort((a, b) => a - b);
+        dropped = sorted[0];
+        kept = sorted.slice(1);
+      } else if (mode === 'dis') {
+        dice = [rollDie(), rollDie(), rollDie(), rollDie()];
+        const sorted = [...dice].sort((a, b) => a - b);
+        dropped = sorted[3];
+        kept = sorted.slice(0, 3);
+      } else if (mode === '1d6') {
+        dice = [rollDie(6)];
+        kept = [...dice];
+      } else {
+        dice = [rollDie(3)];
+        kept = [...dice];
+      }
 
-    setResult({
-      mode,
-      dice,
-      kept,
-      dropped,
-      modifier,
-      total: sum + modifier,
-      tag,
-      tagColor,
-    });
+      const sum = kept.reduce((acc, v) => acc + v, 0);
+      const { tag, tagColor } = analyze3d6(kept);
+
+      return {
+        mode,
+        dice,
+        kept,
+        dropped,
+        modifier,
+        total: sum + modifier,
+        tag,
+        tagColor,
+      };
+    };
+
+    const count = mode === '1d6' || mode === '1d3' ? 1 : 3;
+    const sides = mode === '1d3' ? 3 : 6;
+    let ticks = 0;
+    const interval = setInterval(() => {
+      ticks += 1;
+      const preview = Array.from({ length: count }, () => rollDie(sides));
+      setResult({
+        mode,
+        dice: preview,
+        kept: preview,
+        modifier,
+        total: preview.reduce((a, b) => a + b, 0) + modifier,
+        tag: null,
+        tagColor: '',
+      });
+      if (ticks >= 6) {
+        clearInterval(interval);
+        setResult(computeFinal());
+        setIsRolling(false);
+      }
+    }, 60);
   };
 
   return (
@@ -233,7 +261,11 @@ export function DiceRoller({
             {result.kept.map((d, i) => (
               <span
                 key={i}
-                className="flex h-8 w-8 items-center justify-center rounded-md border border-slate-700 bg-slate-800 text-sm font-bold text-slate-100"
+                className={`flex h-8 w-8 items-center justify-center rounded-md border text-sm font-bold transition-transform ${
+                  isRolling
+                    ? 'animate-bounce border-indigo-500 bg-indigo-950 text-indigo-200'
+                    : 'border-slate-700 bg-slate-800 text-slate-100'
+                }`}
               >
                 {d}
               </span>
