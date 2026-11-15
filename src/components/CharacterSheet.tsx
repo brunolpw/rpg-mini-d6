@@ -54,6 +54,7 @@ export interface Character {
   armorRes: number;
   movement: number;
   initiativeBonus: number;
+  condition: string;
   weaponMain: string;
   weaponSec: string;
   armorDesc: string;
@@ -85,6 +86,7 @@ function createEmptyCharacter(): Character {
     armorRes: 0,
     movement: 6,
     initiativeBonus: 0,
+    condition: 'Normal / Acordado',
     weaponMain: '',
     weaponSec: '',
     armorDesc: '',
@@ -216,19 +218,88 @@ export function CharacterSheet({ classPowers }: CharacterSheetProps) {
 
   const [itemToAdd, setItemToAdd] = useState<string>(CONSUMABLES[0]);
 
+  const [rollModal, setRollModal] = useState<{
+    title: string;
+    subtitle: string;
+    isRolling: boolean;
+    dice: number[];
+    extraDice?: number[];
+    summary: string;
+  } | null>(null);
+
   const handleRollPvPp = () => {
     const d3 = () => Math.floor(Math.random() * 3) + 1;
-    const pvRoll = d3() + d3();
-    const ppRoll =
-      selectedClass.ppDice === 2 ? d3() + d3() : d3();
-    const nextPv = Math.max(1, totalCorpo + pvRoll);
-    const nextPp = Math.max(1, totalEspirito + ppRoll);
-    updateActive({
-      pvMax: nextPv,
-      pvCurrent: nextPv,
-      ppMax: nextPp,
-      ppCurrent: nextPp,
-    });
+    let ticks = 0;
+    const interval = setInterval(() => {
+      ticks += 1;
+      const pvPreview = [d3(), d3()];
+      const ppPreview =
+        selectedClass.ppDice === 2 ? [d3(), d3()] : [d3()];
+      setRollModal({
+        title: 'Rolando PV e PP',
+        subtitle: `${selectedRace.name} • ${selectedClass.name}`,
+        isRolling: true,
+        dice: pvPreview,
+        extraDice: ppPreview,
+        summary: 'Rolando dados de vida e poder...',
+      });
+
+      if (ticks >= 6) {
+        clearInterval(interval);
+        const pvFinal = [d3(), d3()];
+        const ppFinal =
+          selectedClass.ppDice === 2 ? [d3(), d3()] : [d3()];
+        const nextPv = Math.max(1, totalCorpo + pvFinal[0] + pvFinal[1]);
+        const nextPp = Math.max(
+          1,
+          totalEspirito + ppFinal.reduce((a, b) => a + b, 0)
+        );
+        updateActive({
+          pvMax: nextPv,
+          pvCurrent: nextPv,
+          ppMax: nextPp,
+          ppCurrent: nextPp,
+        });
+        setRollModal({
+          title: 'PV e PP Calculados!',
+          subtitle: `${selectedRace.name} • ${selectedClass.name}`,
+          isRolling: false,
+          dice: pvFinal,
+          extraDice: ppFinal,
+          summary: `PV: ${totalCorpo} (Corpo) + [${pvFinal.join(', ')}] = ${nextPv}  |  PP: ${totalEspirito} (Espírito) + [${ppFinal.join(', ')}] = ${nextPp}`,
+        });
+      }
+    }, 60);
+  };
+
+  const handleRollAttribute = (label: string, attrTotal: number) => {
+    const d6 = () => Math.floor(Math.random() * 6) + 1;
+    let ticks = 0;
+    const interval = setInterval(() => {
+      ticks += 1;
+      const preview = [d6(), d6(), d6()];
+      setRollModal({
+        title: `Teste de ${label}`,
+        subtitle: `3d6 + ${label} (${attrTotal})`,
+        isRolling: true,
+        dice: preview,
+        summary: 'Rolando 3d6...',
+      });
+
+      if (ticks >= 6) {
+        clearInterval(interval);
+        const finalDice = [d6(), d6(), d6()];
+        const sum = finalDice.reduce((a, b) => a + b, 0);
+        const total = sum + attrTotal;
+        setRollModal({
+          title: `Teste de ${label}`,
+          subtitle: `3d6 + ${label} (${attrTotal})`,
+          isRolling: false,
+          dice: finalDice,
+          summary: `[${finalDice.join(' + ')}] + ${attrTotal} = ${total}`,
+        });
+      }
+    }, 60);
   };
 
   const isTwoHandedMain =
@@ -470,6 +541,13 @@ export function CharacterSheet({ classPowers }: CharacterSheetProps) {
                 <div className="mt-1 text-xs text-indigo-400">
                   Total: <strong>{totalCorpo}</strong>
                 </div>
+                <button
+                  type="button"
+                  onClick={() => handleRollAttribute('Corpo', totalCorpo)}
+                  className="no-print mt-1.5 inline-flex items-center gap-1 rounded bg-slate-800 px-2 py-0.5 text-[11px] font-medium text-slate-200 hover:bg-indigo-600 hover:text-white"
+                >
+                  <Dices className="h-3 w-3" /> 3d6
+                </button>
               </div>
 
               <div className="rounded-lg border border-slate-800 bg-slate-900/60 p-2.5">
@@ -487,6 +565,13 @@ export function CharacterSheet({ classPowers }: CharacterSheetProps) {
                 <div className="mt-1 text-xs text-indigo-400">
                   Total: <strong>{totalMente}</strong>
                 </div>
+                <button
+                  type="button"
+                  onClick={() => handleRollAttribute('Mente', totalMente)}
+                  className="no-print mt-1.5 inline-flex items-center gap-1 rounded bg-slate-800 px-2 py-0.5 text-[11px] font-medium text-slate-200 hover:bg-indigo-600 hover:text-white"
+                >
+                  <Dices className="h-3 w-3" /> 3d6
+                </button>
               </div>
 
               <div className="rounded-lg border border-slate-800 bg-slate-900/60 p-2.5">
@@ -506,6 +591,13 @@ export function CharacterSheet({ classPowers }: CharacterSheetProps) {
                 <div className="mt-1 text-xs text-indigo-400">
                   Total: <strong>{totalEspirito}</strong>
                 </div>
+                <button
+                  type="button"
+                  onClick={() => handleRollAttribute('Espírito', totalEspirito)}
+                  className="no-print mt-1.5 inline-flex items-center gap-1 rounded bg-slate-800 px-2 py-0.5 text-[11px] font-medium text-slate-200 hover:bg-indigo-600 hover:text-white"
+                >
+                  <Dices className="h-3 w-3" /> 3d6
+                </button>
               </div>
             </div>
           </div>
@@ -643,6 +735,32 @@ export function CharacterSheet({ classPowers }: CharacterSheetProps) {
                   className="print-input mt-1 w-full rounded border border-slate-700 bg-slate-950 py-1 text-center font-semibold"
                 />
               </div>
+            </div>
+
+            <div className="mt-3 flex items-center gap-2 text-xs">
+              <span className="shrink-0 font-semibold text-slate-400">
+                Condição:
+              </span>
+              <input
+                type="text"
+                list="conditions-list"
+                value={active.condition ?? 'Normal / Acordado'}
+                onChange={(e) => updateActive({ condition: e.target.value })}
+                placeholder="Normal / Acordado"
+                className="print-input w-full rounded border border-slate-700 bg-slate-950 px-2.5 py-1 text-slate-100"
+              />
+              <datalist id="conditions-list">
+                <option value="Normal / Acordado" />
+                <option value="Dormindo" />
+                <option value="Queimando" />
+                <option value="Envenenado" />
+                <option value="Cego" />
+                <option value="Atordoado" />
+                <option value="Paralisado" />
+                <option value="Impedido" />
+                <option value="Invisível" />
+                <option value="Caído (0 PV)" />
+              </datalist>
             </div>
           </div>
         </div>
@@ -964,6 +1082,84 @@ export function CharacterSheet({ classPowers }: CharacterSheetProps) {
           </div>
         </div>
       </div>
+
+      {/* Modal Animado de Rolagem de Atributos e Status */}
+      {rollModal && (
+        <div
+          className="no-print fixed inset-0 z-50 flex items-center justify-center bg-black/70 p-4 backdrop-blur-sm"
+          onClick={() => !rollModal.isRolling && setRollModal(null)}
+        >
+          <div
+            className="w-full max-w-md rounded-xl border border-indigo-700/60 bg-slate-900 p-5 shadow-2xl"
+            onClick={(e) => e.stopPropagation()}
+          >
+            <div className="flex items-start justify-between border-b border-slate-800 pb-3">
+              <div>
+                <h4 className="text-lg font-bold text-slate-100">
+                  {rollModal.title}
+                </h4>
+                <p className="text-xs text-slate-400">{rollModal.subtitle}</p>
+              </div>
+              {!rollModal.isRolling && (
+                <button
+                  onClick={() => setRollModal(null)}
+                  className="rounded-lg p-1 text-slate-400 hover:bg-slate-800 hover:text-slate-200"
+                >
+                  <X className="h-5 w-5" />
+                </button>
+              )}
+            </div>
+
+            <div className="mt-5 flex flex-col items-center gap-4">
+              <div className="flex items-center gap-2">
+                {rollModal.dice.map((d, i) => (
+                  <span
+                    key={i}
+                    className={`flex h-11 w-11 items-center justify-center rounded-lg border text-lg font-extrabold ${
+                      rollModal.isRolling
+                        ? 'animate-bounce border-indigo-500 bg-indigo-950 text-indigo-200'
+                        : 'border-emerald-600/60 bg-slate-800 text-white'
+                    }`}
+                  >
+                    {d}
+                  </span>
+                ))}
+
+                {rollModal.extraDice && (
+                  <>
+                    <span className="mx-1 text-slate-500">+</span>
+                    {rollModal.extraDice.map((d, i) => (
+                      <span
+                        key={i}
+                        className={`flex h-11 w-11 items-center justify-center rounded-lg border text-lg font-extrabold ${
+                          rollModal.isRolling
+                            ? 'animate-bounce border-sky-500 bg-sky-950 text-sky-200'
+                            : 'border-sky-600/60 bg-slate-800 text-sky-300'
+                        }`}
+                      >
+                        {d}
+                      </span>
+                    ))}
+                  </>
+                )}
+              </div>
+
+              <p className="text-center text-sm font-semibold text-slate-200">
+                {rollModal.summary}
+              </p>
+
+              {!rollModal.isRolling && (
+                <button
+                  onClick={() => setRollModal(null)}
+                  className="w-full rounded-lg bg-indigo-600 py-2 text-sm font-semibold text-white hover:bg-indigo-500"
+                >
+                  Fechar
+                </button>
+              )}
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   );
 }
