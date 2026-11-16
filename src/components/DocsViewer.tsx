@@ -1,4 +1,4 @@
-import { useMemo, useState } from 'react';
+import React, { useMemo, useState } from 'react';
 import ReactMarkdown from 'react-markdown';
 import remarkGfm from 'remark-gfm';
 import {
@@ -12,6 +12,18 @@ import {
   ChevronRight,
 } from 'lucide-react';
 import { parseDocSections, slugify } from '../utils/markdownParser';
+
+function nodeToPlainText(node: React.ReactNode): string {
+  if (node == null || typeof node === 'boolean') return '';
+  if (typeof node === 'string' || typeof node === 'number') return String(node);
+  if (Array.isArray(node)) return node.map(nodeToPlainText).join('');
+  if (React.isValidElement(node)) {
+    return nodeToPlainText(
+      (node.props as { children?: React.ReactNode }).children
+    );
+  }
+  return '';
+}
 
 interface DocsViewerProps {
   markdown: string;
@@ -44,6 +56,25 @@ export function DocsViewer({ markdown, loading, error }: DocsViewerProps) {
         s.content.toLowerCase().includes(q)
     );
   }, [sections, search]);
+
+  const scrollToHeading = (id: string) => {
+    const el = document.getElementById(id);
+    if (el) {
+      el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+  };
+
+  const handleSubsectionClick = (secId: string, subId: string) => {
+    if (!bookMode && secId !== currentSection?.id) {
+      setActiveSectionId(secId);
+      setTimeout(() => {
+        scrollToHeading(subId);
+      }, 100);
+    } else {
+      scrollToHeading(subId);
+    }
+    setTocOpen(false);
+  };
 
   if (loading) {
     return (
@@ -172,21 +203,7 @@ export function DocsViewer({ markdown, loading, error }: DocsViewerProps) {
                       {sec.subsections.map((sub) => (
                         <button
                           key={sub.id}
-                          onClick={() => {
-                            if (!bookMode && sec.id !== currentSection?.id) {
-                              setActiveSectionId(sec.id);
-                              setTimeout(() => {
-                                document
-                                  .getElementById(sub.id)
-                                  ?.scrollIntoView({ behavior: 'smooth' });
-                              }, 60);
-                            } else {
-                              document
-                                .getElementById(sub.id)
-                                ?.scrollIntoView({ behavior: 'smooth' });
-                            }
-                            setTocOpen(false);
-                          }}
+                          onClick={() => handleSubsectionClick(sec.id, sub.id)}
                           className="block w-full rounded px-2 py-1 text-left text-xs text-slate-400 transition-colors hover:bg-slate-800/70 hover:text-indigo-300"
                         >
                           {sub.title}
@@ -207,15 +224,15 @@ export function DocsViewer({ markdown, loading, error }: DocsViewerProps) {
           remarkPlugins={[remarkGfm]}
           components={{
             h1: ({ children }) => {
-              const text = String(children);
+              const text = nodeToPlainText(children);
               return <h1 id={slugify(text)}>{children}</h1>;
             },
             h2: ({ children }) => {
-              const text = String(children);
+              const text = nodeToPlainText(children);
               return <h2 id={slugify(text)}>{children}</h2>;
             },
             h3: ({ children }) => {
-              const text = String(children);
+              const text = nodeToPlainText(children);
               return <h3 id={slugify(text)}>{children}</h3>;
             },
           }}
