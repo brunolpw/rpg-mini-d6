@@ -93,7 +93,7 @@ export function App() {
               <h1 className="text-base font-bold leading-tight text-slate-100">
                 Mini-d6 RPG
               </h1>
-              <p className="text-xs text-slate-400">Versão 2.5 • PWA Offline</p>
+              <p className="text-xs text-slate-400">Versão 2.7 • PWA Offline</p>
             </div>
           </div>
 

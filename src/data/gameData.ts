@@ -16,8 +16,12 @@ export interface ClassInfo {
   naturalTrait: string;
   baseMod: { corpo: number; mente: number; espirito: number };
   pvFormula: string;
+  pvDice: 1 | 2;
+  pvBonus: number;
   ppFormula: string;
   ppDice: 1 | 2;
+  ppBonus: number;
+  initialPowers: number;
 }
 
 export const RACES: RaceInfo[] = [
@@ -104,9 +108,13 @@ export const CLASSES: ClassInfo[] = [
     naturalTrait:
       '+1m no deslocamento base e Vantagem em testes de Corpo para proezas de força bruta pura (arrombar portas, entortar grades, erguer peso maciço) e intimidação física.',
     baseMod: { corpo: 2, mente: 0, espirito: -2 },
-    pvFormula: 'Corpo + 2d3',
-    ppFormula: 'Espírito + 1d3',
+    pvFormula: 'Corpo + 2d3 + 1',
+    pvDice: 2,
+    pvBonus: 1,
+    ppFormula: 'Espírito + 1d3 + 1',
     ppDice: 1,
+    ppBonus: 1,
+    initialPowers: 1,
   },
   {
     id: 'guerreiro',
@@ -118,9 +126,13 @@ export const CLASSES: ClassInfo[] = [
     naturalTrait:
       'Não pode ser empurrado, derrubado ou movido contra a sua vontade por inimigos do seu tamanho ou menor. Se estiver empunhando escudo ou arma com as duas mãos, recebe +1 de Resistência Física natural adicional contra todo golpe físico sofrido.',
     baseMod: { corpo: 1, mente: 1, espirito: -2 },
-    pvFormula: 'Corpo + 2d3',
-    ppFormula: 'Espírito + 1d3',
+    pvFormula: 'Corpo + 2d3 + 1',
+    pvDice: 2,
+    pvBonus: 1,
+    ppFormula: 'Espírito + 1d3 + 1',
     ppDice: 1,
+    ppBonus: 1,
+    initialPowers: 1,
   },
   {
     id: 'paladino',
@@ -132,9 +144,13 @@ export const CLASSES: ClassInfo[] = [
     naturalTrait:
       'Imunidade a medo mundano e concede +1 em testes de resistência mental contra influências sombrias para aliados a até 3m. Detecta a presença de mortos-vivos ou profanações no ambiente imediato ao se concentrar.',
     baseMod: { corpo: 1, mente: -2, espirito: 1 },
-    pvFormula: 'Corpo + 2d3',
-    ppFormula: 'Espírito + 1d3',
+    pvFormula: 'Corpo + 2d3 + 1',
+    pvDice: 2,
+    pvBonus: 1,
+    ppFormula: 'Espírito + 1d3 + 1',
     ppDice: 1,
+    ppBonus: 1,
+    initialPowers: 2,
   },
   {
     id: 'mago',
@@ -146,9 +162,13 @@ export const CLASSES: ClassInfo[] = [
     naturalTrait:
       'Detecta fluxos, runas e resíduos mágicos sem gastar PP. Ganha Vantagem em testes de Arcanismo, decifração de escrituras antigas e avaliação de propriedades de itens encantados.',
     baseMod: { corpo: -2, mente: 0, espirito: 2 },
-    pvFormula: 'Corpo + 2d3',
-    ppFormula: 'Espírito + 2d3',
+    pvFormula: 'Corpo + 1d3 + 1',
+    pvDice: 1,
+    pvBonus: 1,
+    ppFormula: 'Espírito + 2d3 + 1',
     ppDice: 2,
+    ppBonus: 1,
+    initialPowers: 3,
   },
   {
     id: 'druida',
@@ -160,9 +180,13 @@ export const CLASSES: ClassInfo[] = [
     naturalTrait:
       'Pressente com precisão mudanças climáticas e catástrofes naturais com horas de antecedência. Não sofre dano de espinhos e plantas comuns, e discerne intuitivamente se qualquer planta, fruto ou água é tóxica ou potável.',
     baseMod: { corpo: -1, mente: -1, espirito: 2 },
-    pvFormula: 'Corpo + 2d3',
-    ppFormula: 'Espírito + 2d3',
+    pvFormula: 'Corpo + 1d3 + 1',
+    pvDice: 1,
+    pvBonus: 1,
+    ppFormula: 'Espírito + 2d3 + 1',
     ppDice: 2,
+    ppBonus: 1,
+    initialPowers: 2,
   },
   {
     id: 'clerigo',
@@ -174,9 +198,13 @@ export const CLASSES: ClassInfo[] = [
     naturalTrait:
       'Durante descansos curtos, sua presença acolhedora e preces restauram +1 PV adicional a todos os aliados sem gasto de recursos. Clérigos e seus companheiros encontram refúgio e hospitalidade garantida em qualquer templo de sua fé.',
     baseMod: { corpo: 0, mente: -1, espirito: 1 },
-    pvFormula: 'Corpo + 2d3',
-    ppFormula: 'Espírito + 2d3',
+    pvFormula: 'Corpo + 1d3 + 1',
+    pvDice: 1,
+    pvBonus: 1,
+    ppFormula: 'Espírito + 2d3 + 1',
     ppDice: 2,
+    ppBonus: 1,
+    initialPowers: 2,
   },
   {
     id: 'ladino',
@@ -189,8 +217,12 @@ export const CLASSES: ClassInfo[] = [
       'Vantagem em testes de furtividade para passar despercebido em meio a multidões ou sombras leves. Localiza com facilidade rotas de fuga em becos e contatos no submundo ao entrar em povoados.',
     baseMod: { corpo: -1, mente: 2, espirito: -1 },
     pvFormula: 'Corpo + 2d3',
-    ppFormula: 'Espírito + 1d3',
-    ppDice: 1,
+    pvDice: 2,
+    pvBonus: 0,
+    ppFormula: 'Espírito + 2d3',
+    ppDice: 2,
+    ppBonus: 0,
+    initialPowers: 1,
   },
   {
     id: 'ranger',
@@ -203,8 +235,12 @@ export const CLASSES: ClassInfo[] = [
       'Ignora a penalidade de cobertura leve em disparos à distância. Se não se mover no seu turno, ganha +1 no Ataque ou dobra o alcance do disparo. Enxerga com clareza o dobro da distância e nunca é surpreendido em vigília.',
     baseMod: { corpo: 1, mente: 1, espirito: -2 },
     pvFormula: 'Corpo + 2d3',
-    ppFormula: 'Espírito + 1d3',
-    ppDice: 1,
+    pvDice: 2,
+    pvBonus: 0,
+    ppFormula: 'Espírito + 2d3',
+    ppDice: 2,
+    ppBonus: 0,
+    initialPowers: 1,
   },
   {
     id: 'bardo',
@@ -217,8 +253,12 @@ export const CLASSES: ClassInfo[] = [
       'Rola testes de carisma e influência social com Vantagem (4d6). Em comércios e feiras, tem Vantagem nas rolagens para negociar descontos em compras ou preços mais altos na venda de itens.',
     baseMod: { corpo: -2, mente: 1, espirito: 1 },
     pvFormula: 'Corpo + 2d3',
+    pvDice: 2,
+    pvBonus: 0,
     ppFormula: 'Espírito + 2d3',
     ppDice: 2,
+    ppBonus: 0,
+    initialPowers: 2,
   },
 ];
 

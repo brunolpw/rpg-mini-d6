@@ -15,6 +15,8 @@ import {
   Dices,
   Store,
   Package,
+  Lock,
+  Unlock,
 } from 'lucide-react';
 import {
   ARMORS,
@@ -84,6 +86,7 @@ export interface Character {
   backpackItems?: CharacterBackpackItem[];
   notes: string;
   powers: PowerSlot[];
+  isLocked?: boolean;
 }
 
 const STORAGE_KEY = 'mini-d6-sheets-v1';
@@ -116,13 +119,24 @@ function normalizeBackpackItems(rawItems: any[]): CharacterBackpackItem[] {
   });
 }
 
+function getInitialPowersCount(classId: string, raceId: string): number {
+  const cls = CLASSES.find((c) => c.id === classId);
+  const base = cls?.initialPowers ?? 2;
+  const raceBonus = raceId === 'elfo' ? 1 : 0;
+  return base + raceBonus;
+}
+
 function createEmptyCharacter(): Character {
+  const initialClassId = 'guerreiro';
+  const initialRaceId = 'humano';
+  const slotCount = getInitialPowersCount(initialClassId, initialRaceId);
+
   return {
     id: crypto.randomUUID(),
     name: 'Novo Aventureiro',
-    raceId: 'humano',
+    raceId: initialRaceId,
     humanBonusAttr: 'corpo',
-    classId: 'guerreiro',
+    classId: initialClassId,
     level: 1,
     xp: 0,
     gold: 50,
@@ -147,12 +161,13 @@ function createEmptyCharacter(): Character {
     backpack: '',
     backpackItems: [],
     notes: '',
-    powers: Array.from({ length: 2 }, () => ({
+    powers: Array.from({ length: slotCount }, () => ({
       name: '',
       level: 1,
       pp: '0',
       notes: '',
     })),
+    isLocked: false,
   };
 }
 
@@ -334,6 +349,7 @@ export function CharacterSheet({ classPowers }: CharacterSheetProps) {
 
   const defFisica = 10 + totalCorpo + active.shieldBonus;
   const defMagica = 10 + totalEspirito;
+  const totalIniciativa = totalMente + (active.initiativeBonus ?? 0);
 
   const [rollModal, setRollModal] = useState<{
     title: string;
@@ -375,30 +391,57 @@ export function CharacterSheet({ classPowers }: CharacterSheetProps) {
   };
 
   const handleRollBaseAttributes = () => {
+    // Regra oficial do mini-d6:
+    // Base 5 para cada atributo + Rolagem Mm (1, 2, 3 = +1 | 4, 5, 6 = +2) + modificador de classe
+    const rollMm = () => (Math.floor(Math.random() * 6) + 1 >= 4 ? 2 : 1);
     const d3 = () => Math.floor(Math.random() * 3) + 1;
+
     let ticks = 0;
     const interval = setInterval(() => {
       ticks += 1;
-      const preview = [d3() + 3, d3() + 3, d3() + 3];
+      const preview = [rollMm(), rollMm(), rollMm()];
       setRollModal({
-        title: 'Gerando Ficha Inicial',
+        title: 'Gerando Atributos Iniciais (Regra Mm)',
         subtitle: `${selectedRace.name} • ${selectedClass.name}`,
         isRolling: true,
         dice: preview,
-        summary: 'Rolando atributos, PV e PP...',
+        summary: 'Rolando Mm (+1 ou +2), PV e PP...',
       });
       if (ticks >= 6) {
         clearInterval(interval);
-        const c = Math.max(1, d3() + 3 + selectedClass.baseMod.corpo);
-        const m = Math.max(1, d3() + 3 + selectedClass.baseMod.mente);
-        const e = Math.max(1, d3() + 3 + selectedClass.baseMod.espirito);
+        // Base 5 + Mm + Modificador da Classe (mínimo 4, máximo 10)
+        const mmCorpo = rollMm();
+        const mmMente = rollMm();
+        const mmEspirito = rollMm();
+
+        const c = Math.max(4, Math.min(10, 5 + mmCorpo + selectedClass.baseMod.corpo));
+        const m = Math.max(4, Math.min(10, 5 + mmMente + selectedClass.baseMod.mente));
+        const e = Math.max(4, Math.min(10, 5 + mmEspirito + selectedClass.baseMod.espirito));
 
         const nextTotalCorpo = c + selectedRace.bonus.corpo;
         const nextTotalEspirito = e + selectedRace.bonus.espirito;
-        const pvRoll = d3() + d3();
-        const ppRoll = selectedClass.ppDice === 2 ? d3() + d3() : d3();
+
+        // Fórmulas Oficiais da Classe
+        const pvRoll =
+          selectedClass.pvDice === 2
+            ? d3() + d3() + selectedClass.pvBonus
+            : d3() + selectedClass.pvBonus;
+
+        const ppRoll =
+          selectedClass.ppDice === 2
+            ? d3() + d3() + selectedClass.ppBonus
+            : d3() + selectedClass.ppBonus;
+
         const nextPv = Math.max(1, nextTotalCorpo + pvRoll);
         const nextPp = Math.max(1, nextTotalEspirito + ppRoll);
+
+        const slotCount = getInitialPowersCount(selectedClass.id, selectedRace.id);
+        const nextPowers = Array.from({ length: slotCount }, (_, i) => ({
+          name: active.powers[i]?.name ?? '',
+          level: active.powers[i]?.level ?? 1,
+          pp: active.powers[i]?.pp ?? '0',
+          notes: active.powers[i]?.notes ?? '',
+        }));
 
         updateActive({
           corpo: c,
@@ -408,17 +451,50 @@ export function CharacterSheet({ classPowers }: CharacterSheetProps) {
           pvCurrent: nextPv,
           ppMax: nextPp,
           ppCurrent: nextPp,
+          powers: nextPowers,
         });
+
         setRollModal({
           title: 'Ficha Inicial Gerada!',
           subtitle: `${selectedRace.name} • ${selectedClass.name}`,
           isRolling: false,
           dice: [c, m, e],
           extraDice: [nextPv, nextPp],
-          summary: `Corpo: ${c} | Mente: ${m} | Espírito: ${e}  •  PV: ${nextPv} | PP: ${nextPp}`,
+          summary: `Corpo: ${c} | Mente: ${m} | Espírito: ${e}  •  PV: ${nextPv} (${selectedClass.pvFormula}) | PP: ${nextPp} (${selectedClass.ppFormula})`,
         });
       }
     }, 60);
+  };
+
+  const handleRollPvPp = () => {
+    const d3 = () => Math.floor(Math.random() * 3) + 1;
+    const pvRoll =
+      selectedClass.pvDice === 2
+        ? d3() + d3() + selectedClass.pvBonus
+        : d3() + selectedClass.pvBonus;
+
+    const ppRoll =
+      selectedClass.ppDice === 2
+        ? d3() + d3() + selectedClass.ppBonus
+        : d3() + selectedClass.ppBonus;
+
+    const nextPv = Math.max(1, totalCorpo + pvRoll);
+    const nextPp = Math.max(1, totalEspirito + ppRoll);
+
+    updateActive({
+      pvMax: nextPv,
+      pvCurrent: nextPv,
+      ppMax: nextPp,
+      ppCurrent: nextPp,
+    });
+
+    setRollModal({
+      title: 'PV e PP Recalculados!',
+      subtitle: `${selectedClass.name} • Corpo ${totalCorpo} / Espírito ${totalEspirito}`,
+      isRolling: false,
+      dice: [pvRoll, ppRoll],
+      summary: `PV: ${nextPv} (${totalCorpo} + ${selectedClass.pvFormula.replace('Corpo + ', '')}) | PP: ${nextPp} (${totalEspirito} + ${selectedClass.ppFormula.replace('Espírito + ', '')})`,
+    });
   };
 
   const handleDeathSave = () => {
@@ -611,6 +687,37 @@ export function CharacterSheet({ classPowers }: CharacterSheetProps) {
               <Trash2 className="h-4 w-4" />
             </button>
           )}
+
+          {/* Botão de Travar / Salvar Ficha */}
+          <button
+            type="button"
+            onClick={() => {
+              const nextState = !active.isLocked;
+              updateActive({ isLocked: nextState });
+            }}
+            className={`flex items-center gap-1.5 rounded-lg border px-3 py-2 text-sm font-bold transition-colors ${
+              active.isLocked
+                ? 'border-emerald-500/60 bg-emerald-950/60 text-emerald-300 hover:bg-emerald-900/60 shadow'
+                : 'border-amber-500/60 bg-amber-950/60 text-amber-300 hover:bg-amber-900/60'
+            }`}
+            title={
+              active.isLocked
+                ? 'Ficha Travada para Jogo (evita alterações acidentais). Clique para editar.'
+                : 'Clique para Salvar e Travar a Ficha (protege raça, classe e atributos).'
+            }
+          >
+            {active.isLocked ? (
+              <>
+                <Lock className="h-4 w-4 text-emerald-400" />
+                <span>Ficha Travada</span>
+              </>
+            ) : (
+              <>
+                <Unlock className="h-4 w-4 text-amber-400" />
+                <span>Modo Edição (Travar)</span>
+              </>
+            )}
+          </button>
         </div>
 
         <div className="flex flex-wrap items-center gap-2">
@@ -822,13 +929,40 @@ export function CharacterSheet({ classPowers }: CharacterSheetProps) {
         {/* Raça e Classe */}
         <div className="grid gap-4 sm:grid-cols-2">
           <div className="print-card rounded-lg border border-slate-800 bg-slate-950/60 p-3">
-            <label className="block text-xs font-semibold uppercase text-slate-400">
-              Raça
-            </label>
+            <div className="flex items-center justify-between">
+              <label className="block text-xs font-semibold uppercase text-slate-400">
+                Raça
+              </label>
+              {active.isLocked && (
+                <span className="flex items-center gap-1 text-[10px] text-slate-400 font-medium">
+                  <Lock className="h-3 w-3 text-slate-500" /> Travado
+                </span>
+              )}
+            </div>
             <select
+              disabled={active.isLocked}
               value={active.raceId}
-              onChange={(e) => updateActive({ raceId: e.target.value })}
-              className="print-input mt-1 w-full rounded-md border border-slate-700 bg-slate-900 px-2.5 py-1.5 text-sm font-semibold text-slate-100"
+              onChange={(e) => {
+                const nextRaceId = e.target.value;
+                const hasSelectedPowers = active.powers.some((p) => p.name.trim() !== '');
+                if (hasSelectedPowers) {
+                  const confirmChange = window.confirm(
+                    'Você já possui poderes selecionados. Mudar a raça pode alterar o bônus de poderes (ex: Elfo). Deseja continuar?'
+                  );
+                  if (!confirmChange) return;
+                }
+                const targetSlots = getInitialPowersCount(active.classId, nextRaceId);
+                let nextPowers = [...active.powers];
+                if (nextPowers.length < targetSlots) {
+                  while (nextPowers.length < targetSlots) {
+                    nextPowers.push({ name: '', level: 1, pp: '0', notes: '' });
+                  }
+                }
+                updateActive({ raceId: nextRaceId, powers: nextPowers });
+              }}
+              className={`print-input mt-1 w-full rounded-md border border-slate-700 bg-slate-900 px-2.5 py-1.5 text-sm font-semibold text-slate-100 ${
+                active.isLocked ? 'cursor-not-allowed opacity-80' : ''
+              }`}
             >
               {RACES.map((r) => (
                 <option key={r.id} value={r.id}>
@@ -848,13 +982,44 @@ export function CharacterSheet({ classPowers }: CharacterSheetProps) {
           </div>
 
           <div className="print-card rounded-lg border border-slate-800 bg-slate-950/60 p-3">
-            <label className="block text-xs font-semibold uppercase text-slate-400">
-              Classe
-            </label>
+            <div className="flex items-center justify-between">
+              <label className="block text-xs font-semibold uppercase text-slate-400">
+                Classe
+              </label>
+              {active.isLocked ? (
+                <span className="flex items-center gap-1 text-[10px] text-slate-400 font-medium">
+                  <Lock className="h-3 w-3 text-slate-500" /> Travado
+                </span>
+              ) : active.powers.some((p) => p.name.trim() !== '') ? (
+                <span className="flex items-center gap-1 text-[10px] text-amber-400 font-semibold" title="Limpe os poderes para alterar a classe sem risco de conflito">
+                  <AlertTriangle className="h-3 w-3 text-amber-400" /> Poder selecionado
+                </span>
+              ) : null}
+            </div>
             <select
+              disabled={active.isLocked}
               value={active.classId}
-              onChange={(e) => updateActive({ classId: e.target.value })}
-              className="print-input mt-1 w-full rounded-md border border-slate-700 bg-slate-900 px-2.5 py-1.5 text-sm font-semibold text-slate-100"
+              onChange={(e) => {
+                const nextClassId = e.target.value;
+                const hasSelectedPowers = active.powers.some((p) => p.name.trim() !== '');
+                if (hasSelectedPowers) {
+                  const confirmChange = window.confirm(
+                    'Você já possui poderes selecionados desta classe. Ao mudar a classe, os poderes anteriores serão redefinidos. Deseja continuar?'
+                  );
+                  if (!confirmChange) return;
+                }
+                const targetSlots = getInitialPowersCount(nextClassId, active.raceId);
+                const nextPowers: PowerSlot[] = Array.from({ length: targetSlots }, () => ({
+                  name: '',
+                  level: 1,
+                  pp: '0',
+                  notes: '',
+                }));
+                updateActive({ classId: nextClassId, powers: nextPowers });
+              }}
+              className={`print-input mt-1 w-full rounded-md border border-slate-700 bg-slate-900 px-2.5 py-1.5 text-sm font-semibold text-slate-100 ${
+                active.isLocked ? 'cursor-not-allowed opacity-80' : ''
+              }`}
             >
               {CLASSES.map((c) => (
                 <option key={c.id} value={c.id}>
@@ -878,7 +1043,7 @@ export function CharacterSheet({ classPowers }: CharacterSheetProps) {
               {selectedClass.baseMod.mente}), Espírito (
               {selectedClass.baseMod.espirito >= 0 ? '+' : ''}
               {selectedClass.baseMod.espirito}) | PV: {selectedClass.pvFormula}{' '}
-              | PP: {selectedClass.ppFormula}
+              | PP: {selectedClass.ppFormula} | Poderes Iniciais: {getInitialPowersCount(selectedClass.id, selectedRace.id)}
             </p>
           </div>
         </div>
@@ -891,14 +1056,16 @@ export function CharacterSheet({ classPowers }: CharacterSheetProps) {
               <h3 className="text-xs font-bold uppercase tracking-wider text-slate-400">
                 Atributos (Base + Racial = Total)
               </h3>
-              <button
-                type="button"
-                onClick={handleRollBaseAttributes}
-                className="no-print flex items-center gap-1 rounded-md border border-emerald-700/60 bg-emerald-950/60 px-2.5 py-1 text-[11px] font-semibold text-emerald-300 hover:bg-emerald-900/60"
-                title="Rola atributos (1d3+3+Classe), PV e PP iniciais automaticamente"
-              >
-                <Dices className="h-3.5 w-3.5" /> Rolar Ficha Inicial
-              </button>
+              {!active.isLocked && (
+                <button
+                  type="button"
+                  onClick={handleRollBaseAttributes}
+                  className="no-print flex items-center gap-1 rounded-md border border-emerald-700/60 bg-emerald-950/60 px-2.5 py-1 text-[11px] font-semibold text-emerald-300 hover:bg-emerald-900/60"
+                  title="Rola atributos com a regra oficial Mm (Base 5 + Mm + Classe), PV e PP"
+                >
+                  <Dices className="h-3.5 w-3.5" /> Rolar Ficha Inicial (Mm)
+                </button>
+              )}
             </div>
             <div className="grid grid-cols-3 gap-3 text-center">
               <div className="rounded-lg border border-slate-800 bg-slate-900/60 p-2.5">
@@ -907,17 +1074,20 @@ export function CharacterSheet({ classPowers }: CharacterSheetProps) {
                   type="number"
                   min={1}
                   max={10}
+                  disabled={active.isLocked}
                   value={active.corpo}
                   onChange={(e) =>
                     updateActive({ corpo: Number(e.target.value) })
                   }
-                  className="print-input mt-1 w-full rounded border border-slate-700 bg-slate-950 py-1 text-center text-lg font-bold text-slate-100"
+                  className={`print-input mt-1 w-full rounded border border-slate-700 bg-slate-950 py-1 text-center text-lg font-bold text-slate-100 ${
+                    active.isLocked ? 'cursor-not-allowed opacity-90' : ''
+                  }`}
                 />
                 <div className="mt-1 text-[10px] text-slate-400">
                   Classe: {selectedClass.baseMod.corpo >= 0 ? '+' : ''}
                   {selectedClass.baseMod.corpo} | Raça: +{raceBonus.corpo}
                 </div>
-                {active.raceId === 'humano' && (
+                {active.raceId === 'humano' && !active.isLocked && (
                   <button
                     type="button"
                     onClick={() => updateActive({ humanBonusAttr: 'corpo' })}
@@ -937,8 +1107,9 @@ export function CharacterSheet({ classPowers }: CharacterSheetProps) {
                   type="button"
                   onClick={() => handleRollAttribute('Corpo', totalCorpo)}
                   className="no-print mt-1.5 inline-flex items-center gap-1 rounded bg-slate-800 px-2 py-0.5 text-[11px] font-medium text-slate-200 hover:bg-indigo-600 hover:text-white"
+                  title="Testar Corpo (rolar 3d6 + Corpo)"
                 >
-                  <Dices className="h-3 w-3" /> 3d6
+                  <Dices className="h-3 w-3" /> Testar 3d6
                 </button>
               </div>
 
@@ -948,17 +1119,20 @@ export function CharacterSheet({ classPowers }: CharacterSheetProps) {
                   type="number"
                   min={1}
                   max={10}
+                  disabled={active.isLocked}
                   value={active.mente}
                   onChange={(e) =>
                     updateActive({ mente: Number(e.target.value) })
                   }
-                  className="print-input mt-1 w-full rounded border border-slate-700 bg-slate-950 py-1 text-center text-lg font-bold text-slate-100"
+                  className={`print-input mt-1 w-full rounded border border-slate-700 bg-slate-950 py-1 text-center text-lg font-bold text-slate-100 ${
+                    active.isLocked ? 'cursor-not-allowed opacity-90' : ''
+                  }`}
                 />
                 <div className="mt-1 text-[10px] text-slate-400">
                   Classe: {selectedClass.baseMod.mente >= 0 ? '+' : ''}
                   {selectedClass.baseMod.mente} | Raça: +{raceBonus.mente}
                 </div>
-                {active.raceId === 'humano' && (
+                {active.raceId === 'humano' && !active.isLocked && (
                   <button
                     type="button"
                     onClick={() => updateActive({ humanBonusAttr: 'mente' })}
@@ -978,8 +1152,9 @@ export function CharacterSheet({ classPowers }: CharacterSheetProps) {
                   type="button"
                   onClick={() => handleRollAttribute('Mente', totalMente)}
                   className="no-print mt-1.5 inline-flex items-center gap-1 rounded bg-slate-800 px-2 py-0.5 text-[11px] font-medium text-slate-200 hover:bg-indigo-600 hover:text-white"
+                  title="Testar Mente (rolar 3d6 + Mente)"
                 >
-                  <Dices className="h-3 w-3" /> 3d6
+                  <Dices className="h-3 w-3" /> Testar 3d6
                 </button>
               </div>
 
@@ -991,17 +1166,20 @@ export function CharacterSheet({ classPowers }: CharacterSheetProps) {
                   type="number"
                   min={1}
                   max={10}
+                  disabled={active.isLocked}
                   value={active.espirito}
                   onChange={(e) =>
                     updateActive({ espirito: Number(e.target.value) })
                   }
-                  className="print-input mt-1 w-full rounded border border-slate-700 bg-slate-950 py-1 text-center text-lg font-bold text-slate-100"
+                  className={`print-input mt-1 w-full rounded border border-slate-700 bg-slate-950 py-1 text-center text-lg font-bold text-slate-100 ${
+                    active.isLocked ? 'cursor-not-allowed opacity-90' : ''
+                  }`}
                 />
                 <div className="mt-1 text-[10px] text-slate-400">
                   Classe: {selectedClass.baseMod.espirito >= 0 ? '+' : ''}
                   {selectedClass.baseMod.espirito} | Raça: +{raceBonus.espirito}
                 </div>
-                {active.raceId === 'humano' && (
+                {active.raceId === 'humano' && !active.isLocked && (
                   <button
                     type="button"
                     onClick={() => updateActive({ humanBonusAttr: 'espirito' })}
@@ -1021,8 +1199,9 @@ export function CharacterSheet({ classPowers }: CharacterSheetProps) {
                   type="button"
                   onClick={() => handleRollAttribute('Espírito', totalEspirito)}
                   className="no-print mt-1.5 inline-flex items-center gap-1 rounded bg-slate-800 px-2 py-0.5 text-[11px] font-medium text-slate-200 hover:bg-indigo-600 hover:text-white"
+                  title="Testar Espírito (rolar 3d6 + Espírito)"
                 >
-                  <Dices className="h-3 w-3" /> 3d6
+                  <Dices className="h-3 w-3" /> Testar 3d6
                 </button>
               </div>
             </div>
@@ -1030,9 +1209,19 @@ export function CharacterSheet({ classPowers }: CharacterSheetProps) {
 
           {/* Combate, PV e PP */}
           <div className="print-card rounded-lg border border-slate-800 bg-slate-950/60 p-4">
-            <h3 className="mb-3 text-xs font-bold uppercase tracking-wider text-slate-400">
-              Status de Combate
-            </h3>
+            <div className="mb-3 flex items-center justify-between gap-2">
+              <h3 className="text-xs font-bold uppercase tracking-wider text-slate-400">
+                Status de Combate
+              </h3>
+              <button
+                type="button"
+                onClick={handleRollPvPp}
+                className="no-print flex items-center gap-1 rounded-md border border-sky-700/60 bg-sky-950/60 px-2 py-0.5 text-[11px] font-semibold text-sky-300 hover:bg-sky-900/60"
+                title={`Recalcula e rola PV (${selectedClass.pvFormula}) e PP (${selectedClass.ppFormula}) com base no seu Corpo (${totalCorpo}) e Espírito (${totalEspirito})`}
+              >
+                <Dices className="h-3 w-3" /> Rolar PV/PP ({selectedClass.name})
+              </button>
+            </div>
             <div className="grid grid-cols-2 gap-3 sm:grid-cols-4">
               <div className="rounded-lg border border-slate-800 bg-slate-900/60 p-2 text-center">
                 <div className="flex items-center justify-center gap-1 text-xs text-rose-400">
@@ -1056,6 +1245,9 @@ export function CharacterSheet({ classPowers }: CharacterSheetProps) {
                     }
                     className="print-input w-12 rounded border border-slate-700 bg-slate-950 py-0.5 text-center text-sm font-bold"
                   />
+                </div>
+                <div className="mt-1 text-[10px] text-slate-400" title="Fórmula oficial da classe">
+                  {selectedClass.pvFormula}
                 </div>
               </div>
 
@@ -1082,6 +1274,9 @@ export function CharacterSheet({ classPowers }: CharacterSheetProps) {
                     className="print-input w-12 rounded border border-slate-700 bg-slate-950 py-0.5 text-center text-sm font-bold"
                   />
                 </div>
+                <div className="mt-1 text-[10px] text-slate-400" title="Fórmula oficial da classe">
+                  {selectedClass.ppFormula}
+                </div>
               </div>
 
               <div className="rounded-lg border border-slate-800 bg-slate-900/60 p-2 text-center">
@@ -1091,6 +1286,9 @@ export function CharacterSheet({ classPowers }: CharacterSheetProps) {
                 <div className="mt-1 text-lg font-extrabold text-slate-100">
                   {defFisica}
                 </div>
+                <div className="mt-1 text-[10px] text-slate-400">
+                  10 + Corpo ({totalCorpo}) + Escudo ({active.shieldBonus})
+                </div>
               </div>
 
               <div className="rounded-lg border border-slate-800 bg-slate-900/60 p-2 text-center">
@@ -1099,6 +1297,9 @@ export function CharacterSheet({ classPowers }: CharacterSheetProps) {
                 </div>
                 <div className="mt-1 text-lg font-extrabold text-slate-100">
                   {defMagica}
+                </div>
+                <div className="mt-1 text-[10px] text-slate-400">
+                  10 + Espírito ({totalEspirito})
                 </div>
               </div>
             </div>
@@ -1141,15 +1342,35 @@ export function CharacterSheet({ classPowers }: CharacterSheetProps) {
                 />
               </div>
               <div>
-                <span className="text-slate-400">Iniciativa</span>
-                <input
-                  type="number"
-                  value={active.initiativeBonus}
-                  onChange={(e) =>
-                    updateActive({ initiativeBonus: Number(e.target.value) })
-                  }
-                  className="print-input mt-1 w-full rounded border border-slate-700 bg-slate-950 py-1 text-center font-semibold"
-                />
+                <div className="flex items-center justify-center gap-1">
+                  <span className="text-slate-400">Iniciativa</span>
+                  <button
+                    type="button"
+                    onClick={() => handleRollAttribute('Iniciativa', totalIniciativa)}
+                    className="no-print rounded p-0.5 text-amber-400 hover:bg-slate-800"
+                    title={`Rolar Iniciativa: 3d6 + Mente (${totalMente}) + Bônus (${active.initiativeBonus ?? 0}) = 3d6 + ${totalIniciativa}`}
+                  >
+                    <Dices className="h-3 w-3" />
+                  </button>
+                </div>
+                <div className="mt-1 flex items-center gap-1">
+                  <div
+                    className="flex-1 rounded border border-slate-700 bg-slate-950 py-1 text-center font-bold text-amber-300"
+                    title={`Total: Mente (${totalMente}) + Bônus (${active.initiativeBonus ?? 0}) = ${totalIniciativa}`}
+                  >
+                    +{totalIniciativa}
+                  </div>
+                  <input
+                    type="number"
+                    value={active.initiativeBonus}
+                    onChange={(e) =>
+                      updateActive({ initiativeBonus: Number(e.target.value) })
+                    }
+                    placeholder="Bônus"
+                    title="Bônus adicional de iniciativa (itens, talentos)"
+                    className="print-input w-10 rounded border border-slate-700 bg-slate-950 py-1 text-center text-xs text-slate-300"
+                  />
+                </div>
               </div>
             </div>
 
@@ -1217,21 +1438,23 @@ export function CharacterSheet({ classPowers }: CharacterSheetProps) {
                 Selecione da classe ({selectedClass.name}) ou digite livremente
               </span>
             </div>
-            <button
-              type="button"
-              onClick={() =>
-                updateActive({
-                  powers: [
-                    ...active.powers,
-                    { name: '', level: 1, pp: '0', notes: '' },
-                  ],
-                })
-              }
-              className="no-print flex items-center gap-1 rounded-md bg-indigo-600/80 px-2.5 py-1 text-xs font-medium text-white transition-colors hover:bg-indigo-500"
-            >
-              <Plus className="h-3.5 w-3.5" />
-              Adicionar Poder
-            </button>
+            {!active.isLocked && (
+              <button
+                type="button"
+                onClick={() =>
+                  updateActive({
+                    powers: [
+                      ...active.powers,
+                      { name: '', level: 1, pp: '0', notes: '' },
+                    ],
+                  })
+                }
+                className="no-print flex items-center gap-1 rounded-md bg-indigo-600/80 px-2.5 py-1 text-xs font-medium text-white transition-colors hover:bg-indigo-500"
+              >
+                <Plus className="h-3.5 w-3.5" />
+                Adicionar Poder
+              </button>
+            )}
           </div>
 
           <datalist id={`powers-${active.classId}`}>
@@ -1261,6 +1484,7 @@ export function CharacterSheet({ classPowers }: CharacterSheetProps) {
                   </span>
                   <input
                     type="text"
+                    disabled={active.isLocked}
                     list={`powers-${active.classId}`}
                     placeholder="Nome do Poder"
                     value={power.name}
@@ -1279,7 +1503,9 @@ export function CharacterSheet({ classPowers }: CharacterSheetProps) {
                           : { name: val }
                       );
                     }}
-                    className="print-input min-w-0 flex-1 rounded border border-slate-700 bg-slate-950 px-2 py-1 text-xs text-slate-100"
+                    className={`print-input min-w-0 flex-1 rounded border border-slate-700 bg-slate-950 px-2 py-1 text-xs text-slate-100 ${
+                      active.isLocked ? 'cursor-not-allowed opacity-90' : ''
+                    }`}
                   />
                   <select
                     value={power.level}
@@ -1307,6 +1533,7 @@ export function CharacterSheet({ classPowers }: CharacterSheetProps) {
                     </span>
                     <input
                       type="text"
+                      disabled={active.isLocked}
                       value={power.pp}
                       onChange={(e) => updatePower(idx, { pp: e.target.value })}
                       className="print-input w-9 rounded border border-slate-700 bg-slate-950 px-1 py-1 text-center text-xs text-sky-300"
@@ -1327,7 +1554,7 @@ export function CharacterSheet({ classPowers }: CharacterSheetProps) {
                       <Info className="h-4 w-4" />
                     </button>
                   )}
-                  {active.powers.length > 1 && (
+                  {!active.isLocked && active.powers.length > 1 && (
                     <button
                       type="button"
                       onClick={() =>
