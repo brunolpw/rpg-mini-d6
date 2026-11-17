@@ -1215,17 +1215,17 @@ Nota: Armas de duas mãos geralmente impedem o uso de escudos. Armas de **Mente*
 | Tipo | Nome | Atributo | Mãos | Mágico? | Efeito (Dano) | Preço (PO) |
 | :---- | :---- | :---- | :---- | :---- | :---- | :---- |
 | Arma | Adaga | Corpo Mente | 1 Mão | Não | 1d3 | 10 |
-| Arma | Rapieira | Mente | 1 Mão | Não | 1d3 \+ 1 | 39 |
-| Arma | Cimitarra Ágil | Mente | 1 Mão | Não | 1d3 \+ 1 (\+1 na Iniciativa) | 46 |
-| Arma | Chicote Tático | Mente | 1 Mão | Não | 1d3 (Alcance 3m; pode derrubar oponente) | 39 |
-| Arma | Lâminas Gêmeas | Mente | 2 Mãos | Não | 2d3 (\+1 em testes de Esquiva) | 78 |
+| Arma | Rapieira | Mente | 1 Mão | Não | 1d3 \+ 1 | 40 |
+| Arma | Cimitarra Ágil | Mente | 1 Mão | Não | 1d3 \+ 1 (\+1 na Iniciativa) | 45 |
+| Arma | Chicote Tático | Mente | 1 Mão | Não | 1d3 (Alcance 3m; pode derrubar oponente) | 40 |
+| Arma | Lâminas Gêmeas | Mente | 2 Mãos | Não | 2d3 (\+1 em testes de Esquiva) | 80 |
 | Arma | Sabre Élfico | Mente | 1 Mão | Sim | 1d3 \+ 2 (\+1 no Ataque se agir primeiro) | 285 |
 | Arma | Lâmina das Sombras | Mente | 1 Mão | Sim | 2d3 \+ 1 Psíquico (ignora armadura física) | 585 |
 | Arma | Agulha de Dysenai | Mente | 1 Mão | Sim | 3d6 \+ 3 Mente (Ignora toda armadura) | 1950 |
 | Arma | Espada Curta | Corpo | 1 Mão | Não | 1d3 \+ 1 | 25 |
 | Arma | Maça | Corpo | 1 Mão | Não | 1d3 \+ 1 | 25 |
 | Arma | Machado simples | Corpo | 1 Mão | Não | 1d3 \+ 1 | 25 |
-| Arma | Machado de Guerra | Corpo | 1 Mão | Não | 1d3 \+ 2 | 59 |
+| Arma | Machado de Guerra | Corpo | 1 Mão | Não | 1d3 \+ 2 | 60 |
 | Arma | Martelo de Guerra | Corpo | 2 Mãos | Não | 2d3 \+ 2 | 65 |
 | Arma | Espada Grande | Corpo | 2 Mãos | Não | 3d3 | 100 |
 | Arma | Cimitarra Mágica | Corpo | 1 Mão | Sim | 1d3 \+ 2 Luz pequena | 195 |
@@ -1237,11 +1237,11 @@ Nota: Armas de duas mãos geralmente impedem o uso de escudos. Armas de **Mente*
 | Arma | Bastão de madeira | Corpo Espírito | 1 Mão | Não | 1d3 \+ 1 | 25 |
 | Arma | Bordão de Peregrino | Espírito | 2 Mãos | Não | 1d3 \+ 1 | 15 |
 | Arma | Foice Druídica | Espírito | 1 Mão | Não | 1d3 \+ 1 (Dano cortante natural; sem metal) | 25 |
-| Arma | Maça Cerimonial | Espírito | 1 Mão | Não | 1d3 \+ 1 (Dano sagrado contundente) | 39 |
+| Arma | Maça Cerimonial | Espírito | 1 Mão | Não | 1d3 \+ 1 (Dano sagrado contundente) | 40 |
 | Arma | Lança da Fé | Espírito | 2 Mãos | Não | 2d3 de dano Radiante (Alcance 2m; defende com Espírito e ignora armadura física) | 70 |
-| Arma | Cetro Solar | Espírito | 1 Mão | Sim | 1d3 \+ 2 Radiante (Ilumina área média) | 234 |
+| Arma | Cetro Solar | Espírito | 1 Mão | Sim | 1d3 \+ 2 Radiante (Ilumina área média) | 235 |
 | Arma | Cajado dos Antigos | Espírito | 2 Mãos | Sim | 2d3 \+ 2 (\+1d3 de cura em magias restauradoras) | 455 |
-| Arma | Bordão de Mogno | Corpo Espírito | 2 Mãos | Não | 3d3 \+ 1 | 104 |
+| Arma | Bordão de Mogno | Corpo Espírito | 2 Mãos | Não | 3d3 \+ 1 | 105 |
 | Arma | Bordão de Dysenai | Corpo Espírito | 2 Mãos | Sim | 3d6 \+ 3 Espírito | 1950 |
 
 ## **Armas (Distância)** {#armas-(distância)}
@@ -1252,10 +1252,10 @@ Nota: Armas de distância possuem alcances definidos em metros: **Curto (até 6 
 | :---- | :---- | :---- | :---- | :---- | :---- | :---- | :---- |
 | Arma | Funda | Mente | Médio (15m) | 2 Mãos | Não | 1Mm | 15 |
 | Arma | Bumerangue | Mente | Médio (15m) | 1 Mão | Não | 1d3 | 20 |
-| Arma | Arco Curto | Mente | Médio (15m) | 2 Mãos | Não | 1d3 \+ 1 | 39 |
-| Arma | Lança de arremesso | Mente | Curto (6m) | 1 Mão | Não | 1d3 \+ 1 | 46 |
-| Arma | Arco Longo | Mente | Longo (30m) | 2 Mãos | Não | 1d3 \+ 2 | 72 |
-| Arma | Besta Pesada | Mente | Longo (30m) | 2 Mãos | Não | 2d3 \+ 1 | 104 |
+| Arma | Arco Curto | Mente | Médio (15m) | 2 Mãos | Não | 1d3 \+ 1 | 40 |
+| Arma | Lança de arremesso | Mente | Curto (6m) | 1 Mão | Não | 1d3 \+ 1 | 45 |
+| Arma | Arco Longo | Mente | Longo (30m) | 2 Mãos | Não | 1d3 \+ 2 | 70 |
+| Arma | Besta Pesada | Mente | Longo (30m) | 2 Mãos | Não | 2d3 \+ 1 | 105 |
 | Arma | Arco de Éter | Mente | Longo (30m) | 2 Mãos | Sim | 2d3 \+ 3 \+1 Mente Ignora 3 de armadura | 260 |
 | Arma | Lança de Dysenai | Mente | Curto (6m) | 1 Mão | Sim | 2d6 \+ 3 \+3 Mente | 1950 |
 | Arma | Arco de Dysenai | Mente | Longo (30m) | 2 Mãos | Sim | 3d6 \+ 2 Ignora 3 de armadura | 1950 |
@@ -1267,22 +1267,22 @@ Nota: Armaduras são vestidas e não ocupam mãos. Armaduras de **Corpo** conced
 | Tipo | Nome | Atributo | Mágico? | Efeito (Proteção) | Preço (PO) |
 | :---- | :---- | :---- | :---- | :---- | :---- |
 | Armadura | Couro Simples | Corpo | Não | \+1 Resistência Física | 20 |
-| Armadura | Couro Trabalhado | Corpo | Não | \+2 Resistência Física | 46 |
+| Armadura | Couro Trabalhado | Corpo | Não | \+2 Resistência Física | 45 |
 | Armadura | Brunea | Corpo | Não | \+4 Resistência Física | 50 |
 | Armadura | Cota de Malha | Corpo | Não | \+6 Resistência Física | 130 |
 | Armadura | Placas | Corpo | Não | \+8 Resistência Física | 260 |
 | Armadura | Mithril | Corpo | Sim | \+6 Resistência Física \+4 Res mágica | 455 |
 | Armadura | Colete de Couro Leve | Mente | Não | \+1 Defesa Física | 20 |
-| Armadura | Traje de Infiltração | Mente | Não | \+1 Defesa Física e \+1 na Iniciativa | 52 |
-| Armadura | Gibão do Acrobata | Mente | Não | \+2 Defesa Física e \+1m de deslocamento | 91 |
-| Armadura | Manto dos Ventos | Mente | Sim | \+2 Defesa Física e Vantagem em testes de Esquiva | 234 |
+| Armadura | Traje de Infiltração | Mente | Não | \+1 Defesa Física e \+1 na Iniciativa | 50 |
+| Armadura | Gibão do Acrobata | Mente | Não | \+2 Defesa Física e \+1m de deslocamento | 90 |
+| Armadura | Manto dos Ventos | Mente | Sim | \+2 Defesa Física e Vantagem em testes de Esquiva | 235 |
 | Armadura | Camisão de Seda Élfica | Mente | Sim | \+3 Defesa Física e \+1 Resistência Física | 390 |
 | Armadura | Manto de Sombras de Dysenai | Mente | Sim | \+5 Defesa Física, \+3 Resistência e Invisibilidade por 1 turno (1x por combate) | 1560 |
 | Armadura | Túnica do Acólito | Espírito | Não | \+1 Defesa Mágica | 15 |
-| Armadura | Vestes de Linho Consagrado | Espírito | Não | \+1 Defesa Mágica e \+1 em testes de Cura | 39 |
+| Armadura | Vestes de Linho Consagrado | Espírito | Não | \+1 Defesa Mágica e \+1 em testes de Cura | 40 |
 | Armadura | Manto da Floresta | Espírito | Não | \+2 Defesa Mágica (permitida para Druidas) | 65 |
-| Armadura | Capa de Runas | Espírito | Sim | \+2 Defesa Mágica | 104 |
-| Armadura | Manto Arcano | Espírito | Sim | \+3 Res mágica \+1 Atk Mágico | 156 |
+| Armadura | Capa de Runas | Espírito | Sim | \+2 Defesa Mágica | 105 |
+| Armadura | Manto Arcano | Espírito | Sim | \+3 Res mágica \+1 Atk Mágico | 155 |
 | Armadura | Hábito do Penitente | Espírito | Sim | \+2 Defesa Mágica e \+2 Resistência Física | 195 |
 | Armadura | Vestimenta do Arquimago | Espírito | Sim | \+4 Defesa Mágica e \+1 PP máximo | 520 |
 | Armadura | Manto Astral de Dysenai | Espírito | Sim | \+6 Defesa Mágica, \+3 Res mágica e regenera 1 PP/turno | 1560 |
@@ -1302,10 +1302,10 @@ Nota: Equipamentos secundários ocupam 1 mão (a menos que indicado). Escudos de
 | Escudo | Proteção de Dysenai | Corpo | Sim | \+7 Defesa Física; Não ocupa mão; Ignora o primeiro dano mágico ou elemental sofrido no combate | 1950 |
 | Secundário | Broquel Leve | Mente | Não | \+1 Defesa Física (\+1 na Iniciativa) | 20 |
 | Secundário | Adaga de Parada (Main-gauche) | Mente | Não | \+1 Defesa Física (permite contra-atacar com 1d3 se o adversário errar feio) | 25 |
-| Secundário | Capa de Duelo | Mente | Não | \+1 Defesa Física; pode ser usada para desviar projéteis leves | 46 |
+| Secundário | Capa de Duelo | Mente | Não | \+1 Defesa Física; pode ser usada para desviar projéteis leves | 45 |
 | Secundário | Broquel Entalhado | Espírito | Não | \+1 Defesa Física (Permitido para Druidas; sem metal) | 20 |
-| Secundário | Símbolo Sagrado Fortificado | Espírito | Não | \+1 Defesa Mágica e \+1 Defesa Física | 59 |
-| Secundário | Tomo Guardião | Espírito | Sim | \+2 Defesa Mágica; pode gastar 1 PP como Reação para absorver 1d6 de dano mágico | 156 |
+| Secundário | Símbolo Sagrado Fortificado | Espírito | Não | \+1 Defesa Mágica e \+1 Defesa Física | 60 |
+| Secundário | Tomo Guardião | Espírito | Sim | \+2 Defesa Mágica; pode gastar 1 PP como Reação para absorver 1d6 de dano mágico | 155 |
 
 ## **Itens de Foco Mágico (Espírito)** {#itens-de-foco-mágico-(espírito)}
 
@@ -1315,13 +1315,13 @@ Nota: Focos permitem canalizar o poder. Alguns exigem as duas mãos para maior p
 | :---- | :---- | :---- | :---- | :---- | :---- |
 | Foco | Cajado | Espírito | 2 Mãos | \+1 Dano Mágico | 15 |
 | Foco | Tomo do Aprendiz | Espírito | 2 Mãos | \+1 em testes de Dificuldade de Espírito.  | 30 |
-| Foco | Amuleto Sagrado | Espírito | N/A | \+1 em Testes de Cura | 52 |
-| Foco | Varinha Cristal | Espírito | 1 Mão | \+1 Espírito | 98 |
-| Foco | Luva de Canalização | Espírito | 1 Mão | Usa o atributo Espírito em testes de Iniciativa. | 117 |
+| Foco | Amuleto Sagrado | Espírito | N/A | \+1 em Testes de Cura | 50 |
+| Foco | Varinha Cristal | Espírito | 1 Mão | \+1 Espírito | 100 |
+| Foco | Luva de Canalização | Espírito | 1 Mão | Usa o atributo Espírito em testes de Iniciativa. | 115 |
 | Foco | Anel Escudo | Espírito | N/A | \+3 Def mágica | 130 |
-| Foco | Anel de Proteção Elemental | Espírito | N/A | Ignora o primeiro dano do tipo (Fogo, Gelo, Raio ou Veneno)\+1 Def mágica | 156 |
-| Foco | Orbe Obsidiana | Espírito | 1 Mão | \+4 Dano Mágico Falha crítica custa 1 PV | 234 |
-| Foco | Orbe Estelar | Espírito | 1 Mão | \+2 no Dano Mágico Falhas críticas custam \+2 PP extras. | 234 |
+| Foco | Anel de Proteção Elemental | Espírito | N/A | Ignora o primeiro dano do tipo (Fogo, Gelo, Raio ou Veneno)\+1 Def mágica | 155 |
+| Foco | Orbe Obsidiana | Espírito | 1 Mão | \+4 Dano Mágico Falha crítica custa 1 PV | 235 |
+| Foco | Orbe Estelar | Espírito | 1 Mão | \+2 no Dano Mágico Falhas críticas custam \+2 PP extras. | 235 |
 | Foco | Cajado de Guerra | Espírito | 2 Mãos | \+2 Espírito | 325 |
 | Foco | Cajado Mestre de Guerra | Espírito | 1 Mão | \+3 Espírito  \-1 Corpo | 650 |
 | Foco | Livro Arcano | Espírito | 1 Mão | \+1 Espírito\+2 Def mágica\-1 Def física | 390 |
