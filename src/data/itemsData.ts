@@ -324,7 +324,7 @@ export const OFFICIAL_ITEMS: GameItem[] = [
     hands: '2 Mãos',
     isTwoHanded: true,
     isMagic: false,
-    effect: '2d3 Radiante (Alcance 2m; defende com Espírito e ignora armadura física)',
+    effect: '2d3 Radiante (Alcance 2m; defende com Espírito e ignora até 3 de armadura física)',
     price: 70,
     description: 'Haste cerimonial que projeta ponta de pura luz sagrada a 2 metros.',
   },
@@ -522,7 +522,7 @@ export const OFFICIAL_ITEMS: GameItem[] = [
     effect: '+4 Resistência Física',
     res: 4,
     defBonus: 0,
-    price: 65,
+    price: 80,
     description: 'Escamas de metal presas sobre suporte de couro grosso.',
   },
   {

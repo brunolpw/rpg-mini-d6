@@ -214,7 +214,7 @@ export const CLASSES: ClassInfo[] = [
       'Especialista em oportunidade, sobrevivência urbana e infiltração. Resolve com inteligência, velocidade e destreza o que a força bruta não alcança.',
     naturalTraitName: 'Oportunista Urbano',
     naturalTrait:
-      'Vantagem em testes de furtividade para passar despercebido em meio a multidões ou sombras leves. Localiza com facilidade rotas de fuga em becos e contatos no submundo ao entrar em povoados.',
+      'Ataque Furtivo (1x/turno): ao atacar corpo a corpo com Vantagem ou aliado adjacente (1,5m), causa +1d3 de dano extra (mesmo se errar o ataque nessas condições, ainda causa 1d3 de raspão). Fora de combate, tem Vantagem em furtividade em multidões ou sombras leves.',
     baseMod: { corpo: -1, mente: 2, espirito: -1 },
     pvFormula: 'Corpo + 2d3',
     pvDice: 2,

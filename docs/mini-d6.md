@@ -192,7 +192,7 @@ Nenhum atributo na **criação de personagem (Nível 1)** pode ultrapassar 10 ou
 
 ### **Dinheiro (PO)**
 
-O dinheiro usado é chamado de PO, ou Peças de Ouro, por padrão, todo personagem começa com 50 POs para gastar com equipamentos e suprimentos. O dinheiro pode ser adquirido como recompensa ao cumprir missões, matando criaturas, através do comércio ou de outras formas de acordo com a aventura.
+O dinheiro usado é chamado de PO, ou Peças de Ouro, por padrão, todo personagem começa com 100 POs para gastar com equipamentos e suprimentos. O dinheiro pode ser adquirido como recompensa ao cumprir missões, matando criaturas, através do comércio ou de outras formas de acordo com a aventura.
 
 ### **Poderes**
 
@@ -298,7 +298,7 @@ O bárbaro começa com 1 ação passiva de nível 1 a sua escolha.
 | Sentido Selvagem | Passiva | 0 | Sentidos aguçados contra perigos e emboscadas. | Nunca sofre desvantagem por emboscada | \+1 na Iniciativa | \+2 na Iniciativa e nunca é surpreendido |
 | Força Bruta | Passiva | 0 | Pode usar armas de duas mãos com apenas uma mão, com penalidade reduzida no ataque por desequilíbrio. | \-2 no Ataque | \-1 no Ataque | 0 (sem penalidade) |
 | Ataque Imprudente | Passiva | 0 | Pode atacar com Vantagem (4d6), sofrendo penalidade na Defesa até o próximo turno por abrir a guarda. | \-2 na Defesa | \-1 na Defesa | 0 (sem penalidade na Defesa) |
-| Crítico Brutal | Passiva | 0 | Potencializa os acertos críticos (dois 6 ou Triplo 6). | Causa \+1d6 de dano e ignora 2 de armadura | Causa \+2d6 de dano extra; Triplo 6 transborda dano a adjacente | Causa \+3d6 de dano extra e derruba o alvo (Caído) |
+| Crítico Brutal | Passiva | 0 | Potencializa os acertos críticos (dois 6 ou Triplo 6). | Causa \+1d3 de dano e ignora 2 de armadura | Causa \+1d6 de dano extra; Triplo 6 transborda metade do dano a adjacente | Causa \+2d6 de dano extra e derruba o alvo (Caído) |
 | Fúria | Ativa | 2 | Ganha \+2 no Dano e \+1 de Resistência Física. | 2 turnos | 3 turnos | O combate todo |
 | Ataque Circular | Ativa | 4 | Desfere um golpe giratório que atinge todos os inimigos adjacentes a até 1,5m. | Dano normal da arma | Causa \+1 de dano a cada alvo atingido | Causa \+2 de dano e empurra alvos 2m |
 | Rugido Assustador | Ativa | 3 | Inimigos na área sofrem desvantagem no próximo ataque por intimidação. | Área pequena (2m) | Área média (4m) | Área média e reduz 2m de movimento |
@@ -380,7 +380,7 @@ O paladino começa com 2 ação passiva ou ativa de nível 1 a sua escolha.
 | Expulsar o Profano | Ativa | 4 | Mostra o símbolo sagrado: mortos-vivos e demônios próximos testam Espírito ou fogem aterrorizados. | Fogem por 1 rodada | Fogem por 2 rodadas | Fogem por 2 rodadas; se falharem feio, sofrem 2d3 radiante |
 | Reviver | Ativa | 5 | Milagre de campo: toca um aliado morto no mesmo turno para reatar o fio de sua vida. | Aliado volta com 1 PV | Aliado volta com 1d6 PV e \+2 Defesa por 2 turnos | Aliado volta com Espírito \+ 1d6 PV e ambos ganham Vantagem no próx. ataque |
 | Arma Sagrada | Ativa | 3 | Ação Menor. A arma torna-se mágica, emite luz e golpeia com retidão divina por 3 turnos. | \+1 Ataque e Dano | \+2 Ataque e Dano | \+3 Ataque e Dano (dano conta como Radiante) |
-| Lança de Luz | Ativa | 3 | Dispara uma lança perfurante de energia radiante à distância utilizando o atributo Espírito. | Causa Espírito \+ 1d3 dano | Causa Espírito \+ 2d3 dano | Causa Espírito \+ 3d3 dano e cega o alvo por 1 turno |
+| Lança de Luz | Ativa | 3 | Dispara uma lança perfurante de energia radiante à distância utilizando o atributo Espírito. | Causa 1d3 dano | Causa 2d3 dano | Causa 3d3 dano e cega o alvo por 1 turno |
 | Círculo de Poder | Ativa | 6 | Traça uma barreira mágica em área média (4m) protegendo todos os aliados em seu interior por 2 turnos. | Vantagem em resistência e Defesa Mágica | Duração expande para 3 turnos | Duração de 3 turnos e reduz todo dano mágico recebido em \-2 |
 
 ## **Mago** {#mago}
@@ -403,20 +403,20 @@ O mago começa com 3 ações passivas ou ativas de nível 1 a sua escolha.
 
 | Poder | Tipo | PP | Efeito | Nível 1 | Nível 2 | Nível 3 |
 | :---- | :---- | :---- | :---- | :---- | :---- | :---- |
-| Escudo Arcano | Passiva | 0 | Enquanto não usar armadura física, sua Defesa Física é igual ao atributo Espírito (em vez de Corpo). |  |  |  |
-| Recuperação Arcana | Passiva | 0 | Uma vez por dia, durante um descanso curto, você recupera uma quantidade extra de PP igual ao seu atributo Espírito. |  |  |  |
-| Detectar Magia | Passiva | 0 | Você pode sentir a presença de magia, itens mágicos ou ilusões próximas sem gastar PP (apenas concentração). |  |  |  |
-| Sábio | Passiva | 0 | Você sabe identificar se alguém está mentindo e tem vantagem em testes de conhecimento (História/Arcanismo). |  |  |  |
-| Grimório Vivo | Passiva | 0 | Você pode aprender 1 magia de outra classe (como Clérigo ou Druida), mas ela custa \+1 PP extra para ser conjurada (dificuldade de adaptar a magia). |  |  |  |
+| Escudo Arcano | Passiva | 0 | Enquanto não usar armadura física, sua Defesa Física é igual ao atributo Espírito (em vez de Corpo). | Defesa \= 10 \+ Espírito | \+1 na Defesa Física | \+2 na Defesa Física e \+1 Res Mágica |
+| Recuperação Arcana | Passiva | 0 | Durante um descanso curto, você recupera uma quantidade extra de PP baseada no seu atributo Espírito. | 1x/dia recupera Espírito em PP | Recupera Espírito \+ 1d3 PP | Pode usar até 2x/dia |
+| Detectar Magia | Passiva | 0 | Você pode sentir a presença de magia, itens mágicos ou ilusões próximas sem gastar PP (apenas concentração). | Sente presença em área média (4m) | Identifica escola/efeito e alcance 8m | Revela ilusões e armadilhas mágicas a 8m |
+| Sábio | Passiva | 0 | Você sabe identificar se alguém está mentindo e tem vantagem em testes de conhecimento (História/Arcanismo). | Identifica mentiras e Vantagem Arcanismo | \+1 em testes sociais e perícia geral | 1x/sessão obtém pista garantida do mestre |
+| Grimório Vivo | Passiva | 0 | Você pode aprender magias de outra classe (como Clérigo ou Druida) com custo adicional de PP pela adaptação. | Aprende 1 magia (\+2 PP de custo extra) | Remove 1 PP do custo extra (passa a \+1 PP) | Aprende uma 2ª magia (\+1 PP de custo extra) |
 | Rajada Mística | Ativa | 1 | Causa dano mágico. | 1d3 | 2d3 | 3d3 |
 | Mísseis Mágicos | Ativa | 2 | Lança X mísseis com acerto automático (sem rolagem de ataque). Cada míssil causa dano de 1Mm direto ao PV (não soma atributo). | X \= 3 | X \= 4 | X \= 5 |
-| Passo Nebuloso | Ativa | 2 | Ação Menor (Defesa). Teletransporta-se para um local visível em uma área grande. Não gera ataque de oportunidade. |  |  |  |
+| Passo Nebuloso | Ativa | 2 | Ação Menor (Defesa). Teletransporta-se para um local visível sem gerar ataque de oportunidade. | Até 6m (área grande) | Até 10m | Até 12m e \+2 Defesa até o próx. turno |
 | Onda de Choque | Ativa | 2 | Todos em uma área X devem testar o Corpo. Se falharem, sofrem dano (2d3) e são empurrados 3m para trás. | X \= pequena | X \= média | X \= grande |
 | Bola de Fogo | Ativa | 4 | Explosão em área média. Causa dano a todos na área | 1d3 \+ 1 | 2d3 \+ 1 | 3d3 \+ 1 |
-| Invisibilidade | Ativa | 2 | Fica indetectável. 1d6 turnos. |  |  |  |
-| Contramágica | Ativa | 3 | Ação Menor (Reativa). Tenta anular uma magia conjurada por um inimigo fora do seu turno. Teste de Espírito vs Espírito do rival. |  |  |  |
-| Sugestão | Ativa | 3 | Controle. O alvo deve testar Mente. Se falhar, obedece a uma ordem simples que não seja suicida e nem atacar aliado (ex: "Jogue a arma no chão", "Fuja"). |  |  |  |
-| Metamorfose | Ativa | 5 | Transforma a si mesmo ou um inimigo em um animal pequeno (sapo/ovelha) por 3 turnos. Se o animal sofrer dano, a forma reverte. |  |  |  |
+| Invisibilidade | Ativa | 3 | Fica indetectável até atacar ou conjurar magia ofensiva. | Dura 1d6 turnos em si mesmo | Dura 1d6 turnos em si ou 1 aliado tocado | Escolhe: 2d6 turnos (1 alvo) OU 1d6 turnos (até 2 aliados) |
+| Contramágica | Ativa | 3 | Ação Menor (Reativa). Tenta anular uma magia inimiga usando 3d6 \+ Espírito contra a Defesa Mágica (10 \+ Espírito) do rival. | Anula magias de até 2 PP | Anula magias de até 4 PP e \+1 no teste | Anula qualquer magia e recupera 1 PP se passar |
+| Sugestão | Ativa | 3 | Controle. O alvo testa Mente; se falhar, obedece a uma ordem que não seja suicida nem atacar aliado. | Dura 1d3 turnos (ordens seguras) | Dura 1d6 turnos (ordens arriscadas) | Alvo testa Mente com Desvantagem |
+| Metamorfose | Ativa | 5 | Transforma 1 inimigo em animal inofensivo (reverte ao sofrer dano) ou transforma aliado/si mesmo em fera (PVs são temporários: ao chegar a 0 PV, volta ao normal e dano excedente vai ao PV real). | Inimigo em animal pequeno por 3 turnos (testa Espírito) | Transforma si mesmo ou 1 aliado em Fera Predador (14 PV Temp, 1d3\+2, Def 15) por 3 turnos | Inimigo testa com Desvantagem; aliado dura 5 turnos (18 PV Temp ou Forma Robusta) |
 | Sono | Ativa | 2 | Alvo dorme se falhando no Espírito por X turnos. | X \= 1d3 | X \= 2d3 | X \= 3d3 |
 | Cone de Gelo | Ativa | 3 | Causa dano e reduz movimentação dos inimigos em cone. | pequeno (1d3, \-2m mov) | médio (2d3, metade mov) | grande (3d3, teste Corpo ou imobilizado) |
 | Mão Maga | Ativa | 1 | Move objetos pesados à distância. | pequeno | médio | grande |
@@ -458,7 +458,7 @@ O druida começa com 2 ação passiva ou ativa de nível 1 a sua escolha.
 | Sangue Frio | Passiva | 0 | Adaptação fisiológica aos perigos e peçonhas dos ermos. | Vantagem contra veneno e paralisia | Imunidade a venenos naturais | Imunidade a paralisia |
 | Passo Sem Pegadas | Passiva | 0 | Desloca-se sem dobrar folhas nem deixar rastros pelo caminho. | Não pode ser rastreado | Rastreamento impossível até por faro | Estende a proteção a até 3 aliados juntos |
 | Líder da matilha | Ativa | 2 | Invoca espíritos de lobos que lutam ao seu lado (Ataque 1d3, Defesa 12, 6 PV cada; Concentração). | 1 lobo | 2 lobos | 3 lobos |
-| Chicote de Espinhos | Ativa | 1 | Dispara uma vinha com espinhos (alcance médio 4m) causando dano e puxando o alvo em sua direção. | Espírito \+ 1d3 dano (puxa 2m) | Espírito \+ 2d3 dano (puxa 3m) | Espírito \+ 3d3 dano (puxa 4m) |
+| Chicote de Espinhos | Ativa | 1 | Dispara uma vinha com espinhos (alcance médio 4m) causando dano e puxando o alvo em sua direção. | 1d3 dano (puxa 2m) | 2d3 dano (puxa 3m) | 3d3 dano (puxa 4m) |
 | Bagas de Vida | Ativa | 2 | Produz frutos mágicos revigorantes; consumir 1 fruto consome Ação Menor. | 3 frutos (cura 1 PV cada) | 4 frutos (cura 2 PV cada) | 5 frutos (cura 3 PV cada) |
 | Enredar | Ativa | 3 | Raízes brotam do solo: inimigos na área testam Corpo ou ficam Impedidos; o chão vira terreno difícil. | Área pequena (2m) | Área média (4m) | Área média e causa 1d3 de dano/turno |
 | Forma Selvagem | Ativa | 3 | Transforma-se em uma besta (Ágil, Predador ou Robusta, conforme tabela de Formas Animais). | Formas Ágil e Predador | \+4 PV Temporários na besta | Desbloqueia a Forma Robusta (Grande) |
@@ -467,6 +467,8 @@ O druida começa com 2 ação passiva ou ativa de nível 1 a sua escolha.
 | Muralha de Vento | Ativa | 3 | Barreira de ar comprimido que desvia projéteis (flechas/virotes) e névoas gasosas. | Dura 1d3 turnos | Dura 1d6 turnos | Dura 1d6 turnos e empurra alvos leves 2m |
 
 ### **Formas Animais do Druida (Forma Selvagem)**
+
+Nota: Os PVs da forma animal funcionam como **PV Temporários**. Se chegarem a **0 PV**, a transformação se desfaz imediatamente e o druida retorna à sua forma normal com os PVs que possuía antes; qualquer dano excedente ao que restava na forma animal é transferido ao PV real do personagem.
 
 | Forma | Exemplos | Atributos e Defesa | PV Temporários | Dano do Ataque | Características Especiais |
 | :---- | :---- | :---- | :----: | :----: | :---- |
@@ -503,20 +505,22 @@ O clérigo começa com 2 ação passiva ou ativa de nível 1 a sua escolha.
 | Voz Divina | Passiva | 0 | Voz ecoa autoridade sagrada sobre fiéis e criaturas. | Vantagem em Persuasão e Intimidação | Vantagem com devotos; comando afeta 2 alvos | Inimigos menores testam Espírito ou recuam 1 turno |
 | Discípulo da Vida | Passiva | 0 | Potencializa magias de cura conjuradas em aliados. | Cura \+2 PV adicionais | Cura \+3 PV adicionais | Cura \+4 PV adicionais |
 | Intervenção Divina | Ativa | 0 | 1x por aventura: roga auxílio direto à divindade (milagre narrativo/mágico). | Fora de combate (1 min de oração formal) | Em combate (requer 1 Ação Principal) | Em combate (requer apenas 1 Ação Menor) |
-| Paz | Passiva | 0 | Santuário da não-violência enquanto não atacar primeiro. | Inimigos não te atacam | Inimigo testa Espírito (Dif 12) para atacar | Teste Dif 15; se falhar não pode atacar por 2 turnos |
+| Paz | Passiva | 0 | Santuário da não-violência enquanto não tomar partido ofensivo no combate (ainda sofre efeitos em área). | Inimigos não podem escolhê-lo como alvo direto enquanto não atacar nem curar/buffar quem já atacou | Mantém a proteção mesmo ao curar ou buffar aliados; só quebra ao atacar/debuffar inimigo | Na 1ª rodada após quebrar a paz recebe \+2 Defesa Física e Mágica; criaturas neutras não atacam fora de combate |
 | Anjo da Guarda | Passiva | 0 | Proteção sacrificial: intervém quando aliado adjacente cairia a 0 PV. | Absorve até Espírito \+ 1d6 de dano do golpe | Absorve até Espírito \+ 2d6 de dano do golpe | Absorve o golpe e cura o aliado em 1d6 PV |
 | Curar Ferimentos | Ativa | 2 | Magia de toque restauradora de tecidos e vigor. | Cura Espírito \+ 1d6 PV | Cura Espírito \+ 2d6 PV | Cura Espírito \+ 3d6 PV |
 | Palavra Curativa | Ativa | 2 | Ação Menor. Cura à distância (linha de visão); ergue caídos. | Cura 1d3 PV | Cura 2d3 PV | Cura 3d3 PV |
 | Luz Sagrada | Ativa | 3 | Clarão divino cegante em área; causa Desvantagem por 1 turno. | Área pequena (2m) | Área média (4m) | Área grande (6m) |
 | Reviver | Ativa | 5 | Traz de volta à vida aliado morto neste combate (até 1 min). | Revive com 1 PV | Revive com Espírito \+ 1d3 PV | Revive com metade dos PVs máximos |
-| Raio Guiador | Ativa | 2 | Raio radiante que marca o alvo concedendo Vantagem no próx. ataque aliado. | Causa Espírito \+ 1d3 radiante | Causa Espírito \+ 2d3 radiante | Causa Espírito \+ 3d6 radiante |
+| Raio Guiador | Ativa | 2 | Raio radiante que marca o alvo concedendo Vantagem no próx. ataque aliado. | Causa 1d3 radiante | Causa 2d3 radiante | Causa 3d3 radiante |
 | Arma Espiritual | Ativa | 3 | Ação Menor. Invoca arma etérea flutuante que ataca por 3 turnos. | Dano 1d3 por turno | Dano 2d3 por turno | Dano 3d3 por turno |
 | Escudo da Fé | Ativa | 3 | Campo de força místico sobre aliado à distância por 3 turnos. | \+1 Defesa | \+2 Defesa | \+3 Defesa |
-| Espíritos Guardiões | Ativa | 4 | Aura de espíritos protetores em área: dano e metade do deslocamento. | Área pequena (Espírito dano) | Área média (Espírito \+ 1d3 dano) | Área grande (Espírito \+ 2d3 dano) |
+| Espíritos Guardiões | Ativa | 4 | Aura de espíritos protetores em área: dano e metade do deslocamento. | Área pequena (1d3 dano) | Área média (2d3 dano) | Área grande (3d3 dano) |
 | Purificar | Ativa | 3 | Canalização para purgar impurezas biológicas e mágicas. | Remove venenos e toxinas naturais | Remove venenos e maldições mágicas | Remove maldições ancestrais e petrificação |
-| Coluna de Chamas | Ativa | 5 | Pilar radiante/flamejante atinge inimigos do topo. | Espírito \+ 2d6 em área pequena (2m) | Espírito \+ 3d6 em área média (4m) | Espírito \+ 4d6 em área média; incendeia alvos |
+| Coluna de Chamas | Ativa | 5 | Pilar radiante/flamejante atinge inimigos do topo. | 2d6 em área pequena (2m) | 3d6 em área média (4m) | 4d6 em área média; incendeia alvos |
 | Ira Divina | Ativa | 3 | Potencializa o próximo golpe físico com a cólera sagrada. | Próximo ataque causa o dobro do dano | Dobro de dano e \+2 no acerto | Dobro de dano, \+2 acerto e \+1d6 radiante extra |
 | Onda de Trovão | Ativa | 4 | Rajada mística em cone frontal empurrando inimigos. | Causa 1d3 de dano sônico | Causa 2d3 de dano sônico | Causa 3d3 de dano sônico |
+| Chama Sagrada | Ativa | 1 | Fogo celeste desce sobre 1 alvo à distância (6m), ignorando cobertura leve. | Causa 1d3 radiante | Causa 2d3 radiante | Causa 3d3 radiante |
+| Martelo da Fé | Ativa | 2 | Projeção contundente de força divina que golpeia e afasta 1 inimigo. | Causa 1d6 radiante/concussão e empurra 2m | Causa 1d6 \+ 2 e empurra 2m | Causa 2d6 e derruba o alvo (Caído) |
 
 ## **Ladino** {#ladino}
 
@@ -524,7 +528,7 @@ Especialista em oportunidade, sobrevivência urbana e infiltração. Resolve com
 
 Traço da classe: Oportunista Urbano
 
-Impacto Mecânico: Vantagem em testes de furtividade para passar despercebido em meio a multidões ou sombras leves. Localiza com facilidade rotas de fuga em becos e contatos no submundo ao entrar em vilas e cidades.
+Impacto Mecânico: **Ataque Furtivo (1x/turno):** ao atacar corpo a corpo com Vantagem ou contra um alvo com aliado adjacente (1,5m), causa **\+1d3 de dano extra** (mesmo se errar o ataque nessas condições, ainda causa **1d3 de raspão**). Fora de combate, tem **Vantagem em testes de furtividade** para passar despercebido em meio a multidões ou sombras leves, além de localizar com facilidade rotas de fuga em becos e contatos no submundo.
 
 Estilo: físico/distância
 
@@ -538,7 +542,7 @@ O ladino começa com 1 ação passiva ou ativa de nível 1 a sua escolha.
 
 | Poder | Tipo | PP | Efeito | Nível 1 | Nível 2 | Nível 3 |
 | :---- | :---- | :---- | :---- | :---- | :---- | :---- |
-| Ataque Furtivo | Passiva | 0 | Uma vez por combate, com Vantagem ou aliado a 1,5m do alvo, causa dano extra. | Dano extra: \+1d3 | Dano extra: \+2d3 | Dano extra: \+3d3 |
+| Golpe Oportuno | Ativa | 2 | Ação Menor. Após realizar um ataque no seu turno, desfere 1 ataque adicional rápido com arma leve de 1 mão (não aplica Ataque Furtivo neste 2º golpe). | Custa 2 PP | Custo reduzido para 1 PP | Custa 1 PP e \+1 no Ataque deste golpe |
 | Dedos Leves | Passiva | 0 | Especialista em gazuas, desarmar armadilhas e prestidigitação rápida. | Vantagem (4d6) em testes de fechaduras e mecanismos | Pode realizar teste como Ação Menor; se falhar, não dispara a armadilha | Abre trancas mundanas sem teste e pode bater carteiras sem ser notado |
 | Sentido de Perigo | Passiva | 0 | Instintos aguçados contra emboscadas e perigos repentinos. | Não pode ser surpreendido; \+2 na Iniciativa | \+3 na Iniciativa | \+4 na Iniciativa e não sofre dano em armadilhas |
 | Língua de Prata | Passiva | 0 | Trapaça, lábia e negociação com mercadores e NPCs. | \+1 em testes de persuasão e comércio | \+2 em testes de persuasão e comércio | \+3 em testes de persuasão e comércio |
@@ -626,8 +630,8 @@ O bardo começa com 2 ações passivas ou ativas de nível 1 a sua escolha.
 | Zombaria Viciosa | Ativa | 1 | Insulto mágico que fere o ego e desconcentra a criatura. | Dano 1d3 psíquico e Desvantagem no próx. ataque | Dano 2d3 psíquico e Desvantagem | Dano 3d3 psíquico e Desvantagem |
 | Palavra Curativa | Ativa | 2 | Ação Menor. Nota musical ressonante que ergue feridos à distância. | Cura 1d3 PV | Cura 2d3 PV | Cura 3d3 PV |
 | Onda Trovejante | Ativa | 2 | Acorde sônico devastador que empurra inimigos adjacentes e causa dano. | Empurra 2m em área pequena (1d6 sônico) | Empurra 4m em área média (1d6\+1 sônico) | Empurra 6m em área grande (2d6 sônico) |
-| Invisibilidade | Ativa | 3 | Dobra a luz com notas ilusórias; dura até desferir ataque ou magia. | Dura 1d6 turnos em si mesmo | Pode aplicar em si mesmo ou aliado tocado | Dura 2d6 turnos |
-| Sugestão | Ativa | 3 | Entonação hipnótica convincente; alvo testa Mente ou obedece comando simples. | Dura 1d3 turnos (comandos seguros) | Dura 1d6 turnos (comandos arriscados) | Duração de até 1 hora (ordens complexas) |
+| Invisibilidade | Ativa | 3 | Dobra a luz com notas ilusórias; dura até desferir ataque ou magia ofensiva. | Dura 1d6 turnos em si mesmo | Dura 1d6 turnos em si ou 1 aliado tocado | Escolhe: 2d6 turnos (1 alvo) OU 1d6 turnos (até 2 aliados) |
+| Sugestão | Ativa | 3 | Entonação hipnótica convincente; alvo testa Mente ou obedece comando simples. | Dura 1d3 turnos (comandos seguros) | Dura 1d6 turnos (comandos arriscadas) | Duração de até 1 hora (ordens complexas) |
 | Melodia Revigorante | Ativa | 5 | Reação / Ação Menor. Acorde místico emergencial que impede morte do aliado. | Se aliado for a 0 PV, impede a queda e deixa com 1 PV | Restaura 1d6 \+ Mente PV e permite mover 3m sem GdO | Restaura 2d6 \+ Mente PV e concede \+1 testes do grupo |
 | Distorção Sonora | Ativa | 2 | Frequência aguda ensurdecedora focada em perturbar os sentidos do alvo. | Atordoa o alvo por 1 turno | Atordoa o alvo por 2 turnos | Atordoa por 2 turnos e causa 1d3 sônico |
 | Sono | Ativa | 2 | Balada sonífera que embala mentes em repouso forçado (teste de Espírito). | Alvo dorme por 1d3 turnos | Alvos em área pequena dormem por 1d3 turnos | Alvos em área média dormem por 2d3 turnos |
@@ -663,7 +667,7 @@ Poderes em área podem afetar múltiplos alvos, eles possuem 3 principais formas
 | Médio | 4 metros | 2 metros | 4 metros |
 | Grande | 6 metros | 3,5 metros | 6 metros |
 
-Poderes de efeito de status como atordoar, sono ou outras incapacidades não podem ser roladas em sequência, sendo necessário um espaço de pelo menos 1 turno do adversário. Ele também pode fazer um teste de constituição com desvantagem para resistir ao efeito. 
+Poderes de efeito de controle ou incapacitação (como atordoar, sono ou paralisia) não podem ser aplicados em sequência no mesmo alvo, sendo necessário um espaço de pelo menos 1 turno do adversário. O alvo resiste utilizando o atributo indicado pelo poder (Corpo para efeitos físicos/venenos, Mente para ilusões/encantamentos/agilidade, Espírito para controle mental/sono/medo).
 
 A descrição do poder é meramente uma referência ficando livre para adaptação e customização conforme a natureza do poder. Os números definem o impacto mecânico; a descrição define o impacto narrativo. 
 
@@ -781,7 +785,7 @@ Ao iniciar um combate, todos os jogadores, NPCs (Personagens Não Jogáveis, sig
 
 Os tipos de ataques existentes são os seguintes:
 
-* **Físico:** é o ataque corpo-a-corpo, usa como base de teste o atributo **corpo**.  
+* **Físico (Corpo a Corpo):** usa o atributo indicado pela arma equipada (**Corpo** para armas pesadas/força, **Mente** para armas ágeis/precisão, ou **Espírito** para armas sagradas/canalizadoras).  
 * **Distância:** é o ataque que usa armas de arremesso ou de munição como arcos e flechas, usa como base de teste o atributo **mente**.  
 * **Mágico:** é o ataque que envolve o uso de poderes, usa como base de teste o atributo **espírito**.
 
@@ -791,15 +795,15 @@ Para realizar um ataque o personagem fará um teste de ataque (seja físico, dis
 
 Quando o ataque acerta o dano é calculado da seguinte forma:
 
-***dano** \= corpo \+ arma ou (foco \+ poder)*
+***dano** \= (atributo da arma \+ arma) ou (espírito \+ foco \+ poder)*
 
 Caso o personagem use duas armas para um ataque corpo-a-corpo são feitas duas rolagens de ataque, uma para o ataque principal e outra para a mão secundária, este será feito com desvantagem caso o personagem não tenha habilidades para usar duas armas.
 
-O dano do ataque do tipo mágico usa a descrição do nível de poder para calcular o dano. Alguns poderes não seguem a regra de cálculo, é o caso dos mísseis mágicos que causam dano fixo em 100% dos casos.
+O dano do ataque do tipo mágico soma **Espírito + Foco + Dados do Poder** (uma única vez, salvo exceções como *Mísseis Mágicos* que causam dano fixo sem atributo).
 
-Um sucesso crítico ocorre quando o jogador obtém um triplo 6 no teste, neste caso o ataque ignora completamente a defesa do alvo, o dano é aplicado diretamente ao PV. Efeitos adicionais descritos pela arma ou poder são ativados.
+Um **Sucesso Crítico** ocorre quando o jogador obtém **ao menos dois dados com face 6** (`[6, 6, X]`), ignorando a Defesa do alvo e garantindo dano máximo em um dado ou vantagem tática. Caso obtenha um **Triplo 6 (`[6, 6, 6]`)**, ocorre um **Crítico Caótico**, ignorando armaduras/resistências e dobrando o dano máximo.
 
-Uma falha crítica ocorre quando o jogador obtém um triplo 1 no teste, o mestre descreve uma consequência narrativa apropriada podendo incluir perda de posição, exposição a ataques, desgaste de equipamento ou outras complicações coerentes com a cena.
+Uma **Falha Crítica** ocorre quando o jogador obtém **ao menos dois dados com face 1** (`[1, 1, X]`), falhando automaticamente com complicação imediata; um **Triplo 1 (`[1, 1, 1]`)** gera um **Desastre Caótico** (quebra de equipamento, refluxo mágico ou perda de turno).
 
 ### **Defesa**
 
@@ -821,19 +825,19 @@ O confronto segue da seguinte forma:
 
 O atacante rola os dados somados a seu atributo principal, se o valor for igual ou superior a defesa do alvo, então o acerto é bem sucedido e ele ocorre com a seguinte fórmula:
 
-***ataque físico** \= (corpo ou mente) \+ arma*
+***ataque físico** \= atributo da arma (corpo, mente ou espírito) \+ arma*
 
-***resistência** \= armadura*
+***resistência** \= armadura (ou Res do inimigo)*
 
 ***dano** \= ataque físico \- resistência*
 
 Em caso de ataque mágico: 
 
-***ataque mágico** \= espírito \+ foco \+ poder*
+***ataque mágico** \= espírito \+ foco \+ dados do poder*
 
-***resistência** \= espírito*
+***resistência mágica** \= res mágica de itens/armaduras (em monstros, usa a coluna Res; danos Psíquico e Radiante ignoram armadura física/metade da Res)*
 
-***dano mágico** \= ataque mágico \- resistência*
+***dano mágico** \= ataque mágico \- resistência mágica*
 
 Em caso onde a resistência supera ou iguala o ataque, o dano é sempre 1, visto que o ataque foi bem sucedido. O resultado é subtraído do PV do defensor.
 
@@ -852,7 +856,7 @@ O valor de esquiva deve ser igual ou superior ao acerto do ataque, caso seja men
 Neste cenário, ambos os personagens estão em combate corpo a corpo.
 
 * **Ataque:**  
-  Ambos atacam utilizando o atributo Corpo.  
+  Cada combatente ataca utilizando o atributo da arma equipada (**Corpo**, **Mente** ou **Espírito**).  
 * **Defesa:**  
   Ambos utilizam a Defesa Física.  
 * **Vantagens e Desvantagens:**  
@@ -1125,84 +1129,84 @@ Além do ouro, é possível fazer uma rolagem Mm para verificar a chance de cair
 Esta tabela serve como base para você criar qualquer criatura nova. O valor de XP indicado é concedido integralmente a cada jogador presente no combate.
 
 | Nível (Desafio) | Atrib. | PV | Defesa | Res | Ataque (Dano Sugerido) | XP (por jogador) |
-| ----- | ----- | ----- | ----- | ----- | ----- | ----- |
-| 1 | 7 a 8 | 9 a 15 | Atrib. \+ 1 a 3 | 1 a 3 | 1d6 (ou 1d3 \+ 2) | 2 XP |
-| 2 | 9 a 10 | 12 a 16 | Atrib. \+ 4 a 6 | 4 a 6 | 1d6 \+ 2 (ou 2d3 \+ 1) | 3 XP |
-| 3 | 11 a 12 | 13 a 18 | Atrib. \+ 7 a 9 | 7 a 9 | 2d6 | 5 XP |
-| 4 | 13 a 14 | 20 a 25 | Atrib. \+ 10 a 12 | 10 a 12 | 2d6 \+ 2 | 7 XP |
-| 5 | 15 a 16 | 30 a 35 | Atrib. \+ 13 a 15 | 13 a 15 | 2d6 \+ 4 (ou especial) | 10 XP |
-| Elite (6-8) | 17 a 19 | 45 a 60 | Atrib. \+ 16 a 18 | 16 a 18 | Atributo \+ 2d6 | 15 a 20 XP |
-| Supremos (9-10) | 20+ | 70 a 100 | Atrib. \+ 19 a 21 | 19 a 21 | Atributo \+ 2d6 (até \+3) ou especial | 30 a 40 XP |
-| Lendários (11-15) | 25+ | 100+ | Atrib. \+ 22+ | 22+ | Atributo \+ 3d6 ou especial | 50+ XP |
+| :---: | :---: | :---: | :---: | :---: | :--- | :---: |
+| 1 | 7 a 8 | 10 a 15 | 9 a 12 | 1 a 2 | 1d3 \+ 1 (ou 1d6) | 2 XP |
+| 2 | 8 a 9 | 14 a 20 | 11 a 14 | 2 a 3 | 1d6 \+ 2 (ou 2d3 \+ 1) | 3 XP |
+| 3 | 9 a 10 | 18 a 26 | 13 a 16 | 3 a 4 | 2d6 (ou 2d3 \+ 3) | 5 XP |
+| 4 | 10 a 11 | 26 a 34 | 15 a 17 | 4 a 6 | 2d6 \+ 2 | 7 XP |
+| 5 | 11 a 12 | 36 a 45 | 16 a 19 | 6 a 7 | 2d6 \+ 4 (ou especial) | 10 XP |
+| Elite (6-8) | 13 a 15 | 55 a 80 | 18 a 21 | 8 a 10 | 3d6 \+ 3 | 15 a 20 XP |
+| Supremos (9-10) | 16 a 18 | 90 a 140 | 21 a 24 | 10 a 12 | 3d6 \+ 6 a 4d6 \+ 4 | 30 a 40 XP |
+| Lendários (11-15) | 19 a 22 | 150+ | 24 a 27 | 12 a 15 | 4d6 \+ 6 ou especial | 50+ XP |
 
 Role **1d6** para definir qual criatura o jogador encontra em cada nível.
 
 ## **Nível 1 (XP: 2 para cada jogador)** {#nível-1-(xp:-2-cada)}
 
-| 1d6 | Criatura | Tipo | Atrib. | PV | Def | Res | Atk | Especial |
+| 1d6 | Criatura | Tipo | Atrib. | PV | Def | Res | Atk (Dano) | Especial |
 | :---- | :---- | :---- | :---- | :---- | :---- | :---- | :---- | :---- |
-| 1 | Rato Gigante | Besta | C: 7 M:8 E: 7 | 12 | C \+ 1 (8) | 2 | 1d3 \+ 1 | Tenta fugir se perder 5 PV. |
-| 2 | Goblin | Humanoide | C: 8 M: 7 E: 7 | 15 | C \+ 2 (10) | 3 | 1d6 | \+1 ataque se agir primeiro. |
-| 3 | Esqueleto | Morto-vivo | C: 8 M: 7 E: 7 | 13 | C \+ 3 (11) | 3 | 1d6 | Imune a dano Necrótico. |
-| 4 | Aranha | Besta | C: 7 M: 8 E: 7 | 12 | C \+ 1 (8) | 2 | 1d3 \+ 1 | Ataca a distância média. Se atingir, alvo perde 2m mov. |
-| 5 | Kobold | Humanoide | C: 7 M: 8 E: 7 | 12 | C \+ 1 (8) | 1 | 1d3 \+ 1 | Ataca a distância curta. \+1 ataque se houver outro Kobold. |
-| 6 | Cultista | Humano | C: 7 M: 7 E: 8 | 15 | C \+ 2 (9) E \+ 3 (11) | 3 | 1d6 | Ataca a distância média. Uma vez, recupera 7 PV. |
+| 1 | Rato Gigante | Besta | C: 7 M: 8 E: 7 | 12 | 9 | 1 | 1d3 \+ 1 | Tenta fugir se perder 5 PV. |
+| 2 | Goblin | Humanoide | C: 8 M: 7 E: 7 | 14 | 10 | 2 | 1d6 | \+1 ataque se agir primeiro. |
+| 3 | Esqueleto | Morto-vivo | C: 8 M: 7 E: 7 | 13 | 11 | 2 | 1d6 | Imune a dano Necrótico. |
+| 4 | Aranha | Besta | C: 7 M: 8 E: 7 | 12 | 10 | 1 | 1d3 \+ 1 | Ataca a distância média. Se atingir, alvo perde 2m mov. |
+| 5 | Kobold | Humanoide | C: 7 M: 8 E: 7 | 11 | 10 | 1 | 1d3 \+ 1 | Ataca a distância curta. \+1 ataque se houver outro Kobold. |
+| 6 | Cultista | Humano | C: 7 M: 7 E: 8 | 15 | Fís: 10 / Mág: 11 | 2 | 1d6 | Ataca a distância média. Uma vez, recupera 5 PV. |
 
 ## **Nível 2 (XP: 3 cada)** {#nível-2-(xp:-3-cada)}
 
-| 1d6 | Criatura | Tipo | Atrib.  | PV | Def | Res | Atk | Especial |
+| 1d6 | Criatura | Tipo | Atrib. | PV | Def | Res | Atk (Dano) | Especial |
 | :---- | :---- | :---- | :---- | :---- | :---- | :---- | :---- | :---- |
-| 1 | Orc Guerreiro | Humanoide | C: 10 M: 9 E: 9 | 14 | C \+ 6 (16) | 6 | C \+ 1d3 \+ 3 | \+1 dano por 2 turnos. |
-| 2 | Gnoll Caçador | Humanoide | C: 9 M: 10 E: 9 | 13 | C \+ 5 (14) | 4 | M \+ 1d3 \+ 2 | Ataca a distância curta. Ignora a furtividade. |
-| 3 | Zumbi Pútrido | Morto-vivo | C: 10 M: 9 E: 9 | 16 | C \+ 5 (15) | 4 | C \+ 1d3 \+ 2 | Se cair a 0, volta com 1 PV se d6=6. |
-| 4 | Harpia | Monstruosidade | C: 9 M: 9 E: 10 | 12 | C \+ 4 (13) E \+ 5 (14) | 5 | E \+ 1d3 \+ 2 | Ataca a distância curta. |
-| 5 | Armadura Animada | Construto | C: 10 M: 9 E: 10 | 14 | C \+ 6 (16) | 4 | C \+ 1d3 \+ 2 | Atacante sofre \-1 dano físico. |
-| 6 | Lobo Atroz | Besta | C: 10 M: 9 E: 9 | 15 | C \+ 5 (15) | 5 | C \+ 1d3 \+ 2 | Se tirar 18 no ataque, o alvo cai. |
+| 1 | Orc Guerreiro | Humanoide | C: 9 M: 8 E: 8 | 18 | 13 | 3 | 1d6 \+ 3 | \+1 dano por 2 turnos ao entrar em fúria. |
+| 2 | Gnoll Caçador | Humanoide | C: 8 M: 9 E: 8 | 15 | 12 | 2 | 1d6 \+ 2 | Ataca a distância curta. Ignora furtividade leve. |
+| 3 | Zumbi Pútrido | Morto-vivo | C: 9 M: 8 E: 8 | 20 | 11 | 2 | 2d3 \+ 1 | Se cair a 0, volta com 1 PV se d6\=6 (1x). |
+| 4 | Harpia | Monstruosidade | C: 8 M: 9 E: 9 | 14 | Fís: 12 / Mág: 13 | 2 | 1d6 \+ 2 | Ataca a distância curta; pode voar. |
+| 5 | Armadura Animada | Construto | C: 9 M: 8 E: 9 | 17 | 14 | 3 | 2d3 \+ 1 | Atacante corpo a corpo sofre 1 de dano de impacto. |
+| 6 | Lobo Atroz | Besta | C: 9 M: 9 E: 8 | 18 | 13 | 3 | 1d6 \+ 2 | Se tirar Sucesso Crítico `[6, 6, X]`, o alvo cai (Caído). |
 
 ## **Nível 3 (XP: 5 cada)** {#nível-3-(xp:-5-cada)}
 
-| 1d6 | Criatura | Tipo | Atrib. | PV | Def | Res | Atk | Especial |
+| 1d6 | Criatura | Tipo | Atrib. | PV | Def | Res | Atk (Dano) | Especial |
 | :---- | :---- | :---- | :---- | :---- | :---- | :---- | :---- | :---- |
-| 1 | Ogro | Gigante | C: 12 M: 11 E: 12 | 18 | C \+ 5 (17) | 8 | C \+ 1d3 \+ 4 | Erro reduz 1 defesa do alvo. |
-| 2 | Bugbear | Humanoide | C: 12 M: 12 E: 11 | 16 | C \+ 5 (17) | 9 | C \+ 1d3 \+ 3 | 1º ataque causa \+2 dano. |
-| 3 | Carniçal | Morto-vivo | C: 11 M: 11 E: 12 | 14 | C \+ 4 (15) E \+ 5 (17) | 7 | E \+ 1d3 \+ 3 | Teste Corpo ou paralisia. |
-| 4 | Gárgula | Elemental | C: 12 M: 11 E: 11 | 15 | C \+ 5 (17) | 7 | C \+ 1d3 \+ 3 | Reduz todo dano em 1\. |
-| 5 | Mago Renegado | Humano | C: 11 M: 11 E: 12 | 13 | C \+ 3 (14) E \+ 5 (17) | 7 | E \+ 1d3 \+ 3 | Ataca a distância média. Usa o Espírito para a defesa física. |
-| 6 | Urso-Coruja | Besta | C: 12 M: 11 E: 11 | 18 | C \+ 6 (18) | 9 | C \+ 1d3 \+ 4 | Se acertar, alvo não se move. |
+| 1 | Ogro | Gigante | C: 10 M: 9 E: 9 | 26 | 14 | 4 | 2d6 \+ 1 | Erro crítico do alvo reduz 1 de Defesa por 1 turno. |
+| 2 | Bugbear | Humanoide | C: 10 M: 10 E: 9 | 22 | 15 | 4 | 2d6 | 1º ataque furtivo causa \+2 dano. |
+| 3 | Carniçal | Morto-vivo | C: 9 M: 10 E: 10 | 20 | Fís: 14 / Mág: 15 | 3 | 2d3 \+ 2 | Alvo testa Corpo ou fica Paralisado por 1 turno. |
+| 4 | Gárgula | Elemental | C: 10 M: 9 E: 9 | 24 | 16 | 4 | 2d6 | Reduz todo dano físico comum em \-1 extra. |
+| 5 | Mago Renegado | Humano | C: 9 M: 10 E: 10 | 18 | Fís: 13 / Mág: 16 | 3 | 2d6 | Ataca a distância média. Usa Espírito para Defesa Física. |
+| 6 | Urso-Coruja | Besta | C: 10 M: 9 E: 9 | 26 | 15 | 4 | 2d6 \+ 1 | Se acertar, agarra o alvo (movimento 0 até testar Corpo). |
 
 ## **Nível 4 (XP: 7 cada)** {#nível-4-(xp:-7-cada)}
 
-| 1d6 | Criatura | Tipo | Atrib. | PV | Def | Res | Atk | Especial |
+| 1d6 | Criatura | Tipo | Atrib. | PV | Def | Res | Atk (Dano) | Especial |
 | :---- | :---- | :---- | :---- | :---- | :---- | :---- | :---- | :---- |
-| 1 | Troll | Gigante | C: 14 M: 13 E: 13 | 25 | C \+ 5 (19) | 12 | C \+ 1d6 | Cura 2 PV/turno (exceto fogo). |
-| 2 | Mantícora | Monstruosidade | C: 13 M: 14 E: 13 | 22 | C \+ 3 (16) | 10 | M \+ 1d6 | Ataca 2x à distância curta. |
-| 3 | Aparição | Morto-vivo | C: 13 M:13 E: 14 | 20 | C \+ 3 (16) E \+ 5 (19) | 10 | E \+ 1d6 | Atravessa paredes. |
-| 4 | Minotauro | Humanoide | C: 14 M: 13 E: 13 | 25 | C \+ 4 (18) | 10 | C \+ 1d6 | Dano dobrado se correr 4m. |
-| 5 | Elemental Terra | Elemental | C: 14 M: 13 E: 13 | 25 | C \+ 4 (18) | 11 | C \+ 1d6 M \+ 1d6 | Arremessa pedras a curta distância. |
-| 6 | Súcubo | Corruptor | C: 13 M:13 E: 14 | 20 | C \+ 3 (16) E \+ 6 (20) | 10 | E \+ 1d6 | Teste Mente ou ataca aliado. |
+| 1 | Troll | Gigante | C: 11 M: 10 E: 10 | 34 | 16 | 5 | 2d6 \+ 2 | Cura 2 PV/turno (exceto se sofrer dano de Fogo/Ácido). |
+| 2 | Mantícora | Monstruosidade | C: 10 M: 11 E: 10 | 30 | 15 | 4 | 2d3 \+ 2 | Ataca 2x por turno à distância curta. |
+| 3 | Aparição | Morto-vivo | C: 10 M: 11 E: 11 | 26 | Fís: 16 / Mág: 17 | 5 | 2d6 \+ 2 | Atravessa paredes; dano Necrótico. |
+| 4 | Minotauro | Humanoide | C: 11 M: 10 E: 10 | 34 | 16 | 5 | 2d6 \+ 3 | Dano dobrado na investida se correr 4m antes. |
+| 5 | Elemental Terra | Elemental | C: 11 M: 10 E: 10 | 34 | 17 | 6 | 2d6 \+ 2 | Arremessa pedras a curta distância (`2d3+2`). |
+| 6 | Súcubo | Corruptor | C: 10 M: 11 E: 11 | 28 | Fís: 15 / Mág: 17 | 4 | 2d6 \+ 1 | Alvo testa Mente ou ataca aliado próximo. |
 
 ## **Nível 5 (XP: 10 cada)** {#nível-5-(xp:-10-cada)}
 
-| 1d6 | Criatura | Tipo | Atrib. | PV | Def | Res | Atk | Especial |
+| 1d6 | Criatura | Tipo | Atrib. | PV | Def | Res | Atk (Dano) | Especial |
 | :---- | :---- | :---- | :---- | :---- | :---- | :---- | :---- | :---- |
-| 1 | Gigante da Colina | Gigante | C: 16 M: 15 E: 15 | 35 | C \+ 5 (21) | 13 | C \+ 1d6 \+ 2 M \+ 1d6 | Arremessa pedras a curta distância. |
-| 2 | Wyvern | Dragão | C: 16 M: 15 E: 15 | 35 | C \+ 4 (20) E \+ 2 (17) | 13 | C \+ 1d6 \+ 1 E \+ 1d3 \+ 3 | Ataca a distância média. Veneno: 2 dano/turno (3t). |
-| 3 | Beholder Menor | Aberração | C: 15 M: 16 E: 16 | 30 | C \+ 5 (20) E \+ 4 (20) | 13 | E \+ 1d6 \+ 1 | Ataca a distância curta. Ataca 2 alvos por turno. |
-| 4 | Cavaleiro Negro | Humano | C: 16 M: 15 E: 15 | 35 | C \+ 7 (23) | 15 | C \+ 1d6 \+ 2 | Aura: \-1 ataque para próximos. |
-| 5 | Quimera | Monstruosidade | C: 16 M: 15 E: 15 | 35 | C \+ 6 (22) | 14 | C \+ 1d6 | Ataca 3x. |
-| 6 | Golem Ferro | Construto | C: 16 M: 15 E: 15 | 35 | C \+ 5 (21) | 15 | C \+ 1d6 | Ignora o primeiro ataque. |
+| 1 | Gigante da Colina | Gigante | C: 12 M: 11 E: 11 | 45 | 17 | 6 | 2d6 \+ 4 | Arremessa pedras a curta distância (`2d6`). |
+| 2 | Wyvern | Dragão | C: 12 M: 11 E: 11 | 44 | Fís: 18 / Mág: 16 | 6 | 2d6 \+ 3 | Ataca a distância média. Veneno: 2 dano/turno (3t). |
+| 3 | Beholder Menor | Aberração | C: 11 M: 12 E: 12 | 38 | Fís: 17 / Mág: 18 | 6 | 2d6 \+ 3 | Ataca 2 alvos por turno à distância curta. |
+| 4 | Cavaleiro Negro | Humano | C: 12 M: 11 E: 11 | 45 | 19 | 7 | 2d6 \+ 4 | Aura: \-1 ataque para inimigos adjacentes. |
+| 5 | Quimera | Monstruosidade | C: 12 M: 11 E: 11 | 44 | 18 | 6 | 1d6 \+ 3 | Ataca 3x por turno (mordida, chifre e garra). |
+| 6 | Golem Ferro | Construto | C: 12 M: 11 E: 11 | 45 | 18 | 7 | 2d6 \+ 4 | Imune a veneno/sono; reduz o primeiro dano recebido à metade. |
 
-## **Ameaças de Alto Nível (6 a 10\)** {#ameaças-de-alto-nível-(6-a-10)}
+## **Ameaças de Alto Nível (6 a 10)** {#ameaças-de-alto-nível-(6-a-10)}
 
 Estas criaturas são pensadas para encontros climáticos ou chefes de campanha.
 
-| Nível | Criatura | Tipo | Atrib. | PV | Def | Res | Atk | XP | Especial |
+| Nível | Criatura | Tipo | Atrib. | PV | Def | Res | Atk (Dano) | XP | Especial |
 | :---- | :---- | :---- | :---- | :---- | :---- | :---- | :---- | :---- | :---- |
-| 6 | Hidra | Dragão | C: 18 M: 17 E: 18 | 60 | C \+ 2 (20) E \+ 2 (20) | 16 | C \+ 2d6 | 15 \* cabeça | Ganha \+1 ataque por turno. |
-| 7 | Observador (beholder) | Aberração | C: 19 M: 19 E: 20 | 70 | C \+ 6 (25) E \+ 5 (25) | 18 | E \+ 2d6 | 18 | Desativa poderes de Espírito. |
-| 8 | Vampiro Ancião | Morto-vivo | C: 20  M: 21 E: 20 | 90 | C \+ 7 (27) E \+ 5 (25) | 16 | M \+ 2d6 | 22 | Escapa de dano fatal 1x. |
-| 9 | Lich | Morto-vivo | C: 21  M: 21 E: 22 | 80 | C \+ 9 (30) E \+ 10 (32) | 15 | E \+ 2d6 \+2 | 28 | Se o acerto do ataque \= 18, o alvo vai a 1 PV. |
-| 10 | Dragão | Dragão | C: 23 M: 21 E: 23 | 150 | C \+ 7 (30) E \+ 7 (30) | 18 | C \+ 2d6 \+ 3 | 50 | Sopro: Área Grande (6m). |
+| 6 | Hidra | Dragão | C: 13 M: 13 E: 13 | 65 | Fís: 18 / Mág: 18 | 8 | 1d6 \+ 3 (por cabeça) | 15 \* cabeça | Começa com 3 cabeças (3 ataques). Perde 1 cabeça a cada 20 PV perdidos; se não sofrer Fogo/Ácido no turno, regenera 10 PV e ganha \+1 cabeça (máx. 5). |
+| 7 | Observador (Beholder) | Aberração | C: 14 M: 14 E: 15 | 75 | Fís: 19 / Mág: 20 | 9 | 3d6 \+ 2 | 20 | Cone antimagia desativa poderes de Espírito por 1 turno. |
+| 8 | Vampiro Ancião | Morto-vivo | C: 15 M: 15 E: 15 | 85 | Fís: 21 / Mág: 20 | 10 | 3d6 \+ 3 | 25 | Escapa de dano fatal 1x (vira névoa com 1 PV). |
+| 9 | Lich | Morto-vivo | C: 15 M: 16 E: 17 | 95 | Fís: 21 / Mág: 23 | 10 | 3d6 \+ 5 | 35 | Se obtiver Sucesso Crítico `[6, 6, X]`, o alvo cai para 1 PV. |
+| 10 | Dragão | Dragão | C: 18 M: 16 E: 18 | 140 | Fís: 23 / Mág: 23 | 12 | 4d6 \+ 4 | 50 | Sopro: Área Grande (6m), recarrega em d6 = 5 ou 6. |
 
 # **Itens e Equipamentos** {#itens-e-equipamentos}
 
@@ -1238,7 +1242,7 @@ Nota: Armas de duas mãos geralmente impedem o uso de escudos. Armas de **Mente*
 | Arma | Bordão de Peregrino | Espírito | 2 Mãos | Não | 1d3 \+ 1 | 15 |
 | Arma | Foice Druídica | Espírito | 1 Mão | Não | 1d3 \+ 1 (Dano cortante natural; sem metal) | 25 |
 | Arma | Maça Cerimonial | Espírito | 1 Mão | Não | 1d3 \+ 1 (Dano sagrado contundente) | 40 |
-| Arma | Lança da Fé | Espírito | 2 Mãos | Não | 2d3 de dano Radiante (Alcance 2m; defende com Espírito e ignora armadura física) | 70 |
+| Arma | Lança da Fé | Espírito | 2 Mãos | Não | 2d3 de dano Radiante (Alcance 2m; defende com Espírito e ignora até 3 de armadura física) | 70 |
 | Arma | Cetro Solar | Espírito | 1 Mão | Sim | 1d3 \+ 2 Radiante (Ilumina área média) | 235 |
 | Arma | Cajado dos Antigos | Espírito | 2 Mãos | Sim | 2d3 \+ 2 (\+1d3 de cura em magias restauradoras) | 455 |
 | Arma | Bordão de Mogno | Corpo Espírito | 2 Mãos | Não | 3d3 \+ 1 | 105 |
@@ -1268,7 +1272,7 @@ Nota: Armaduras são vestidas e não ocupam mãos. Armaduras de **Corpo** conced
 | :---- | :---- | :---- | :---- | :---- | :---- |
 | Armadura | Couro Simples | Corpo | Não | \+1 Resistência Física | 20 |
 | Armadura | Couro Trabalhado | Corpo | Não | \+2 Resistência Física | 45 |
-| Armadura | Brunea | Corpo | Não | \+4 Resistência Física | 50 |
+| Armadura | Brúnea | Corpo | Não | \+4 Resistência Física | 80 |
 | Armadura | Cota de Malha | Corpo | Não | \+6 Resistência Física | 130 |
 | Armadura | Placas | Corpo | Não | \+8 Resistência Física | 260 |
 | Armadura | Mithril | Corpo | Sim | \+6 Resistência Física \+4 Res mágica | 455 |

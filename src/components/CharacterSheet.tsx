@@ -150,7 +150,7 @@ function createEmptyCharacter(): Character {
     ppMax: 4,
     shieldBonus: 0,
     armorRes: 0,
-    movement: 6,
+    movement: 5,
     initiativeBonus: 0,
     condition: 'Normal / Acordado',
     deathSuccesses: 0,
