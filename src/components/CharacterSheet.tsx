@@ -44,6 +44,7 @@ export interface CharacterBackpackItem {
   id: string;
   name: string;
   category: 'arma' | 'armadura' | 'escudo' | 'foco' | 'consumivel' | 'utilitario';
+  attribute?: 'corpo' | 'mente' | 'espirito' | 'corpo/mente' | 'corpo/espirito' | 'geral';
   qty: number;
   price?: number;
   effect?: string;
@@ -139,7 +140,7 @@ function createEmptyCharacter(): Character {
     classId: initialClassId,
     level: 1,
     xp: 0,
-    gold: 50,
+    gold: 100,
     corpo: 5,
     mente: 5,
     espirito: 2,
@@ -557,9 +558,10 @@ export function CharacterSheet({ classPowers }: CharacterSheetProps) {
 
   const backpack = active.backpackItems ?? [];
 
-  const handleBuyItem = (item: GameItem) => {
-    if (active.gold < item.price) return;
-    const nextGold = active.gold - item.price;
+  const handleBuyItem = (item: GameItem, customPrice?: number) => {
+    const finalPrice = customPrice !== undefined ? customPrice : item.price;
+    if (active.gold < finalPrice) return;
+    const nextGold = active.gold - finalPrice;
     const existingIdx = backpack.findIndex((b) => b.name.toLowerCase() === item.name.toLowerCase());
     let nextBackpack: CharacterBackpackItem[];
 
@@ -574,6 +576,7 @@ export function CharacterSheet({ classPowers }: CharacterSheetProps) {
           id: crypto.randomUUID(),
           name: item.name,
           category: item.category,
+          attribute: item.attribute,
           qty: 1,
           price: item.price,
           effect: item.effect,
@@ -590,6 +593,53 @@ export function CharacterSheet({ classPowers }: CharacterSheetProps) {
       gold: nextGold,
       backpackItems: nextBackpack,
     });
+  };
+
+  const handleSellItem = (item: CharacterBackpackItem, sellPrice: number, qtyToSell: number = 1) => {
+    const existingIdx = backpack.findIndex((b) => b.id === item.id || b.name.toLowerCase() === item.name.toLowerCase());
+    if (existingIdx < 0) return;
+
+    const currentItem = backpack[existingIdx];
+    const actualQtyToSell = Math.min(currentItem.qty, Math.max(1, qtyToSell));
+    const goldEarned = Math.max(0, sellPrice) * actualQtyToSell;
+    const remainingQty = currentItem.qty - actualQtyToSell;
+
+    let nextBackpack: CharacterBackpackItem[];
+    if (remainingQty <= 0) {
+      nextBackpack = backpack.filter((_, i) => i !== existingIdx);
+    } else {
+      nextBackpack = backpack.map((b, i) =>
+        i === existingIdx ? { ...b, qty: remainingQty } : b
+      );
+    }
+
+    // Se o item foi totalmente vendido (ou restou 0), desequipar slots correspondentes
+    const updates: Partial<Character> = {
+      gold: active.gold + goldEarned,
+      backpackItems: nextBackpack,
+    };
+
+    if (remainingQty <= 0) {
+      if (active.weaponMain === currentItem.name) {
+        updates.weaponMain = '';
+        if (active.weaponSec === 'Ocupada (Arma de 2 Mãos)') {
+          updates.weaponSec = '';
+        }
+      }
+      if (active.weaponSec === currentItem.name) {
+        updates.weaponSec = '';
+      }
+      if (active.armorDesc === currentItem.name) {
+        updates.armorDesc = '';
+        updates.armorRes = 0;
+      }
+      if (active.shieldDesc === currentItem.name) {
+        updates.shieldDesc = '';
+        updates.shieldBonus = 0;
+      }
+    }
+
+    updateActive(updates);
   };
 
   const handleEquipItem = (
@@ -1925,6 +1975,21 @@ export function CharacterSheet({ classPowers }: CharacterSheetProps) {
                           <span className="truncate font-semibold text-slate-100">
                             {item.name}
                           </span>
+                          {item.attribute && (
+                            <span
+                              className={`shrink-0 rounded px-1.5 py-0.2 text-[9px] font-bold uppercase ${
+                                item.attribute.includes('corpo')
+                                  ? 'bg-rose-500/20 border border-rose-500/40 text-rose-300'
+                                  : item.attribute.includes('mente')
+                                  ? 'bg-sky-500/20 border border-sky-500/40 text-sky-300'
+                                  : item.attribute.includes('espirito')
+                                  ? 'bg-purple-500/20 border border-purple-500/40 text-purple-300'
+                                  : 'bg-slate-700/40 border border-slate-600/40 text-slate-300'
+                              }`}
+                            >
+                              {item.attribute}
+                            </span>
+                          )}
                           {item.isCustom && (
                             <span className="shrink-0 rounded bg-amber-500/20 border border-amber-500/30 px-1 py-0.2 text-[9px] font-bold text-amber-300">
                               Custom
@@ -2031,7 +2096,9 @@ export function CharacterSheet({ classPowers }: CharacterSheetProps) {
       {showShopModal && (
         <ShopModal
           gold={active.gold}
+          backpackItems={backpack}
           onBuyItem={handleBuyItem}
+          onSellItem={handleSellItem}
           onClose={() => setShowShopModal(false)}
         />
       )}
