@@ -232,7 +232,7 @@ Seres graciosos de longevidade milenar e sentidos aguçados, sintonizados com as
 
 Traço racial: Mente Arcana
 
-Impacto Mecânico: \+1 em Mente e começa o jogo com **\+1 Poder de Nível 1** adicional da sua classe à escolha (ativo ou passivo).
+Impacto Mecânico: \+1 em Mente e começa o jogo com **\+1 Poder de Nível 1** adicional da sua classe à escolha (obrigatoriamente um poder ativo).
 
 ## **Orc** {#orc}
 
@@ -541,8 +541,6 @@ Estilo: físico/distância
 O ladino começa com 1 ação passiva ou ativa de nível 1 a sua escolha. 
 
 | Poder | Tipo | PP | Efeito | Nível 1 | Nível 2 | Nível 3 |
-| :---- | :---- | :---- | :---- | :---- | :---- | :---- |
-| Golpe Oportuno | Ativa | 2 | Ação Menor. Após realizar um ataque no seu turno, desfere 1 ataque adicional rápido com arma leve de 1 mão (não aplica Ataque Furtivo neste 2º golpe). | Custa 2 PP | Custo reduzido para 1 PP | Custa 1 PP e \+1 no Ataque deste golpe |
 | Dedos Leves | Passiva | 0 | Especialista em gazuas, desarmar armadilhas e prestidigitação rápida. | Vantagem (4d6) em testes de fechaduras e mecanismos | Pode realizar teste como Ação Menor; se falhar, não dispara a armadilha | Abre trancas mundanas sem teste e pode bater carteiras sem ser notado |
 | Sentido de Perigo | Passiva | 0 | Instintos aguçados contra emboscadas e perigos repentinos. | Não pode ser surpreendido; \+2 na Iniciativa | \+3 na Iniciativa | \+4 na Iniciativa e não sofre dano em armadilhas |
 | Língua de Prata | Passiva | 0 | Trapaça, lábia e negociação com mercadores e NPCs. | \+1 em testes de persuasão e comércio | \+2 em testes de persuasão e comércio | \+3 em testes de persuasão e comércio |
@@ -550,6 +548,7 @@ O ladino começa com 1 ação passiva ou ativa de nível 1 a sua escolha.
 | Assassino | Passiva | 0 | Letalidade súbita em alvos desatentos no início do combate. | Vantagem vs quem não agiu; Crítico se surpreso | \+2 no acerto contra inimigos surpresos | Causa dano máximo nos dados no 1º turno |
 | Evasão | Passiva | 0 | Reflexos milagrosos contra efeitos em área com teste de Mente. | Vantagem em testes de Mente contra áreas | Se passar não sofre dano, se falhar metade | Se passar sofre dano zero; se falhar 1/4 do dano |
 | Gíria de Ladrão | Passiva | 0 | Conhecimento dos códigos do submundo e rede de contatos ilegais. | Identifica sinais e esconderijos secretos | Contatos ativos em qualquer vila/cidade | Encontra esconderijo seguro garantido |
+| Golpe Oportuno | Ativa | 2 | Ação Menor. Após realizar um ataque no seu turno, desfere 1 ataque adicional rápido com arma leve de 1 mão (não aplica Ataque Furtivo neste 2º golpe). | Custa 2 PP | Custo reduzido para 1 PP | Custa 1 PP e \+1 no Ataque deste golpe |
 | Ação Ardilosa | Ativa | 1 | Ação Menor. Agilidade tática de movimentação no combate. | Disparada, Desengajar ou Esconder-se | Custo reduzido para 0 PP (Ação Menor livre) | Pode realizar duas manobras no mesmo turno |
 | Esquiva Sobrenatural | Ativa | 2 | Reação. Flexiona o corpo para amortecer um golpe físico visível. | Reduz dano recebido pela metade | Reduz metade e move 2m sem GdO | Reduz o dano do ataque a 0 (1x por combate) |
 | Golpe Sujo | Ativa | 2 | Ação Menor. Golpe desleal (areia, rasteira); alvo testa Corpo. | Alvo falha: Cego/Atordoado por 1 turno | Alvo tem Desvantagem no teste | Causa 1d3 de dano adicional na manobra |

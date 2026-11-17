@@ -52,7 +52,7 @@ export const RACES: RaceInfo[] = [
       'Seres graciosos de longevidade milenar e sentidos aguçados, sintonizados com as florestas e correntes arcanas cósmicas.',
     traitName: 'Mente Arcana',
     trait:
-      '+1 em Mente e começa o jogo com +1 Poder de Nível 1 adicional da sua classe à escolha (ativo ou passivo).',
+      '+1 em Mente e começa o jogo com +1 Poder de Nível 1 adicional da sua classe à escolha (obrigatoriamente um poder ativo).',
     bonus: { corpo: 0, mente: 1, espirito: 0 },
   },
   {
