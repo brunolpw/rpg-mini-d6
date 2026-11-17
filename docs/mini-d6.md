@@ -541,6 +541,7 @@ Estilo: físico/distância
 O ladino começa com 1 ação passiva ou ativa de nível 1 a sua escolha. 
 
 | Poder | Tipo | PP | Efeito | Nível 1 | Nível 2 | Nível 3 |
+| :---- | :---- | :---- | :---- | :---- | :---- | :---- |
 | Dedos Leves | Passiva | 0 | Especialista em gazuas, desarmar armadilhas e prestidigitação rápida. | Vantagem (4d6) em testes de fechaduras e mecanismos | Pode realizar teste como Ação Menor; se falhar, não dispara a armadilha | Abre trancas mundanas sem teste e pode bater carteiras sem ser notado |
 | Sentido de Perigo | Passiva | 0 | Instintos aguçados contra emboscadas e perigos repentinos. | Não pode ser surpreendido; \+2 na Iniciativa | \+3 na Iniciativa | \+4 na Iniciativa e não sofre dano em armadilhas |
 | Língua de Prata | Passiva | 0 | Trapaça, lábia e negociação com mercadores e NPCs. | \+1 em testes de persuasão e comércio | \+2 em testes de persuasão e comércio | \+3 em testes de persuasão e comércio |
