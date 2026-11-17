@@ -212,61 +212,59 @@ Todos os demais itens que não estão em uso. Não existe uma regra para definir
 
 ## **Humano** {#humano}
 
-Adaptáveis, ideais para cobrir o prejuízo de \-1 da classe.
+A espécie mais populosa, ambiciosa e versátil do mundo. Sem extremos biológicos rígidos, os humanos destacam-se pela incrível capacidade de adaptação a qualquer ofício, clima ou estilo de magia, compensando limitações rapidamente e encontrando soluções criativas para superar adversidades.
 
 Traço racial: Versatilidade
 
-Impacto Mecânico: \+1 em um Atributo à escolha (não pode ser o mesmo bônus da classe).
+Impacto Mecânico: \+1 em um Atributo à sua escolha (não podendo ser o mesmo bônus recebido pela classe).
 
 ## **Anão** {#anão}
 
-Aumenta automaticamente o PV inicial e a **Defesa** base.
+Mestres da cantaria, metalurgia e escavações profundas, forjados nas entranhas das montanhas. Possuem compleição física densa, passos firmes e tenacidade inabalável que lhes permite resistir a fadigas extremas, pancadas duras e venenos que derrubariam outros combatentes.
 
 Traço racial: Vigor da Pedra
 
-Impacto Mecânico: \+1 em Corpo.
+Impacto Mecânico: \+1 em Corpo (aumentando diretamente o PV inicial e a Defesa Física base).
 
 ## **Elfo** {#elfo}
 
-Começa com mais versatilidade tática ou mágica que os outros.
+Seres graciosos de longevidade milenar e sentidos aguçados, sintonizados com as florestas e correntes arcanas cósmicas. Sua mente desperta absorve tradições e magias com naturalidade fluida, iniciando sua jornada com repertório tático e místico superior.
 
 Traço racial: Mente Arcana
 
-Impacto Mecânico: **\+1 Poder Ativo** de Nível 1 adicional.
+Impacto Mecânico: \+1 em Mente e começa o jogo com **\+1 Poder de Nível 1** adicional da sua classe à escolha (ativo ou passivo).
 
 ## **Orc** {#orc}
 
-Torna o personagem o mais difícil de derrubar a longo prazo.
+Guerreiros viscerais e sobreviventes natos de terras inóspitas, moldados pela honra marcial, constituição vigorosa e fúria indomável. Possuem grande resistência muscular e uma vitalidade que se recusa a tombar facilmente perante a morte.
 
-Traço racial: Resiliência
+Traço racial: Tenacidade Brutal
 
-Impacto Mecânico: **\+1 PV por Nível Par** (adicionado após a rolagem do dado Mm).
-
-Resiliência: Sempre que o personagem subir para um nível par e rolar para ganhar PV, ele adiciona **\+1 fixo** ao resultado final do dado Mm.
+Impacto Mecânico: \+1 em Corpo. Uma vez por combate, ao ter seus PVs reduzidos a 0, resiste por puro vigor instintivo e permanece consciente com **1 PV**.
 
 ## **Pequenino** {#pequenino}
 
-Compensa a falta de força bruta com sorte e esquiva.
+Povo de passos leves, coração valente e reflexos espantosos. Compensam o porte pequeno com audácia inata e uma sorte quase mágica que parece intervir nos momentos de maior perigo para virar a maré a seu favor.
 
-Traço racial: Agilidade
+Traço racial: Sorte Inata
 
-Impacto Mecânico: Uma vez por combate, pode rolar novamente um teste de defesa ou ataque.
+Impacto Mecânico: \+1 em Mente. Uma vez por combate, pode rolar novamente qualquer teste de ataque ou defesa que tenha falhado, assumindo o novo resultado.
 
 ## **Gnomo** {#gnomo}
 
-Aumenta o PP inicial e a potência de ataques mágicos.
+Pesquisadores brilhantes de engenharia mística, curiosidade acadêmica e alquimia. Sua estatura modesta esconde uma reserva espiritual profunda e afinidade arcana superior, permitindo canalizar e armazenar energias mágicas com alta eficiência.
 
 Traço racial: Foco Interior
 
-Impacto Mecânico: **\+1 em Espírito**.
+Impacto Mecânico: \+1 em Espírito (aumentando diretamente o PP máximo inicial e o poder de conjurações).
 
 ## **Draconato** {#draconato}
 
-Poder ancestral e orgulho.
+Herdeiros orgulhosos das antigas linhagens dracônicas, protegidos por escamas espessas e munidos da essência primordial destrutiva de seus ancestrais correndo em suas veias.
 
-Traço racial: Herança Elemental
+Traço racial: Sopro Elemental
 
-Impacto Mecânico: Escolha um tipo (Fogo, Gelo, Raio, Veneno). Você ignora o primeiro dano desse tipo recebido.
+Impacto Mecânico: \+1 em Corpo. Dispara um sopro em área pequena (2m) 1x por combate causando **1d3 \+ Corpo de dano** do tipo escolhido (Fogo, Gelo, Raio ou Veneno). Fora de combate, possui resistência (+2) contra intempéries e efeitos do elemento correspondente.
 
 # **Classes** {#classes}
 

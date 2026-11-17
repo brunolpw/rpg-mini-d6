@@ -709,9 +709,15 @@ export function CharacterSheet({ classPowers }: CharacterSheetProps) {
                 </option>
               ))}
             </select>
-            <p className="mt-1.5 text-xs text-slate-400">
+            <p className="mt-1.5 text-xs text-slate-300">
               {selectedRace.description}
             </p>
+            <div className="mt-2 rounded bg-amber-950/40 border border-amber-800/40 p-2 text-xs">
+              <span className="font-bold text-amber-300">
+                Traço Racial ({selectedRace.traitName}):
+              </span>{' '}
+              <span className="text-slate-300">{selectedRace.trait}</span>
+            </div>
           </div>
 
           <div className="print-card rounded-lg border border-slate-800 bg-slate-950/60 p-3">

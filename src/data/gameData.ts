@@ -1,8 +1,10 @@
 export interface RaceInfo {
   id: string;
   name: string;
-  bonus: { corpo: number; mente: number; espirito: number };
   description: string;
+  traitName: string;
+  trait: string;
+  bonus: { corpo: number; mente: number; espirito: number };
 }
 
 export interface ClassInfo {
@@ -22,44 +24,72 @@ export const RACES: RaceInfo[] = [
   {
     id: 'humano',
     name: 'Humano',
+    description:
+      'Espécie mais populosa e ambiciosa, notável pela incrível adaptabilidade a qualquer ofício, clima ou estilo de magia, compensando limitações rapidamente.',
+    traitName: 'Versatilidade',
+    trait:
+      '+1 em um Atributo à sua escolha (não podendo ser o mesmo bônus recebido pela classe).',
     bonus: { corpo: 0, mente: 0, espirito: 0 },
-    description: 'Versátil: +1 em um atributo à escolha e 1 poder extra de nível 1.',
   },
   {
     id: 'anao',
     name: 'Anão',
+    description:
+      'Mestres da cantaria e metalurgia forjados nas montanhas. Possuem compleição física densa, passos firmes e tenacidade inabalável contra fadiga e pancadas.',
+    traitName: 'Vigor da Pedra',
+    trait:
+      '+1 em Corpo (aumentando diretamente o PV inicial e a Defesa Física base).',
     bonus: { corpo: 1, mente: 0, espirito: 0 },
-    description: '+1 Corpo, Visão no Escuro e resistência a venenos.',
   },
   {
     id: 'elfo',
     name: 'Elfo',
+    description:
+      'Seres graciosos de longevidade milenar e sentidos aguçados, sintonizados com as florestas e correntes arcanas cósmicas.',
+    traitName: 'Mente Arcana',
+    trait:
+      '+1 em Mente e começa o jogo com +1 Poder de Nível 1 adicional da sua classe à escolha (ativo ou passivo).',
     bonus: { corpo: 0, mente: 1, espirito: 0 },
-    description: '+1 Mente, Sentidos Aguçados e imune a sono mágico.',
   },
   {
     id: 'orc',
     name: 'Orc',
+    description:
+      'Guerreiros viscerais e sobreviventes de terras áridas, moldados por honra marcial, constituição vigorosa e fúria indomável.',
+    traitName: 'Tenacidade Brutal',
+    trait:
+      '+1 em Corpo. Uma vez por combate, ao ter seus PVs reduzidos a 0, resiste por puro vigor e permanece consciente com 1 PV.',
     bonus: { corpo: 1, mente: 0, espirito: 0 },
-    description: '+1 Corpo, Fúria implacável em combate corpo a corpo.',
   },
   {
     id: 'pequenino',
     name: 'Pequenino',
+    description:
+      'Povo de passos leves, coração valente e reflexos surpreendentes. Compensam o porte pequeno com audácia e uma sorte quase mágica.',
+    traitName: 'Sorte Inata',
+    trait:
+      '+1 em Mente. Uma vez por combate, pode rolar novamente qualquer teste de ataque ou defesa que tenha falhado, assumindo o novo resultado.',
     bonus: { corpo: 0, mente: 1, espirito: 0 },
-    description: '+1 Mente, Sortudo (pode rerrolar um 1 nos dados).',
   },
   {
     id: 'gnomo',
     name: 'Gnomo',
+    description:
+      'Pesquisadores brilhantes de engenharia mística e alquimia. Sua estatura modesta esconde uma reserva espiritual e afinidade arcana superior.',
+    traitName: 'Foco Interior',
+    trait:
+      '+1 em Espírito (aumentando diretamente o PP máximo inicial e o poder de conjurações).',
     bonus: { corpo: 0, mente: 0, espirito: 1 },
-    description: '+1 Espírito, Engenhoso e afinidade arcana.',
   },
   {
     id: 'draconato',
     name: 'Draconato',
+    description:
+      'Herdeiros orgulhosos das antigas linhagens dracônicas, protegidos por escamas espessas e munidos do poder destrutivo primordial de seus ancestrais.',
+    traitName: 'Sopro Elemental',
+    trait:
+      '+1 em Corpo. Dispara um sopro em área pequena (2m) 1x por combate causando 1d3 + Corpo de dano (Fogo, Gelo, Raio ou Veneno). Fora de combate, possui resistência contra o elemento.',
     bonus: { corpo: 1, mente: 0, espirito: 0 },
-    description: '+1 Corpo, Baforada elemental e escamas resistentes.',
   },
 ];
 
