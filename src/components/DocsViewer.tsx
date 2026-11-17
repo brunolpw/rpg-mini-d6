@@ -80,7 +80,7 @@ export function DocsViewer({ markdown, loading, error }: DocsViewerProps) {
     return (
       <div className="flex items-center justify-center py-20 text-slate-400">
         <BookOpen className="mr-2 h-5 w-5 animate-pulse" />
-        Carregando manual Mini-d6 v2.5...
+        Carregando manual Mini-d6...
       </div>
     );
   }

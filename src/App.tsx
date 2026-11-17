@@ -64,7 +64,7 @@ export function App() {
   };
 
   useEffect(() => {
-    fetch('./mini-d6 v2.5.md')
+    fetch('./mini-d6.md')
       .then((res) => {
         if (!res.ok) throw new Error('Não foi possível carregar o manual.');
         return res.text();

@@ -1,4 +1,4 @@
-**Mini-d6 RPG v2.5**
+**Mini-d6 RPG v2.7**
 
 por Bruno La Porta Welausen
 
@@ -18,7 +18,7 @@ O sistema atende a três perfis principais de jogadores:
 
 1. **Iniciantes e Grupos Casuais:** Pela sua simplicidade de regras e rapidez na criação de fichas, é ideal para quem nunca jogou RPG ou para grupos que têm pouco tempo e querem focar na diversão imediata.  
 2. **Jogadores de "One-Shot" e Campanhas Curtas:** O sistema é otimizado para aventuras que começam e terminam em poucas sessões, embora suporte progressão até o nível 15\.  
-3. **Jogadores Solo:** O documento v2.5 inclui regras específicas para descanso e eventos aleatórios pensadas para o "Modo Solo", permitindo jogar sem mestre.
+3. **Jogadores Solo:** O documento inclui regras específicas para descanso e eventos aleatórios pensadas para o "Modo Solo", permitindo jogar sem mestre.
 
 ## **Capacidades e Mecânicas Principais** {#capacidades-e-mecânicas-principais}
 
@@ -1345,11 +1345,11 @@ Nota: Itens agrupáveis geralmente podem ser carregados em pilhas de até 5 ou 1
 
 # **Ficha de Personagem** {#ficha-de-personagem}
 
-| FICHA DE PERSONAGEM \- SISTEMA MINI-D6 v2.5 |  |  |  |
+| FICHA DE PERSONAGEM \- SISTEMA MINI-D6 v2.7 |  |  |  |
 | :--- | :--- | :--- | :--- |
 | **Nome:** | **Nível:** | **1** |  |
 | **Raça:** | **Exp:** | **0 / 10** |  |
-| **Classe:** | **Dinheiro (PO):** | **50** |  |
+| **Classe:** | **Dinheiro (PO):** | **100** |  |
 
 ### **Status de Combate**
 

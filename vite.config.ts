@@ -13,7 +13,7 @@ export default defineConfig({
       registerType: 'autoUpdate',
       includeAssets: ['capa.png', 'favicon.svg'],
       manifest: {
-        name: 'Mini-d6 RPG v2.5',
+        name: 'Mini-d6 RPG v2.7',
         short_name: 'Mini-d6',
         description: 'Manual de regras e criador de ficha offline para Mini-d6 RPG',
         theme_color: '#1e1b4b',
