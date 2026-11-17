@@ -1,10 +1,11 @@
 import { useEffect, useMemo, useState } from 'react';
-import { BookOpen, FileText, Dices, Download, X } from 'lucide-react';
+import { BookOpen, FileText, Dices, Download, X, Sparkles } from 'lucide-react';
 import { DocsViewer } from './components/DocsViewer';
 import { CharacterSheet } from './components/CharacterSheet';
+import { ItemCreator } from './components/ItemCreator';
 import { parseClassPowers } from './utils/markdownParser';
 
-type Tab = 'docs' | 'sheet';
+type Tab = 'docs' | 'sheet' | 'items';
 
 interface BeforeInstallPromptEvent extends Event {
   prompt: () => Promise<void>;
@@ -122,6 +123,19 @@ export function App() {
               <span className="hidden sm:inline">Ficha de Personagem</span>
               <span className="sm:hidden">Ficha</span>
             </button>
+
+            <button
+              onClick={() => setTab('items')}
+              className={`flex items-center gap-2 rounded-lg px-3.5 py-2 text-sm font-medium transition-colors ${
+                tab === 'items'
+                  ? 'bg-amber-600 text-white'
+                  : 'text-slate-300 hover:bg-slate-800'
+              }`}
+            >
+              <Sparkles className="h-4 w-4 text-amber-300" />
+              <span className="hidden sm:inline">Criador de Itens</span>
+              <span className="sm:hidden">Itens</span>
+            </button>
           </nav>
         </div>
       </header>
@@ -164,11 +178,11 @@ export function App() {
       )}
 
       <main>
-        {tab === 'docs' ? (
+        {tab === 'docs' && (
           <DocsViewer markdown={markdown} loading={loading} error={error} />
-        ) : (
-          <CharacterSheet classPowers={classPowers} />
         )}
+        {tab === 'sheet' && <CharacterSheet classPowers={classPowers} />}
+        {tab === 'items' && <ItemCreator />}
       </main>
     </div>
   );

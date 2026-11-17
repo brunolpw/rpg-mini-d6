@@ -13,26 +13,44 @@ import {
   X,
   AlertTriangle,
   Dices,
+  Store,
+  Package,
 } from 'lucide-react';
 import {
   ARMORS,
   CLASSES,
-  CONSUMABLES,
   RACES,
   SHIELDS_AND_FOCI,
   WEAPONS,
 } from '../data/gameData';
+import { GameItem } from '../data/itemsData';
 import {
   getEffectivePowerPP,
   type ClassPowerInfo,
 } from '../utils/markdownParser';
 import { DiceRoller } from './DiceRoller';
+import { ShopModal } from './ShopModal';
 
 export interface PowerSlot {
   name: string;
   level: 1 | 2 | 3;
   pp: string;
   notes: string;
+}
+
+export interface CharacterBackpackItem {
+  id: string;
+  name: string;
+  category: 'arma' | 'armadura' | 'escudo' | 'foco' | 'consumivel' | 'utilitario';
+  qty: number;
+  price?: number;
+  effect?: string;
+  isCustom?: boolean;
+  isMagic?: boolean;
+  twoHanded?: boolean;
+  res?: number;
+  defBonus?: number;
+  equippedSlot?: 'weaponMain' | 'weaponSec' | 'armor' | 'shield';
 }
 
 export interface Character {
@@ -63,12 +81,40 @@ export interface Character {
   armorDesc: string;
   shieldDesc: string;
   backpack: string;
-  backpackItems?: { name: string; qty: number }[];
+  backpackItems?: CharacterBackpackItem[];
   notes: string;
   powers: PowerSlot[];
 }
 
 const STORAGE_KEY = 'mini-d6-sheets-v1';
+
+function normalizeBackpackItems(rawItems: any[]): CharacterBackpackItem[] {
+  if (!Array.isArray(rawItems)) return [];
+  return rawItems.map((item) => {
+    if (typeof item === 'string') {
+      return {
+        id: crypto.randomUUID(),
+        name: item,
+        category: 'utilitario',
+        qty: 1,
+      };
+    }
+    return {
+      id: item.id || crypto.randomUUID(),
+      name: item.name || 'Item',
+      category: item.category || 'utilitario',
+      qty: Math.max(1, Number(item.qty) || 1),
+      price: item.price,
+      effect: item.effect,
+      isCustom: Boolean(item.isCustom),
+      isMagic: Boolean(item.isMagic),
+      twoHanded: Boolean(item.twoHanded),
+      res: item.res,
+      defBonus: item.defBonus,
+      equippedSlot: item.equippedSlot,
+    };
+  });
+}
 
 function createEmptyCharacter(): Character {
   return {
@@ -79,7 +125,7 @@ function createEmptyCharacter(): Character {
     classId: 'guerreiro',
     level: 1,
     xp: 0,
-    gold: 10,
+    gold: 50,
     corpo: 5,
     mente: 5,
     espirito: 2,
@@ -124,7 +170,12 @@ export function CharacterSheet({ classPowers }: CharacterSheetProps) {
       const saved = localStorage.getItem(STORAGE_KEY);
       if (saved) {
         const parsed = JSON.parse(saved);
-        if (Array.isArray(parsed) && parsed.length > 0) return parsed;
+        if (Array.isArray(parsed) && parsed.length > 0) {
+          return parsed.map((char: any) => ({
+            ...char,
+            backpackItems: normalizeBackpackItems(char.backpackItems),
+          }));
+        }
       }
     } catch {
       // ignore parse errors
@@ -284,8 +335,6 @@ export function CharacterSheet({ classPowers }: CharacterSheetProps) {
   const defFisica = 10 + totalCorpo + active.shieldBonus;
   const defMagica = 10 + totalEspirito;
 
-  const [itemToAdd, setItemToAdd] = useState<string>(CONSUMABLES[0]);
-
   const [rollModal, setRollModal] = useState<{
     title: string;
     subtitle: string;
@@ -428,6 +477,84 @@ export function CharacterSheet({ classPowers }: CharacterSheetProps) {
   const [damageType, setDamageType] = useState<'fisico' | 'elemental' | 'mistico'>('fisico');
   const [selectedPowerIdx, setSelectedPowerIdx] = useState<number>(0);
   const [combatLog, setCombatLog] = useState<string>('');
+  const [showShopModal, setShowShopModal] = useState<boolean>(false);
+
+  const backpack = active.backpackItems ?? [];
+
+  const handleBuyItem = (item: GameItem) => {
+    if (active.gold < item.price) return;
+    const nextGold = active.gold - item.price;
+    const existingIdx = backpack.findIndex((b) => b.name.toLowerCase() === item.name.toLowerCase());
+    let nextBackpack: CharacterBackpackItem[];
+
+    if (existingIdx >= 0) {
+      nextBackpack = backpack.map((b, i) =>
+        i === existingIdx ? { ...b, qty: b.qty + 1 } : b
+      );
+    } else {
+      nextBackpack = [
+        ...backpack,
+        {
+          id: crypto.randomUUID(),
+          name: item.name,
+          category: item.category,
+          qty: 1,
+          price: item.price,
+          effect: item.effect,
+          isCustom: item.isCustom,
+          isMagic: item.isMagic,
+          twoHanded: item.isTwoHanded,
+          res: item.res,
+          defBonus: item.defBonus,
+        },
+      ];
+    }
+
+    updateActive({
+      gold: nextGold,
+      backpackItems: nextBackpack,
+    });
+  };
+
+  const handleEquipItem = (
+    item: CharacterBackpackItem,
+    slot: 'weaponMain' | 'weaponSec' | 'armor' | 'shield'
+  ) => {
+    if (slot === 'weaponMain') {
+      const is2H = item.twoHanded || item.name.includes('[2 Mãos]');
+      updateActive({
+        weaponMain: item.name,
+        weaponSec: is2H ? 'Ocupada (Arma de 2 Mãos)' : active.weaponSec === 'Ocupada (Arma de 2 Mãos)' ? '' : active.weaponSec,
+      });
+    } else if (slot === 'weaponSec') {
+      updateActive({ weaponSec: item.name });
+    } else if (slot === 'armor') {
+      updateActive({
+        armorDesc: item.name,
+        armorRes: item.res ?? 0,
+      });
+    } else if (slot === 'shield') {
+      updateActive({
+        shieldDesc: item.name,
+        shieldBonus: item.defBonus ?? 0,
+      });
+    }
+  };
+
+  const handleUnequipSlot = (slot: 'weaponMain' | 'weaponSec' | 'armor' | 'shield') => {
+    if (slot === 'weaponMain') {
+      updateActive({
+        weaponMain: '',
+        weaponSec: active.weaponSec === 'Ocupada (Arma de 2 Mãos)' ? '' : active.weaponSec,
+      });
+    } else if (slot === 'weaponSec') {
+      updateActive({ weaponSec: '' });
+    } else if (slot === 'armor') {
+      updateActive({ armorDesc: '', armorRes: 0 });
+    } else if (slot === 'shield') {
+      updateActive({ shieldDesc: '', shieldBonus: 0 });
+    }
+  };
 
   const isTwoHandedMain =
     WEAPONS.some(
@@ -1280,223 +1407,407 @@ export function CharacterSheet({ classPowers }: CharacterSheetProps) {
         )}
 
         {/* Equipamentos e Mochila */}
-        <datalist id="weapons-list">
-          {WEAPONS.map((w) => (
-            <option key={w.label} value={w.label} />
-          ))}
-        </datalist>
-        <datalist id="armors-list">
-          {ARMORS.map((a) => (
-            <option key={a.label} value={a.label} />
-          ))}
-        </datalist>
-        <datalist id="shields-list">
-          {SHIELDS_AND_FOCI.map((s) => (
-            <option key={s.label} value={s.label} />
-          ))}
-        </datalist>
-
         <div className="grid gap-4 md:grid-cols-2">
+          {/* Equipamentos Preparados (Em Uso) */}
           <div className="print-card rounded-lg border border-slate-800 bg-slate-950/60 p-4">
-            <h3 className="mb-3 text-xs font-bold uppercase tracking-wider text-slate-400">
-              Equipamentos Preparados (Em Uso)
-            </h3>
+            <div className="mb-3 flex items-center justify-between">
+              <h3 className="text-xs font-bold uppercase tracking-wider text-slate-400">
+                Equipamentos Preparados (Em Uso)
+              </h3>
+              <span className="text-[11px] text-slate-500">
+                Apenas itens da mochila
+              </span>
+            </div>
 
             {hasOffHandConflict && (
               <div className="no-print mb-3 flex items-start gap-2 rounded-lg border border-amber-600/50 bg-amber-950/40 p-2.5 text-xs text-amber-200">
                 <AlertTriangle className="mt-0.5 h-4 w-4 shrink-0 text-amber-400" />
                 <span>
-                  <strong>Arma de duas mãos equipada:</strong> normalmente ocupa
-                  os dois espaços de mão (a menos que possua <em>Força Bruta</em>{' '}
-                  ou regra especial).
+                  <strong>Arma de duas mãos equipada:</strong> normalmente ocupa os dois espaços de mão (a menos que possua <em>Força Bruta</em> ou regra especial).
                 </span>
               </div>
             )}
 
-            <div className="space-y-2 text-xs">
+            <div className="space-y-3 text-xs">
+              {/* Arma Principal */}
               <div>
-                <span className="text-slate-400">Arma Principal</span>
-                <input
-                  type="text"
-                  list="weapons-list"
+                <div className="flex items-center justify-between">
+                  <span className="text-slate-400">Arma Principal</span>
+                  {active.weaponMain && (
+                    <button
+                      type="button"
+                      onClick={() => handleUnequipSlot('weaponMain')}
+                      className="text-[10px] text-rose-400 hover:underline"
+                    >
+                      Desequipar
+                    </button>
+                  )}
+                </div>
+                <select
                   value={active.weaponMain}
                   onChange={(e) => {
                     const val = e.target.value;
-                    const is2H =
-                      WEAPONS.some(
-                        (w) =>
-                          w.twoHanded &&
-                          w.label.toLowerCase() === val.trim().toLowerCase()
-                      ) || val.includes('[2 Mãos]');
-                    updateActive(
-                      is2H && active.weaponSec.trim() === ''
-                        ? {
-                            weaponMain: val,
-                            weaponSec: 'Ocupada (Arma de 2 Mãos)',
-                          }
-                        : { weaponMain: val }
-                    );
+                    if (!val) {
+                      handleUnequipSlot('weaponMain');
+                      return;
+                    }
+                    const item = backpack.find((b) => b.name === val);
+                    if (item) {
+                      handleEquipItem(item, 'weaponMain');
+                    } else {
+                      updateActive({ weaponMain: val });
+                    }
                   }}
-                  placeholder="Ex: Espada Longa (1d6)"
                   className="print-input mt-1 w-full rounded border border-slate-700 bg-slate-950 px-2.5 py-1.5 text-slate-100"
-                />
+                >
+                  <option value="">Nenhuma / Ataque Desarmado</option>
+                  {backpack
+                    .filter((b) => b.category === 'arma')
+                    .map((b) => (
+                      <option key={b.id} value={b.name}>
+                        {b.name} ({b.effect || 'Arma'}) {b.isCustom ? '★' : ''}
+                      </option>
+                    ))}
+                  {/* Se tem item salvo anteriormente que não tá mais na lista, mantém para não quebrar */}
+                  {active.weaponMain &&
+                    !backpack.some((b) => b.name === active.weaponMain) && (
+                      <option value={active.weaponMain}>
+                        {active.weaponMain} (Fora da mochila)
+                      </option>
+                    )}
+                </select>
               </div>
+
+              {/* Arma Secundária */}
               <div>
-                <span className="text-slate-400">Arma Secundária / Arco</span>
-                <input
-                  type="text"
-                  list="weapons-list"
-                  value={active.weaponSec}
-                  onChange={(e) => updateActive({ weaponSec: e.target.value })}
-                  placeholder="Ex: Adaga (1d3)"
-                  className="print-input mt-1 w-full rounded border border-slate-700 bg-slate-950 px-2.5 py-1.5 text-slate-100"
-                />
+                <div className="flex items-center justify-between">
+                  <span className="text-slate-400">Arma Secundária / Arco</span>
+                  {active.weaponSec && active.weaponSec !== 'Ocupada (Arma de 2 Mãos)' && (
+                    <button
+                      type="button"
+                      onClick={() => handleUnequipSlot('weaponSec')}
+                      className="text-[10px] text-rose-400 hover:underline"
+                    >
+                      Desequipar
+                    </button>
+                  )}
+                </div>
+                {active.weaponSec === 'Ocupada (Arma de 2 Mãos)' ? (
+                  <div className="mt-1 flex items-center justify-between rounded border border-slate-800 bg-slate-900/40 px-2.5 py-1.5 text-slate-400 italic text-xs">
+                    <span>Ocupada (Arma de 2 Mãos)</span>
+                    <button
+                      type="button"
+                      onClick={() => updateActive({ weaponSec: '' })}
+                      className="text-[10px] text-amber-400 hover:underline not-italic"
+                    >
+                      Liberar
+                    </button>
+                  </div>
+                ) : (
+                  <select
+                    value={active.weaponSec}
+                    onChange={(e) => {
+                      const val = e.target.value;
+                      if (!val) {
+                        handleUnequipSlot('weaponSec');
+                        return;
+                      }
+                      const item = backpack.find((b) => b.name === val);
+                      if (item) {
+                        handleEquipItem(item, 'weaponSec');
+                      } else {
+                        updateActive({ weaponSec: val });
+                      }
+                    }}
+                    className="print-input mt-1 w-full rounded border border-slate-700 bg-slate-950 px-2.5 py-1.5 text-slate-100"
+                  >
+                    <option value="">Nenhuma</option>
+                    {backpack
+                      .filter((b) => b.category === 'arma')
+                      .map((b) => (
+                        <option key={b.id} value={b.name}>
+                          {b.name} ({b.effect || 'Arma'}) {b.isCustom ? '★' : ''}
+                        </option>
+                      ))}
+                    {active.weaponSec &&
+                      !backpack.some((b) => b.name === active.weaponSec) && (
+                        <option value={active.weaponSec}>
+                          {active.weaponSec} (Fora da mochila)
+                        </option>
+                      )}
+                  </select>
+                )}
               </div>
+
+              {/* Armadura e Escudo em Grid */}
               <div className="grid grid-cols-2 gap-2">
                 <div>
-                  <span className="text-slate-400">Armadura</span>
-                  <input
-                    type="text"
-                    list="armors-list"
+                  <div className="flex items-center justify-between">
+                    <span className="text-slate-400">Armadura</span>
+                    {active.armorDesc && (
+                      <button
+                        type="button"
+                        onClick={() => handleUnequipSlot('armor')}
+                        className="text-[10px] text-rose-400 hover:underline"
+                      >
+                        Tirar
+                      </button>
+                    )}
+                  </div>
+                  <select
                     value={active.armorDesc}
                     onChange={(e) => {
                       const val = e.target.value;
-                      const match = ARMORS.find(
-                        (a) => a.label.toLowerCase() === val.trim().toLowerCase()
-                      );
-                      updateActive(
-                        match
-                          ? { armorDesc: match.label, armorRes: match.res }
-                          : { armorDesc: val }
-                      );
+                      if (!val) {
+                        handleUnequipSlot('armor');
+                        return;
+                      }
+                      const item = backpack.find((b) => b.name === val);
+                      if (item) {
+                        handleEquipItem(item, 'armor');
+                      } else {
+                        const match = ARMORS.find((a) => a.label === val);
+                        updateActive(
+                          match
+                            ? { armorDesc: match.label, armorRes: match.res }
+                            : { armorDesc: val }
+                        );
+                      }
                     }}
-                    placeholder="Ex: Couro (Res 1)"
-                    className="print-input mt-1 w-full rounded border border-slate-700 bg-slate-950 px-2.5 py-1.5 text-slate-100"
-                  />
+                    className="print-input mt-1 w-full rounded border border-slate-700 bg-slate-950 px-2 py-1.5 text-slate-100"
+                  >
+                    <option value="">Sem Armadura (Res 0)</option>
+                    {backpack
+                      .filter((b) => b.category === 'armadura')
+                      .map((b) => (
+                        <option key={b.id} value={b.name}>
+                          {b.name} (Res {b.res ?? 0}
+                          {b.defBonus ? `, +${b.defBonus} Def` : ''}) {b.isCustom ? '★' : ''}
+                        </option>
+                      ))}
+                    {active.armorDesc &&
+                      !backpack.some((b) => b.name === active.armorDesc) && (
+                        <option value={active.armorDesc}>
+                          {active.armorDesc} (Res {active.armorRes})
+                        </option>
+                      )}
+                  </select>
                 </div>
+
                 <div>
-                  <span className="text-slate-400">Escudo / Foco</span>
-                  <input
-                    type="text"
-                    list="shields-list"
+                  <div className="flex items-center justify-between">
+                    <span className="text-slate-400">Escudo / Foco</span>
+                    {active.shieldDesc && (
+                      <button
+                        type="button"
+                        onClick={() => handleUnequipSlot('shield')}
+                        className="text-[10px] text-rose-400 hover:underline"
+                      >
+                        Tirar
+                      </button>
+                    )}
+                  </div>
+                  <select
                     value={active.shieldDesc}
                     onChange={(e) => {
                       const val = e.target.value;
-                      const match = SHIELDS_AND_FOCI.find(
-                        (s) => s.label.toLowerCase() === val.trim().toLowerCase()
-                      );
-                      updateActive(
-                        match
-                          ? {
-                              shieldDesc: match.label,
-                              shieldBonus: match.defBonus,
-                            }
-                          : { shieldDesc: val }
-                      );
+                      if (!val) {
+                        handleUnequipSlot('shield');
+                        return;
+                      }
+                      const item = backpack.find((b) => b.name === val);
+                      if (item) {
+                        handleEquipItem(item, 'shield');
+                      } else {
+                        const match = SHIELDS_AND_FOCI.find((s) => s.label === val);
+                        updateActive(
+                          match
+                            ? { shieldDesc: match.label, shieldBonus: match.defBonus }
+                            : { shieldDesc: val }
+                        );
+                      }
                     }}
-                    placeholder="Ex: Escudo (+1 Def)"
-                    className="print-input mt-1 w-full rounded border border-slate-700 bg-slate-950 px-2.5 py-1.5 text-slate-100"
-                  />
+                    className="print-input mt-1 w-full rounded border border-slate-700 bg-slate-950 px-2 py-1.5 text-slate-100"
+                  >
+                    <option value="">Nenhum</option>
+                    {backpack
+                      .filter((b) => b.category === 'escudo' || b.category === 'foco')
+                      .map((b) => (
+                        <option key={b.id} value={b.name}>
+                          {b.name} ({b.defBonus ? `+${b.defBonus} Def` : b.category}) {b.isCustom ? '★' : ''}
+                        </option>
+                      ))}
+                    {active.shieldDesc &&
+                      !backpack.some((b) => b.name === active.shieldDesc) && (
+                        <option value={active.shieldDesc}>
+                          {active.shieldDesc} (+{active.shieldBonus} Def)
+                        </option>
+                      )}
+                  </select>
                 </div>
               </div>
             </div>
           </div>
 
+          {/* Mochila e Inventário */}
           <div className="print-card flex flex-col rounded-lg border border-slate-800 bg-slate-950/60 p-4">
-            <h3 className="mb-2 text-xs font-bold uppercase tracking-wider text-slate-400">
-              Mochila, Inventário e Anotações
-            </h3>
+            <div className="mb-2.5 flex items-center justify-between">
+              <h3 className="text-xs font-bold uppercase tracking-wider text-slate-400 flex items-center gap-1.5">
+                <Package className="h-4 w-4 text-amber-400" /> Mochila & Inventário ({backpack.length})
+              </h3>
 
-            <div className="no-print mb-2 flex gap-1.5">
-              <select
-                value={itemToAdd}
-                onChange={(e) => setItemToAdd(e.target.value)}
-                className="min-w-0 flex-1 rounded border border-slate-700 bg-slate-900 px-2 py-1 text-xs text-slate-200"
-              >
-                {CONSUMABLES.map((item) => (
-                  <option key={item} value={item}>
-                    {item}
-                  </option>
-                ))}
-              </select>
-              <button
-                type="button"
-                onClick={() => {
-                  const items = active.backpackItems ?? [];
-                  const existing = items.find((i) => i.name === itemToAdd);
-                  const nextItems = existing
-                    ? items.map((i) =>
-                        i.name === itemToAdd ? { ...i, qty: i.qty + 1 } : i
-                      )
-                    : [...items, { name: itemToAdd, qty: 1 }];
-                  updateActive({ backpackItems: nextItems });
-                }}
-                className="flex items-center gap-1 rounded bg-slate-800 px-2.5 py-1 text-xs font-medium text-slate-200 hover:bg-slate-700"
-              >
-                <Plus className="h-3.5 w-3.5" /> Add
-              </button>
+              <div className="no-print flex items-center gap-2">
+                <button
+                  type="button"
+                  onClick={() => setShowShopModal(true)}
+                  className="flex items-center gap-1.5 rounded-lg bg-amber-600 px-3 py-1.5 text-xs font-bold text-white shadow hover:bg-amber-500 transition-colors"
+                >
+                  <Store className="h-3.5 w-3.5" /> Abrir Loja ({active.gold} PO)
+                </button>
+              </div>
             </div>
 
-            {(active.backpackItems ?? []).length > 0 && (
-              <div className="mb-2 space-y-1">
-                {(active.backpackItems ?? []).map((item, idx) => (
-                  <div
-                    key={idx}
-                    className="flex items-center justify-between gap-2 rounded border border-slate-800 bg-slate-900/50 px-2 py-1 text-xs"
-                  >
-                    <span className="min-w-0 flex-1 truncate text-slate-200">
-                      {item.name}
-                    </span>
-                    <div className="no-print flex items-center gap-1">
-                      <button
-                        type="button"
-                        onClick={() => {
-                          const items = active.backpackItems ?? [];
-                          const nextItems = items
-                            .map((it, i) =>
-                              i === idx ? { ...it, qty: it.qty - 1 } : it
-                            )
-                            .filter((it) => it.qty > 0);
-                          updateActive({ backpackItems: nextItems });
-                        }}
-                        className="rounded bg-slate-800 px-1.5 py-0.5 text-rose-300 hover:bg-rose-900/60"
-                        title="Usar / Decrementar"
-                      >
-                        -
-                      </button>
-                      <span className="w-6 text-center font-bold text-slate-100">
-                        {item.qty}
-                      </span>
-                      <button
-                        type="button"
-                        onClick={() => {
-                          const items = active.backpackItems ?? [];
-                          const nextItems = items.map((it, i) =>
-                            i === idx ? { ...it, qty: it.qty + 1 } : it
-                          );
-                          updateActive({ backpackItems: nextItems });
-                        }}
-                        className="rounded bg-slate-800 px-1.5 py-0.5 text-emerald-300 hover:bg-emerald-900/60"
-                        title="Adicionar +1"
-                      >
-                        +
-                      </button>
+            {/* Itens na Mochila */}
+            {backpack.length === 0 ? (
+              <div className="my-auto py-6 text-center text-xs text-slate-400 border border-dashed border-slate-800 rounded-lg">
+                <Package className="mx-auto h-6 w-6 text-slate-600 mb-1" />
+                Sua mochila está vazia. Visite a Loja para comprar armas, armaduras e itens.
+              </div>
+            ) : (
+              <div className="mb-2 max-h-56 overflow-y-auto space-y-1.5 pr-1">
+                {backpack.map((item, idx) => {
+                  const isEquipped =
+                    active.weaponMain === item.name ||
+                    active.weaponSec === item.name ||
+                    active.armorDesc === item.name ||
+                    active.shieldDesc === item.name;
+
+                  return (
+                    <div
+                      key={item.id || idx}
+                      className={`flex flex-col gap-1 rounded border px-2.5 py-1.5 text-xs transition-colors ${
+                        isEquipped
+                          ? 'border-indigo-600/60 bg-indigo-950/30'
+                          : item.isCustom
+                          ? 'border-amber-900/40 bg-slate-900/60'
+                          : 'border-slate-800 bg-slate-900/50'
+                      }`}
+                    >
+                      <div className="flex items-center justify-between gap-2">
+                        <div className="flex min-w-0 flex-1 items-center gap-1.5">
+                          <span className="truncate font-semibold text-slate-100">
+                            {item.name}
+                          </span>
+                          {item.isCustom && (
+                            <span className="shrink-0 rounded bg-amber-500/20 border border-amber-500/30 px-1 py-0.2 text-[9px] font-bold text-amber-300">
+                              Custom
+                            </span>
+                          )}
+                          {isEquipped && (
+                            <span className="shrink-0 rounded bg-indigo-500/20 border border-indigo-500/40 px-1.5 py-0.2 text-[9px] font-bold text-indigo-300">
+                              Equipado
+                            </span>
+                          )}
+                        </div>
+
+                        <div className="no-print flex items-center gap-1">
+                          {/* Botão rápido Equipar/Desequipar para armas, armaduras e escudos */}
+                          {item.category === 'arma' && !isEquipped && (
+                            <button
+                              type="button"
+                              onClick={() => handleEquipItem(item, 'weaponMain')}
+                              className="rounded bg-slate-800 px-2 py-0.5 text-[10px] font-semibold text-sky-300 hover:bg-slate-700"
+                              title="Equipar como Arma Principal"
+                            >
+                              Equipar
+                            </button>
+                          )}
+                          {item.category === 'armadura' && !isEquipped && (
+                            <button
+                              type="button"
+                              onClick={() => handleEquipItem(item, 'armor')}
+                              className="rounded bg-slate-800 px-2 py-0.5 text-[10px] font-semibold text-emerald-300 hover:bg-slate-700"
+                              title="Vestir Armadura"
+                            >
+                              Vestir
+                            </button>
+                          )}
+                          {(item.category === 'escudo' || item.category === 'foco') && !isEquipped && (
+                            <button
+                              type="button"
+                              onClick={() => handleEquipItem(item, 'shield')}
+                              className="rounded bg-slate-800 px-2 py-0.5 text-[10px] font-semibold text-amber-300 hover:bg-slate-700"
+                              title="Equipar na mão secundária"
+                            >
+                              Equipar
+                            </button>
+                          )}
+
+                          {/* Quantidade */}
+                          <button
+                            type="button"
+                            onClick={() => {
+                              const nextItems = backpack
+                                .map((it, i) =>
+                                  i === idx ? { ...it, qty: it.qty - 1 } : it
+                                )
+                                .filter((it) => it.qty > 0);
+                              updateActive({ backpackItems: nextItems });
+                            }}
+                            className="rounded bg-slate-800 px-1.5 py-0.5 text-rose-300 hover:bg-rose-900/60"
+                            title="Descartar ou usar 1 unidade"
+                          >
+                            -
+                          </button>
+                          <span className="w-5 text-center font-bold text-slate-100">
+                            {item.qty}
+                          </span>
+                          <button
+                            type="button"
+                            onClick={() => {
+                              const nextItems = backpack.map((it, i) =>
+                                i === idx ? { ...it, qty: it.qty + 1 } : it
+                              );
+                              updateActive({ backpackItems: nextItems });
+                            }}
+                            className="rounded bg-slate-800 px-1.5 py-0.5 text-emerald-300 hover:bg-emerald-900/60"
+                            title="Adicionar mais 1"
+                          >
+                            +
+                          </button>
+                        </div>
+                      </div>
+
+                      {item.effect && (
+                        <div className="text-[11px] text-slate-400">
+                          {item.effect}
+                        </div>
+                      )}
                     </div>
-                  </div>
-                ))}
+                  );
+                })}
               </div>
             )}
 
             <textarea
               value={active.backpack}
               onChange={(e) => updateActive({ backpack: e.target.value })}
-              placeholder="Anotações extras da mochila..."
-              rows={3}
-              className="print-input w-full flex-1 rounded border border-slate-700 bg-slate-950 p-2.5 text-xs text-slate-100"
+              placeholder="Anotações extras da mochila (cartas, pergaminhos, itens de missão)..."
+              rows={2}
+              className="print-input w-full rounded border border-slate-700 bg-slate-950 p-2 text-xs text-slate-100"
             />
           </div>
         </div>
       </div>
+
+      {/* Modal da Loja */}
+      {showShopModal && (
+        <ShopModal
+          gold={active.gold}
+          onBuyItem={handleBuyItem}
+          onClose={() => setShowShopModal(false)}
+        />
+      )}
 
       {/* Modal Animado de Rolagem de Atributos e Status */}
       {rollModal && (
