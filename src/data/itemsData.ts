@@ -92,7 +92,7 @@ export const OFFICIAL_ITEMS: GameItem[] = [
     hands: '1 Mão',
     isMagic: true,
     effect: '1d3 + 2 (+1 no Ataque se agir primeiro)',
-    price: 286,
+    price: 285,
     description: 'Forjada em ligas élficas finas, premia velocidade de reação.',
   },
   {
@@ -198,7 +198,7 @@ export const OFFICIAL_ITEMS: GameItem[] = [
     isTwoHanded: true,
     isMagic: false,
     effect: '3d3',
-    price: 98,
+    price: 100,
     description: 'Enorme lâmina de duas mãos com varredura destrutiva.',
   },
   {
@@ -325,7 +325,7 @@ export const OFFICIAL_ITEMS: GameItem[] = [
     isTwoHanded: true,
     isMagic: false,
     effect: '2d3 Radiante (Alcance 2m; defende com Espírito e ignora armadura física)',
-    price: 72,
+    price: 70,
     description: 'Haste cerimonial que projeta ponta de pura luz sagrada a 2 metros.',
   },
   {
@@ -782,7 +782,7 @@ export const OFFICIAL_ITEMS: GameItem[] = [
     isMagic: false,
     effect: '+3 Defesa Física, +1 em testes contra ataques e magias em área',
     defBonus: 3,
-    price: 78,
+    price: 80,
     description: 'Escudo maciço que cobre quase todo o corpo contra rajadas.',
   },
   {
@@ -1139,7 +1139,7 @@ export const OFFICIAL_ITEMS: GameItem[] = [
     attribute: 'mente',
     hands: '1 Mão',
     isMagic: true,
-    effect: 'Vantagem no próximo teste de Mente',
+    effect: 'Rola o próximo teste com Vantagem (4d6). Caso o jogador já possua Vantagem, diminui o nível de Dificuldade da tarefa em 1 categoria (ou em -3 se Fácil)',
     price: 50,
     description: 'Abre a percepção e foco para garantir vantagem na próxima ação crítica.',
   },

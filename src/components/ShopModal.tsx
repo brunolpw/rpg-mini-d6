@@ -8,6 +8,7 @@ import {
   Tag,
   Check,
   ShoppingBag,
+  Package,
   ArrowDownLeft,
   ArrowUpRight,
   SlidersHorizontal,
@@ -300,6 +301,10 @@ export function ShopModal({
                       : item.price;
                   const canAfford = gold >= currentBuyPrice;
                   const isBought = justBoughtId === item.id;
+                  const ownedInBackpack = backpackItems.find(
+                    (b) => b.name.toLowerCase() === item.name.toLowerCase()
+                  );
+                  const ownedQty = ownedInBackpack ? ownedInBackpack.qty : 0;
 
                   return (
                     <div
@@ -317,6 +322,14 @@ export function ShopModal({
                               <span className="font-bold text-xs text-slate-100">
                                 {item.name}
                               </span>
+                              {ownedQty > 0 && (
+                                <span
+                                  className="inline-flex items-center gap-0.5 rounded bg-emerald-500/20 border border-emerald-500/40 px-1.5 py-0.2 text-[9px] font-bold text-emerald-300"
+                                  title={`Você possui ${ownedQty} unidade(s) deste item na mochila`}
+                                >
+                                  <Package className="h-2.5 w-2.5" /> Na Mochila: {ownedQty}
+                                </span>
+                              )}
                               {item.attribute && (
                                 <span
                                   className={`inline-flex items-center rounded border px-1.5 py-0.2 text-[9px] font-bold uppercase ${getAttrBadgeColor(
