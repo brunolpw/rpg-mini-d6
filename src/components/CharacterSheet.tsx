@@ -729,8 +729,17 @@ export function CharacterSheet({ classPowers }: CharacterSheetProps) {
                 </option>
               ))}
             </select>
-            <p className="mt-1.5 text-xs text-slate-400">
-              Base: Corpo ({selectedClass.baseMod.corpo >= 0 ? '+' : ''}
+            <p className="mt-1.5 text-xs text-slate-300">
+              {selectedClass.description}
+            </p>
+            <div className="mt-2 rounded bg-indigo-950/50 border border-indigo-800/50 p-2 text-xs">
+              <span className="font-bold text-indigo-300">
+                Passiva Natural ({selectedClass.naturalTraitName}):
+              </span>{' '}
+              <span className="text-slate-300">{selectedClass.naturalTrait}</span>
+            </div>
+            <p className="mt-2 text-[11px] text-slate-400">
+              Modificadores: Corpo ({selectedClass.baseMod.corpo >= 0 ? '+' : ''}
               {selectedClass.baseMod.corpo}), Mente (
               {selectedClass.baseMod.mente >= 0 ? '+' : ''}
               {selectedClass.baseMod.mente}), Espírito (

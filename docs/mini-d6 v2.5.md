@@ -276,7 +276,11 @@ Todas as classes ganham 2 pontos de bônus e 2 pontos de penalidades que são di
 
 ## **Bárbaro**  {#bárbaro}
 
-Combatente feroz que usa a força bruta para esmagar oponentes na linha de frente. Sua ação foca em causar danos massivos e resistir a golpes através da vitalidade pura.
+Combatente feroz alimentado pela adrenalina e vigor instintivo. Esmaga oponentes na linha de frente e intimida adversários através de força bruta pura, resistindo a golpes devastadores através da vitalidade corporal.
+
+Traço da classe: Vigor Primitivo
+
+Impacto Mecânico: \+1m no deslocamento base e Vantagem em testes de Corpo para proezas de força bruta pura (arrombar portas, entortar grades, erguer peso maciço) e intimidação física.
 
 Estilo: físico
 
@@ -307,7 +311,11 @@ O bárbaro começa com 1 ação passiva de nível 1 a sua escolha.
 
 ## **Guerreiro** {#guerreiro}
 
-Mestre em armas e armaduras, focado no domínio técnico do combate corpo-a-corpo. É a classe mais estável para manter a defesa alta e controlar o ritmo da luta.
+Mestre tático em armas e armaduras pesadas, atuando como o pilar defensivo que mantém a guarda alta, absorve investidas inimigas e controla o ritmo do combate corpo-a-corpo.
+
+Traço da classe: Baluarte de Combate
+
+Impacto Mecânico: Não pode ser empurrado, derrubado ou movido contra a sua vontade por efeitos físicos de inimigos do seu tamanho ou menor. Se estiver empunhando um escudo ou uma arma com as duas mãos, recebe **\+1 de Resistência Física natural** adicional contra todo golpe físico sofrido.
 
 Estilo: físico
 
@@ -340,7 +348,11 @@ O guerreiro começa com 1 ação passiva de nível 1 a sua escolha.
 
 ## **Paladino** {#paladino}
 
-Protetor sagrado que une poder físico e inspiração espiritual. Foca em golpear com força enquanto utiliza seu espírito para proteger a si mesmo e aos aliados.
+Guerreiro sagrado blindado por fé inabalável. Une poderio marcial a virtudes místicas para proteger aliados, resistir a influências sombrias e castigar o mal com retidão implacável.
+
+Traço da classe: Aura de Convicção
+
+Impacto Mecânico: Imunidade a efeitos mundanos de medo e concede \+1 em testes de resistência mental/espiritual contra influências sombrias para aliados a até 3m. Detecta a presença de mortos-vivos ou profanações no ambiente imediato ao se concentrar.
 
 Estilo: físico/mágico
 
@@ -375,7 +387,11 @@ O paladino começa com 2 ação passiva ou ativa de nível 1 a sua escolha.
 
 ## **Mago** {#mago}
 
-Manipulador de energias arcanas capaz de causar grande destruição à distância. Troca sua resistência física pela capacidade de resolver problemas e destruir alvos com magia pura.
+Estudioso supremo das energias elementais e mistérios arcanos. Sacrifica sua robustez corporal em favor de tremendo poderio místico, resolvendo enigmas complexos e aniquilando adversários através de magia pura à distância.
+
+Traço da classe: Sentido Arcano
+
+Impacto Mecânico: Detecta fluxos, runas e resíduos mágicos sem gastar PP. Ganha Vantagem em testes de Arcanismo, decifração de escrituras antigas e avaliação de propriedades de itens encantados.
 
 Estilo: mágico
 
@@ -415,11 +431,15 @@ O mago começa com 3 ações passivas ou ativas de nível 1 a sua escolha.
 
 ## **Druida** {#druida}
 
-Guardião da natureza que canaliza forças elementais para controlar o campo de batalha. Foca em magias de suporte ambiental e invocações que emanam de seu espírito.
+Voz dos ermos e das forças primordiais. Conecta-se intimamente com as estações, fauna e flora para guiar, proteger e curar seu grupo através de magias ambientais e comunhão com a terra.
 
 **Observação:** Druidas não usam metal.
 
-Estilo: mágico
+Traço da classe: Harmonia Elemental
+
+Impacto Mecânico: Pressente com precisão mudanças climáticas e catástrofes naturais com horas de antecedência. Não sofre dano de espinhos e plantas comuns, e discerne intuitivamente se qualquer planta, fruto ou água é tóxica ou própria para consumo.
+
+Estilo: mágico / suporte
 
 | Distribuição | Corpo | Mente | Espírito |
 | :---: | :---: | :---: | :---: |
@@ -458,9 +478,13 @@ O druida começa com 2 ação passiva ou ativa de nível 1 a sua escolha.
 
 ## **Clérigo** {#clérigo}
 
-Agente divino que utiliza sua fé para curar feridas e punir inimigos. É um conjurador de linha de frente, capaz de usar magias de suporte sem ser facilmente derrubado.
+Arauto e canalizador direto da graça de sua divindade. Atua como conjurador de sustentação e suporte na linha de frente, mantendo seus aliados de pé através de amparo espiritual, proteção mística e restauração.
 
 **Observação:** Clérigos não usam armas de corte como espadas ou machados. 
+
+Traço da classe: Bênção do Amparo
+
+Impacto Mecânico: Durante descansos curtos, sua presença acolhedora e preces restauram **\+1 PV adicional a todos os aliados** sem custo de recursos. Clérigos e sua comitiva encontram refúgio seguro, alimento modesto e acolhimento garantido em qualquer templo, capela ou monastério consagrado à sua fé.
 
 Estilo: mágico/físico
 
@@ -498,7 +522,11 @@ O clérigo começa com 2 ação passiva ou ativa de nível 1 a sua escolha.
 
 ## **Ladino** {#ladino}
 
-Especialista astuto que utiliza o intelecto para encontrar brechas na defesa inimiga. Foca em ataques furtivos, desarmar perigos e atacar pontos vitais com precisão.
+Especialista em oportunidade, sobrevivência urbana e infiltração. Resolve com inteligência, velocidade e destreza o que a força bruta não alcança, explorando brechas defensivas e desarmando ameaças com precisão letal.
+
+Traço da classe: Oportunista Urbano
+
+Impacto Mecânico: Vantagem em testes de furtividade para passar despercebido em meio a multidões ou sombras leves. Localiza com facilidade rotas de fuga em becos e contatos no submundo ao entrar em vilas e cidades.
 
 Estilo: físico/distância
 
@@ -513,7 +541,7 @@ O ladino começa com 1 ação passiva ou ativa de nível 1 a sua escolha.
 | Poder | Tipo | PP | Efeito | Nível 1 | Nível 2 | Nível 3 |
 | :---- | :---- | :---- | :---- | :---- | :---- | :---- |
 | Ataque Furtivo | Passiva | 0 | Uma vez por combate, com Vantagem ou aliado a 1,5m do alvo, causa dano extra. | Dano extra: \+1d3 | Dano extra: \+2d3 | Dano extra: \+3d3 |
-| Dedos Leves | Passiva | 0 | Especialista em abrir fechaduras e desarmar armadilhas com precisão cirúrgica. | Vantagem (4d6) nos testes | Pode realizar teste como Ação Menor | Se falhar no teste, não aciona o mecanismo |
+| Dedos Leves | Passiva | 0 | Especialista em gazuas, desarmar armadilhas e prestidigitação rápida. | Vantagem (4d6) em testes de fechaduras e mecanismos | Pode realizar teste como Ação Menor; se falhar, não dispara a armadilha | Abre trancas mundanas sem teste e pode bater carteiras sem ser notado |
 | Sentido de Perigo | Passiva | 0 | Instintos aguçados contra emboscadas e perigos repentinos. | Não pode ser surpreendido; \+2 na Iniciativa | \+3 na Iniciativa | \+4 na Iniciativa e não sofre dano em armadilhas |
 | Língua de Prata | Passiva | 0 | Trapaça, lábia e negociação com mercadores e NPCs. | \+1 em testes de persuasão e comércio | \+2 em testes de persuasão e comércio | \+3 em testes de persuasão e comércio |
 | Equilibrista | Passiva | 0 | Equilíbrio supremo em fios, bordas e telhados. | Anda em cordas/superfícies estreitas | Ignora terreno difícil natural/urbano | Imune a dano de quedas de até 6 metros |
@@ -525,16 +553,21 @@ O ladino começa com 1 ação passiva ou ativa de nível 1 a sua escolha.
 | Golpe Sujo | Ativa | 2 | Ação Menor. Golpe desleal (areia, rasteira); alvo testa Corpo. | Alvo falha: Cego/Atordoado por 1 turno | Alvo tem Desvantagem no teste | Causa 1d3 de dano adicional na manobra |
 | Lâmina Venenosa | Ativa | 2 | Ação Menor. Cobre arma com toxina paralisante/debilitante. | \+1d6 veneno; alvo testa Corpo ou Envenenado | \+1 no acerto; envenenamento dura \+1 turno | O veneno causa 1d3 contínuo por turno |
 | Bomba de Fumaça | Ativa | 2 | Ação Menor. Detona cortina opaca impedindo linha de visão e facilitando fuga. | Área pequena (2m) | Área média (4m) | Área grande (6m) |
-| Mãos Rápidas | Ativa | 1 | Ação Menor. Bater carteira, abrir trancas ou desarmar sob pressão. | Tenta teste como Ação Menor | Se tiver sucesso, não gasta o 1 PP | Pode desarmar a arma da mão do inimigo |
-| Cofre Aberto | Ativa | 2 | Domínio de gazuas e mecanismos arcanos/físicos. | Abre trancas comuns instantaneamente | Abre trancas complexas ou mágicas leves | Abre trancas mundanas sem barulho e sem teste |
+| Desarmar | Ativa | 2 | Ação Menor. Manobra rápida para arrancar arma ou objeto do inimigo sob pressão. | Inimigo testa Corpo/Mente ou derruba o item adjacente | Ladino puxa a arma/item diretamente para suas mãos | Além de desarmar, causa 1d3 de dano contundente no impacto |
+| Passo das Sombras | Ativa | 3 | Desaparece nas sombras ou dobra a luz ao redor para reposicionamento tático. | Fica Invisível e move até seu deslocamento sem GdO (1 rodada) | Duração de 2 rodadas ou até realizar um ataque | O 1º ataque ao sair das sombras ganha Vantagem e \+1d3 de dano |
+| Distração | Ativa | 1 | Ação Menor. Finta, arremesso de moeda ou ruído que desvia a atenção inimiga. | Alvo sofre Desvantagem no próximo teste de Defesa/Percepção | Afeta até 2 inimigos próximos em área pequena (2m) | Concede Vantagem imediata ao próximo ataque de um aliado |
 | Agilidade | Ativa | 4 | Explosão de adrenalina e coordenação corporal extrema. | Realiza 2 Ações Principais no mesmo turno | Custo reduzido para 3 PP | Custo 3 PP e ganha \+3m de deslocamento |
 | Golpe de Sorte | Ativa | 3 | Reação (1x por combate). Reverte o destino a seu favor em uma rolagem. | Converte uma falha em sucesso automático | Custo reduzido para 2 PP | Custo 2 PP e converte falha em Sucesso Crítico |
 
 ## **Ranger** {#ranger}
 
-Atirador de elite que domina o arco e o terreno. Sua ação principal é manter-se longe do alcance inimigo enquanto abate alvos com precisão cirúrgica e rastreio.
+Patrulheiro vigilante das fronteiras selvagens e atirador experiente. Domina a leitura do terreno, emboscadas e o combate à distância, abatendo alvos com precisão cirúrgica antes de ser notado.
 
-Estilo: distância
+Traço da classe: Olhos de Falcão
+
+Impacto Mecânico: Ignora a penalidade de cobertura leve em disparos à distância. Se não se mover no seu turno, ganha \+1 no teste de Ataque ou dobra o alcance do seu disparo sem penalidade de alcance longo. Fora de combate, enxerga com clareza a até o dobro da distância normal e nunca é surpreendido durante vigílias em acampamento.
+
+Estilo: distância / físico
 
 | Distribuição | Corpo | Mente | Espírito |
 | :---: | :---: | :---: | :---: |
@@ -566,9 +599,13 @@ O ranger começa com 1 ação passiva ou ativa de nível 1 a sua escolha.
 
 ## **Bardo** {#bardo}
 
-Estrategista que usa o conhecimento e a performance para manipular o combate. Foca em dar suporte tático aos aliados e confundir oponentes através da astúcia mental.
+Erudito eloquente e estrategista performático. Usa ritmo, arte, carisma e astúcia mental para encantar cortes, desarmar conflitos diplomáticos e fornecer suporte tático inestimável aos aliados.
 
-Estilo: distância/físico (ou Suporte)
+Traço da classe: Magnetismo Social
+
+Impacto Mecânico: Rola testes de carisma e influência social com **Vantagem (4d6)**. Em feiras e comércios, tem **Vantagem nas rolagens para negociar descontos** na aquisição de suprimentos ou para vender itens e tesouros por valores mais altos.
+
+Estilo: suporte / mágico
 
 | Distribuição | Corpo | Mente | Espírito |
 | :---: | :---: | :---: | :---: |

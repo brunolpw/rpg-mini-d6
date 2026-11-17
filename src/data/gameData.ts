@@ -9,6 +9,9 @@ export interface ClassInfo {
   id: string;
   name: string;
   style: string;
+  description: string;
+  naturalTraitName: string;
+  naturalTrait: string;
   baseMod: { corpo: number; mente: number; espirito: number };
   pvFormula: string;
   ppFormula: string;
@@ -65,6 +68,11 @@ export const CLASSES: ClassInfo[] = [
     id: 'barbaro',
     name: 'Bárbaro',
     style: 'Físico (Corpo a Corpo)',
+    description:
+      'Combatente feroz alimentado pela adrenalina e vigor instintivo. Esmaga oponentes na linha de frente e intimida através de força pura.',
+    naturalTraitName: 'Vigor Primitivo',
+    naturalTrait:
+      '+1m no deslocamento base e Vantagem em testes de Corpo para proezas de força bruta pura (arrombar portas, entortar grades, erguer peso maciço) e intimidação física.',
     baseMod: { corpo: 2, mente: 0, espirito: -2 },
     pvFormula: 'Corpo + 2d3',
     ppFormula: 'Espírito + 1d3',
@@ -73,7 +81,12 @@ export const CLASSES: ClassInfo[] = [
   {
     id: 'guerreiro',
     name: 'Guerreiro',
-    style: 'Físico (Versátil)',
+    style: 'Físico (Baluarte Defensivo)',
+    description:
+      'Mestre tático em armas e armaduras pesadas, atuando como o pilar defensivo que mantém a guarda alta e controla o ritmo do combate.',
+    naturalTraitName: 'Baluarte de Combate',
+    naturalTrait:
+      'Não pode ser empurrado, derrubado ou movido contra a sua vontade por inimigos do seu tamanho ou menor. Se estiver empunhando escudo ou arma com as duas mãos, recebe +1 de Resistência Física natural adicional contra todo golpe físico sofrido.',
     baseMod: { corpo: 1, mente: 1, espirito: -2 },
     pvFormula: 'Corpo + 2d3',
     ppFormula: 'Espírito + 1d3',
@@ -82,7 +95,12 @@ export const CLASSES: ClassInfo[] = [
   {
     id: 'paladino',
     name: 'Paladino',
-    style: 'Físico / Mágico',
+    style: 'Físico / Mágico (Bastião Sagrado)',
+    description:
+      'Guerreiro sagrado blindado por fé inabalável. Une força marcial a virtudes místicas para proteger aliados e castigar o mal.',
+    naturalTraitName: 'Aura de Convicção',
+    naturalTrait:
+      'Imunidade a medo mundano e concede +1 em testes de resistência mental contra influências sombrias para aliados a até 3m. Detecta a presença de mortos-vivos ou profanações no ambiente imediato ao se concentrar.',
     baseMod: { corpo: 1, mente: -2, espirito: 1 },
     pvFormula: 'Corpo + 2d3',
     ppFormula: 'Espírito + 1d3',
@@ -91,7 +109,12 @@ export const CLASSES: ClassInfo[] = [
   {
     id: 'mago',
     name: 'Mago',
-    style: 'Mágico',
+    style: 'Mágico (Manipulador Arcano)',
+    description:
+      'Estudioso supremo das energias elementais e mistérios arcanos. Sacrifica sua robustez corporal em favor de tremendo poderio mágico.',
+    naturalTraitName: 'Sentido Arcano',
+    naturalTrait:
+      'Detecta fluxos, runas e resíduos mágicos sem gastar PP. Ganha Vantagem em testes de Arcanismo, decifração de escrituras antigas e avaliação de propriedades de itens encantados.',
     baseMod: { corpo: -2, mente: 0, espirito: 2 },
     pvFormula: 'Corpo + 2d3',
     ppFormula: 'Espírito + 2d3',
@@ -100,7 +123,12 @@ export const CLASSES: ClassInfo[] = [
   {
     id: 'druida',
     name: 'Druida',
-    style: 'Mágico / Suporte',
+    style: 'Mágico / Suporte (Guardião da Terra)',
+    description:
+      'Voz dos ermos e das forças primordiais. Conecta-se intimamente com as estações, fauna e flora para guiar e curar seu grupo.',
+    naturalTraitName: 'Harmonia Elemental',
+    naturalTrait:
+      'Pressente com precisão mudanças climáticas e catástrofes naturais com horas de antecedência. Não sofre dano de espinhos e plantas comuns, e discerne intuitivamente se qualquer planta, fruto ou água é tóxica ou potável.',
     baseMod: { corpo: -1, mente: -1, espirito: 2 },
     pvFormula: 'Corpo + 2d3',
     ppFormula: 'Espírito + 2d3',
@@ -109,7 +137,12 @@ export const CLASSES: ClassInfo[] = [
   {
     id: 'clerigo',
     name: 'Clérigo',
-    style: 'Mágico / Físico',
+    style: 'Mágico / Físico (Voz Divina)',
+    description:
+      'Arauto e canalizador direto da bênção de sua divindade. Mantém seus companheiros de pé nas batalhas mais duras através de amparo e restauração.',
+    naturalTraitName: 'Bênção do Amparo',
+    naturalTrait:
+      'Durante descansos curtos, sua presença acolhedora e preces restauram +1 PV adicional a todos os aliados sem gasto de recursos. Clérigos e seus companheiros encontram refúgio e hospitalidade garantida em qualquer templo de sua fé.',
     baseMod: { corpo: 0, mente: -1, espirito: 1 },
     pvFormula: 'Corpo + 2d3',
     ppFormula: 'Espírito + 2d3',
@@ -118,7 +151,12 @@ export const CLASSES: ClassInfo[] = [
   {
     id: 'ladino',
     name: 'Ladino',
-    style: 'Físico / Distância',
+    style: 'Físico / Distância (Astúcia & Furtividade)',
+    description:
+      'Especialista em oportunidade, sobrevivência urbana e infiltração. Resolve com inteligência, velocidade e destreza o que a força bruta não alcança.',
+    naturalTraitName: 'Oportunista Urbano',
+    naturalTrait:
+      'Vantagem em testes de furtividade para passar despercebido em meio a multidões ou sombras leves. Localiza com facilidade rotas de fuga em becos e contatos no submundo ao entrar em povoados.',
     baseMod: { corpo: -1, mente: 2, espirito: -1 },
     pvFormula: 'Corpo + 2d3',
     ppFormula: 'Espírito + 1d3',
@@ -127,7 +165,12 @@ export const CLASSES: ClassInfo[] = [
   {
     id: 'ranger',
     name: 'Ranger',
-    style: 'Distância / Físico',
+    style: 'Distância / Físico (Atirador dos Ermos)',
+    description:
+      'Patrulheiro vigilante das fronteiras selvagens e atirador experiente. Domina a leitura do terreno, emboscadas e o abate preciso à distância.',
+    naturalTraitName: 'Olhos de Falcão',
+    naturalTrait:
+      'Ignora a penalidade de cobertura leve em disparos à distância. Se não se mover no seu turno, ganha +1 no Ataque ou dobra o alcance do disparo. Enxerga com clareza o dobro da distância e nunca é surpreendido em vigília.',
     baseMod: { corpo: 1, mente: 1, espirito: -2 },
     pvFormula: 'Corpo + 2d3',
     ppFormula: 'Espírito + 1d3',
@@ -136,7 +179,12 @@ export const CLASSES: ClassInfo[] = [
   {
     id: 'bardo',
     name: 'Bardo',
-    style: 'Suporte / Mágico',
+    style: 'Suporte / Mágico (Diplomata & Artista)',
+    description:
+      'Erudito eloquente e estrategista performático. Usa o ritmo, carisma e astúcia mental para encantar cortes, desarmar conflitos e apoiar o grupo.',
+    naturalTraitName: 'Magnetismo Social',
+    naturalTrait:
+      'Rola testes de carisma e influência social com Vantagem (4d6). Em comércios e feiras, tem Vantagem nas rolagens para negociar descontos em compras ou preços mais altos na venda de itens.',
     baseMod: { corpo: -2, mente: 1, espirito: 1 },
     pvFormula: 'Corpo + 2d3',
     ppFormula: 'Espírito + 2d3',
