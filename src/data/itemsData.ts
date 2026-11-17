@@ -45,7 +45,7 @@ export const OFFICIAL_ITEMS: GameItem[] = [
     isTwoHanded: false,
     isMagic: false,
     effect: '1d3 + 1',
-    price: 30,
+    price: 39,
     description: 'Espada de estocada focada em precisão e agilidade mental.',
   },
   {
@@ -57,7 +57,7 @@ export const OFFICIAL_ITEMS: GameItem[] = [
     isTwoHanded: false,
     isMagic: false,
     effect: '1d3 + 1 (+1 na Iniciativa)',
-    price: 35,
+    price: 46,
     description: 'Lâmina curva e veloz, concede +1 na rolagem de Iniciativa.',
   },
   {
@@ -69,7 +69,7 @@ export const OFFICIAL_ITEMS: GameItem[] = [
     isTwoHanded: false,
     isMagic: false,
     effect: '1d3 (Alcance 3m; pode derrubar oponente)',
-    price: 30,
+    price: 39,
     description: 'Arma flexível para controle de espaço e desequilíbrio.',
   },
   {
@@ -81,7 +81,7 @@ export const OFFICIAL_ITEMS: GameItem[] = [
     isTwoHanded: true,
     isMagic: false,
     effect: '2d3 (+1 em testes de Esquiva)',
-    price: 60,
+    price: 78,
     description: 'Par de lâminas sincronizadas que aumentam a capacidade evasiva.',
   },
   {
@@ -92,7 +92,7 @@ export const OFFICIAL_ITEMS: GameItem[] = [
     hands: '1 Mão',
     isMagic: true,
     effect: '1d3 + 2 (+1 no Ataque se agir primeiro)',
-    price: 220,
+    price: 286,
     description: 'Forjada em ligas élficas finas, premia velocidade de reação.',
   },
   {
@@ -103,7 +103,7 @@ export const OFFICIAL_ITEMS: GameItem[] = [
     hands: '1 Mão',
     isMagic: true,
     effect: '2d3 + 1 Psíquico (ignora armadura física)',
-    price: 450,
+    price: 585,
     description: 'Lâmina espectral que corta o espírito e ignora armaduras físicas.',
   },
   {
@@ -114,7 +114,7 @@ export const OFFICIAL_ITEMS: GameItem[] = [
     hands: '1 Mão',
     isMagic: true,
     effect: '3d6 + 3 Mente (Ignora toda armadura)',
-    price: 1500,
+    price: 1950,
     description: 'Relíquia de Dysenai com perfuração dimensional letal.',
   },
   {
@@ -162,7 +162,7 @@ export const OFFICIAL_ITEMS: GameItem[] = [
     isTwoHanded: false,
     isMagic: false,
     effect: '1d3 + 2',
-    price: 45,
+    price: 59,
     description: 'Lâmina pesada desenhada para golpes devastadores.',
   },
   {
@@ -174,7 +174,7 @@ export const OFFICIAL_ITEMS: GameItem[] = [
     isTwoHanded: true,
     isMagic: false,
     effect: '2d3 + 2',
-    price: 50,
+    price: 65,
     description: 'Martelo pesado de duas mãos capaz de esmagar escudos.',
   },
   {
@@ -186,7 +186,7 @@ export const OFFICIAL_ITEMS: GameItem[] = [
     isTwoHanded: false,
     isMagic: false,
     effect: '1d6',
-    price: 50,
+    price: 65,
     description: 'A lâmina padrão de cavaleiros e guerreiros marciais.',
   },
   {
@@ -198,7 +198,7 @@ export const OFFICIAL_ITEMS: GameItem[] = [
     isTwoHanded: true,
     isMagic: false,
     effect: '3d3',
-    price: 75,
+    price: 98,
     description: 'Enorme lâmina de duas mãos com varredura destrutiva.',
   },
   {
@@ -209,7 +209,7 @@ export const OFFICIAL_ITEMS: GameItem[] = [
     hands: '1 Mão',
     isMagic: true,
     effect: '1d3 + 2 Luz pequena',
-    price: 150,
+    price: 195,
     description: 'Emite claridade suave e corta com precisão mágica.',
   },
   {
@@ -220,7 +220,7 @@ export const OFFICIAL_ITEMS: GameItem[] = [
     hands: '1 Mão',
     isMagic: true,
     effect: '2d3 + 1d3 Radiante',
-    price: 550,
+    price: 715,
     description: 'Consagrada aos deuses, causa dano radiante extra.',
   },
   {
@@ -231,7 +231,7 @@ export const OFFICIAL_ITEMS: GameItem[] = [
     hands: '1 Mão',
     isMagic: true,
     effect: '1d3 + 2d3 Radiante',
-    price: 550,
+    price: 715,
     description: 'Lâmina sagrada de julgamento implacável contra o mal.',
   },
   {
@@ -242,7 +242,7 @@ export const OFFICIAL_ITEMS: GameItem[] = [
     hands: '1 Mão',
     isMagic: true,
     effect: '2d6 físico + 3 + 1d6 fogo',
-    price: 1000,
+    price: 1300,
     description: 'Imbuída com o sopro ígneo de dragões ancestrais.',
   },
   {
@@ -253,7 +253,7 @@ export const OFFICIAL_ITEMS: GameItem[] = [
     hands: '1 Mão',
     isMagic: true,
     effect: '2d6 físico + 3 + 1d6 elétrico',
-    price: 1300,
+    price: 1690,
     description: 'Ecoa trovões a cada golpe desferido.',
   },
   {
@@ -265,7 +265,7 @@ export const OFFICIAL_ITEMS: GameItem[] = [
     isTwoHanded: true,
     isMagic: true,
     effect: '3d6 + 3 Corpo',
-    price: 1500,
+    price: 1950,
     description: 'Arma lendária esculpida na forja mística de Dysenai.',
   },
   {
@@ -313,7 +313,7 @@ export const OFFICIAL_ITEMS: GameItem[] = [
     isTwoHanded: false,
     isMagic: false,
     effect: '1d3 + 1 (Dano sagrado contundente)',
-    price: 30,
+    price: 39,
     description: 'Arma ungida usada por sacerdotes em rituais e combates.',
   },
   {
@@ -325,7 +325,7 @@ export const OFFICIAL_ITEMS: GameItem[] = [
     isTwoHanded: true,
     isMagic: false,
     effect: '2d3 Radiante (Alcance 2m; defende com Espírito e ignora armadura física)',
-    price: 55,
+    price: 72,
     description: 'Haste cerimonial que projeta ponta de pura luz sagrada a 2 metros.',
   },
   {
@@ -336,7 +336,7 @@ export const OFFICIAL_ITEMS: GameItem[] = [
     hands: '1 Mão',
     isMagic: true,
     effect: '1d3 + 2 Radiante (Ilumina área média)',
-    price: 180,
+    price: 234,
     description: 'Canalizador divino que projeta luz solar constante e queima as sombras.',
   },
   {
@@ -348,7 +348,7 @@ export const OFFICIAL_ITEMS: GameItem[] = [
     isTwoHanded: true,
     isMagic: true,
     effect: '2d3 + 2 (+1d3 de cura em magias restauradoras)',
-    price: 350,
+    price: 455,
     description: 'Entalhado com raízes milenares que fortalecem energias curativas.',
   },
   {
@@ -360,7 +360,7 @@ export const OFFICIAL_ITEMS: GameItem[] = [
     isTwoHanded: true,
     isMagic: false,
     effect: '3d3 + 1',
-    price: 80,
+    price: 104,
     description: 'Madeira reforçada de grande densidade e equilíbrio marcial.',
   },
   {
@@ -372,7 +372,7 @@ export const OFFICIAL_ITEMS: GameItem[] = [
     isTwoHanded: true,
     isMagic: true,
     effect: '3d6 + 3 Espírito',
-    price: 1500,
+    price: 1950,
     description: 'Artefato supremo canalizador de correntes astrais e físicas.',
   },
 
@@ -410,7 +410,7 @@ export const OFFICIAL_ITEMS: GameItem[] = [
     isTwoHanded: true,
     isMagic: false,
     effect: '1d3 + 1 (Médio 15m)',
-    price: 30,
+    price: 39,
     description: 'Leve e rápido de disparar, perfeito para caçadores e escaramuças.',
   },
   {
@@ -422,7 +422,7 @@ export const OFFICIAL_ITEMS: GameItem[] = [
     isTwoHanded: false,
     isMagic: false,
     effect: '1d3 + 1 (Curto 6m)',
-    price: 35,
+    price: 46,
     description: 'Dardo balanceado para perfuração rápida a curta distância.',
   },
   {
@@ -434,7 +434,7 @@ export const OFFICIAL_ITEMS: GameItem[] = [
     isTwoHanded: true,
     isMagic: false,
     effect: '1d3 + 2 (Longo 30m)',
-    price: 55,
+    price: 72,
     description: 'Grande arco marcial com alcance superior e alta penetração.',
   },
   {
@@ -446,7 +446,7 @@ export const OFFICIAL_ITEMS: GameItem[] = [
     isTwoHanded: true,
     isMagic: false,
     effect: '2d3 + 1 (Longo 30m)',
-    price: 80,
+    price: 104,
     description: 'Mecanismo mecânico potente com virotes perfurantes.',
   },
   {
@@ -458,7 +458,7 @@ export const OFFICIAL_ITEMS: GameItem[] = [
     isTwoHanded: true,
     isMagic: true,
     effect: '2d3 + 3 (+1 Mente, ignora 3 de armadura; Longo 30m)',
-    price: 200,
+    price: 260,
     description: 'Dispara flechas de pura energia etérea que ignoram blindagem.',
   },
   {
@@ -469,7 +469,7 @@ export const OFFICIAL_ITEMS: GameItem[] = [
     hands: '1 Mão',
     isMagic: true,
     effect: '2d6 + 3 (+3 Mente; Curto 6m)',
-    price: 1500,
+    price: 1950,
     description: 'Retorna magicamente à mão após o arremesso relâmpago.',
   },
   {
@@ -481,7 +481,7 @@ export const OFFICIAL_ITEMS: GameItem[] = [
     isTwoHanded: true,
     isMagic: true,
     effect: '3d6 + 2 (Ignora 3 de armadura; Longo 30m)',
-    price: 1500,
+    price: 1950,
     description: 'Arco lendário construído com tendões de fênix e éter estelar.',
   },
 
@@ -509,7 +509,7 @@ export const OFFICIAL_ITEMS: GameItem[] = [
     effect: '+2 Resistência Física',
     res: 2,
     defBonus: 0,
-    price: 35,
+    price: 46,
     description: 'Couro fervido em óleo e reforçado com rebites.',
   },
   {
@@ -522,7 +522,7 @@ export const OFFICIAL_ITEMS: GameItem[] = [
     effect: '+4 Resistência Física',
     res: 4,
     defBonus: 0,
-    price: 50,
+    price: 65,
     description: 'Escamas de metal presas sobre suporte de couro grosso.',
   },
   {
@@ -535,7 +535,7 @@ export const OFFICIAL_ITEMS: GameItem[] = [
     effect: '+6 Resistência Física',
     res: 6,
     defBonus: 0,
-    price: 100,
+    price: 130,
     description: 'Malha trançada de anéis de aço que protege contra cortes severos.',
   },
   {
@@ -548,7 +548,7 @@ export const OFFICIAL_ITEMS: GameItem[] = [
     effect: '+8 Resistência Física',
     res: 8,
     defBonus: 0,
-    price: 200,
+    price: 260,
     description: 'Armadura completa articulada de placas de aço pesado.',
   },
   {
@@ -561,7 +561,7 @@ export const OFFICIAL_ITEMS: GameItem[] = [
     effect: '+6 Resistência Física +4 Res Mágica',
     res: 6,
     defBonus: 0,
-    price: 350,
+    price: 455,
     description: 'Metal prateado levíssimo que defende contra aço e magias.',
   },
   {
@@ -587,7 +587,7 @@ export const OFFICIAL_ITEMS: GameItem[] = [
     effect: '+1 Defesa Física e +1 na Iniciativa',
     res: 0,
     defBonus: 1,
-    price: 40,
+    price: 52,
     description: 'Tecido escuro e silencioso com juntas acolchoadas.',
   },
   {
@@ -600,7 +600,7 @@ export const OFFICIAL_ITEMS: GameItem[] = [
     effect: '+2 Defesa Física e +1m de deslocamento',
     res: 0,
     defBonus: 2,
-    price: 70,
+    price: 91,
     description: 'Vestimenta de alta mobilidade com solados reforçados.',
   },
   {
@@ -613,7 +613,7 @@ export const OFFICIAL_ITEMS: GameItem[] = [
     effect: '+2 Defesa Física e Vantagem em testes de Esquiva',
     res: 0,
     defBonus: 2,
-    price: 180,
+    price: 234,
     description: 'O ar ondula ao redor do usuário, desviando ataques corporais.',
   },
   {
@@ -626,7 +626,7 @@ export const OFFICIAL_ITEMS: GameItem[] = [
     effect: '+3 Defesa Física e +1 Resistência Física',
     res: 1,
     defBonus: 3,
-    price: 300,
+    price: 390,
     description: 'Tecido lendário resistente a cortes sem perder a leveza.',
   },
   {
@@ -639,7 +639,7 @@ export const OFFICIAL_ITEMS: GameItem[] = [
     effect: '+5 Defesa Física, +3 Resistência e Invisibilidade por 1 turno (1x/combate)',
     res: 3,
     defBonus: 5,
-    price: 1200,
+    price: 1560,
     description: 'Manto tecido na escuridão entre as estrelas de Dysenai.',
   },
   {
@@ -665,7 +665,7 @@ export const OFFICIAL_ITEMS: GameItem[] = [
     effect: '+1 Defesa Mágica e +1 em testes de Cura',
     res: 0,
     defBonus: 0,
-    price: 30,
+    price: 39,
     description: 'Bordada com orações que amplificam preces restauradoras.',
   },
   {
@@ -678,7 +678,7 @@ export const OFFICIAL_ITEMS: GameItem[] = [
     effect: '+2 Defesa Mágica (permitida para Druidas)',
     res: 0,
     defBonus: 0,
-    price: 50,
+    price: 65,
     description: 'Tecido orgânico consagrado de musgo e folhas raras.',
   },
   {
@@ -691,7 +691,7 @@ export const OFFICIAL_ITEMS: GameItem[] = [
     effect: '+2 Defesa Mágica',
     res: 0,
     defBonus: 0,
-    price: 80,
+    price: 104,
     description: 'Runas cintilantes dissipam correntes mágicas nocivas.',
   },
   {
@@ -704,7 +704,7 @@ export const OFFICIAL_ITEMS: GameItem[] = [
     effect: '+3 Res Mágica +1 Atk Mágico',
     res: 0,
     defBonus: 0,
-    price: 120,
+    price: 156,
     description: 'Aura arcana constante que amplifica magias de ataque.',
   },
   {
@@ -717,7 +717,7 @@ export const OFFICIAL_ITEMS: GameItem[] = [
     effect: '+2 Defesa Mágica e +2 Resistência Física',
     res: 2,
     defBonus: 0,
-    price: 150,
+    price: 195,
     description: 'Vestimenta de sacrifício fortalecida por convicção espiritual.',
   },
   {
@@ -730,7 +730,7 @@ export const OFFICIAL_ITEMS: GameItem[] = [
     effect: '+4 Defesa Mágica e +1 PP máximo',
     res: 0,
     defBonus: 0,
-    price: 400,
+    price: 520,
     description: 'Fibras impregnadas de éter cósmico que expandem a reserva de mana.',
   },
   {
@@ -743,7 +743,7 @@ export const OFFICIAL_ITEMS: GameItem[] = [
     effect: '+6 Defesa Mágica, +3 Res Mágica e regenera 1 PP/turno',
     res: 0,
     defBonus: 0,
-    price: 1200,
+    price: 1560,
     description: 'Tecido astral supremo que abastece continuamente o poder do portador.',
   },
   {
@@ -756,7 +756,7 @@ export const OFFICIAL_ITEMS: GameItem[] = [
     effect: '+10 Resistência +10 Res Mágica Luz pequena',
     res: 10,
     defBonus: 0,
-    price: 1000,
+    price: 1300,
     description: 'Relíquia épica que resguarda o herói em campo aberto com barreira de luz.',
   },
 
@@ -782,7 +782,7 @@ export const OFFICIAL_ITEMS: GameItem[] = [
     isMagic: false,
     effect: '+3 Defesa Física, +1 em testes contra ataques e magias em área',
     defBonus: 3,
-    price: 60,
+    price: 78,
     description: 'Escudo maciço que cobre quase todo o corpo contra rajadas.',
   },
   {
@@ -794,7 +794,7 @@ export const OFFICIAL_ITEMS: GameItem[] = [
     isMagic: true,
     effect: '+2 Defesa Física; Vantagem contra magias em linha/cone',
     defBonus: 2,
-    price: 300,
+    price: 390,
     description: 'Superfície de prata pura polida que reflete raios mágicos.',
   },
   {
@@ -806,7 +806,7 @@ export const OFFICIAL_ITEMS: GameItem[] = [
     isMagic: true,
     effect: '+4 Defesa Física; Reduz em -2 dano elemental sofrido',
     defBonus: 4,
-    price: 350,
+    price: 455,
     description: 'Vidro vulcânico temperado com alta resistência térmica.',
   },
   {
@@ -818,7 +818,7 @@ export const OFFICIAL_ITEMS: GameItem[] = [
     isMagic: true,
     effect: '+5 Defesa Física; Reduz pela metade dano de área',
     defBonus: 5,
-    price: 450,
+    price: 585,
     description: 'Mithril puro forjado com extrema solidez defensiva.',
   },
   {
@@ -830,7 +830,7 @@ export const OFFICIAL_ITEMS: GameItem[] = [
     isMagic: true,
     effect: '+7 Defesa Física; Não ocupa mão; Ignora 1º dano mágico/elemental',
     defBonus: 7,
-    price: 1500,
+    price: 1950,
     description: 'Campo de força gravitacional permanente que protege o portador.',
   },
   {
@@ -866,7 +866,7 @@ export const OFFICIAL_ITEMS: GameItem[] = [
     isMagic: false,
     effect: '+1 Defesa Física; pode desviar projéteis leves',
     defBonus: 1,
-    price: 35,
+    price: 46,
     description: 'Enrolada no antebraço para desviar golpes e ofuscar a visão do oponente.',
   },
   {
@@ -890,7 +890,7 @@ export const OFFICIAL_ITEMS: GameItem[] = [
     isMagic: false,
     effect: '+1 Defesa Mágica e +1 Defesa Física',
     defBonus: 1,
-    price: 45,
+    price: 59,
     description: 'Insígnia pesada de fé que projeta barreiras espirituais protetoras.',
   },
   {
@@ -902,7 +902,7 @@ export const OFFICIAL_ITEMS: GameItem[] = [
     isMagic: true,
     effect: '+2 Defesa Mágica; pode gastar 1 PP para absorver 1d6 de dano mágico',
     defBonus: 0,
-    price: 120,
+    price: 156,
     description: 'Grimório selado com encantamentos de abjuração reativa.',
   },
 
@@ -939,7 +939,7 @@ export const OFFICIAL_ITEMS: GameItem[] = [
     hands: 'N/A',
     isMagic: false,
     effect: '+1 em Testes de Cura',
-    price: 40,
+    price: 52,
     description: 'Medalhão abençoado que amplia o alcance do toque curativo.',
   },
   {
@@ -950,7 +950,7 @@ export const OFFICIAL_ITEMS: GameItem[] = [
     hands: '1 Mão',
     isMagic: true,
     effect: '+1 Espírito',
-    price: 75,
+    price: 98,
     description: 'Quartzo lapidado que sintoniza as energias da mente e alma.',
   },
   {
@@ -961,7 +961,7 @@ export const OFFICIAL_ITEMS: GameItem[] = [
     hands: '1 Mão',
     isMagic: true,
     effect: 'Usa o atributo Espírito em testes de Iniciativa',
-    price: 90,
+    price: 117,
     description: 'Fios condutores de prata que aceleram a ativação do fluxo mágico.',
   },
   {
@@ -972,7 +972,7 @@ export const OFFICIAL_ITEMS: GameItem[] = [
     hands: 'N/A',
     isMagic: true,
     effect: '+3 Defesa Mágica',
-    price: 100,
+    price: 130,
     description: 'Gema que emite constante zumbido defensivo contra bruxarias.',
   },
   {
@@ -983,7 +983,7 @@ export const OFFICIAL_ITEMS: GameItem[] = [
     hands: 'N/A',
     isMagic: true,
     effect: 'Ignora o primeiro dano (Fogo/Gelo/Raio/Veneno) +1 Def Mágica',
-    price: 120,
+    price: 156,
     description: 'Dissipa instantaneamente a primeira explosão de elementos.',
   },
   {
@@ -994,7 +994,7 @@ export const OFFICIAL_ITEMS: GameItem[] = [
     hands: '1 Mão',
     isMagic: true,
     effect: '+4 Dano Mágico (Falha crítica custa 1 PV)',
-    price: 180,
+    price: 234,
     description: 'Poder destrutivo elevado em troca de pequenas punições vitais.',
   },
   {
@@ -1005,7 +1005,7 @@ export const OFFICIAL_ITEMS: GameItem[] = [
     hands: '1 Mão',
     isMagic: true,
     effect: '+2 no Dano Mágico (Falhas críticas custam +2 PP extras)',
-    price: 180,
+    price: 234,
     description: 'Extrai radiação das constelações para turbinar feitiços.',
   },
   {
@@ -1017,7 +1017,7 @@ export const OFFICIAL_ITEMS: GameItem[] = [
     isTwoHanded: true,
     isMagic: true,
     effect: '+2 Espírito',
-    price: 250,
+    price: 325,
     description: 'Robusto e entalhado para magos que atuam na linha de frente.',
   },
   {
@@ -1028,7 +1028,7 @@ export const OFFICIAL_ITEMS: GameItem[] = [
     hands: '1 Mão',
     isMagic: true,
     effect: '+3 Espírito, -1 Corpo',
-    price: 500,
+    price: 650,
     description: 'Cajado de comando que exige concentração mental extrema.',
   },
   {
@@ -1039,7 +1039,7 @@ export const OFFICIAL_ITEMS: GameItem[] = [
     hands: '1 Mão',
     isMagic: true,
     effect: '+1 Espírito, +2 Def Mágica, -1 Def Física',
-    price: 300,
+    price: 390,
     description: 'Encadernação arcanista repleta de rituais defensivos e arcanos.',
   },
   {
@@ -1050,7 +1050,7 @@ export const OFFICIAL_ITEMS: GameItem[] = [
     hands: '1 Mão',
     isMagic: true,
     effect: '+5 Espírito + 1d6 de dano Luz média',
-    price: 1500,
+    price: 1950,
     description: 'Fonte suprema de energia primordial e luz perpétua.',
   },
 
@@ -1122,15 +1122,37 @@ export const OFFICIAL_ITEMS: GameItem[] = [
     description: 'Infusão azulada cintilante que restaura pontos de poder mágico.',
   },
   {
+    id: 'pocao-elixir-corpo',
+    name: 'Elixir Corpo',
+    category: 'consumivel',
+    attribute: 'corpo',
+    hands: '1 Mão',
+    isMagic: true,
+    effect: 'Vantagem no próximo teste de Corpo (ou +2 no dano do próximo ataque corpo a corpo)',
+    price: 50,
+    description: 'Infusão rubra de vigor muscular e adrenalina que potencializa a força física.',
+  },
+  {
     id: 'pocao-elixir-mente',
     name: 'Elixir Mente',
     category: 'consumivel',
     attribute: 'mente',
     hands: '1 Mão',
     isMagic: true,
-    effect: 'Vantagem no próximo teste',
+    effect: 'Vantagem no próximo teste de Mente',
     price: 50,
     description: 'Abre a percepção e foco para garantir vantagem na próxima ação crítica.',
+  },
+  {
+    id: 'pocao-elixir-espirito',
+    name: 'Elixir Espírito',
+    category: 'consumivel',
+    attribute: 'espirito',
+    hands: '1 Mão',
+    isMagic: true,
+    effect: 'Vantagem no próximo teste de Espírito (ou reduz em -1 PP o custo da próxima magia, mín. 1)',
+    price: 50,
+    description: 'Essência mística etérea que purifica e alinha os canais de energia arcana e espiritual.',
   },
   {
     id: 'util-corda',
