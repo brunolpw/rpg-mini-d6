@@ -188,7 +188,7 @@ Todos os atributos começam com 5 pontos, o jogador faz uma rolagem Mm para cada
 | Mente | 5 | \+1 ou \+2 | 0 ou \+1 | entre \+2 e \-2 |
 | Espírito | 5 | \+1 ou \+2 | 0 ou \+1 | entre \+2 e \-2 |
 
-Nenhum atributo inicial pode ultrapassar 10 ou ser menor que 4 (considerando dados, bônus racial e modificador de classe).
+Nenhum atributo na **criação de personagem (Nível 1)** pode ultrapassar 10 ou ser menor que 4, mesmo somando o resultado dos dados, o bônus racial e o modificador de classe. O teto de 10 representa o ápice do potencial inicial de um aventureiro (por exemplo, um Gnomo Mago com base 5 + dado 2 + classe 2 + raça 1 atinge exatamente 10 em Espírito). Valores superiores a 10 só podem ser alcançados posteriormente através da **progressão de níveis**, itens mágicos lendários ou efeitos especiais.
 
 ### **Dinheiro (PO)**
 
@@ -512,7 +512,7 @@ O ladino começa com 1 ação passiva ou ativa de nível 1 a sua escolha.
 
 | Poder | Tipo | PP | Efeito | Nível 1 | Nível 2 | Nível 3 |
 | :---- | :---- | :---- | :---- | :---- | :---- | :---- |
-| Ataque Furtivo | Passiva | 0 | Uma vez por turno, com Vantagem ou aliado a 1,5m do alvo, causa dano extra. | Dano extra: \+1d3 | Dano extra: \+2d3 | Dano extra: \+3d3 |
+| Ataque Furtivo | Passiva | 0 | Uma vez por combate, com Vantagem ou aliado a 1,5m do alvo, causa dano extra. | Dano extra: \+1d3 | Dano extra: \+2d3 | Dano extra: \+3d3 |
 | Dedos Leves | Passiva | 0 | Especialista em abrir fechaduras e desarmar armadilhas com precisão cirúrgica. | Vantagem (4d6) nos testes | Pode realizar teste como Ação Menor | Se falhar no teste, não aciona o mecanismo |
 | Sentido de Perigo | Passiva | 0 | Instintos aguçados contra emboscadas e perigos repentinos. | Não pode ser surpreendido; \+2 na Iniciativa | \+3 na Iniciativa | \+4 na Iniciativa e não sofre dano em armadilhas |
 | Língua de Prata | Passiva | 0 | Trapaça, lábia e negociação com mercadores e NPCs. | \+1 em testes de persuasão e comércio | \+2 em testes de persuasão e comércio | \+3 em testes de persuasão e comércio |
