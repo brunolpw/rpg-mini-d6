@@ -695,7 +695,7 @@ No mini-d6, o tipo de dano define qual atributo é usado para resistir ou se a a
 * **Energia (Força):** Magia pura (ex: Mísseis Mágicos). Raramente resistido.  
 * **Necrótico:** Energia da morte, apodrece a matéria (ex: Toque Vampírico).  
 * **Psíquico:** Ataque mental, ignora armadura física (ex: Zombaria Viciosa).  
-* **Radiante:** Luz sagrada, queima o espírito. Causa dano extra a Mortos-vivos (ex: Destruição Divina).
+* **Radiante:** Luz sagrada, queima a essência espiritual. O dano conta como dano místico: é defendido com **Espírito (Defesa Mágica)** e **ignora armaduras e escudos físicos** de alvos mundanos. Causa vulnerabilidade e dano extra a Mortos-vivos e Corruptores/Demônios (ex: Destruição Divina). Dissipa escuridão ao redor.
 
 Tabela de Condições e Status
 
@@ -1208,28 +1208,41 @@ Estas criaturas são pensadas para encontros climáticos ou chefes de campanha.
 
 Tabelas de itens do jogo. Sinta-se livre para usar, editar ou criar novos itens se achar necessário.
 
-## **Armas (Físicas)** {#armas-(físicas)}
+## **Armas (Físicas e de Precisão)** {#armas-(físicas)}
 
-Nota: Armas de duas mãos geralmente impedem o uso de escudos.
+Nota: Armas de duas mãos geralmente impedem o uso de escudos. Armas de **Mente** usam agilidade e precisão no combate corpo a corpo. Armas de **Espírito** canalizam energias místicas, sagradas ou da natureza.
 
 | Tipo | Nome | Atributo | Mãos | Mágico? | Efeito (Dano) | Preço (PO) |
 | :---- | :---- | :---- | :---- | :---- | :---- | :---- |
 | Arma | Adaga | Corpo Mente | 1 Mão | Não | 1d3 | 10 |
+| Arma | Rapieira | Mente | 1 Mão | Não | 1d3 \+ 1 | 30 |
+| Arma | Cimitarra Ágil | Mente | 1 Mão | Não | 1d3 \+ 1 (\+1 na Iniciativa) | 35 |
+| Arma | Chicote Tático | Mente | 1 Mão | Não | 1d3 (Alcance 3m; pode derrubar oponente) | 30 |
+| Arma | Lâminas Gêmeas | Mente | 2 Mãos | Não | 2d3 (\+1 em testes de Esquiva) | 60 |
+| Arma | Sabre Élfico | Mente | 1 Mão | Sim | 1d3 \+ 2 (\+1 no Ataque se agir primeiro) | 220 |
+| Arma | Lâmina das Sombras | Mente | 1 Mão | Sim | 2d3 \+ 1 Psíquico (ignora armadura física) | 450 |
+| Arma | Agulha de Dysenai | Mente | 1 Mão | Sim | 3d6 \+ 3 Mente (Ignora toda armadura) | 1500 |
 | Arma | Espada Curta | Corpo | 1 Mão | Não | 1d3 \+ 1 | 25 |
 | Arma | Maça | Corpo | 1 Mão | Não | 1d3 \+ 1 | 25 |
 | Arma | Machado simples | Corpo | 1 Mão | Não | 1d3 \+ 1 | 25 |
-| Arma | Bastão de madeira | Corpo Espírito | 1 Mão | Não | 1d3 \+ 1 | 25 |
 | Arma | Machado de Guerra | Corpo | 1 Mão | Não | 1d3 \+ 2 | 45 |
 | Arma | Martelo de Guerra | Corpo | 2 Mãos | Não | 2d3 \+ 2 | 50 |
 | Arma | Espada Grande | Corpo | 2 Mãos | Não | 3d3 | 75 |
-| Arma | Bordão de Mogno | Corpo Espírito | 2 Mãos | Não | 3d3 \+ 1 | 80 |
 | Arma | Cimitarra Mágica | Corpo | 1 Mão | Sim | 1d3 \+ 2 Luz pequena | 150 |
-| Arma | Maça divina | Corpo | 1 Mão | Sim | 2d3 \+1d3 Radiante | 550 |
+| Arma | Maça divina | Corpo | 1 Mão | Sim | 2d3 \+ 1d3 Radiante | 550 |
 | Arma | Espada Justiceira | Corpo | 1 Mão | Sim | 1d3 \+ 2d3 Radiante | 550 |
 | Arma | Lâmina do dragão | Corpo | 1 Mão | Sim | 2d6 físico \+ 3 \+ 1d6 fogo | 1000 |
 | Arma | Martelo do trovão | Corpo | 1 Mão | Sim | 2d6 físico \+ 3 \+ 1d6 elétrico | 1300 |
-| Arma | Bordão de Dysenai | Corpo Espírito  | 2 Mãos | Sim | 3d6 \+3 Espírito | 1500 |
-| Arma | Machado de Dysenai | Corpo | 2 Mãos | Sim | 3d6 \+3 Corpo | 1500 |
+| Arma | Machado de Dysenai | Corpo | 2 Mãos | Sim | 3d6 \+ 3 Corpo | 1500 |
+| Arma | Bastão de madeira | Corpo Espírito | 1 Mão | Não | 1d3 \+ 1 | 25 |
+| Arma | Bordão de Peregrino | Espírito | 2 Mãos | Não | 1d3 \+ 1 | 15 |
+| Arma | Foice Druídica | Espírito | 1 Mão | Não | 1d3 \+ 1 (Dano cortante natural; sem metal) | 25 |
+| Arma | Maça Cerimonial | Espírito | 1 Mão | Não | 1d3 \+ 1 (Dano sagrado contundente) | 30 |
+| Arma | Lança da Fé | Espírito | 2 Mãos | Não | 2d3 de dano Radiante (Alcance 2m; defende com Espírito e ignora armadura física) | 55 |
+| Arma | Cetro Solar | Espírito | 1 Mão | Sim | 1d3 \+ 2 Radiante (Ilumina área média) | 180 |
+| Arma | Cajado dos Antigos | Espírito | 2 Mãos | Sim | 2d3 \+ 2 (\+1d3 de cura em magias restauradoras) | 350 |
+| Arma | Bordão de Mogno | Corpo Espírito | 2 Mãos | Não | 3d3 \+ 1 | 80 |
+| Arma | Bordão de Dysenai | Corpo Espírito | 2 Mãos | Sim | 3d6 \+ 3 Espírito | 1500 |
 
 ## **Armas (Distância)** {#armas-(distância)}
 
@@ -1249,23 +1262,35 @@ Nota: Armas de distância possuem alcances definidos em metros: **Curto (até 6 
 
 ## **Armaduras** {#armaduras}
 
-Nota: Armaduras são vestidas, não ocupam mãos.
+Nota: Armaduras são vestidas e não ocupam mãos. Armaduras de **Corpo** concedem **Resistência Física** (redução fixa de dano sofrido). Armaduras de **Mente** concedem bônus na **Defesa Física (esquiva)**, iniciativa ou mobilidade. Armaduras de **Espírito** concedem **Defesa Mágica** e benefícios de canalização e sustentação mística.
 
-| Tipo | Nome | Atributo | Mágico? | Efeito (Resistência) | Preço (PO) |
+| Tipo | Nome | Atributo | Mágico? | Efeito (Proteção) | Preço (PO) |
 | :---- | :---- | :---- | :---- | :---- | :---- |
-| Armadura | Couro Simples | Corpo | Não | \+1 Resistência | 20 |
-| Armadura | Couro Trabalhado | Corpo | Não | \+2 Resistência | 35 |
-| Armadura | Brunea | Corpo | Não | \+4 Resistência | 50 |
-| Armadura | Capa de Runas | Espírito | Sim | \+2 Def mágica | 80 |
-| Armadura | Cota de Malha | Corpo | Não | \+6 Resistência | 100 |
+| Armadura | Couro Simples | Corpo | Não | \+1 Resistência Física | 20 |
+| Armadura | Couro Trabalhado | Corpo | Não | \+2 Resistência Física | 35 |
+| Armadura | Brunea | Corpo | Não | \+4 Resistência Física | 50 |
+| Armadura | Cota de Malha | Corpo | Não | \+6 Resistência Física | 100 |
+| Armadura | Placas | Corpo | Não | \+8 Resistência Física | 200 |
+| Armadura | Mithril | Corpo | Sim | \+6 Resistência Física \+4 Res mágica | 350 |
+| Armadura | Colete de Couro Leve | Mente | Não | \+1 Defesa Física | 20 |
+| Armadura | Traje de Infiltração | Mente | Não | \+1 Defesa Física e \+1 na Iniciativa | 40 |
+| Armadura | Gibão do Acrobata | Mente | Não | \+2 Defesa Física e \+1m de deslocamento | 70 |
+| Armadura | Manto dos Ventos | Mente | Sim | \+2 Defesa Física e Vantagem em testes de Esquiva | 180 |
+| Armadura | Camisão de Seda Élfica | Mente | Sim | \+3 Defesa Física e \+1 Resistência Física | 300 |
+| Armadura | Manto de Sombras de Dysenai | Mente | Sim | \+5 Defesa Física, \+3 Resistência e Invisibilidade por 1 turno (1x por combate) | 1200 |
+| Armadura | Túnica do Acólito | Espírito | Não | \+1 Defesa Mágica | 15 |
+| Armadura | Vestes de Linho Consagrado | Espírito | Não | \+1 Defesa Mágica e \+1 em testes de Cura | 30 |
+| Armadura | Manto da Floresta | Espírito | Não | \+2 Defesa Mágica (permitida para Druidas) | 50 |
+| Armadura | Capa de Runas | Espírito | Sim | \+2 Defesa Mágica | 80 |
 | Armadura | Manto Arcano | Espírito | Sim | \+3 Res mágica \+1 Atk Mágico | 120 |
-| Armadura | Placas | Corpo | Não | \+8 Resistência | 200 |
-| Armadura | Mithril | Corpo | Sim | \+6 Resistência\+4 Res mágica | 350 |
+| Armadura | Hábito do Penitente | Espírito | Sim | \+2 Defesa Mágica e \+2 Resistência Física | 150 |
+| Armadura | Vestimenta do Arquimago | Espírito | Sim | \+4 Defesa Mágica e \+1 PP máximo | 400 |
+| Armadura | Manto Astral de Dysenai | Espírito | Sim | \+6 Defesa Mágica, \+3 Res mágica e regenera 1 PP/turno | 1200 |
 | Armadura | Capa de Dysenai | Corpo Espírito | Sim | \+10 Resistência \+10 Res mágica Luz pequena | 1000 |
 
-## **Escudos** {#escudos}
+## **Escudos e Equipamentos Secundários** {#escudos}
 
-Nota: Escudos ocupam 1 mão. Fornecem bônus de Defesa Física direta e proteção tática contra magias em área e danos elementais.
+Nota: Equipamentos secundários ocupam 1 mão (a menos que indicado). Escudos de **Corpo** concedem Defesa Física direta. Equipamentos de **Mente** focam em esgrima, fintas e esquiva. Equipamentos de **Espírito** auxiliam na contenção mágica e bênçãos defensivas.
 
 | Tipo | Nome | Atributo | Mágico? | Efeito (Defesa e Proteção) | Preço (PO) |
 | :---- | :---- | :---- | :---- | :---- | :---- |
@@ -1275,6 +1300,12 @@ Nota: Escudos ocupam 1 mão. Fornecem bônus de Defesa Física direta e proteç�
 | Escudo | Escudo De Vidro | Corpo | Sim | \+4 Defesa Física; Reduz em \-2 todo dano elemental sofrido (Fogo, Gelo, Raio ou Ácido) | 350 |
 | Escudo | Escudo De Mithril | Corpo | Sim | \+5 Defesa Física; Reduz pela metade o dano sofrido de magias em área | 450 |
 | Escudo | Proteção de Dysenai | Corpo | Sim | \+7 Defesa Física; Não ocupa mão; Ignora o primeiro dano mágico ou elemental sofrido no combate | 1500 |
+| Secundário | Broquel Leve | Mente | Não | \+1 Defesa Física (\+1 na Iniciativa) | 20 |
+| Secundário | Adaga de Parada (Main-gauche) | Mente | Não | \+1 Defesa Física (permite contra-atacar com 1d3 se o adversário errar feio) | 25 |
+| Secundário | Capa de Duelo | Mente | Não | \+1 Defesa Física; pode ser usada para desviar projéteis leves | 35 |
+| Secundário | Broquel Entalhado | Espírito | Não | \+1 Defesa Física (Permitido para Druidas; sem metal) | 20 |
+| Secundário | Símbolo Sagrado Fortificado | Espírito | Não | \+1 Defesa Mágica e \+1 Defesa Física | 45 |
+| Secundário | Tomo Guardião | Espírito | Sim | \+2 Defesa Mágica; pode gastar 1 PP como Reação para absorver 1d6 de dano mágico | 120 |
 
 ## **Itens de Foco Mágico (Espírito)** {#itens-de-foco-mágico-(espírito)}
 

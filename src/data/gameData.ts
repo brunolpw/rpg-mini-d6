@@ -230,8 +230,17 @@ export interface WeaponPreset {
 export const WEAPONS: WeaponPreset[] = [
   { label: 'Adaga (1d3)', twoHanded: false },
   { label: 'Espada Curta (1d3+1)', twoHanded: false },
+  { label: 'Rapieira (1d3+1)', twoHanded: false },
+  { label: 'Cimitarra Ágil (1d3+1, +1 Inic)', twoHanded: false },
+  { label: 'Chicote Tático (1d3, 3m)', twoHanded: false },
+  { label: 'Lâminas Gêmeas (2d3, +1 Esq) [2 Mãos]', twoHanded: true },
+  { label: 'Bordão de Peregrino (1d3+1) [2 Mãos]', twoHanded: true },
+  { label: 'Foice Druídica (1d3+1)', twoHanded: false },
+  { label: 'Maça Cerimonial (1d3+1)', twoHanded: false },
+  { label: 'Lança da Fé (2d3 Radiante, 2m) [2 Mãos]', twoHanded: true },
+  { label: 'Cetro Solar (1d3+2 Radiante)', twoHanded: false },
+  { label: 'Cajado dos Antigos (2d3+2) [2 Mãos]', twoHanded: true },
   { label: 'Espada Longa (1d6)', twoHanded: false },
-  { label: 'Rapieira (1d6)', twoHanded: false },
   { label: 'Machado de Batalha (1d6)', twoHanded: false },
   { label: 'Maça (1d6)', twoHanded: false },
   { label: 'Martelo de Guerra (1d6)', twoHanded: false },
@@ -241,6 +250,8 @@ export const WEAPONS: WeaponPreset[] = [
   { label: 'Martelo Pesado (1d6+2) [2 Mãos]', twoHanded: true },
   { label: 'Alabarda (1d6+2) [2 Mãos]', twoHanded: true },
   { label: 'Cajado (1d3+1) [2 Mãos]', twoHanded: true },
+  { label: 'Funda (1d3) [2 Mãos]', twoHanded: true },
+  { label: 'Bumerangue (1d3)', twoHanded: false },
   { label: 'Arco Curto (1d3+1) [2 Mãos]', twoHanded: true },
   { label: 'Arco Longo (1d6+1) [2 Mãos]', twoHanded: true },
   { label: 'Besta Leve (1d6) [2 Mãos]', twoHanded: true },
@@ -254,10 +265,22 @@ export interface ArmorPreset {
 
 export const ARMORS: ArmorPreset[] = [
   { label: 'Sem Armadura (Res 0)', res: 0 },
-  { label: 'Armadura de Couro (Res 1)', res: 1 },
-  { label: 'Couro Batido (Res 2)', res: 2 },
-  { label: 'Cota de Malha (Res 3)', res: 3 },
-  { label: 'Armadura de Placas (Res 4)', res: 4 },
+  { label: 'Couro Simples (Res 1)', res: 1 },
+  { label: 'Couro Trabalhado (Res 2)', res: 2 },
+  { label: 'Brunea (Res 4)', res: 4 },
+  { label: 'Cota de Malha (Res 6)', res: 6 },
+  { label: 'Placas (Res 8)', res: 8 },
+  { label: 'Colete de Couro Leve (+1 Def Física)', res: 0 },
+  { label: 'Traje de Infiltração (+1 Def Física, +1 Inic)', res: 0 },
+  { label: 'Gibão do Acrobata (+2 Def Física, +1m Mov)', res: 0 },
+  { label: 'Manto dos Ventos (+2 Def Física, Vant Esquiva)', res: 0 },
+  { label: 'Camisão de Seda Élfica (+3 Def Física, Res 1)', res: 1 },
+  { label: 'Túnica do Acólito (+1 Def Mágica)', res: 0 },
+  { label: 'Vestes de Linho Consagrado (+1 Def Mágica, +1 Cura)', res: 0 },
+  { label: 'Manto da Floresta (+2 Def Mágica)', res: 0 },
+  { label: 'Capa de Runas (+2 Def Mágica)', res: 0 },
+  { label: 'Hábito do Penitente (+2 Def Mágica, Res 2)', res: 2 },
+  { label: 'Vestimenta do Arquimago (+4 Def Mágica, +1 PP)', res: 0 },
 ];
 
 export interface ShieldPreset {
@@ -266,12 +289,19 @@ export interface ShieldPreset {
 }
 
 export const SHIELDS_AND_FOCI: ShieldPreset[] = [
+  { label: 'Escudo Madeira (+1 Def)', defBonus: 1 },
+  { label: 'Escudo Torre (+3 Def)', defBonus: 3 },
   { label: 'Escudo Leve (+1 Def)', defBonus: 1 },
   { label: 'Escudo Pesado (+2 Def)', defBonus: 2 },
-  { label: 'Broquel (+1 Def)', defBonus: 1 },
-  { label: 'Cajado Arcano (Foco)', defBonus: 0 },
+  { label: 'Broquel Leve (+1 Def, +1 Inic)', defBonus: 1 },
+  { label: 'Adaga de Parada (+1 Def, Contra-ataque)', defBonus: 1 },
+  { label: 'Capa de Duelo (+1 Def)', defBonus: 1 },
+  { label: 'Broquel Entalhado (+1 Def - Druida)', defBonus: 1 },
+  { label: 'Símbolo Sagrado Fortificado (+1 Def, +1 Def Mág)', defBonus: 1 },
+  { label: 'Tomo Guardião (+2 Def Mágica)', defBonus: 0 },
+  { label: 'Cajado Arcano (Foco +1 Dano Mágico)', defBonus: 0 },
   { label: 'Orbe Elemental (Foco)', defBonus: 0 },
-  { label: 'Símbolo Sagrado (Foco)', defBonus: 0 },
+  { label: 'Símbolo Sagrado (Foco +1 Cura)', defBonus: 0 },
 ];
 
 export const CONSUMABLES: string[] = [
