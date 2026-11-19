@@ -197,7 +197,7 @@ export const CLASSES: ClassInfo[] = [
     naturalTraitName: 'Bênção do Amparo',
     naturalTrait:
       'Durante descansos curtos, sua presença acolhedora e preces restauram +1 PV adicional a todos os aliados sem gasto de recursos. Clérigos e seus companheiros encontram refúgio e hospitalidade garantida em qualquer templo de sua fé.',
-    baseMod: { corpo: 0, mente: -1, espirito: 1 },
+    baseMod: { corpo: 0, mente: -2, espirito: 2 },
     pvFormula: 'Corpo + 1d3 + 1',
     pvDice: 1,
     pvBonus: 1,
@@ -233,7 +233,7 @@ export const CLASSES: ClassInfo[] = [
     naturalTraitName: 'Olhos de Falcão',
     naturalTrait:
       'Ignora a penalidade de cobertura leve em disparos à distância. Se não se mover no seu turno, ganha +1 no Ataque ou dobra o alcance do disparo. Enxerga com clareza o dobro da distância e nunca é surpreendido em vigília.',
-    baseMod: { corpo: 1, mente: 1, espirito: -2 },
+    baseMod: { corpo: 0, mente: 2, espirito: -2 },
     pvFormula: 'Corpo + 2d3',
     pvDice: 2,
     pvBonus: 0,

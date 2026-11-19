@@ -282,11 +282,9 @@ Impacto Mecânico: \+1m no deslocamento base e Vantagem em testes de Corpo para 
 
 Estilo: físico
 
-| Distribuição | Corpo | Mente | Espírito |
-| :---: | :---: | :---: | :---: |
-| Bônus | \+2 | 0 | 0 |
-| Penalidade | 0 | 0 | \-2 |
-| **Resultado** | **\+2** | **0** | **\-2** |
+| Corpo | Mente | Espírito |
+| :---: | :---: | :---: |
+| **\+2** | **0** | **\-2** |
 
 O bárbaro começa com 1 ação passiva de nível 1 a sua escolha. 
 
@@ -317,11 +315,9 @@ Impacto Mecânico: Não pode ser empurrado, derrubado ou movido contra a sua von
 
 Estilo: físico
 
-| Distribuição | Corpo | Mente | Espírito |
-| :---: | :---: | :---: | :---: |
-| Bônus | \+1 | \+1 | 0 |
-| Penalidade | 0 | 0 | \-2 |
-| **Resultado** | **\+1** | **\+1** | **\-2** |
+| Corpo | Mente | Espírito |
+| :---: | :---: | :---: |
+| **\+1** | **\+1** | **\-2** |
 
 O guerreiro começa com 1 ação passiva de nível 1 a sua escolha. 
 
@@ -354,11 +350,9 @@ Impacto Mecânico: Imunidade a efeitos mundanos de medo e concede \+1 em testes 
 
 Estilo: físico/mágico
 
-| Distribuição | Corpo | Mente | Espírito |
-| :---: | :---: | :---: | :---: |
-| Bônus | \+1 | 0 | \+1 |
-| Penalidade | 0 | \-2 | 0 |
-| **Resultado** | **\+1** | **\-2** | **\+1** |
+| Corpo | Mente | Espírito |
+| :---: | :---: | :---: |
+| **\+1** | **\-2** | **\+1** |
 
 O paladino começa com 2 ação passiva ou ativa de nível 1 a sua escolha. 
 
@@ -393,11 +387,9 @@ Impacto Mecânico: Detecta fluxos, runas e resíduos mágicos sem gastar PP. Gan
 
 Estilo: mágico
 
-| Distribuição | Corpo | Mente | Espírito |
-| :---: | :---: | :---: | :---: |
-| Positivo | 0 | 0 | \+2 |
-| Negativo | \-2 | 0 | 0 |
-| **Total** | **\-2** | **0** | **\+2** |
+| Corpo | Mente | Espírito |
+| :---: | :---: | :---: |
+| **\-2** | **0** | **\+2** |
 
 O mago começa com 3 ações passivas ou ativas de nível 1 a sua escolha. 
 
@@ -439,11 +431,9 @@ Impacto Mecânico: Pressente com precisão mudanças climáticas e catástrofes 
 
 Estilo: mágico / suporte
 
-| Distribuição | Corpo | Mente | Espírito |
-| :---: | :---: | :---: | :---: |
-| Positivo | 0 | \+1 | \+1 |
-| Negativo | \-1 | \-1 | 0 |
-| **Total** | **\-1** | **0** | **\+1** |
+| Corpo | Mente | Espírito |
+| :---: | :---: | :---: |
+| **\-1** | **\-1** | **\+2** |
 
 O druida começa com 2 ação passiva ou ativa de nível 1 a sua escolha. 
 
@@ -488,11 +478,9 @@ Impacto Mecânico: Durante descansos curtos, sua presença acolhedora e preces r
 
 Estilo: mágico/físico
 
-| Distribuição | Corpo | Mente | Espírito |
-| :---: | :---: | :---: | :---: |
-| Positivo | \+1 | 0 | \+1 |
-| Negativo | \-1 | \-1 | 0 |
-| **Total** | **0** | **\-1** | **\+1** |
+| Corpo | Mente | Espírito |
+| :---: | :---: | :---: |
+| **0** | **\-2** | **\+2** |
 
 O clérigo começa com 2 ação passiva ou ativa de nível 1 a sua escolha. 
 
@@ -532,11 +520,9 @@ Impacto Mecânico: **Ataque Furtivo (1x/turno):** ao atacar corpo a corpo com Va
 
 Estilo: físico/distância
 
-| Distribuição | Corpo | Mente | Espírito |
-| :---: | :---: | :---: | :---: |
-| Positivo | 0 | \+2 | 0 |
-| Negativo | \-1 | 0 | \-1 |
-| **Total** | **\-1** | **\+2** | **\-1** |
+| Corpo | Mente | Espírito |
+| :---: | :---: | :---: |
+| **\-1** | **\+2** | **\-1** |
 
 O ladino começa com 1 ação passiva ou ativa de nível 1 a sua escolha. 
 
@@ -571,11 +557,9 @@ Impacto Mecânico: Ignora a penalidade de cobertura leve em disparos à distânc
 
 Estilo: distância / físico
 
-| Distribuição | Corpo | Mente | Espírito |
-| :---: | :---: | :---: | :---: |
-| Positivo | \+1 | \+1 | 0 |
-| Negativo | 0 | 0 | \-2 |
-| **Total** | **\+1** | **\+1** | **\-2** |
+| Corpo | Mente | Espírito |
+| :---: | :---: | :---: |
+| **0** | **\+2** | **\-2** |
 
 O ranger começa com 1 ação passiva ou ativa de nível 1 a sua escolha. 
 
@@ -609,11 +593,9 @@ Impacto Mecânico: Rola testes de carisma e influência social com **Vantagem (4
 
 Estilo: suporte / mágico
 
-| Distribuição | Corpo | Mente | Espírito |
-| :---: | :---: | :---: | :---: |
-| Positivo | 0 | \+1 | \+1 |
-| Negativo | \-2 | 0 | 0 |
-| **Total** | **\-2** | **\+1** | **\+1** |
+| Corpo | Mente | Espírito |
+| :---: | :---: | :---: |
+| **\-2** | **\+1** | **\+1** |
 
 O bardo começa com 2 ações passivas ou ativas de nível 1 a sua escolha. 
 
