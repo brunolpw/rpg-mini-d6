@@ -1,4 +1,4 @@
-# Mini-d6 RPG (v2.7)
+# Mini-d6 RPG (v3.0)
 
 Um sistema de RPG de mesa minimalista (*rules-light*), tático e ágil, criado por **Bruno La Porta Welausen**. O projeto foi concebido para priorizar a narrativa, o combate tático fluido e a agilidade de preparação, utilizando **exclusivamente dados comuns de seis faces (d6)**.
 

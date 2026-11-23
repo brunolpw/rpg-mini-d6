@@ -32,7 +32,7 @@ export const RACES: RaceInfo[] = [
       'Espécie mais populosa e ambiciosa, notável pela incrível adaptabilidade a qualquer ofício, clima ou estilo de magia, compensando limitações rapidamente.',
     traitName: 'Versatilidade',
     trait:
-      '+1 em um Atributo à sua escolha (não podendo ser o mesmo bônus recebido pela classe).',
+      '+1 em um Atributo à sua escolha (não podendo ser o mesmo bônus recebido pela classe). Além disso, 1x por combate (ou cena), pode rolar 1 teste qualquer com Vantagem (4d6).',
     bonus: { corpo: 0, mente: 0, espirito: 0 },
   },
   {
@@ -42,7 +42,7 @@ export const RACES: RaceInfo[] = [
       'Mestres da cantaria e metalurgia forjados nas montanhas. Possuem compleição física densa, passos firmes e tenacidade inabalável contra fadiga e pancadas.',
     traitName: 'Vigor da Pedra',
     trait:
-      '+1 em Corpo (aumentando diretamente o PV inicial e a Defesa Física base).',
+      '+1 em Corpo (aumentando diretamente o PV inicial e a Defesa Física base) e reduz todo dano de veneno e ácido recebido pela metade.',
     bonus: { corpo: 1, mente: 0, espirito: 0 },
   },
   {
@@ -50,16 +50,16 @@ export const RACES: RaceInfo[] = [
     name: 'Elfo',
     description:
       'Seres graciosos de longevidade milenar e sentidos aguçados, sintonizados com as florestas e correntes arcanas cósmicas.',
-    traitName: 'Mente Arcana',
+    traitName: 'Graça Ancestral',
     trait:
-      '+1 em Mente e começa o jogo com +1 Poder de Nível 1 adicional da sua classe à escolha (obrigatoriamente um poder ativo).',
-    bonus: { corpo: 0, mente: 1, espirito: 0 },
+      '+1 em Mente ou Espírito à sua escolha e começa o jogo com +1 Poder de Nível 1 adicional da sua classe à escolha (obrigatoriamente um poder ativo).',
+    bonus: { corpo: 0, mente: 0, espirito: 0 },
   },
   {
-    id: 'orc',
-    name: 'Orc',
+    id: 'meio-orc',
+    name: 'Meio-Orc',
     description:
-      'Guerreiros viscerais e sobreviventes de terras áridas, moldados por honra marcial, constituição vigorosa e fúria indomável.',
+      'Guerreiros viscerais de linhagem mista e sobreviventes de terras áridas, moldados por honra marcial, constituição vigorosa e fúria indomável.',
     traitName: 'Tenacidade Brutal',
     trait:
       '+1 em Corpo. Uma vez por combate, ao ter seus PVs reduzidos a 0, resiste por puro vigor e permanece consciente com 1 PV.',
@@ -72,7 +72,7 @@ export const RACES: RaceInfo[] = [
       'Povo de passos leves, coração valente e reflexos surpreendentes. Compensam o porte pequeno com audácia e uma sorte quase mágica.',
     traitName: 'Sorte Inata',
     trait:
-      '+1 em Mente. Uma vez por combate, pode rolar novamente qualquer teste de ataque ou defesa que tenha falhado, assumindo o novo resultado.',
+      '+1 em Mente. Uma vez por combate, pode rolar novamente qualquer teste de ataque, esquiva ou resistência que tenha falhado, assumindo o novo resultado.',
     bonus: { corpo: 0, mente: 1, espirito: 0 },
   },
   {
@@ -82,7 +82,7 @@ export const RACES: RaceInfo[] = [
       'Pesquisadores brilhantes de engenharia mística e alquimia. Sua estatura modesta esconde uma reserva espiritual e afinidade arcana superior.',
     traitName: 'Foco Interior',
     trait:
-      '+1 em Espírito (aumentando diretamente o PP máximo inicial e o poder de conjurações).',
+      '+1 em Espírito (aumentando diretamente o PP máximo inicial e o poder de conjurações). Além disso, 1x por combate, recupera 1d3 PP sem gastar ação.',
     bonus: { corpo: 0, mente: 0, espirito: 1 },
   },
   {
@@ -92,7 +92,7 @@ export const RACES: RaceInfo[] = [
       'Herdeiros orgulhosos das antigas linhagens dracônicas, protegidos por escamas espessas e munidos do poder destrutivo primordial de seus ancestrais.',
     traitName: 'Sopro Elemental',
     trait:
-      '+1 em Corpo. Dispara um sopro em área pequena (2m) 1x por combate causando 1d3 + Corpo de dano (Fogo, Gelo, Raio ou Veneno). Fora de combate, possui resistência contra o elemento.',
+      '+1 em Corpo. Dispara um sopro em área pequena (2m) 1x por combate, exigindo teste de acerto (Corpo) contra a Defesa dos alvos, causando 1d3 + metade do Corpo de dano (Fogo, Gelo, Raio ou Veneno). Fora de combate, possui resistência (+2) contra o elemento.',
     bonus: { corpo: 1, mente: 0, espirito: 0 },
   },
 ];

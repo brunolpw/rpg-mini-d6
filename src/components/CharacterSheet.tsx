@@ -61,6 +61,7 @@ export interface Character {
   name: string;
   raceId: string;
   humanBonusAttr?: 'corpo' | 'mente' | 'espirito';
+  elfBonusAttr?: 'mente' | 'espirito';
   classId: string;
   level: number;
   xp: number;
@@ -137,6 +138,7 @@ function createEmptyCharacter(): Character {
     name: 'Novo Aventureiro',
     raceId: initialRaceId,
     humanBonusAttr: 'corpo',
+    elfBonusAttr: 'mente',
     classId: initialClassId,
     level: 1,
     xp: 0,
@@ -219,13 +221,41 @@ export function CharacterSheet({ classPowers }: CharacterSheetProps) {
 
         const prevRace = RACES.find((r) => r.id === s.raceId) ?? RACES[0];
         const nextRace = RACES.find((r) => r.id === next.raceId) ?? RACES[0];
-        const prevTotalCorpo = s.corpo + prevRace.bonus.corpo;
-        const nextTotalCorpo = next.corpo + nextRace.bonus.corpo;
-        const deltaCorpo = nextTotalCorpo - prevTotalCorpo;
+        const prevRaceCorpo =
+          s.raceId === 'humano'
+            ? (s.humanBonusAttr ?? 'corpo') === 'corpo'
+              ? 1
+              : 0
+            : prevRace.bonus.corpo;
+        const nextRaceCorpo =
+          next.raceId === 'humano'
+            ? (next.humanBonusAttr ?? 'corpo') === 'corpo'
+              ? 1
+              : 0
+            : nextRace.bonus.corpo;
+        const deltaCorpo = next.corpo + nextRaceCorpo - (s.corpo + prevRaceCorpo);
 
-        const prevTotalEsp = s.espirito + prevRace.bonus.espirito;
-        const nextTotalEsp = next.espirito + nextRace.bonus.espirito;
-        const deltaEsp = nextTotalEsp - prevTotalEsp;
+        const prevRaceEsp =
+          s.raceId === 'humano'
+            ? (s.humanBonusAttr ?? 'corpo') === 'espirito'
+              ? 1
+              : 0
+            : s.raceId === 'elfo'
+              ? (s.elfBonusAttr ?? 'mente') === 'espirito'
+                ? 1
+                : 0
+              : prevRace.bonus.espirito;
+        const nextRaceEsp =
+          next.raceId === 'humano'
+            ? (next.humanBonusAttr ?? 'corpo') === 'espirito'
+              ? 1
+              : 0
+            : next.raceId === 'elfo'
+              ? (next.elfBonusAttr ?? 'mente') === 'espirito'
+                ? 1
+                : 0
+              : nextRace.bonus.espirito;
+        const deltaEsp = next.espirito + nextRaceEsp - (s.espirito + prevRaceEsp);
 
         if (deltaCorpo !== 0 && patch.pvMax === undefined) {
           next.pvMax = Math.max(1, s.pvMax + deltaCorpo);
@@ -323,6 +353,7 @@ export function CharacterSheet({ classPowers }: CharacterSheetProps) {
     CLASSES.find((c) => c.id === active.classId) ?? CLASSES[0];
 
   const humanAttr = active.humanBonusAttr ?? 'corpo';
+  const elfAttr = active.elfBonusAttr ?? 'mente';
   const raceBonus = {
     corpo:
       active.raceId === 'humano'
@@ -335,13 +366,21 @@ export function CharacterSheet({ classPowers }: CharacterSheetProps) {
         ? humanAttr === 'mente'
           ? 1
           : 0
-        : selectedRace.bonus.mente,
+        : active.raceId === 'elfo'
+          ? elfAttr === 'mente'
+            ? 1
+            : 0
+          : selectedRace.bonus.mente,
     espirito:
       active.raceId === 'humano'
         ? humanAttr === 'espirito'
           ? 1
           : 0
-        : selectedRace.bonus.espirito,
+        : active.raceId === 'elfo'
+          ? elfAttr === 'espirito'
+            ? 1
+            : 0
+          : selectedRace.bonus.espirito,
   };
 
   const totalCorpo = active.corpo + raceBonus.corpo;
@@ -1195,6 +1234,19 @@ export function CharacterSheet({ classPowers }: CharacterSheetProps) {
                     +1 Humano
                   </button>
                 )}
+                {active.raceId === 'elfo' && !active.isLocked && (
+                  <button
+                    type="button"
+                    onClick={() => updateActive({ elfBonusAttr: 'mente' })}
+                    className={`no-print mt-1 rounded px-1.5 py-0.5 text-[10px] font-semibold ${
+                      elfAttr === 'mente'
+                        ? 'bg-amber-600 text-white'
+                        : 'bg-slate-800 text-slate-400 hover:bg-slate-700'
+                    }`}
+                  >
+                    +1 Elfo
+                  </button>
+                )}
                 <div className="mt-1 text-xs text-indigo-400">
                   Total: <strong>{totalMente}</strong>
                 </div>
@@ -1240,6 +1292,19 @@ export function CharacterSheet({ classPowers }: CharacterSheetProps) {
                     }`}
                   >
                     +1 Humano
+                  </button>
+                )}
+                {active.raceId === 'elfo' && !active.isLocked && (
+                  <button
+                    type="button"
+                    onClick={() => updateActive({ elfBonusAttr: 'espirito' })}
+                    className={`no-print mt-1 rounded px-1.5 py-0.5 text-[10px] font-semibold ${
+                      elfAttr === 'espirito'
+                        ? 'bg-amber-600 text-white'
+                        : 'bg-slate-800 text-slate-400 hover:bg-slate-700'
+                    }`}
+                  >
+                    +1 Elfo
                   </button>
                 )}
                 <div className="mt-1 text-xs text-indigo-400">

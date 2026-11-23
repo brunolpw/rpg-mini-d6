@@ -1,4 +1,4 @@
-**Mini-d6 RPG v2.7**
+**Mini-d6 RPG v3.0**
 
 por Bruno La Porta Welausen
 
@@ -35,7 +35,7 @@ O sistema opera sobre um motor robusto de **3d6 \+ Atributo**, que gera uma curv
 
 O **mini-d6** oferece um pacote completo para aventuras de fantasia medieval clássica:
 
-* **Diversidade de Personagens:** Conta com 7 Raças (Humano, Anão, Elfo, Orc, Pequenino, Gnomo, Draconato) e 9 Classes (como Bárbaro, Paladino, Mago, Ladino, Bardo, etc.), cada uma com árvores de poderes passivos e ativos.  
+* **Diversidade de Personagens:** Conta com 7 Raças (Humano, Anão, Elfo, Meio-Orc, Pequenino, Gnomo, Draconato) e 9 Classes (como Bárbaro, Paladino, Mago, Ladino, Bardo, etc.), cada uma com árvores de poderes passivos e ativos.  
 * **Progressão:** O sistema cobre do Nível 1 ao 15, oferecendo aumentos de atributos, novos poderes e talentos (Níveis de Poder).  
 * **Bestiário e Itens:** Inclui monstros desde Ratos Gigantes (Nível 1\) até ameaças lendárias como Lichs e Dragões (Nível 10+), além de itens lendários ("Dysenai") calibrados para o final do jogo.
 
@@ -216,7 +216,7 @@ A espécie mais populosa, ambiciosa e versátil do mundo. Sem extremos biológic
 
 Traço racial: Versatilidade
 
-Impacto Mecânico: \+1 em um Atributo à sua escolha (não podendo ser o mesmo bônus recebido pela classe).
+Impacto Mecânico: \+1 em um Atributo à sua escolha (não podendo ser o mesmo bônus recebido pela classe). Além disso, **1x por combate (ou cena)**, pode rolar **1 teste qualquer com Vantagem (4d6)**.
 
 ## **Anão** {#anão}
 
@@ -224,19 +224,19 @@ Mestres da cantaria, metalurgia e escavações profundas, forjados nas entranhas
 
 Traço racial: Vigor da Pedra
 
-Impacto Mecânico: \+1 em Corpo (aumentando diretamente o PV inicial e a Defesa Física base).
+Impacto Mecânico: \+1 em Corpo (aumentando diretamente o PV inicial e a Defesa Física base) e **reduz todo dano de veneno e ácido recebido pela metade** (arredondado para baixo).
 
 ## **Elfo** {#elfo}
 
 Seres graciosos de longevidade milenar e sentidos aguçados, sintonizados com as florestas e correntes arcanas cósmicas. Sua mente desperta absorve tradições e magias com naturalidade fluida, iniciando sua jornada com repertório tático e místico superior.
 
-Traço racial: Mente Arcana
+Traço racial: Graça Ancestral
 
-Impacto Mecânico: \+1 em Mente e começa o jogo com **\+1 Poder de Nível 1** adicional da sua classe à escolha (obrigatoriamente um poder ativo).
+Impacto Mecânico: \+1 em **Mente ou Espírito** à sua escolha e começa o jogo com **\+1 Poder de Nível 1** adicional da sua classe à escolha (obrigatoriamente um poder ativo).
 
-## **Orc** {#orc}
+## **Meio-Orc** {#meio-orc}
 
-Guerreiros viscerais e sobreviventes natos de terras inóspitas, moldados pela honra marcial, constituição vigorosa e fúria indomável. Possuem grande resistência muscular e uma vitalidade que se recusa a tombar facilmente perante a morte.
+Guerreiros viscerais de linhagem mista e sobreviventes natos de terras inóspitas, moldados pela honra marcial, constituição vigorosa e fúria indomável. Possuem grande resistência muscular e uma vitalidade que se recusa a tombar facilmente perante a morte.
 
 Traço racial: Tenacidade Brutal
 
@@ -248,7 +248,7 @@ Povo de passos leves, coração valente e reflexos espantosos. Compensam o porte
 
 Traço racial: Sorte Inata
 
-Impacto Mecânico: \+1 em Mente. Uma vez por combate, pode rolar novamente qualquer teste de ataque ou defesa que tenha falhado, assumindo o novo resultado.
+Impacto Mecânico: \+1 em Mente. Uma vez por combate, pode rolar novamente qualquer teste de ataque, esquiva ou resistência que tenha falhado, assumindo o novo resultado.
 
 ## **Gnomo** {#gnomo}
 
@@ -256,7 +256,7 @@ Pesquisadores brilhantes de engenharia mística, curiosidade acadêmica e alquim
 
 Traço racial: Foco Interior
 
-Impacto Mecânico: \+1 em Espírito (aumentando diretamente o PP máximo inicial e o poder de conjurações).
+Impacto Mecânico: \+1 em Espírito (aumentando diretamente o PP máximo inicial e o poder de conjurações). Além disso, **1x por combate**, pode recuperar **1d3 PP** sem gastar ação.
 
 ## **Draconato** {#draconato}
 
@@ -264,7 +264,7 @@ Herdeiros orgulhosos das antigas linhagens dracônicas, protegidos por escamas e
 
 Traço racial: Sopro Elemental
 
-Impacto Mecânico: \+1 em Corpo. Dispara um sopro em área pequena (2m) 1x por combate causando **1d3 \+ Corpo de dano** do tipo escolhido (Fogo, Gelo, Raio ou Veneno). Fora de combate, possui resistência (+2) contra intempéries e efeitos do elemento correspondente.
+Impacto Mecânico: \+1 em Corpo. Dispara um sopro em área pequena (2m) 1x por combate, exigindo **teste de acerto (Corpo)** contra a Defesa dos alvos, causando **1d3 \+ metade do Corpo** (arredondado para baixo) de dano do tipo escolhido (Fogo, Gelo, Raio ou Veneno). Fora de combate, possui resistência (+2) contra intempéries e efeitos do elemento correspondente.
 
 # **Classes** {#classes}
 
@@ -1052,11 +1052,11 @@ Ou seja, o personagem passa do nível 1 para o nível 2, ele ganha PV e PP, mas 
 
 Neste capítulo vamos abordar a criação do bestiário de criaturas, é importante destacar que este bestiário é um molde e você está livre para usar, modificar ou adaptar conforme a necessidade da sua aventura, também deixo logo no início a tabela com as fórmulas usadas para a criação deste bestiário.
 
-O bestiário está dividido em grupos de 6 criaturas por níveis do nível 1 ao 5\. Outra tabela com criaturas do nível 6 ao 10\. Este formato foi definido pensando na criação de eventos aleatórios até o nível 5, mas para os demais níveis basta seguir a fórmula do Gerador de Monstros Express.
+O bestiário está organizado por níveis de desafio (do nível 1 ao 10), trazendo não apenas os números de combate, mas também a descrição física, o comportamento, a origem e o ambiente de cada criatura — misturando ameaças clássicas de fantasia com lendas autênticas do folclore brasileiro, indígena e afro-brasileiro. Para níveis ainda mais altos, basta seguir a fórmula do Gerador de Monstros Express.
 
 Atributos dos inimigos
 
-Todo inimigo possui uma tabela com os 3 atributos. A defesa física de uma criatura segue a armadura natural/agilidade indicada na coluna Def, enquanto ataques de poder contra ela são defendidos pelo atributo Espírito (10 \+ Espírito), conforme descrito no capítulo sobre combate.
+Todo inimigo possui seus 3 atributos básicos. A defesa física de uma criatura segue a armadura natural/agilidade indicada em **Def**, enquanto ataques de poder contra ela são defendidos pelo atributo **Espírito** (10 + Espírito), conforme descrito no capítulo sobre combate.
 
 ### **Tipos de criaturas**
 
@@ -1121,74 +1121,512 @@ Esta tabela serve como base para você criar qualquer criatura nova. O valor de 
 | Supremos (9-10) | 16 a 18 | 90 a 140 | 21 a 24 | 10 a 12 | 3d6 \+ 6 a 4d6 \+ 4 | 30 a 40 XP |
 | Lendários (11-15) | 19 a 22 | 150+ | 24 a 27 | 12 a 15 | 4d6 \+ 6 ou especial | 50+ XP |
 
-Role **1d6** para definir qual criatura o jogador encontra em cada nível.
+Escolha uma criatura adequada ao ambiente da aventura ou role **2d6 - 1** (resultado de 1 a 11) para encontros aleatórios nos níveis 1 a 5.
 
 ## **Nível 1 (XP: 2 para cada jogador)** {#nível-1-(xp:-2-cada)}
 
-| 1d6 | Criatura | Tipo | Atrib. | PV | Def | Res | Atk (Dano) | Especial |
-| :---- | :---- | :---- | :---- | :---- | :---- | :---- | :---- | :---- |
-| 1 | Rato Gigante | Besta | C: 7 M: 8 E: 7 | 12 | 9 | 1 | 1d3 \+ 1 | Tenta fugir se perder 5 PV. |
-| 2 | Goblin | Humanoide | C: 8 M: 7 E: 7 | 14 | 10 | 2 | 1d6 | \+1 ataque se agir primeiro. |
-| 3 | Esqueleto | Morto-vivo | C: 8 M: 7 E: 7 | 13 | 11 | 2 | 1d6 | Imune a dano Necrótico. |
-| 4 | Aranha | Besta | C: 7 M: 8 E: 7 | 12 | 10 | 1 | 1d3 \+ 1 | Ataca a distância média. Se atingir, alvo perde 2m mov. |
-| 5 | Kobold | Humanoide | C: 7 M: 8 E: 7 | 11 | 10 | 1 | 1d3 \+ 1 | Ataca a distância curta. \+1 ataque se houver outro Kobold. |
-| 6 | Cultista | Humano | C: 7 M: 7 E: 8 | 15 | Fís: 10 / Mág: 11 | 2 | 1d6 | Ataca a distância média. Uma vez, recupera 5 PV. |
+### **1. Rato Gigante** *(Besta)*
+Roedor do tamanho de um cão de caça, com pelos encardidos, olhos avermelhados e incisivos amarelados capazes de roer madeira. Vive em esgotos, porões abandonados e cavernas úmidas. Costuma atacar em bandos atraídos pelo cheiro de comida, mas é covarde quando ferido gravemente.
+* **PV:** 12
+* **Atributos:** Corpo: 7 | Mente: 8 | Espírito: 7 | Def: 9 | Res: 1 | Atk: 1d3 + 1
+* **Especial:** Tenta fugir se perder 5 PV.
+* **Loot:** 1d6 PO em bugigangas roubadas ou restos no ninho; chance de item (Mm).
+
+### **2. Goblin** *(Humanoide)*
+Pequena criatura esguia de pele esverdeada ou acinzentada, orelhas pontudas e olhar oportunista. Habita ruínas, florestas densas e galerias subterrâneas. Prefere emboscadas e ataques em grupo, usando adagas enferrujadas e armadilhas simples para compensar sua baixa estatura.
+* **PV:** 14
+* **Atributos:** Corpo: 8 | Mente: 7 | Espírito: 7 | Def: 10 | Res: 2 | Atk: 1d6
+* **Especial:** +1 no ataque se agir primeiro no turno.
+* **Loot:** 1d6 PO em moedas raspadas; chance de item (Mm).
+
+### **3. Esqueleto** *(Morto-vivo)*
+Ossada humanoide animada por energia necromântica, com órbitas vazias onde brilha uma centelha pálida. Guarda tumbas antigas, criptas esquecidas e campos de batalha amaldiçoados. Obedece cegamente às ordens de quem o ergueu, sem sentir medo ou dor.
+* **PV:** 13
+* **Atributos:** Corpo: 8 | Mente: 7 | Espírito: 7 | Def: 11 | Res: 2 | Atk: 1d6
+* **Especial:** Imune a dano Necrótico.
+* **Loot:** 1d6 PO em moedas antigas; chance de item (Mm).
+
+### **4. Aranha Gigante** *(Besta)*
+Aracnídeo predador do porte de um lobo, com abdômen quitinoso escuro e múltiplas cerdas sensoriais. Tece teias quase invisíveis entre copas de árvores, cavernas e ruínas sombrias. Espera pacientemente até que a presa fique presa antes de aplicar seu bote.
+* **PV:** 12
+* **Atributos:** Corpo: 7 | Mente: 8 | Espírito: 7 | Def: 10 | Res: 1 | Atk: 1d3 + 1
+* **Especial:** Ataca à distância média (teia/salto). Se atingir, o alvo perde 2m de movimento no próximo turno.
+* **Loot:** 1d6 PO em pertences de vítimas antigas; chance de item (Mm).
+
+### **5. Kobold** *(Humanoide)*
+Pequeno reptiliano bípede de escamas cor de barro e focinho estreito, que venera dragões e se esconde em minas profundas. Individualmente frágil, compensa com táticas de matilha, fundas e túneis estreitos onde aventureiros grandes têm dificuldade para manobrar.
+* **PV:** 11
+* **Atributos:** Corpo: 7 | Mente: 8 | Espírito: 7 | Def: 10 | Res: 1 | Atk: 1d3 + 1
+* **Especial:** Ataca à distância curta. Recebe +1 no ataque se houver outro Kobold próximo.
+* **Loot:** 1d6 PO em pepitas brutas; chance de item (Mm).
+
+### **6. Cultista** *(Humano)*
+Fanático encapuzado que serve a entidades ocultas, demônios ou deuses esquecidos. Reúne-se em porões urbanos, clareiras noturnas ou santuários profanados. Combate com adagas rituais e preces sombrias para sustentar sua própria vitalidade.
+* **PV:** 15
+* **Atributos:** Corpo: 7 | Mente: 7 | Espírito: 8 | Def: Fís: 10 / Mág: 11 | Res: 2 | Atk: 1d6
+* **Especial:** Ataca à distância média. Uma vez por combate, recupera 5 PV.
+* **Loot:** 1d6 PO e símbolo profano; chance de item (Mm).
+
+### **7. Perna Cabeluda** *(Morto-vivo)*
+Lenda urbana e rural do folclore pernambucano: uma perna humana decepada, musculosa e coberta de pelos ásperos, que se move aos saltos com velocidade assombrosa durante a madrugada. Ronda becos escuros, estradas de terra e praças desertas, surgindo do nada para derrubar viajantes solitários com rasteiras e chutes brutais.
+* **PV:** 12
+* **Atributos:** Corpo: 7 | Mente: 8 | Espírito: 7 | Def: 11 | Res: 1 | Atk: 1d6
+* **Especial:** Se atacar de surpresa ou com vantagem, o alvo testa Corpo ou fica *Caído*.
+* **Loot:** 1d6 PO em objetos perdidos pelas vítimas; chance de item (Mm).
+
+### **8. Mão-de-Cabelo** *(Aberração)*
+Entidade do folclore mineiro e paulista formada por um emaranhado vivo de longos cabelos negros e úmidos, que assume a forma de braços e mãos esqueléticas. Vive submersa em poços fundos, cacimbas, bicas e remansos de rios, arrastando desatentos que se inclinam sobre a água ao entardecer.
+* **PV:** 14
+* **Atributos:** Corpo: 8 | Mente: 7 | Espírito: 8 | Def: 10 | Res: 2 | Atk: 1d3 + 1
+* **Especial:** Ao acertar próximo a poços ou rios, o alvo fica *Agarrado* e é puxado 2m em direção à água (testa Corpo para se soltar).
+* **Loot:** 1d6 PO em anéis e moedas caídas no fundo do poço; chance de item (Mm).
+
+### **9. Tutu-Marambá** *(Fada)*
+Entidade noturna do folclore afro-brasileiro e rural que ronda casas de taipa, porteiras e beiras de mata ao cair da noite. Assume a forma de um vulto escuro de olhos brilhantes que emite assobios baixos e arrasta correntes ou galhos secos para amedrontar quem permanece fora de hora.
+* **PV:** 11
+* **Atributos:** Corpo: 7 | Mente: 8 | Espírito: 8 | Def: 10 | Res: 1 | Atk: 1d3 + 1
+* **Especial:** Uma vez por combate, seu assobio fantasmagórico faz um alvo à distância curta testar Espírito ou ficar *Amedrontado* por 1 turno.
+* **Loot:** 1d6 PO em amuletos e moedas deixadas em encruzilhadas; chance de item (Mm).
+
+### **10. Chibamba** *(Fada)*
+Espírito inquieto do folclore baiano de origem banto que se veste inteiramente com folhas de bananeira secas. Surge à noite em quintais, bananais e trilhas, dançando e girando como um redemoinho farfalhante que confunde a visão dos viajantes antes de investir com golpes rápidos.
+* **PV:** 13
+* **Atributos:** Corpo: 7 | Mente: 8 | Espírito: 8 | Def: 11 | Res: 1 | Atk: 1d6
+* **Especial:** Camuflado em folhas secas: ataques à distância contra ele sofrem Desvantagem enquanto estiver em mato ou plantações.
+* **Loot:** 1d6 PO em fumo, fitas e miçangas; chance de item (Mm).
+
+### **11. Rasga-Mortalha** *(Monstruosidade)*
+Ave noturna agourenta do folclore amazônico e nordestino: uma grande coruja de plumagem alva e olhar penetrante cujo piado estridente lembra o som de pano de mortalha sendo rasgado. Empoleira-se em cruzeiros, telhados e galhos secos de cemitérios, mergulhando silenciosamente sobre alvos isolados.
+* **PV:** 11
+* **Atributos:** Corpo: 7 | Mente: 8 | Espírito: 8 | Def: 11 | Res: 1 | Atk: 1d3 + 1
+* **Especial:** Pode voar. Ao acertar com seu mergulho, seu grito estridente obriga o alvo a testar Espírito ou sofrer -1 na Defesa até o fim do próximo turno.
+* **Loot:** 1d6 PO em penas brancas e objetos brilhantes no ninho; chance de item (Mm).
 
 ## **Nível 2 (XP: 3 cada)** {#nível-2-(xp:-3-cada)}
 
-| 1d6 | Criatura | Tipo | Atrib. | PV | Def | Res | Atk (Dano) | Especial |
-| :---- | :---- | :---- | :---- | :---- | :---- | :---- | :---- | :---- |
-| 1 | Orc Guerreiro | Humanoide | C: 9 M: 8 E: 8 | 18 | 13 | 3 | 1d6 \+ 3 | \+1 dano por 2 turnos ao entrar em fúria. |
-| 2 | Gnoll Caçador | Humanoide | C: 8 M: 9 E: 8 | 15 | 12 | 2 | 1d6 \+ 2 | Ataca a distância curta. Ignora furtividade leve. |
-| 3 | Zumbi Pútrido | Morto-vivo | C: 9 M: 8 E: 8 | 20 | 11 | 2 | 2d3 \+ 1 | Se cair a 0, volta com 1 PV se d6\=6 (1x). |
-| 4 | Harpia | Monstruosidade | C: 8 M: 9 E: 9 | 14 | Fís: 12 / Mág: 13 | 2 | 1d6 \+ 2 | Ataca a distância curta; pode voar. |
-| 5 | Armadura Animada | Construto | C: 9 M: 8 E: 9 | 17 | 14 | 3 | 2d3 \+ 1 | Atacante corpo a corpo sofre 1 de dano de impacto. |
-| 6 | Lobo Atroz | Besta | C: 9 M: 9 E: 8 | 18 | 13 | 3 | 1d6 \+ 2 | Se tirar Sucesso Crítico `[6, 6, X]`, o alvo cai (Caído). |
+### **1. Orc Guerreiro** *(Humanoide)*
+Combatente alto e corpulento, de pele acinzentada, presas salientes e armadura de couro batido. Vive em clãs nômades nas fronteiras selvagens e vales rochosos. Encara a batalha como prova de honra e se lança contra o inimigo mais forte sem hesitar.
+* **PV:** 18
+* **Atributos:** Corpo: 9 | Mente: 8 | Espírito: 8 | Def: 13 | Res: 3 | Atk: 1d6 + 3
+* **Especial:** Ao entrar em fúria, causa +1 de dano por 2 turnos.
+* **Loot:** 2d6 PO em espólios de guerra; chance de item (Mm).
+
+### **2. Gnoll Caçador** *(Humanoide)*
+Criatura feral de feições hienescas, pelagem manchada e riso agudo perturbador. Percorre savanas, cerrados e matas secas em grupos de caça. Rastreia suas presas pelo cheiro de sangue e não demonstra misericórdia contra alvos cansados.
+* **PV:** 15
+* **Atributos:** Corpo: 8 | Mente: 9 | Espírito: 8 | Def: 12 | Res: 2 | Atk: 1d6 + 2
+* **Especial:** Ataca à distância curta. Ignora furtividade leve graças ao faro aguçado.
+* **Loot:** 2d6 PO em ossos talhados e troféus; chance de item (Mm).
+
+### **3. Zumbi Pútrido** *(Morto-vivo)*
+Cadáver reanimado em decomposição, de movimentos cambaleantes e força bruta inesperada. Vaga por cemitérios profanados, pântanos e aldeias abandonadas. Mesmo quando recebe golpes letais, sua carcaça teima em se erguer novamente.
+* **PV:** 20
+* **Atributos:** Corpo: 9 | Mente: 8 | Espírito: 8 | Def: 11 | Res: 2 | Atk: 2d3 + 1
+* **Especial:** Se cair a 0 PV, rola `Mm`; se obtiver **M**, volta com metade dos PV (10 PV) (apenas 1x por combate).
+* **Loot:** 2d6 PO em pertences corroídos; chance de item (Mm).
+
+### **4. Harpia** *(Monstruosidade)*
+Ser alado com torso humanoide, garras de ave de rapina e canto hipnótico. Faz ninhos em penhascos costeiros, desfiladeiros e torres arruinadas. Aproveita sua mobilidade aérea para atacar de cima e recuar antes do contra-ataque.
+* **PV:** 14
+* **Atributos:** Corpo: 8 | Mente: 9 | Espírito: 9 | Def: Fís: 12 / Mág: 13 | Res: 2 | Atk: 1d6 + 2
+* **Especial:** Pode voar e ataca à distância curta com mergulhos rasantes.
+* **Loot:** 2d6 PO em objetos brilhantes no ninho; chance de item (Mm).
+
+### **5. Armadura Animada** *(Construto)*
+Conjunto vazio de placas metálicas mantido de pé por encantamentos antigos de guarda. Permanece imóvel como estátua em salões nobres e cofres até que intrusos ultrapassem seu perímetro, avançando em silêncio metálico.
+* **PV:** 17
+* **Atributos:** Corpo: 9 | Mente: 8 | Espírito: 9 | Def: 14 | Res: 3 | Atk: 2d3 + 1
+* **Especial:** Atacantes corpo a corpo sofrem 1 de dano de impacto ao golpear suas placas rígidas.
+* **Loot:** 2d6 PO em ligas metálicas raras; chance de item (Mm).
+
+### **6. Lobo Atroz** *(Besta)*
+Predador ancestral de porte muito superior ao de um lobo comum, com ombros largos e pelagem espessa. Caça em matilhas pelas florestas frias e serras altas, coordenando cercos para derrubar presas maiores antes de dilacerá-las.
+* **PV:** 18
+* **Atributos:** Corpo: 9 | Mente: 9 | Espírito: 8 | Def: 13 | Res: 3 | Atk: 1d6 + 2
+* **Especial:** Se obtiver Sucesso Crítico `[6, 6, X]`, o alvo cai no chão (*Caído*).
+* **Loot:** 2d6 PO em peles e presas valorizadas; chance de item (Mm).
+
+### **7. Cabra Cabriola** *(Monstruosidade)*
+Assombração clássica do folclore nordestino (Pernambuco e Alagoas): um bode negro gigantesco de olhos em brasa, que solta faíscas pelas narinas e emite berros que imitam choro de criança ou gargalhadas. Caminha sobre telhados de vilarejos à noite, escalando paredes verticais para espreitar viajantes e moradores.
+* **PV:** 17
+* **Atributos:** Corpo: 9 | Mente: 9 | Espírito: 8 | Def: 13 | Res: 2 | Atk: 1d6 + 2
+* **Especial:** Escala telhados e paredes normalmente. Recarrega em `d6 = 5 ou 6`: cospe faíscas à distância curta causando `1d6 + 2` de dano de Fogo.
+* **Loot:** 2d6 PO em amuletos deixados por moradores assustados; chance de item (Mm).
+
+### **8. Bradador** *(Morto-vivo)*
+Espectro errante do folclore do Sul e Sudeste (Paraná, São Paulo e Santa Catarina): a alma penada de um errante condenado a vagar pelos campos abertos e capões de mato após a meia-noite. Sua presença é anunciada por um grito lancinante e desumano que ecoa a quilômetros, gelando o sangue de quem o escuta.
+* **PV:** 16
+* **Atributos:** Corpo: 8 | Mente: 8 | Espírito: 9 | Def: Fís: 12 / Mág: 13 | Res: 2 | Atk: 2d3 + 1
+* **Especial:** Uma vez por combate, solta seu brado ensurdecedor: alvos à distância curta testam Espírito ou ficam *Amedrontados* por 1d3 turnos.
+* **Loot:** 2d6 PO em moedas antigas de tropeiros; chance de item (Mm).
+
+### **9. Alamoa** *(Morto-vivo)*
+Espectro sedutor de Fernando de Noronha e do litoral pernambucano: surge sob a luz da lua como uma bela mulher de longos cabelos dourados que atrai viajantes para os penhascos e praias desertas. Ao ficar cara a cara com sua presa, sua carne se desfaz instantaneamente em um esqueleto envolto em fogo-fátuo azulado.
+* **PV:** 16
+* **Atributos:** Corpo: 8 | Mente: 9 | Espírito: 9 | Def: Fís: 12 / Mág: 13 | Res: 2 | Atk: 1d6 + 2
+* **Especial:** Uma vez por combate, ao revelar sua forma esquelética luminosa, o alvo testa Espírito ou fica *Amedrontado* por 1d3 turnos.
+* **Loot:** 2d6 PO em joias marinhas e moedas de naufrágios; chance de item (Mm).
+
+### **10. Papa-Figo** *(Humanoide)*
+Figura macabra do folclore recifense e nordestino: um homem pálido, esquálido e silencioso, vestido com roupas escuras e chapéu de aba larga, carregando sempre um grande saco de estopa às costas. Ronda vielas, mercados e estradas ermas ao entardecer em busca de vítimas para alimentar sua maldição.
+* **PV:** 18
+* **Atributos:** Corpo: 9 | Mente: 8 | Espírito: 8 | Def: 13 | Res: 2 | Atk: 2d3 + 1
+* **Especial:** Se acertar um ataque surpresa ou com vantagem, tenta imobilizar o alvo em seu saco (*Agarrado*, testa Corpo para escapar).
+* **Loot:** 2d6 PO em moedas e frascos de ervas escuras; chance de item (Mm).
+
+### **11. Caboclo d'Água** *(Monstruosidade)*
+Ser anfíbio temido ao longo do Rio São Francisco: baixo, musculoso e atarracado, com pele escura brilhante, olhos avermelhados e força descomunal. Vive nas corredeiras e barrancos, virando canoas, rasgando redes e atacando barqueiros que não lhe jogam fumo de rolo nas águas.
+* **PV:** 19
+* **Atributos:** Corpo: 9 | Mente: 8 | Espírito: 8 | Def: 13 | Res: 3 | Atk: 1d6 + 3
+* **Especial:** Nada com velocidade dobrada; na água, tem Vantagem em ataques corpo a corpo e pode tentar virar pequenas embarcações.
+* **Loot:** 2d6 PO em fumo, anzóis encantados e moedas do fundo do rio; chance de item (Mm).
 
 ## **Nível 3 (XP: 5 cada)** {#nível-3-(xp:-5-cada)}
 
-| 1d6 | Criatura | Tipo | Atrib. | PV | Def | Res | Atk (Dano) | Especial |
-| :---- | :---- | :---- | :---- | :---- | :---- | :---- | :---- | :---- |
-| 1 | Ogro | Gigante | C: 10 M: 9 E: 9 | 26 | 14 | 4 | 2d6 \+ 1 | Erro crítico do alvo reduz 1 de Defesa por 1 turno. |
-| 2 | Bugbear | Humanoide | C: 10 M: 10 E: 9 | 22 | 15 | 4 | 2d6 | 1º ataque furtivo causa \+2 dano. |
-| 3 | Carniçal | Morto-vivo | C: 9 M: 10 E: 10 | 20 | Fís: 14 / Mág: 15 | 3 | 2d3 \+ 2 | Alvo testa Corpo ou fica Paralisado por 1 turno. |
-| 4 | Gárgula | Elemental | C: 10 M: 9 E: 9 | 24 | 16 | 4 | 2d6 | Reduz todo dano físico comum em \-1 extra. |
-| 5 | Mago Renegado | Humano | C: 9 M: 10 E: 10 | 18 | Fís: 13 / Mág: 16 | 3 | 2d6 | Ataca a distância média. Usa Espírito para Defesa Física. |
-| 6 | Urso-Coruja | Besta | C: 10 M: 9 E: 9 | 26 | 15 | 4 | 2d6 \+ 1 | Se acertar, agarra o alvo (movimento 0 até testar Corpo). |
+### **1. Ogro** *(Gigante)*
+Brutamontes corpulento de mais de dois metros e meio, pele grossa e temperamento explosivo. Vive em cavernas de montanha e pontes isoladas, cobrando pedágio ou devorando viajantes. Empunha troncos arrancados como clavas devastadoras.
+* **PV:** 26
+* **Atributos:** Corpo: 10 | Mente: 9 | Espírito: 9 | Def: 14 | Res: 4 | Atk: 2d6 + 1
+* **Especial:** Erro crítico do alvo ao atacá-lo reduz 1 de Defesa do alvo por 1 turno.
+* **Loot:** 3d6 PO em saques acumulados na caverna; chance de item (Mm).
+
+### **2. Bugbear** *(Humanoide)*
+Goblinóide peludo e musculoso, surpreendentemente silencioso apesar de seu tamanho. Habita florestas fechadas e ruínas subterrâneas, preferindo esgueirar-se nas sombras para desferir um primeiro golpe brutal antes que a vítima perceba o perigo.
+* **PV:** 22
+* **Atributos:** Corpo: 10 | Mente: 10 | Espírito: 9 | Def: 15 | Res: 4 | Atk: 2d6
+* **Especial:** O 1º ataque furtivo no combate causa +2 de dano extra.
+* **Loot:** 3d6 PO em bolsas roubadas; chance de item (Mm).
+
+### **3. Carniçal** *(Morto-vivo)*
+Morto-vivo faminto de pele pálida, língua longa e garras infectadas por toxina cadavérica. Rasteja por catacumbas e cemitérios antigos em busca de carne fresca, tentando paralisar suas presas com um único arranhão.
+* **PV:** 20
+* **Atributos:** Corpo: 9 | Mente: 10 | Espírito: 10 | Def: Fís: 14 / Mág: 15 | Res: 3 | Atk: 2d3 + 2
+* **Especial:** Ao acertar, o alvo testa Corpo ou fica *Paralisado* por 1 turno.
+* **Loot:** 3d6 PO em joias funerárias; chance de item (Mm).
+
+### **4. Gárgula** *(Elemental)*
+Escultura alada de pedra animada por magia elemental da terra. Pousa imóvel em beirais de catedrais, fortalezas e ruínas antigas, confundindo-se com a arquitetura até saltar sobre intrusos.
+* **PV:** 24
+* **Atributos:** Corpo: 10 | Mente: 9 | Espírito: 9 | Def: 16 | Res: 4 | Atk: 2d6
+* **Especial:** Pele rochosa: reduz todo dano físico comum recebido em -1 extra.
+* **Loot:** 3d6 PO em lascas de pedra encantada; chance de item (Mm).
+
+### **5. Mago Renegado** *(Humano)*
+Conjurador expulso de ordens arcanas por experimentos proibidos. Refugia-se em torres isoladas ou masmorras, cercado por tomos antigos, protegendo-se com barreiras místicas enquanto dispara feitiços à distância.
+* **PV:** 18
+* **Atributos:** Corpo: 9 | Mente: 10 | Espírito: 10 | Def: Fís: 13 / Mág: 16 | Res: 3 | Atk: 2d6
+* **Especial:** Ataca à distância média. Usa seu atributo Espírito para calcular Defesa Física (barreiras arcanas).
+* **Loot:** 3d6 PO em pergaminhos e componentes; chance de item (Mm).
+
+### **6. Urso-Coruja** *(Besta)*
+Fera híbrida territorial com corpo maciço de urso, penas espessas e cabeça de coruja com bico curvado. Caça ao crepúsculo em matas antigas, investindo com rugidos agudos para imobilizar a presa com suas garras.
+* **PV:** 26
+* **Atributos:** Corpo: 10 | Mente: 9 | Espírito: 9 | Def: 15 | Res: 4 | Atk: 2d6 + 1
+* **Especial:** Se acertar o ataque, agarra o alvo (*Agarrado*, movimento 0 até vencer um teste de Corpo).
+* **Loot:** 3d6 PO em penas raras e garras; chance de item (Mm).
+
+### **7. Pisadeira** *(Fada)*
+Entidade do folclore paulista e mineiro: uma mulher muito magra e idosa, de dedos longos e unhas afiladas, cabelos desgrenhados e olhos que brilham no escuro como brasas. Costuma espreitar telhados e vigas de casas rurais e acampamentos, descendo sem fazer som para pisar no peito de quem dorme ou descansa descuidado, roubando-lhe o fôlego.
+* **PV:** 20
+* **Atributos:** Corpo: 9 | Mente: 10 | Espírito: 10 | Def: Fís: 14 / Mág: 15 | Res: 3 | Atk: 2d3 + 3
+* **Especial:** Ao acertar um alvo *Caído*, *Inconsciente* ou desprevenido, comprime-lhe o peito, deixando-o *Paralisado* por 1 turno (testa Espírito para resistir).
+* **Loot:** 3d6 PO em moedas antigas e ervas secas; chance de item (Mm).
+
+### **8. Corpo-Seco** *(Morto-vivo)*
+Criatura macabra do folclore caipira e do Sudeste: um cadáver ressequido cuja carne parece casca de árvore retorcida, rejeitado tanto pelo céu quanto pela terra por sua maldade em vida. Vive agarrado aos troncos altos de figueiras e estradas ermas, saltando sobre viajantes para sufocá-los e sugar sua vitalidade.
+* **PV:** 24
+* **Atributos:** Corpo: 10 | Mente: 9 | Espírito: 9 | Def: 15 | Res: 4 | Atk: 2d6
+* **Especial:** Imune a dano Necrótico e Veneno. Ao saltar de emboscadas, agarra o alvo (*Agarrado*) e drena 2 PV por turno até que a vítima se solte.
+* **Loot:** 3d6 PO em relíquias secas; chance de item (Mm).
+
+### **9. Barba-Ruiva** *(Fada)*
+Entidade aquática enigmática da Lagoa de Paranaguá (Piauí): metade homem, metade ser das águas, que muda de aparência ao longo do dia — surge como menino pela manhã, jovem à tarde e ancião de longas barbas ruivas à noite. Atrai banhistas e pescadores desavisados para o fundo das lagoas tranquilas.
+* **PV:** 22
+* **Atributos:** Corpo: 9 | Mente: 10 | Espírito: 10 | Def: Fís: 14 / Mág: 15 | Res: 3 | Atk: 2d6
+* **Especial:** Em combate aquático ou às margens, pode arrastar o alvo para a água profunda (*Sufocando* se falhar em teste de Corpo).
+* **Loot:** 3d6 PO em conchas raras e moedas antigas; chance de item (Mm).
+
+### **10. Pé-de-Garrafa** *(Monstruosidade)*
+Fera misteriosa do cerrado e das matas do Centro-Oeste: criatura peluda e solitária cujos pés terminam em cascos circulares que deixam rastros fundos idênticos a fundos de garrafa. Emite gritos aflitos que imitam vozes humanas perdidas para atrair caçadores para longe das trilhas seguras.
+* **PV:** 24
+* **Atributos:** Corpo: 10 | Mente: 9 | Espírito: 9 | Def: 15 | Res: 4 | Atk: 2d6 + 1
+* **Especial:** Imita vozes humanas com perfeição; se o alvo cair na emboscada, sofre +2 de dano no primeiro ataque.
+* **Loot:** 3d6 PO em pertences de caçadores perdidos; chance de item (Mm).
+
+### **11. Gorjala** *(Gigante)*
+Gigante peludo do folclore amazônico (região do Tapajós), semelhante a um grande primata de olhos amarelos brilhantes e voz cavernosa. Habita grotões úmidos e árvores colossais, atacando acampamentos para roubar brasas de fogo e esmagando intrusos com raízes retorcidas.
+* **PV:** 25
+* **Atributos:** Corpo: 10 | Mente: 9 | Espírito: 9 | Def: 14 | Res: 4 | Atk: 2d3 + 3
+* **Especial:** Se acertar com sua clava de raiz, o alvo testa Corpo ou fica *Atordoado* até o final do próximo turno.
+* **Loot:** 3d6 PO em pedras brilhantes e troféus da mata; chance de item (Mm).
 
 ## **Nível 4 (XP: 7 cada)** {#nível-4-(xp:-7-cada)}
 
-| 1d6 | Criatura | Tipo | Atrib. | PV | Def | Res | Atk (Dano) | Especial |
-| :---- | :---- | :---- | :---- | :---- | :---- | :---- | :---- | :---- |
-| 1 | Troll | Gigante | C: 11 M: 10 E: 10 | 34 | 16 | 5 | 2d6 \+ 2 | Cura 2 PV/turno (exceto se sofrer dano de Fogo/Ácido). |
-| 2 | Mantícora | Monstruosidade | C: 10 M: 11 E: 10 | 30 | 15 | 4 | 2d3 \+ 2 | Ataca 2x por turno à distância curta. |
-| 3 | Aparição | Morto-vivo | C: 10 M: 11 E: 11 | 26 | Fís: 16 / Mág: 17 | 5 | 2d6 \+ 2 | Atravessa paredes; dano Necrótico. |
-| 4 | Minotauro | Humanoide | C: 11 M: 10 E: 10 | 34 | 16 | 5 | 2d6 \+ 3 | Dano dobrado na investida se correr 4m antes. |
-| 5 | Elemental Terra | Elemental | C: 11 M: 10 E: 10 | 34 | 17 | 6 | 2d6 \+ 2 | Arremessa pedras a curta distância (`2d3+2`). |
-| 6 | Súcubo | Corruptor | C: 10 M: 11 E: 11 | 28 | Fís: 15 / Mág: 17 | 4 | 2d6 \+ 1 | Alvo testa Mente ou ataca aliado próximo. |
+### **1. Troll** *(Gigante)*
+Gigante esguio de pele esverdeada e verrugosa, braços compridos e fome insaciável. Habita pântanos sombrios e florestas úmidas, regenerando ferimentos graves em questão de segundos a menos que seja queimado por fogo ou ácido.
+* **PV:** 34
+* **Atributos:** Corpo: 11 | Mente: 10 | Espírito: 10 | Def: 16 | Res: 5 | Atk: 2d6 + 2
+* **Especial:** Cura 2 PV por turno (exceto se tiver sofrido dano de Fogo ou Ácido desde seu último turno).
+* **Loot:** 4d6 PO em pertences de viajantes; chance de item (Mm).
+
+### **2. Mantícora** *(Monstruosidade)*
+Besta alada com corpo de leão, rosto humanoide feroz e cauda eriçada de espinhos venenosos. Sobrevoa cânions e planícies áridas, disparando rajadas de espinhos antes de descer para devorar os sobreviventes.
+* **PV:** 30
+* **Atributos:** Corpo: 10 | Mente: 11 | Espírito: 10 | Def: 15 | Res: 4 | Atk: 2d3 + 2
+* **Especial:** Ataca 2x por turno à distância curta disparando espinhos da cauda.
+* **Loot:** 4d6 PO em troféus de caça; chance de item (Mm).
+
+### **3. Aparição** *(Morto-vivo)*
+Espírito vingativo translúcido que irradia frio sepulcral. Assombra castelos arruinados, campos de batalha antigos e florestas enevoadas, atravessando paredes sólidas para drenar a força vital dos vivos.
+* **PV:** 26
+* **Atributos:** Corpo: 10 | Mente: 11 | Espírito: 11 | Def: Fís: 16 / Mág: 17 | Res: 5 | Atk: 2d6 + 2
+* **Especial:** Atravessa paredes e obstáculos sólidos; seus ataques causam dano Necrótico.
+* **Loot:** 4d6 PO em joias antigas; chance de item (Mm).
+
+### **4. Minotauro** *(Humanoide)*
+Guerreiro colossal com corpo musculoso e cabeça de touro, dotado de senso de direção infalível em labirintos, ruínas subterrâneas e desfiladeiros. Investe de cabeça baixa com força suficiente para esmagar escudos.
+* **PV:** 34
+* **Atributos:** Corpo: 11 | Mente: 10 | Espírito: 10 | Def: 16 | Res: 5 | Atk: 2d6 + 3
+* **Especial:** Dano dobrado na investida se correr pelo menos 4m em linha reta antes de atacar.
+* **Loot:** 4d6 PO em moedas e armas pesadas; chance de item (Mm).
+
+### **5. Elemental da Terra** *(Elemental)*
+Massa ambulante de rocha bruta, cristais e solo compacto, invocada de planos elementais ou nascida em cavernas profundas. Move-se com tremor constante, esmagando inimigos com punhos de granito.
+* **PV:** 34
+* **Atributos:** Corpo: 11 | Mente: 10 | Espírito: 10 | Def: 17 | Res: 6 | Atk: 2d6 + 2
+* **Especial:** Arremessa pedras à distância curta causando `2d3 + 2` de dano de Concussão.
+* **Loot:** 4d6 PO em gemas incrustadas no corpo; chance de item (Mm).
+
+### **6. Súcubo** *(Corruptor)*
+Demônio sedutor de asas membranosas que assume formas encantadoras para infiltrar cortes nobres e acampamentos. Manipula mentes fracas para semear discórdia antes de revelar sua verdadeira natureza.
+* **PV:** 28
+* **Atributos:** Corpo: 10 | Mente: 11 | Espírito: 11 | Def: Fís: 15 / Mág: 17 | Res: 4 | Atk: 2d6 + 1
+* **Especial:** Recarrega em `d6 = 5 ou 6`: força o alvo à distância curta a testar Mente ou atacar o aliado mais próximo.
+* **Loot:** 4d6 PO em joias refinadas; chance de item (Mm).
+
+### **7. Cumacanga** *(Morto-vivo)*
+Lenda aterradora do folclore maranhense e paraense: sob o peso de uma maldição ancestral, a cabeça se desprende do corpo à meia-noite e sai voando pelos céus envolta em chamas azuladas, deixando um rastro luminoso sobre matas, rios e povoados enquanto procura sangue e energia vital antes do amanhecer.
+* **PV:** 28
+* **Atributos:** Corpo: 10 | Mente: 11 | Espírito: 11 | Def: Fís: 15 / Mág: 17 | Res: 4 | Atk: 2d6 + 2 (Fogo/Necrótico)
+* **Especial:** Voa (ignora terreno difícil). Ao acertar, o alvo testa Corpo ou fica *Em Chamas*; sempre que causa dano, drena e recupera 2 PV.
+* **Loot:** 4d6 PO em talismãs e oferendas; chance de item (Mm).
+
+### **8. Capelobo** *(Monstruosidade)*
+Fera noturna temida nas matas do Maranhão, Pará e Amazônia: possui torso humanoide coberto de pelos escuros, pés redondos e pesados como cascos de anta, e a cabeça alongada de um tamanduá-bandeira. Caça silenciosamente nos igapós, usando sua força descomunal para abraçar a vítima e perfurar-lhe o crânio com a língua rígida.
+* **PV:** 33
+* **Atributos:** Corpo: 11 | Mente: 10 | Espírito: 10 | Def: 16 | Res: 5 | Atk: 2d6 + 2
+* **Especial:** Se acertar com Sucesso Crítico `[6, 6, X]` ou contra um alvo já *Agarrado*, perfura com a língua rígida causando +1d6 de dano extra e deixando o alvo *Sangrando*.
+* **Loot:** 4d6 PO em peles grossas e ossos raros; chance de item (Mm).
+
+### **9. Romãozinho** *(Corruptor)*
+Personagem maldito do folclore goiano e mineiro: um menino magro de olhar malicioso que nunca cresce nem morre, condenado a vagar pelas estradas rurais pregando peças cruéis, quebrando telhas, abrindo porteiras e atraindo desgraça para quem cruza seu caminho.
+* **PV:** 27
+* **Atributos:** Corpo: 10 | Mente: 11 | Espírito: 11 | Def: Fís: 16 / Mág: 17 | Res: 4 | Atk: 2d6 + 2
+* **Especial:** Sorte Maldita: 1x por combate, força um atacante que acabou de acertá-lo a rolar novamente os dados (ficando com o pior resultado).
+* **Loot:** 4d6 PO em moedas roubadas e bugigangas; chance de item (Mm).
+
+### **10. Porca dos Sete Leitões** *(Morto-vivo)*
+Assombração do interior paulista e do Sul: uma porca espectral gigantesca e esquelética que aparece à meia-noite em encruzilhadas e estradas de terra, escoltada por exatamente sete leitões luminosos que correm em disparada por entre as pernas dos viajantes e montarias.
+* **PV:** 32 *(Porca)*
+* **Atributos (Porca):** Corpo: 11 | Mente: 10 | Espírito: 10 | Def: 16 | Res: 5 | Atk: 2d6 + 2
+* **Leitões Espectrais (×7):** Cada leitão possui **PV:** 6 | Corpo: 7 | Mente: 8 | Espírito: 7 | Def: 10 | Res: 0 | Atk: 1d3 (ao acertar, o alvo testa Mente ou fica *Caído*).
+* **Especial:** **Enxame Infindável:** Sempre há exatamente 7 leitões em campo; se 4 ou mais leitões forem mortos (restando 3 ou menos), no início de seu próximo turno a Porca solta um grunhido espectral e renova todos os mortos, restaurando o enxame para 7 leitões. Derrotar a Porca dissipa imediatamente todos os leitões restantes.
+* **Loot:** 4d6 PO em ferraduras de prata e moedas antigas; chance de item (Mm).
+
+### **11. Matinta Perera** *(Fada)*
+Figura lendária do folclore amazônico e paraense: uma velha misteriosa que de dia caminha curvada entre povoados e à noite se transforma em ave agourenta, empoleirando-se nos telhados para soltar um assobio agudo que atormenta a mente até que lhe prometam tabaco ou café.
+* **PV:** 29
+* **Atributos:** Corpo: 10 | Mente: 11 | Espírito: 11 | Def: Fís: 15 / Mág: 17 | Res: 5 | Atk: 2d6 + 2 (Psíquico)
+* **Especial:** Alterna entre forma humana e ave noturna (voo); seu assobio maldito ataca à distância média e obriga o alvo a testar Espírito ou ficar *Amedrontado* por 1 turno.
+* **Loot:** 4d6 PO em fumo, ervas raras e amuletos; chance de item (Mm).
 
 ## **Nível 5 (XP: 10 cada)** {#nível-5-(xp:-10-cada)}
 
-| 1d6 | Criatura | Tipo | Atrib. | PV | Def | Res | Atk (Dano) | Especial |
-| :---- | :---- | :---- | :---- | :---- | :---- | :---- | :---- | :---- |
-| 1 | Gigante da Colina | Gigante | C: 12 M: 11 E: 11 | 45 | 17 | 6 | 2d6 \+ 4 | Arremessa pedras a curta distância (`2d6`). |
-| 2 | Wyvern | Dragão | C: 12 M: 11 E: 11 | 44 | Fís: 18 / Mág: 16 | 6 | 2d6 \+ 3 | Ataca a distância média. Veneno: 2 dano/turno (3t). |
-| 3 | Beholder Menor | Aberração | C: 11 M: 12 E: 12 | 38 | Fís: 17 / Mág: 18 | 6 | 2d6 \+ 3 | Ataca 2 alvos por turno à distância curta. |
-| 4 | Cavaleiro Negro | Humano | C: 12 M: 11 E: 11 | 45 | 19 | 7 | 2d6 \+ 4 | Aura: \-1 ataque para inimigos adjacentes. |
-| 5 | Quimera | Monstruosidade | C: 12 M: 11 E: 11 | 44 | 18 | 6 | 1d6 \+ 3 | Ataca 3x por turno (mordida, chifre e garra). |
-| 6 | Golem Ferro | Construto | C: 12 M: 11 E: 11 | 45 | 18 | 7 | 2d6 \+ 4 | Imune a veneno/sono; reduz o primeiro dano recebido à metade. |
+### **1. Gigante da Colina** *(Gigante)*
+Colosso rústico de quase cinco metros de altura, pele bronzeada e apetite voraz. Vaga por serras e vales distantes saqueando rebanhos e caravanas, usando pedregulhos como projéteis devastadores.
+* **PV:** 45
+* **Atributos:** Corpo: 12 | Mente: 11 | Espírito: 11 | Def: 17 | Res: 6 | Atk: 2d6 + 4
+* **Especial:** Arremessa pedras à distância curta causando `2d6` de dano de Concussão.
+* **Loot:** 5d6 PO em sacos de saque; chance de item (Mm).
+
+### **2. Wyvern** *(Dragão)*
+Parente selvagem e bípede dos dragões verdadeiros, com asas amplas e ferrão venenoso na ponta da cauda. Nidifica em picos rochosos e mergulha sobre gado, cavalos e grupos de aventureiros desprotegidos.
+* **PV:** 44
+* **Atributos:** Corpo: 12 | Mente: 11 | Espírito: 11 | Def: Fís: 18 / Mág: 16 | Res: 6 | Atk: 2d6 + 3
+* **Especial:** Voa e ataca à distância média. Seu ferrão aplica Veneno: 2 de dano contínuo por turno (3 turnos, testa Corpo para encerrar).
+* **Loot:** 5d6 PO em escamas e ferrão valioso; chance de item (Mm).
+
+### **3. Beholder Menor** *(Aberração)*
+Esfera flutuante de carne coriácea com um olho central inquieto e pedúnculos oculares menores ao redor. Habita cavernas subterrâneas e ruínas planares, disparando raios energéticos contra múltiplos oponentes.
+* **PV:** 38
+* **Atributos:** Corpo: 11 | Mente: 12 | Espírito: 12 | Def: Fís: 17 / Mág: 18 | Res: 6 | Atk: 2d6 + 3
+* **Especial:** Ataca 2 alvos distintos por turno à distância curta com raios oculares.
+* **Loot:** 5d6 PO em cristais planares; chance de item (Mm).
+
+### **4. Cavaleiro Negro** *(Humano)*
+Guerreiro caído envolto em armadura sombria marcada por juramentos quebrados. Cavalga estradas desoladas ou guarda fortalezas amaldiçoadas, emanando uma aura de pavor que abala a firmeza dos adversários.
+* **PV:** 45
+* **Atributos:** Corpo: 12 | Mente: 11 | Espírito: 11 | Def: 19 | Res: 7 | Atk: 2d6 + 4
+* **Especial:** Aura Sombria: inimigos adjacentes sofrem -1 em suas jogadas de ataque.
+* **Loot:** 5d6 PO e peças de armadura sombria; chance de item (Mm).
+
+### **5. Quimera** *(Monstruosidade)*
+Besta tricéfala terrível com cabeças de leão, cabra e dragão, sustentada por asas coriáceas. Caça em regiões montanhosas, atacando simultaneamente com mordidas, chifradas e garras em fúria frenética.
+* **PV:** 44
+* **Atributos:** Corpo: 12 | Mente: 11 | Espírito: 11 | Def: 18 | Res: 6 | Atk: 1d6 + 3
+* **Especial:** Ataca 3x por turno (mordida, chifre e garra).
+* **Loot:** 5d6 PO em tesouros do covil; chance de item (Mm).
+
+### **6. Golem de Ferro** *(Construto)*
+Autômato imponente forjado em ferro maciço e runas arcanas, criado para proteger cofres reais e templos antigos por séculos. Marcha inexoravelmente sem jamais cansar ou ceder a encantamentos mentais.
+* **PV:** 45
+* **Atributos:** Corpo: 12 | Mente: 11 | Espírito: 11 | Def: 18 | Res: 7 | Atk: 2d6 + 4
+* **Especial:** Imune a veneno e sono; reduz o primeiro dano recebido em cada combate à metade.
+* **Loot:** 5d6 PO em núcleo rúnico e ferro nobre; chance de item (Mm).
+
+### **7. Quibungo** *(Gigante)*
+Ogro aterrador do folclore baiano de origem banto: um gigante negro, coberto de pelos grossos e com uma enorme boca escancarada bem no meio das costas, que se abre quando ele se curva. Ronda estradas rurais e engenhos ao cair da noite, fingindo ser um velho inofensivo antes de agarrar presas e atirá-las em sua boca dorsal.
+* **PV:** 44
+* **Atributos:** Corpo: 12 | Mente: 11 | Espírito: 11 | Def: 18 | Res: 7 | Atk: 2d6 + 4
+* **Especial:** Se agarrar um alvo (*Agarrado*), no turno seguinte pode jogá-lo na boca das costas, causando `2d6 + 4` de dano automático por turno enquanto mantiver a presa agarrada.
+* **Loot:** 5d6 PO em bens saqueados de viajantes; chance de item (Mm).
+
+### **8. Anhangá** *(Fada)*
+Espírito protetor da fauna na mitologia Tupi, frequentemente manifestado como um grande cervo branco com olhos que ardem como brasas e galhada coberta de musgo luminoso. Vaga pelas matas virgens punindo caçadores gananciosos que matam fêmeas com filhotes ou abatem além do necessário para sobreviver.
+* **PV:** 38
+* **Atributos:** Corpo: 11 | Mente: 12 | Espírito: 12 | Def: Fís: 17 / Mág: 19 | Res: 6 | Atk: 2d6 + 3 (Fogo/Psíquico)
+* **Especial:** Olhos Flamejantes: recarrega em `d6 = 5 ou 6` para lançar ilusões na floresta ou amaldiçoar quem feriu animais da mata (alvo testa Espírito ou fica *Amedrontado* e sofre Desvantagem contra ele).
+* **Loot:** 5d6 PO em ervas sagradas e chifre luminoso; chance de item (Mm).
+
+### **9. Kurupi** *(Fada)*
+Entidade selvagem e atarracada da mitologia Guarani que habita o fundo das florestas fechadas. Dotado de pés virados para trás e força muscular impressionante, protege a selva contra invasores descuidados, laçando e arrastando presas para os grotões escuros.
+* **PV:** 40
+* **Atributos:** Corpo: 12 | Mente: 11 | Espírito: 11 | Def: 18 | Res: 6 | Atk: 2d6 + 4
+* **Especial:** Laço da Mata: ataca à distância curta e puxa o alvo 4m até ele, deixando-o *Agarrado* (testa Corpo para se soltar).
+* **Loot:** 5d6 PO em cipós encantados e relíquias da mata; chance de item (Mm).
+
+### **10. Lobisomem do Sertão** *(Monstruosidade)*
+Maldição temida nos confins do Brasil: nas noites de lua cheia ou sexta-feira, o amaldiçoado assume a forma de um lobo corpulento de orelhas compridas e caídas, pelo duro e olhos injetados de sangue. Percorre sete encruzilhadas antes do amanhecer devorando o que encontrar pela frente.
+* **PV:** 44
+* **Atributos:** Corpo: 12 | Mente: 11 | Espírito: 11 | Def: 18 | Res: 7 | Atk: 2d6 + 4
+* **Especial:** Reduz todo dano físico comum em -2, exceto armas de prata ou mágicas; se obtiver Sucesso Crítico `[6, 6, X]`, o alvo fica *Sangrando*.
+* **Loot:** 5d6 PO em roupas rasgadas e presas; chance de item (Mm).
+
+### **11. Mãe-do-Ouro** *(Elemental)*
+Entidade luminosa do folclore de Minas Gerais, Goiás e Mato Grosso: manifesta-se como uma bola de fogo dourado ou uma mulher radiante de cabelos luminosos que flutua sobre serras e córregos indicando jazidas de ouro. Protege os veios minerais com calor intenso, cegando e desorientando garimpeiros gananciosos.
+* **PV:** 38
+* **Atributos:** Corpo: 11 | Mente: 12 | Espírito: 12 | Def: Fís: 17 / Mág: 19 | Res: 6 | Atk: 2d6 + 3 (Fogo/Radiante)
+* **Especial:** Voa. Recarrega em `d6 = 5 ou 6`: emite um clarão dourado que obriga inimigos adjacentes a testar Corpo ou ficarem *Cegos* por 1 turno.
+* **Loot:** 5d6 PO em pepitas de ouro puro; chance de item (Mm).
 
 ## **Ameaças de Alto Nível (6 a 10)** {#ameaças-de-alto-nível-(6-a-10)}
 
 Estas criaturas são pensadas para encontros climáticos ou chefes de campanha.
 
-| Nível | Criatura | Tipo | Atrib. | PV | Def | Res | Atk (Dano) | XP | Especial |
-| :---- | :---- | :---- | :---- | :---- | :---- | :---- | :---- | :---- | :---- |
-| 6 | Hidra | Dragão | C: 13 M: 13 E: 13 | 65 | Fís: 18 / Mág: 18 | 8 | 1d6 \+ 3 (por cabeça) | 15 \* cabeça | Começa com 3 cabeças (3 ataques). Perde 1 cabeça a cada 20 PV perdidos; se não sofrer Fogo/Ácido no turno, regenera 10 PV e ganha \+1 cabeça (máx. 5). |
-| 7 | Observador (Beholder) | Aberração | C: 14 M: 14 E: 15 | 75 | Fís: 19 / Mág: 20 | 9 | 3d6 \+ 2 | 20 | Cone antimagia desativa poderes de Espírito por 1 turno. |
-| 8 | Vampiro Ancião | Morto-vivo | C: 15 M: 15 E: 15 | 85 | Fís: 21 / Mág: 20 | 10 | 3d6 \+ 3 | 25 | Escapa de dano fatal 1x (vira névoa com 1 PV). |
-| 9 | Lich | Morto-vivo | C: 15 M: 16 E: 17 | 95 | Fís: 21 / Mág: 23 | 10 | 3d6 \+ 5 | 35 | Se obtiver Sucesso Crítico `[6, 6, X]`, o alvo cai para 1 PV. |
-| 10 | Dragão | Dragão | C: 18 M: 16 E: 18 | 140 | Fís: 23 / Mág: 23 | 12 | 4d6 \+ 4 | 50 | Sopro: Área Grande (6m), recarrega em d6 = 5 ou 6. |
+### **Hidra — Nível 6** *(Dragão • XP: 15 por cabeça)*
+Monstro reptiliano aquático de múltiplas cabeças serpentinas que emergem de pântanos profundos e rios turvos. Cortar uma de suas cabeças sem cauterizar o ferimento apenas estimula o surgimento de novas bocas famintas.
+* **PV:** 65
+* **Atributos:** Corpo: 13 | Mente: 13 | Espírito: 13 | Def: Fís: 18 / Mág: 18 | Res: 8 | Atk: 1d6 + 3 (por cabeça)
+* **Especial:** Começa com 3 cabeças (3 ataques por turno). Perde 1 cabeça a cada 20 PV perdidos; se não sofrer Fogo ou Ácido no turno, regenera 10 PV e ganha +1 cabeça (máx. 5).
+* **Loot:** `(6 * nº de jogadores * 1d6)` PO em tesouros submersos; chance de item (Mm).
+
+### **Mapinguari — Nível 6** *(Gigante • XP: 15 cada)*
+Lenda imponente da Amazônia: uma criatura colossal e peluda de pelos avermelhados duros como aço, com um único olho frontal, garras curvas de preguiça-gigante e uma segunda boca vertical escancarada no meio do ventre. Habita o coração mais fechado da floresta e anuncia sua chegada com berros ensurdecedores e um cheiro nauseante que paralisa os caçadores.
+* **PV:** 75
+* **Atributos:** Corpo: 14 | Mente: 13 | Espírito: 13 | Def: 20 | Res: 9 | Atk: 3d6 + 3
+* **Especial:** Couro Quase Impenetrável (reduz todo dano físico comum em -2 extra, exceto golpes mirados no umbigo/ventre). Sua boca ventral exala um odor fétido em alcance curto: alvos testam Corpo ou ficam *Envenenados* e *Atordoados* por 1 turno.
+* **Loot:** `(6 * nº de jogadores * 1d6)` PO em relíquias antigas da selva; chance de item (Mm).
+
+### **Ao Ao — Nível 6** *(Monstruosidade • XP: 15 cada)*
+Fera devoradora da mitologia Guarani semelhante a um queixada ou porco-do-mato gigantesco, de presas curvadas e fúria incansável. Caça implacavelmente pelas matas e morros; se suas presas sobem em árvores para escapar, o Ao Ao escava as raízes e derruba o tronco inteiro.
+* **PV:** 72
+* **Atributos:** Corpo: 14 | Mente: 13 | Espírito: 13 | Def: 19 | Res: 9 | Atk: 3d6 + 3
+* **Especial:** Investida Demolidora: destrói coberturas e árvores pequenas; se o alvo estiver em terreno elevado ou atrás de obstáculo, o impacto o derruba no chão (*Caído*).
+* **Loot:** `(6 * nº de jogadores * 1d6)` PO em presas gigantes e ossos; chance de item (Mm).
+
+### **Observador (Beholder) — Nível 7** *(Aberração • XP: 20 cada)*
+Tirano esférico de intelecto paranoico e cruel, que domina fortalezas subterrâneas e redes inteiras de espiões. Seu grande olho central suprime qualquer magia, enquanto seus dez pedúnculos disparam raios variados.
+* **PV:** 75
+* **Atributos:** Corpo: 14 | Mente: 14 | Espírito: 15 | Def: Fís: 19 / Mág: 20 | Res: 9 | Atk: 3d6 + 2
+* **Especial:** Cone Antimagia: desativa poderes de Espírito em sua linha de visão por 1 turno.
+* **Loot:** `(7 * nº de jogadores * 1d6)` PO em artefatos arcanos; chance de item (Mm).
+
+### **Labatut — Nível 7** *(Gigante • XP: 20 cada)*
+Gigante canibal do folclore cearense e potiguar, descrito como um ser descomunal de pele áspera, dentes afiados como facas, pés redondos sem dedos e um único olho brilhante no centro da testa. Vaga pelas serras, chapadas e grutas do sertão nordestino, caçando com velocidade surpreendente apesar de seu peso.
+* **PV:** 80
+* **Atributos:** Corpo: 15 | Mente: 13 | Espírito: 13 | Def: 20 | Res: 10 | Atk: 3d6 + 4
+* **Especial:** Passos Estrondosos: ao realizar uma investida (4m ou mais), seu golpe empurra o alvo 3m para trás e o deixa *Caído*.
+* **Loot:** `(7 * nº de jogadores * 1d6)` PO em espólios escondidos nas serras; chance de item (Mm).
+
+### **Jurupari — Nível 7** *(Corruptor • XP: 20 cada)*
+Entidade sombria das matas e dos pesadelos na mitologia Tupi: manifesta-se como um espectro colossal de pele negra e olhos ardentes que vaga pelas florestas à noite, sufocando guerreiros durante o sono ou semeando pavor incontrolável nas aldeias.
+* **PV:** 76
+* **Atributos:** Corpo: 14 | Mente: 14 | Espírito: 15 | Def: Fís: 19 / Mág: 21 | Res: 9 | Atk: 3d6 + 3 (Necrótico/Psíquico)
+* **Especial:** Toque do Pesadelo: alvos atingidos testam Espírito ou ficam *Amedrontados* e sofrem 1d3 de dano Psíquico no início de cada turno até superarem o medo.
+* **Loot:** `(7 * nº de jogadores * 1d6)` PO em máscaras rituais e talismãs; chance de item (Mm).
+
+### **Vampiro Ancião — Nível 8** *(Morto-vivo • XP: 25 cada)*
+Nobre imortal amaldiçoado que governa das sombras há séculos. Possui força sobre-humana, charme hipnótico e a capacidade de se desfazer em névoa antes que um golpe fatal destrua sua forma física.
+* **PV:** 85
+* **Atributos:** Corpo: 15 | Mente: 15 | Espírito: 15 | Def: Fís: 21 / Mág: 20 | Res: 10 | Atk: 3d6 + 3
+* **Especial:** Escapa de dano fatal 1x por combate (vira névoa e permanece com 1 PV, reposicionando-se).
+* **Loot:** `(8 * nº de jogadores * 1d6)` PO em tesouros de linhagem antiga; chance de item (Mm).
+
+### **Teju-Jagua — Nível 8** *(Dragão • XP: 25 cada)*
+Criatura mítica Guarani: um lagarto colossal de sete cabeças caninas que cospem faíscas e fogo, enquanto seus olhos brilham como tições acesos. Guardião ancestral de cavernas profundas, grutas e tesouros escondidos sob a terra, raramente abandona seu covil, mas incinera qualquer invasor ganancioso.
+* **PV:** 80
+* **Atributos:** Corpo: 15 | Mente: 14 | Espírito: 15 | Def: Fís: 20 / Mág: 21 | Res: 10 | Atk: 2d6 + 2 (2x por turno, Fogo)
+* **Especial:** Sete Cabeças Flamejantes: recarrega em `d6 = 5 ou 6` para disparar uma rajada ígnea em cone curto, causando `3d6 + 4` de dano de Fogo e deixando os alvos *Em Chamas*.
+* **Loot:** `(8 * nº de jogadores * 1d6)` PO em ouro e pedras preciosas da gruta; chance de item (Mm).
+
+### **Boiuna (Cobra-Grande) — Nível 8** *(Dragão • XP: 25 cada)*
+Serpente aquática colossal do folclore amazônico: possui escamas negras que se confundem com as águas turvas dos grandes rios e olhos que brilham como dois faróis submersos durante a noite. Ao deslizar pela superfície, cria ondas violentas (banzeiros) capazes de afundar embarcações inteiras.
+* **PV:** 80
+* **Atributos:** Corpo: 15 | Mente: 14 | Espírito: 15 | Def: Fís: 21 / Mág: 20 | Res: 10 | Atk: 3d6 + 4
+* **Especial:** Banzeiro: recarrega em `d6 = 5 ou 6` para criar uma onda violenta em área média que empurra todos os alvos 4m e os deixa *Caídos*.
+* **Loot:** `(8 * nº de jogadores * 1d6)` PO em tesouros de barcos naufragados; chance de item (Mm).
+
+### **Lich — Nível 9** *(Morto-vivo • XP: 35 cada)*
+Arquimago que alcançou a imortalidade ao aprisionar sua alma em um filactério profano. Comanda exércitos de mortos-vivos de sua cidadela isolada, manipulando energia necrótica pura capaz de levar heróis à beira da morte instantânea.
+* **PV:** 95
+* **Atributos:** Corpo: 15 | Mente: 16 | Espírito: 17 | Def: Fís: 21 / Mág: 23 | Res: 10 | Atk: 3d6 + 5
+* **Especial:** Se obtiver Sucesso Crítico `[6, 6, X]`, o alvo tem sua vitalidade drenada e cai imediatamente para 1 PV.
+* **Loot:** `(9 * nº de jogadores * 1d6)` PO em grimórios e relíquias; chance de item (Mm).
+
+### **Mbói Tu'ĩ — Nível 9** *(Monstruosidade • XP: 35 cada)*
+Entidade colossal da mitologia Guarani: uma serpente gigantesca com cabeça e bico curvo de papagaio, asas membranadas e língua bífida vermelha como sangue. Senhora dos pântanos, banhados e rios caudalosos, seu grasnido estrondoso anuncia tempestades violentas e faz a terra tremer sob os pés dos viajantes.
+* **PV:** 105
+* **Atributos:** Corpo: 16 | Mente: 16 | Espírito: 17 | Def: Fís: 21 / Mág: 23 | Res: 11 | Atk: 3d6 + 6
+* **Especial:** Voa e comanda águas e tempestades. Recarrega em `d6 = 5 ou 6`: solta um grasnido trovejante em área média (`3d6` de dano Trovejante; alvos testam Corpo ou ficam *Surdos* e *Caídos*).
+* **Loot:** `(9 * nº de jogadores * 1d6)` PO em tesouros fluviais antigos; chance de item (Mm).
+
+### **Uakti — Nível 9** *(Fada)*
+Espírito ancestral da mitologia Tukano (Alto Rio Negro): uma criatura esguia e altíssima da floresta cujo corpo é perfurado por dezenas de orifícios naturais. Quando corre ou quando o vento atravessa a copa das árvores, seu corpo ressoa como flautas hipnóticas que encantam ou enlouquecem quem invade os domínios sagrados. *(XP: 35 cada)*
+* **PV:** 100
+* **Atributos:** Corpo: 16 | Mente: 16 | Espírito: 17 | Def: Fís: 21 / Mág: 23 | Res: 11 | Atk: 3d6 + 5 (Trovejante/Psíquico)
+* **Especial:** Música dos Ventos: recarrega em `d6 = 5 ou 6` para emitir uma melodia em área média; alvos testam Espírito ou ficam *Enfeitiçados* ou *Atordoados* por 1 turno.
+* **Loot:** `(9 * nº de jogadores * 1d6)` PO em flautas rituais e resinas sagradas; chance de item (Mm).
+
+### **Dragão Ancestral — Nível 10** *(Dragão • XP: 50 cada)*
+Soberano alado de escamas impenetráveis e sabedoria milenar. Repousa sobre montanhas de ouro em picos inacessíveis, capaz de reduzir companhias inteiras a cinzas com um único sopro elemental.
+* **PV:** 140
+* **Atributos:** Corpo: 18 | Mente: 16 | Espírito: 18 | Def: Fís: 23 / Mág: 23 | Res: 12 | Atk: 4d6 + 4
+* **Especial:** Sopro Elemental em Área Grande (6m) causando `4d6 + 4` de dano; recarrega quando rolar `d6 = 5` ou `6` no início do turno.
+* **Loot:** `(10 * nº de jogadores * 1d6)` PO em tesouro lendário; chance de item (Mm).
+
+### **Moñái — Nível 10** *(Dragão • XP: 50 cada)*
+Serpente descomunal da mitologia Guarani, senhora dos campos abertos e dos furtos: possui corpo longo de réptil gigante, escamas iridescentes e dois chifres longos e retos que brilham como antenas hipnóticas. Desliza pelos descampados com velocidade assombrosa e usa seus chifres para hipnotizar viajantes, fazendo-os entregar tesouros ou caminhar direto para suas mandíbulas.
+* **PV:** 135
+* **Atributos:** Corpo: 17 | Mente: 17 | Espírito: 18 | Def: Fís: 23 / Mág: 24 | Res: 12 | Atk: 4d6 + 4
+* **Especial:** Chifres Hipnóticos: recarrega em `d6 = 5 ou 6` para forçar até 2 alvos à vista a testar Espírito ou ficarem *Enfeitiçados* (não podem atacá-lo e entregam objetos de valor). Pode deslizar pelo solo ou capinzais ignorando terreno difícil.
+* **Loot:** `(10 * nº de jogadores * 1d6)` PO em riquezas acumuladas de caravanas; chance de item (Mm).
+
+### **Tau — Nível 10** *(Corruptor • XP: 50 cada)*
+Espírito primordial das trevas e da corrupção na cosmologia Guarani, pai das sete feras lendárias. Manifesta-se como uma sombra colossal de asas negras e olhos flamejantes que distorce a mata ao redor, mergulhando regiões inteiras em crepúsculo eterno.
+* **PV:** 140
+* **Atributos:** Corpo: 18 | Mente: 17 | Espírito: 18 | Def: Fís: 23 / Mág: 24 | Res: 12 | Atk: 4d6 + 4 (Necrótico/Fogo)
+* **Especial:** Aura de Corrupção: inimigos à distância curta têm Desvantagem em testes de Espírito. Uma vez por combate, invoca 1d3 sombras menores ou desencadeia uma tempestade sombria em área grande (`4d6` de dano Necrótico).
+* **Loot:** `(10 * nº de jogadores * 1d6)` PO em relíquias primordiais amaldiçoadas; chance de item (Mm).
 
 # **Itens e Equipamentos** {#itens-e-equipamentos}
 
@@ -1331,7 +1769,7 @@ Nota: Itens agrupáveis geralmente podem ser carregados em pilhas de até 5 ou 1
 
 # **Ficha de Personagem** {#ficha-de-personagem}
 
-| FICHA DE PERSONAGEM \- SISTEMA MINI-D6 v2.7 |  |  |  |
+| FICHA DE PERSONAGEM \- SISTEMA MINI-D6 v3.0 |  |  |  |
 | :--- | :--- | :--- | :--- |
 | **Nome:** | **Nível:** | **1** |  |
 | **Raça:** | **Exp:** | **0 / 10** |  |
