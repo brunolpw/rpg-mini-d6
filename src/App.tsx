@@ -3,6 +3,7 @@ import { BookOpen, FileText, Dices, Download, X, Sparkles } from 'lucide-react';
 import { DocsViewer } from './components/DocsViewer';
 import { CharacterSheet } from './components/CharacterSheet';
 import { ItemCreator } from './components/ItemCreator';
+import { AiPromptButton } from './components/AiPromptButton';
 import { parseClassPowers } from './utils/markdownParser';
 
 type Tab = 'docs' | 'sheet' | 'items';
@@ -84,7 +85,7 @@ export function App() {
   return (
     <div className="min-h-screen bg-slate-950 text-slate-100">
       <header className="no-print sticky top-0 z-30 border-b border-slate-800 bg-slate-950/90 backdrop-blur">
-        <div className="mx-auto flex max-w-7xl items-center justify-between px-4 py-3">
+        <div className="mx-auto flex max-w-7xl flex-wrap items-center justify-between gap-2 px-4 py-3">
           <div className="flex items-center gap-2.5">
             <div className="flex h-9 w-9 items-center justify-center rounded-lg bg-indigo-600 text-white shadow">
               <Dices className="h-5 w-5" />
@@ -97,10 +98,10 @@ export function App() {
             </div>
           </div>
 
-          <nav className="flex items-center gap-2">
+          <nav className="flex flex-wrap items-center gap-1.5 sm:gap-2">
             <button
               onClick={() => setTab('docs')}
-              className={`flex items-center gap-2 rounded-lg px-3.5 py-2 text-sm font-medium transition-colors ${
+              className={`flex items-center gap-2 rounded-lg px-2.5 py-2 text-sm font-medium transition-colors sm:px-3.5 ${
                 tab === 'docs'
                   ? 'bg-indigo-600 text-white'
                   : 'text-slate-300 hover:bg-slate-800'
@@ -113,7 +114,7 @@ export function App() {
 
             <button
               onClick={() => setTab('sheet')}
-              className={`flex items-center gap-2 rounded-lg px-3.5 py-2 text-sm font-medium transition-colors ${
+              className={`flex items-center gap-2 rounded-lg px-2.5 py-2 text-sm font-medium transition-colors sm:px-3.5 ${
                 tab === 'sheet'
                   ? 'bg-indigo-600 text-white'
                   : 'text-slate-300 hover:bg-slate-800'
@@ -126,7 +127,7 @@ export function App() {
 
             <button
               onClick={() => setTab('items')}
-              className={`flex items-center gap-2 rounded-lg px-3.5 py-2 text-sm font-medium transition-colors ${
+              className={`flex items-center gap-2 rounded-lg px-2.5 py-2 text-sm font-medium transition-colors sm:px-3.5 ${
                 tab === 'items'
                   ? 'bg-amber-600 text-white'
                   : 'text-slate-300 hover:bg-slate-800'
@@ -136,6 +137,8 @@ export function App() {
               <span className="hidden sm:inline">Criador de Itens</span>
               <span className="sm:hidden">Itens</span>
             </button>
+
+            <AiPromptButton />
           </nav>
         </div>
       </header>
